@@ -1,0 +1,42 @@
+@startuml
+title Component Architecture - Personal To-Do App
+
+' Skinparam to match a clean professional look
+skinparam componentStyle uml2
+
+package "API / UI Layer" {
+    [TaskUI/CLI] as UI
+    [ResponseFormatter] as RF
+}
+
+package "Service Layer" {
+    [TaskOrchestrator] as TO
+}
+
+package "Domain Layer" {
+    [TaskService] as TS
+    [PriorityEngine] as PE
+    [NotificationService] as NS
+}
+
+package "Data Access Layer" {
+    interface "StorageInterface" as SI
+    [FileStorage] as FS
+    [MemoryStorage] as MS
+}
+
+' Defining the Dependency Flow
+UI --> TO : input
+RF <.. TO : formats output
+
+TO --> TS : coordinates
+TO --> NS : triggers
+TS --> SI : persists
+TS --> PE : calculates
+
+
+SI <|-- FS : implements
+SI <|-- MS : implements
+
+
+@enduml
