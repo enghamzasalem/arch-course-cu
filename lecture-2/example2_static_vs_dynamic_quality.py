@@ -423,3 +423,4 @@ def demonstrate_static_vs_dynamic_quality():
 if __name__ == "__main__":
     demonstrate_static_vs_dynamic_quality()
 
+

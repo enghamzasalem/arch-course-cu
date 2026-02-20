@@ -416,3 +416,4 @@ def demonstrate_internal_vs_external_quality():
 if __name__ == "__main__":
     demonstrate_internal_vs_external_quality()
 
+
