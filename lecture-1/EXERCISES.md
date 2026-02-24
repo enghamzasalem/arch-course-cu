@@ -202,35 +202,7 @@ Design an e-commerce system with the following features:
 
 ---
 
-### Exercise 2.3: Refactor for Reusability 🔴
-
-**Objective**: Extract reusable components from existing code.
-
-**Task**:
-You have three different systems that all need logging, authentication, and caching:
-- A web API
-- A background job processor
-- A data processing pipeline
-
-Each currently implements these features independently (code duplication).
-
-**Requirements**:
-1. Identify common functionality across systems
-2. Extract reusable components (Logger, Authenticator, Cache)
-3. Design these components to be reusable across all three systems
-4. Refactor all three systems to use the shared components
-5. Show that components can be used independently
-
-**Deliverables**:
-- `exercise2_3_reusable_components.py`
-- Before/after code comparison
-- Component reuse diagram
-- Explanation of reusability design
-
-**Learning Goals**:
-- Identifying reusable patterns
-- Component reusability
-- DRY (Don't Repeat Yourself) principle
+ 
 
 ---
 
