@@ -128,7 +128,7 @@ class PatternCatalog:
                 drawbacks=[
                     "Performance overhead from layer traversal",
                     "Changes can cascade through layers",
-                    "Can lead to "fat" layers",
+                    "Can lead to \"fat\" layers",
                     "Not ideal for high-performance systems"
                 ],
                 use_cases=[
