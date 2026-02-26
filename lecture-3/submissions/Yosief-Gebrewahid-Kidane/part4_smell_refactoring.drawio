@@ -1,0 +1,225 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" version="29.5.3" pages="2">
+  <diagram name="Page-1" id="QVTzIG83UTYD_0QTgYn3">
+    <mxGraphModel dx="872" dy="473" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="kONLjlLAK4P9RbD4T0Wi-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;" value="&lt;ul&gt;&lt;li&gt;Device Management&lt;/li&gt;&lt;li&gt;Automation Rules&lt;/li&gt;&lt;li&gt;Authentication&lt;/li&gt;&lt;li&gt;Notifications&lt;/li&gt;&lt;li&gt;Energy Monitoring&lt;/li&gt;&lt;/ul&gt;" vertex="1">
+          <mxGeometry height="160" width="220" x="40" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="kONLjlLAK4P9RbD4T0Wi-2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;b&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;God Component (Before&lt;/font&gt;&lt;/b&gt;&lt;b&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;&amp;nbsp;Refactoring&lt;/font&gt;&lt;/b&gt;&lt;b&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;)&lt;/font&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="30" width="330" y="135" as="geometry" />
+        </mxCell>
+        <mxCell id="kONLjlLAK4P9RbD4T0Wi-3" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Backend Application&lt;/font&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="30" width="140" x="90" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="kONLjlLAK4P9RbD4T0Wi-9" edge="1" parent="1" source="kONLjlLAK4P9RbD4T0Wi-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="kONLjlLAK4P9RbD4T0Wi-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="kONLjlLAK4P9RbD4T0Wi-4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Web App&lt;/font&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="200" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="kONLjlLAK4P9RbD4T0Wi-8" edge="1" parent="1" source="kONLjlLAK4P9RbD4T0Wi-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="kONLjlLAK4P9RbD4T0Wi-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="kONLjlLAK4P9RbD4T0Wi-5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Mobile App&lt;/font&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="40" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="kONLjlLAK4P9RbD4T0Wi-6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Smart Devices&lt;/font&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="80" y="580" as="geometry" />
+        </mxCell>
+        <mxCell id="kONLjlLAK4P9RbD4T0Wi-10" edge="1" parent="1" source="kONLjlLAK4P9RbD4T0Wi-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.455;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" target="kONLjlLAK4P9RbD4T0Wi-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="kONLjlLAK4P9RbD4T0Wi-11" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;b&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;Decomposed Services (After Refactoring)&lt;/font&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="30" width="370" x="440" y="135" as="geometry" />
+        </mxCell>
+        <mxCell id="kONLjlLAK4P9RbD4T0Wi-12" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;User &amp;amp; Auth Service&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="680" y="580" as="geometry" />
+        </mxCell>
+        <mxCell id="kONLjlLAK4P9RbD4T0Wi-13" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;Device Management Service&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="520" y="580" as="geometry" />
+        </mxCell>
+        <mxCell id="kONLjlLAK4P9RbD4T0Wi-14" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;div style=&quot;text-align: left;&quot;&gt;&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Automation Service&lt;/font&gt;&lt;/b&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="365" y="580" as="geometry" />
+        </mxCell>
+        <mxCell id="kONLjlLAK4P9RbD4T0Wi-22" edge="1" parent="1" source="kONLjlLAK4P9RbD4T0Wi-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="kONLjlLAK4P9RbD4T0Wi-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="kONLjlLAK4P9RbD4T0Wi-24" edge="1" parent="1" source="kONLjlLAK4P9RbD4T0Wi-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="kONLjlLAK4P9RbD4T0Wi-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="kONLjlLAK4P9RbD4T0Wi-25" edge="1" parent="1" source="kONLjlLAK4P9RbD4T0Wi-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.325;entryY=-0.017;entryDx=0;entryDy=0;entryPerimeter=0;" target="kONLjlLAK4P9RbD4T0Wi-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="kONLjlLAK4P9RbD4T0Wi-15" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;API Gateway&lt;/font&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="520" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="kONLjlLAK4P9RbD4T0Wi-20" edge="1" parent="1" source="kONLjlLAK4P9RbD4T0Wi-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" target="kONLjlLAK4P9RbD4T0Wi-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="kONLjlLAK4P9RbD4T0Wi-16" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Web App&lt;/font&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="640" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="kONLjlLAK4P9RbD4T0Wi-21" edge="1" parent="1" source="kONLjlLAK4P9RbD4T0Wi-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" target="kONLjlLAK4P9RbD4T0Wi-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="kONLjlLAK4P9RbD4T0Wi-17" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Mobile App&lt;/font&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="425" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="kONLjlLAK4P9RbD4T0Wi-18" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Notification Service&lt;/font&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="720" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="kONLjlLAK4P9RbD4T0Wi-27" edge="1" parent="1" source="kONLjlLAK4P9RbD4T0Wi-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.667;entryY=0.017;entryDx=0;entryDy=0;entryPerimeter=0;" target="kONLjlLAK4P9RbD4T0Wi-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="kONLjlLAK4P9RbD4T0Wi-29" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;b&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;1. God Component (Before &amp;amp; After)&lt;/font&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="30" width="340" x="210" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="JcHp70TKdK72U-dqyk9C-67" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;b&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;2. Scattered Concern (Before &amp;amp; After)&lt;/font&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="40" width="340" x="220" y="800" as="geometry" />
+        </mxCell>
+        <mxCell id="JcHp70TKdK72U-dqyk9C-68" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;&lt;b style=&quot;&quot;&gt;Scattered Security &amp;amp; Logging (Before)&lt;/b&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="30" width="330" y="895" as="geometry" />
+        </mxCell>
+        <mxCell id="JcHp70TKdK72U-dqyk9C-69" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;" value="&lt;div&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;- Authentication logic&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;- Logging logic&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="180" x="60" y="1220" as="geometry" />
+        </mxCell>
+        <mxCell id="JcHp70TKdK72U-dqyk9C-70" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;" value="&lt;div&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;- Authentication logic&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;- Logging logic&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="150" x="70" y="1100" as="geometry" />
+        </mxCell>
+        <mxCell id="JcHp70TKdK72U-dqyk9C-71" edge="1" parent="1" source="JcHp70TKdK72U-dqyk9C-72" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="JcHp70TKdK72U-dqyk9C-70">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JcHp70TKdK72U-dqyk9C-72" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;" value="&lt;div&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;- Authentication logic&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;- Logging logic&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="150" x="70" y="980" as="geometry" />
+        </mxCell>
+        <mxCell id="JcHp70TKdK72U-dqyk9C-73" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Mobile App&lt;/font&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="30" width="80" x="100" y="950" as="geometry" />
+        </mxCell>
+        <mxCell id="JcHp70TKdK72U-dqyk9C-74" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Backend Service&lt;/font&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="30" width="120" x="150" y="1070" as="geometry" />
+        </mxCell>
+        <mxCell id="JcHp70TKdK72U-dqyk9C-75" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Device Service&lt;/font&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="30" width="140" x="130" y="1190" as="geometry" />
+        </mxCell>
+        <mxCell id="JcHp70TKdK72U-dqyk9C-76" edge="1" parent="1" source="JcHp70TKdK72U-dqyk9C-70" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.107;entryY=1.133;entryDx=0;entryDy=0;entryPerimeter=0;" target="JcHp70TKdK72U-dqyk9C-75">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JcHp70TKdK72U-dqyk9C-77" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Authentication Service&lt;/font&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="60" width="160" x="310" y="1080" as="geometry" />
+        </mxCell>
+        <mxCell id="JcHp70TKdK72U-dqyk9C-78" edge="1" parent="1" source="JcHp70TKdK72U-dqyk9C-80" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="JcHp70TKdK72U-dqyk9C-77">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JcHp70TKdK72U-dqyk9C-79" edge="1" parent="1" source="JcHp70TKdK72U-dqyk9C-80" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="JcHp70TKdK72U-dqyk9C-81">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JcHp70TKdK72U-dqyk9C-80" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Device Service&lt;/font&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="60" width="160" x="510" y="1220" as="geometry" />
+        </mxCell>
+        <mxCell id="JcHp70TKdK72U-dqyk9C-81" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;div&gt;&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Logging &amp;amp; Monitoring Service&lt;/font&gt;&lt;/b&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="160" x="710" y="1080" as="geometry" />
+        </mxCell>
+        <mxCell id="JcHp70TKdK72U-dqyk9C-82" edge="1" parent="1" source="JcHp70TKdK72U-dqyk9C-84" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="JcHp70TKdK72U-dqyk9C-77">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JcHp70TKdK72U-dqyk9C-83" edge="1" parent="1" source="JcHp70TKdK72U-dqyk9C-84" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="JcHp70TKdK72U-dqyk9C-81">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JcHp70TKdK72U-dqyk9C-84" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Backend-Service&lt;/font&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="60" width="160" x="510" y="1080" as="geometry" />
+        </mxCell>
+        <mxCell id="JcHp70TKdK72U-dqyk9C-85" edge="1" parent="1" source="JcHp70TKdK72U-dqyk9C-87" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="JcHp70TKdK72U-dqyk9C-77">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JcHp70TKdK72U-dqyk9C-86" edge="1" parent="1" source="JcHp70TKdK72U-dqyk9C-87" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="JcHp70TKdK72U-dqyk9C-81">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JcHp70TKdK72U-dqyk9C-87" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Mobile App&lt;/font&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="60" width="160" x="510" y="970" as="geometry" />
+        </mxCell>
+        <mxCell id="JcHp70TKdK72U-dqyk9C-88" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;b&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;&amp;nbsp;Centralized Cross-Cutting Concerns (After Refactoring)&lt;/font&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="80" width="430" x="390" y="880" as="geometry" />
+        </mxCell>
+        <mxCell id="JcHp70TKdK72U-dqyk9C-89" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;&lt;b&gt;Refactoring Diagram (Before and After)&lt;/b&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="30" width="360" x="230" y="20" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="Page-2" id="JYur8aPYvtcsP-BBkUM5">
+    <mxGraphModel dx="872" dy="473" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Dqx6lBsP6mBAMgb337f_-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;b&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;Scattered Concern (Before &amp;amp; After)&lt;/font&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="30" width="320" x="200" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Dqx6lBsP6mBAMgb337f_-2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;Scattered Security &amp;amp; Logging (Before)&lt;/b&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="30" width="270" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="Dqx6lBsP6mBAMgb337f_-3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;" value="&lt;div&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;- Authentication logic&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;- Logging logic&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="180" x="30" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="Dqx6lBsP6mBAMgb337f_-4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;" value="&lt;div&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;- Authentication logic&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;- Logging logic&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="150" x="40" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="Dqx6lBsP6mBAMgb337f_-9" edge="1" parent="1" source="Dqx6lBsP6mBAMgb337f_-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="Dqx6lBsP6mBAMgb337f_-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Dqx6lBsP6mBAMgb337f_-5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;align=left;" value="&lt;div&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;- Authentication logic&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;&lt;b&gt;- Logging logic&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="150" x="40" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="Dqx6lBsP6mBAMgb337f_-6" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Mobile App&lt;/font&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="30" width="80" x="70" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="Dqx6lBsP6mBAMgb337f_-7" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Backend Service&lt;/font&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="30" width="120" x="120" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="Dqx6lBsP6mBAMgb337f_-8" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Device Service&lt;/font&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="30" width="140" x="100" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="Dqx6lBsP6mBAMgb337f_-10" edge="1" parent="1" source="Dqx6lBsP6mBAMgb337f_-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.107;entryY=1.133;entryDx=0;entryDy=0;entryPerimeter=0;" target="Dqx6lBsP6mBAMgb337f_-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Dqx6lBsP6mBAMgb337f_-11" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Authentication Service&lt;/font&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="60" width="160" x="280" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="Dqx6lBsP6mBAMgb337f_-21" edge="1" parent="1" source="Dqx6lBsP6mBAMgb337f_-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="Dqx6lBsP6mBAMgb337f_-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Dqx6lBsP6mBAMgb337f_-22" edge="1" parent="1" source="Dqx6lBsP6mBAMgb337f_-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="Dqx6lBsP6mBAMgb337f_-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Dqx6lBsP6mBAMgb337f_-12" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Device Service&lt;/font&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="60" width="160" x="480" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="Dqx6lBsP6mBAMgb337f_-13" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;div&gt;&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Logging &amp;amp; Monitoring Service&lt;/font&gt;&lt;/b&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="160" x="680" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="Dqx6lBsP6mBAMgb337f_-18" edge="1" parent="1" source="Dqx6lBsP6mBAMgb337f_-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="Dqx6lBsP6mBAMgb337f_-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Dqx6lBsP6mBAMgb337f_-20" edge="1" parent="1" source="Dqx6lBsP6mBAMgb337f_-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="Dqx6lBsP6mBAMgb337f_-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Dqx6lBsP6mBAMgb337f_-14" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Backend-Service&lt;/font&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="60" width="160" x="480" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="Dqx6lBsP6mBAMgb337f_-17" edge="1" parent="1" source="Dqx6lBsP6mBAMgb337f_-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="Dqx6lBsP6mBAMgb337f_-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Dqx6lBsP6mBAMgb337f_-19" edge="1" parent="1" source="Dqx6lBsP6mBAMgb337f_-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="Dqx6lBsP6mBAMgb337f_-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Dqx6lBsP6mBAMgb337f_-15" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Mobile App&lt;/font&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="60" width="160" x="480" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="Dqx6lBsP6mBAMgb337f_-16" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;Centralized Cross-Cutting Concerns (After Refactoring)&lt;/font&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="30" width="380" x="420" y="170" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
