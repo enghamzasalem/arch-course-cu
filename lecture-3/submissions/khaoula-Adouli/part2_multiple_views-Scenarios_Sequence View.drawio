@@ -1,0 +1,278 @@
+<mxfile host="65bd71144e">
+    <diagram name="Page-4" id="J87HAP7Rkd2OV28HI3rw">
+        <mxGraphModel dx="316" dy="563" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="teGPLYsO4NX2Q5-bvJtz-1" value="&lt;span data-teams=&quot;true&quot;&gt;&lt;span style=&quot;font-family: -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, system-ui, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Web&amp;quot;, sans-serif; white-space-collapse: preserve;&quot;&gt;&lt;p style=&quot;&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;/span&gt;&lt;/span&gt;" style="whiteSpace=wrap;html=1;verticalAlign=top;" parent="1" vertex="1">
+                    <mxGeometry x="1659" y="325.5" width="146.5" height="64.5" as="geometry"/>
+                </mxCell>
+                <mxCell id="teGPLYsO4NX2Q5-bvJtz-2" value="View3: Sequence of Smart home management system" style="text;whiteSpace=wrap;html=1;fontStyle=1;fontSize=38;" parent="1" vertex="1">
+                    <mxGeometry x="679" y="201" width="1036" height="36" as="geometry"/>
+                </mxCell>
+                <mxCell id="teGPLYsO4NX2Q5-bvJtz-3" value="" style="whiteSpace=wrap;html=1;verticalAlign=top;" parent="1" vertex="1">
+                    <mxGeometry x="601.5" y="325.5" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="teGPLYsO4NX2Q5-bvJtz-4" value="&lt;font&gt;Mobile App&lt;/font&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=17;" parent="1" vertex="1">
+                    <mxGeometry x="612" y="340.5" width="120" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="teGPLYsO4NX2Q5-bvJtz-5" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;Auth Service&lt;/font&gt;" style="whiteSpace=wrap;html=1;verticalAlign=top;" parent="1" vertex="1">
+                    <mxGeometry x="1005" y="323.25" width="146.5" height="64.5" as="geometry"/>
+                </mxCell>
+                <mxCell id="teGPLYsO4NX2Q5-bvJtz-6" value="&lt;div&gt;&lt;span data-teams=&quot;true&quot;&gt;&lt;span style=&quot;font-family: -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, system-ui, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Web&amp;quot;, sans-serif; white-space-collapse: preserve;&quot;&gt;&lt;p style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;Device Management &lt;/font&gt;&lt;/p&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;verticalAlign=top;" parent="1" vertex="1">
+                    <mxGeometry x="1242" y="321" width="146.5" height="64.5" as="geometry"/>
+                </mxCell>
+                <mxCell id="teGPLYsO4NX2Q5-bvJtz-7" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="308" y="325.5" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="teGPLYsO4NX2Q5-bvJtz-8" value="User" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=18;" parent="1" vertex="1">
+                    <mxGeometry x="333" y="340.5" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="teGPLYsO4NX2Q5-bvJtz-9" value="" style="whiteSpace=wrap;html=1;verticalAlign=top;" parent="1" vertex="1">
+                    <mxGeometry x="790" y="325.5" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="teGPLYsO4NX2Q5-bvJtz-10" value="API Gateway" style="text;whiteSpace=wrap;html=1;fontSize=15;" parent="1" vertex="1">
+                    <mxGeometry x="800.9993579101563" y="337.495911075368" width="98" height="36" as="geometry"/>
+                </mxCell>
+                <mxCell id="teGPLYsO4NX2Q5-bvJtz-11" value="&lt;span data-teams=&quot;true&quot;&gt;&lt;span style=&quot;font-family: -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, system-ui, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Web&amp;quot;, sans-serif; white-space-collapse: preserve;&quot;&gt;&lt;p style=&quot;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-size: 15px;&quot;&gt;MQTT Broker&lt;/span&gt;&lt;span style=&quot;font-size: 14px; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;&lt;/span&gt;&lt;/span&gt;" style="whiteSpace=wrap;html=1;verticalAlign=top;" parent="1" vertex="1">
+                    <mxGeometry x="1442" y="323.25" width="146.5" height="64.5" as="geometry"/>
+                </mxCell>
+                <mxCell id="teGPLYsO4NX2Q5-bvJtz-12" value="Smart Devices" style="text;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="1691.9989799360792" y="340.4961749822437" width="106" height="36" as="geometry"/>
+                </mxCell>
+                <mxCell id="teGPLYsO4NX2Q5-bvJtz-13" value="" style="endArrow=none;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" target="teGPLYsO4NX2Q5-bvJtz-7" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="368" y="1225" as="sourcePoint"/>
+                        <mxPoint x="608" y="709" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="teGPLYsO4NX2Q5-bvJtz-14" value="" style="endArrow=none;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" target="teGPLYsO4NX2Q5-bvJtz-3" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="662" y="1244" as="sourcePoint"/>
+                        <mxPoint x="1048" y="709" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="teGPLYsO4NX2Q5-bvJtz-15" value="" style="endArrow=none;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="869" y="1251.25" as="sourcePoint"/>
+                        <mxPoint x="869.0000000000005" y="387.75" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="teGPLYsO4NX2Q5-bvJtz-16" value="" style="endArrow=none;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" target="teGPLYsO4NX2Q5-bvJtz-5" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="1083" y="1254" as="sourcePoint"/>
+                        <mxPoint x="1048" y="709" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="teGPLYsO4NX2Q5-bvJtz-17" value="" style="endArrow=none;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" target="teGPLYsO4NX2Q5-bvJtz-6" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="1321" y="1283.363458806818" as="sourcePoint"/>
+                        <mxPoint x="1048" y="709" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="teGPLYsO4NX2Q5-bvJtz-18" value="" style="endArrow=none;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" target="teGPLYsO4NX2Q5-bvJtz-11" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="1522" y="1282" as="sourcePoint"/>
+                        <mxPoint x="1352" y="868" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="teGPLYsO4NX2Q5-bvJtz-19" value="" style="endArrow=none;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" target="teGPLYsO4NX2Q5-bvJtz-1" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="1743" y="1307" as="sourcePoint"/>
+                        <mxPoint x="1352" y="868" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="teGPLYsO4NX2Q5-bvJtz-20" value="" style="endArrow=classic;html=1;rounded=0;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="363" y="510" as="sourcePoint"/>
+                        <mxPoint x="663" y="510" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="teGPLYsO4NX2Q5-bvJtz-21" value="Label" style="edgeLabel;resizable=0;html=1;;align=center;verticalAlign=middle;" parent="teGPLYsO4NX2Q5-bvJtz-20" connectable="0" vertex="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="teGPLYsO4NX2Q5-bvJtz-22" value="Source" style="edgeLabel;resizable=0;html=1;;align=left;verticalAlign=bottom;" parent="teGPLYsO4NX2Q5-bvJtz-20" connectable="0" vertex="1">
+                    <mxGeometry x="-1" relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="teGPLYsO4NX2Q5-bvJtz-23" value="&lt;font&gt;Turn on lights&amp;nbsp;&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=18;" parent="teGPLYsO4NX2Q5-bvJtz-20" connectable="0" vertex="1">
+                    <mxGeometry x="0.0467" y="-6" relative="1" as="geometry">
+                        <mxPoint x="10" y="-7" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="teGPLYsO4NX2Q5-bvJtz-24" value="" style="endArrow=classic;html=1;rounded=0;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="659" y="587" as="sourcePoint"/>
+                        <mxPoint x="866" y="591" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="teGPLYsO4NX2Q5-bvJtz-25" value="Label" style="edgeLabel;resizable=0;html=1;;align=center;verticalAlign=middle;" parent="teGPLYsO4NX2Q5-bvJtz-24" connectable="0" vertex="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="teGPLYsO4NX2Q5-bvJtz-26" value="&lt;font style=&quot;font-size: 17px;&quot;&gt;Turn on light request&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="teGPLYsO4NX2Q5-bvJtz-24" connectable="0" vertex="1">
+                    <mxGeometry x="0.044" y="-3" relative="1" as="geometry">
+                        <mxPoint x="1" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="teGPLYsO4NX2Q5-bvJtz-27" value="" style="endArrow=classic;html=1;rounded=0;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="871" y="615" as="sourcePoint"/>
+                        <mxPoint x="1076" y="615" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="teGPLYsO4NX2Q5-bvJtz-28" value="Label" style="edgeLabel;resizable=0;html=1;;align=center;verticalAlign=middle;" parent="teGPLYsO4NX2Q5-bvJtz-27" connectable="0" vertex="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="teGPLYsO4NX2Q5-bvJtz-29" value="&lt;font style=&quot;font-size: 17px;&quot;&gt;Validate JWT Token&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="teGPLYsO4NX2Q5-bvJtz-27" connectable="0" vertex="1">
+                    <mxGeometry x="0.0206" y="-2" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="teGPLYsO4NX2Q5-bvJtz-30" value="" style="endArrow=classic;html=1;rounded=0;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="872" y="664" as="sourcePoint"/>
+                        <mxPoint x="1077" y="664" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="teGPLYsO4NX2Q5-bvJtz-31" value="Label" style="edgeLabel;resizable=0;html=1;;align=center;verticalAlign=middle;" parent="teGPLYsO4NX2Q5-bvJtz-30" connectable="0" vertex="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="teGPLYsO4NX2Q5-bvJtz-32" value="&lt;font style=&quot;font-size: 17px;&quot;&gt;Token Valid&amp;nbsp;&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="teGPLYsO4NX2Q5-bvJtz-30" connectable="0" vertex="1">
+                    <mxGeometry x="0.0206" y="-2" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="teGPLYsO4NX2Q5-bvJtz-33" value="" style="endArrow=classic;html=1;rounded=0;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="869" y="710" as="sourcePoint"/>
+                        <mxPoint x="1314" y="710" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="teGPLYsO4NX2Q5-bvJtz-34" value="Label" style="edgeLabel;resizable=0;html=1;;align=center;verticalAlign=middle;" parent="teGPLYsO4NX2Q5-bvJtz-33" connectable="0" vertex="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="teGPLYsO4NX2Q5-bvJtz-35" value="&lt;font style=&quot;font-size: 17px;&quot;&gt;Forward light ON command&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="teGPLYsO4NX2Q5-bvJtz-33" connectable="0" vertex="1">
+                    <mxGeometry x="0.0206" y="-2" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="teGPLYsO4NX2Q5-bvJtz-36" value="" style="endArrow=classic;html=1;rounded=0;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="1315" y="750" as="sourcePoint"/>
+                        <mxPoint x="1520" y="750" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="teGPLYsO4NX2Q5-bvJtz-37" value="Label" style="edgeLabel;resizable=0;html=1;;align=center;verticalAlign=middle;" parent="teGPLYsO4NX2Q5-bvJtz-36" connectable="0" vertex="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="teGPLYsO4NX2Q5-bvJtz-38" value="&lt;font style=&quot;font-size: 17px;&quot;&gt;Publish ON command&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="teGPLYsO4NX2Q5-bvJtz-36" connectable="0" vertex="1">
+                    <mxGeometry x="0.0206" y="-2" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="teGPLYsO4NX2Q5-bvJtz-39" value="Text" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="teGPLYsO4NX2Q5-bvJtz-36" connectable="0" vertex="1">
+                    <mxGeometry x="0.0146" y="-1" relative="1" as="geometry">
+                        <mxPoint x="-1" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="teGPLYsO4NX2Q5-bvJtz-40" value="" style="endArrow=classic;html=1;rounded=0;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="1525" y="802" as="sourcePoint"/>
+                        <mxPoint x="1730" y="802" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="teGPLYsO4NX2Q5-bvJtz-41" value="Label" style="edgeLabel;resizable=0;html=1;;align=center;verticalAlign=middle;" parent="teGPLYsO4NX2Q5-bvJtz-40" connectable="0" vertex="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="teGPLYsO4NX2Q5-bvJtz-42" value="&lt;font style=&quot;font-size: 17px;&quot;&gt;Deliver command&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="teGPLYsO4NX2Q5-bvJtz-40" connectable="0" vertex="1">
+                    <mxGeometry x="0.0206" y="-2" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="teGPLYsO4NX2Q5-bvJtz-43" value="" style="endArrow=classic;html=1;rounded=0;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="1733" y="851" as="sourcePoint"/>
+                        <mxPoint x="1523" y="851" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="teGPLYsO4NX2Q5-bvJtz-44" value="Label" style="edgeLabel;resizable=0;html=1;;align=center;verticalAlign=middle;" parent="teGPLYsO4NX2Q5-bvJtz-43" connectable="0" vertex="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="teGPLYsO4NX2Q5-bvJtz-45" value="&lt;font style=&quot;font-size: 17px;&quot;&gt;Status ON&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="teGPLYsO4NX2Q5-bvJtz-43" connectable="0" vertex="1">
+                    <mxGeometry x="0.0206" y="-2" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="teGPLYsO4NX2Q5-bvJtz-46" value="" style="endArrow=classic;html=1;rounded=0;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="1523" y="913" as="sourcePoint"/>
+                        <mxPoint x="1321" y="913" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="teGPLYsO4NX2Q5-bvJtz-47" value="Label" style="edgeLabel;resizable=0;html=1;;align=center;verticalAlign=middle;" parent="teGPLYsO4NX2Q5-bvJtz-46" connectable="0" vertex="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="teGPLYsO4NX2Q5-bvJtz-48" value="&lt;span style=&quot;font-size: 17px;&quot;&gt;Forward status&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="teGPLYsO4NX2Q5-bvJtz-46" connectable="0" vertex="1">
+                    <mxGeometry x="0.0206" y="-2" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="teGPLYsO4NX2Q5-bvJtz-49" value="" style="endArrow=classic;html=1;rounded=0;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="1320" y="993" as="sourcePoint"/>
+                        <mxPoint x="869" y="993" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="teGPLYsO4NX2Q5-bvJtz-50" value="Label" style="edgeLabel;resizable=0;html=1;;align=center;verticalAlign=middle;" parent="teGPLYsO4NX2Q5-bvJtz-49" connectable="0" vertex="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="teGPLYsO4NX2Q5-bvJtz-51" value="&lt;font style=&quot;font-size: 17px;&quot;&gt;Reponse success&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="teGPLYsO4NX2Q5-bvJtz-49" connectable="0" vertex="1">
+                    <mxGeometry x="0.0206" y="-2" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="teGPLYsO4NX2Q5-bvJtz-52" value="" style="endArrow=classic;html=1;rounded=0;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="872" y="1045" as="sourcePoint"/>
+                        <mxPoint x="654" y="1045" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="teGPLYsO4NX2Q5-bvJtz-53" value="Label" style="edgeLabel;resizable=0;html=1;;align=center;verticalAlign=middle;" parent="teGPLYsO4NX2Q5-bvJtz-52" connectable="0" vertex="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="teGPLYsO4NX2Q5-bvJtz-54" value="&lt;span style=&quot;font-size: 17px;&quot;&gt;(200) OK&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="teGPLYsO4NX2Q5-bvJtz-52" connectable="0" vertex="1">
+                    <mxGeometry x="0.0206" y="-2" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="teGPLYsO4NX2Q5-bvJtz-55" value="" style="endArrow=classic;html=1;rounded=0;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="664" y="1106" as="sourcePoint"/>
+                        <mxPoint x="371" y="1106" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="teGPLYsO4NX2Q5-bvJtz-56" value="Label" style="edgeLabel;resizable=0;html=1;;align=center;verticalAlign=middle;" parent="teGPLYsO4NX2Q5-bvJtz-55" connectable="0" vertex="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="teGPLYsO4NX2Q5-bvJtz-57" value="&lt;font style=&quot;font-size: 17px;&quot;&gt;Display Lights are ON&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="teGPLYsO4NX2Q5-bvJtz-55" connectable="0" vertex="1">
+                    <mxGeometry x="0.0206" y="-2" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="teGPLYsO4NX2Q5-bvJtz-58" value="Text" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="teGPLYsO4NX2Q5-bvJtz-55" connectable="0" vertex="1">
+                    <mxGeometry x="-0.0669" y="1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="teGPLYsO4NX2Q5-bvJtz-59" value="This scenario view shows how the system processes the user action of turning on a smart light through the mobile app. It illustrates the interaction between system components and the flow of the command from the user to the smart device and back. The goal is to help stakeholders understand how the system behaves at runtime." style="text;whiteSpace=wrap;html=1;fontSize=25;" parent="1" vertex="1">
+                    <mxGeometry x="1520" y="1419" width="960" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="teGPLYsO4NX2Q5-bvJtz-60" value="Legend&#xa;Rectangles = System Component&#xa;Arrows = Message/Interaction&#xa;Numbered Steps (from top to bottom) = Execution Order" style="text;whiteSpace=wrap;html=1;fontSize=24;" parent="1" vertex="1">
+                    <mxGeometry x="1530" y="1611" width="615" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="teGPLYsO4NX2Q5-bvJtz-61" value="View3: Sequence of Smart home management system" style="text;whiteSpace=wrap;html=1;fontStyle=1;fontSize=24;" parent="1" vertex="1">
+                    <mxGeometry x="1524" y="1375" width="716" height="36" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
