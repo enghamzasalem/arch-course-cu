@@ -1,0 +1,56 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36" version="29.6.0">
+  <diagram name="Page-1" id="2ySNYpS1a5VJXtzngcE_">
+    <mxGraphModel dx="1026" dy="561" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=18;" value="System Context Diagram - Video Streaming Platform" vertex="1">
+          <mxGeometry height="40" width="400" x="200" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="platform" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1168bd;fontColor=#ffffff;strokeColor=#0b4884;fontStyle=1;fontSize=14;" value="Video Streaming Platform" vertex="1">
+          <mxGeometry height="100" width="200" x="300" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="payment" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#999999;fontColor=#ffffff;strokeColor=#666666;" value="Payment Gateway&#xa;(External System)" vertex="1">
+          <mxGeometry height="80" width="200" x="300" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="cdn" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#999999;fontColor=#ffffff;strokeColor=#666666;" value="Content Delivery Network (CDN)&#xa;(External System)" vertex="1">
+          <mxGeometry height="80" width="200" x="250" y="710" as="geometry" />
+        </mxCell>
+        <mxCell id="edge1" edge="1" parent="1" source="upRcU9KNlxw6i-4gqum5-3" style="endArrow=block;endFill=1;html=1;rounded=0;exitX=1;exitY=0.5;entryX=0;entryY=0.5;labelBackgroundColor=none;exitDx=0;exitDy=0;" target="platform" value="browses, searches, streams">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="150" y="350" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge2" edge="1" parent="1" source="upRcU9KNlxw6i-4gqum5-4" style="endArrow=block;endFill=1;html=1;rounded=0;exitX=0.25;exitY=0;entryX=0.5;entryY=1;labelBackgroundColor=none;exitDx=0;exitDy=0;" target="platform" value="uploads, manages content">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="510.0000000000002" y="520" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge3" edge="1" parent="1" source="upRcU9KNlxw6i-4gqum5-1" style="endArrow=block;endFill=1;html=1;rounded=0;exitX=0;exitY=0.5;entryX=1;entryY=0.5;labelBackgroundColor=none;exitDx=0;exitDy=0;" target="platform" value="manages platform, users">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="650.0000000000002" y="350" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge4" edge="1" parent="1" source="platform" style="endArrow=block;endFill=1;html=1;rounded=0;exitX=0.5;exitY=0;entryX=0.5;entryY=1;labelBackgroundColor=none;" target="payment" value="processes payments">
+          <mxGeometry height="50" relative="1" width="50" as="geometry" />
+        </mxCell>
+        <mxCell id="edge5" edge="1" parent="1" source="platform" style="endArrow=block;endFill=1;html=1;rounded=0;exitX=0.5;exitY=1;entryX=0.5;entryY=0;labelBackgroundColor=none;" target="cdn" value="delivers video content">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="400" y="650" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="upRcU9KNlxw6i-4gqum5-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#08427b;strokeColor=#052e56;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=#ffffff;" value="Admin&lt;br&gt;(manages platform)" vertex="1">
+          <mxGeometry height="60" width="120" x="660" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="upRcU9KNlxw6i-4gqum5-3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#08427b;strokeColor=#052e56;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=#ffffff;" value="Subscriber&lt;br&gt;(watches videos)" vertex="1">
+          <mxGeometry height="60" width="120" x="20" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="upRcU9KNlxw6i-4gqum5-4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#08427b;strokeColor=#052e56;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=#ffffff;" value="Content Creator&lt;br&gt;(uploads videos)" vertex="1">
+          <mxGeometry height="60" width="120" x="490" y="530" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
