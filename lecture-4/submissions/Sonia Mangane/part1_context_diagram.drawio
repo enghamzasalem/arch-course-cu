@@ -1,0 +1,74 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" version="29.5.5">
+  <diagram name="Page-1" id="Vqg_HMKLc189xu2JwR7j">
+    <mxGraphModel dx="1826" dy="1224" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1200" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=14;" value="&lt;b&gt;Video Streaming Platform&lt;/b&gt;&lt;br&gt;Provides browsing, adaptive streaming, watchlists, history, and personalized recommendations across web, mobile, and smart TV." vertex="1">
+          <mxGeometry height="230" width="440" x="360" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="3" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" value="&lt;b&gt;Subscriber&lt;/b&gt;&lt;br&gt;Browses, streams, manages watchlist and profile" vertex="1">
+          <mxGeometry height="160" width="80" x="-30" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="4" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" value="&lt;b&gt;Content Creator&lt;/b&gt;&lt;br&gt;Uploads and manages video content" vertex="1">
+          <mxGeometry height="160" width="80" x="-30" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="5" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" value="&lt;b&gt;Admin&lt;/b&gt;&lt;br&gt;Manages users and moderates content" vertex="1">
+          <mxGeometry height="160" width="80" x="1140" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="&lt;b&gt;Payment Gateway&lt;/b&gt;&lt;br&gt;Processes subscription payments" vertex="1">
+          <mxGeometry height="110" width="240" x="1030" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="&lt;b&gt;Content Delivery Network (CDN)&lt;/b&gt;&lt;br&gt;Delivers adaptive video streams globally" vertex="1">
+          <mxGeometry height="110" width="270" x="1030" y="720" as="geometry" />
+        </mxCell>
+        <mxCell id="8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="&lt;b&gt;Email / Notification Service&lt;/b&gt;&lt;br&gt;Sends subscription confirmations, alerts, and recommendations via emai" vertex="1">
+          <mxGeometry height="140" width="330" x="420" y="780" as="geometry" />
+        </mxCell>
+        <mxCell id="9" edge="1" parent="1" source="3" style="endArrow=block;html=1;edgeStyle=orthogonalEdgeStyle;entryX=0;entryY=0.177;entryDx=0;entryDy=0;entryPerimeter=0;" target="2" value="Browses catalog, streams videos, manages watchlist &amp; history">
+          <mxGeometry relative="1" x="0.0883" y="65" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="10" edge="1" parent="1" source="4" style="endArrow=block;html=1;edgeStyle=orthogonalEdgeStyle;" target="2" value="Uploads and manages video content">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="11" edge="1" parent="1" source="5" style="endArrow=block;html=1;edgeStyle=orthogonalEdgeStyle;" target="2" value="Manages platform configuration and moderation">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="12" edge="1" parent="1" source="2" style="endArrow=block;html=1;edgeStyle=orthogonalEdgeStyle;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" target="6" value="Processes subscription payments and returns transaction status">
+          <mxGeometry relative="1" x="-0.0154" y="-30" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="13" edge="1" parent="1" source="2" style="endArrow=block;html=1;edgeStyle=orthogonalEdgeStyle;exitX=0.75;exitY=1;exitDx=0;exitDy=0;" target="7" value="Uploads encoded video; CDN delivers adaptive streams to subscribers">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="14" edge="1" parent="1" source="2" style="endArrow=block;html=1;" target="8" value="Sends transactional emails and user notifications">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="12U0wGkVm-SbCCYYjy3J-14" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&amp;lt;&amp;lt;Internal System&amp;gt;&amp;gt;" vertex="1">
+          <mxGeometry height="30" width="170" x="490" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="12U0wGkVm-SbCCYYjy3J-15" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&amp;lt;&amp;lt;External System&amp;gt;&amp;gt;" vertex="1">
+          <mxGeometry height="30" width="170" x="1050" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="12U0wGkVm-SbCCYYjy3J-16" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&amp;lt;&amp;lt;External System&amp;gt;&amp;gt;" vertex="1">
+          <mxGeometry height="30" width="170" x="1070" y="730" as="geometry" />
+        </mxCell>
+        <mxCell id="12U0wGkVm-SbCCYYjy3J-17" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&amp;lt;&amp;lt;External System&amp;gt;&amp;gt;" vertex="1">
+          <mxGeometry height="30" width="170" x="500" y="800" as="geometry" />
+        </mxCell>
+        <mxCell id="12U0wGkVm-SbCCYYjy3J-18" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&amp;lt;&amp;lt;User&amp;gt;&amp;gt;" vertex="1">
+          <mxGeometry height="30" width="170" x="1090" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="12U0wGkVm-SbCCYYjy3J-19" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&amp;lt;&amp;lt;User&amp;gt;&amp;gt;" vertex="1">
+          <mxGeometry height="30" width="170" x="-75" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="12U0wGkVm-SbCCYYjy3J-20" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&amp;lt;&amp;lt;User&amp;gt;&amp;gt;" vertex="1">
+          <mxGeometry height="30" width="170" x="-75" y="-10" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
