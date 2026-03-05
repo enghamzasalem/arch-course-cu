@@ -1,0 +1,74 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" version="29.6.0">
+  <diagram id="component" name="3. Component (C4 L3)">
+    <mxGraphModel dx="3227" dy="2847" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="m1937mJV6CRGisf3ZvSx-1" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1" value="&lt;font style=&quot;font-size: 40px;&quot;&gt;Video Streaming Platform - Component Diagram (C4 Level 3)&lt;/font&gt;" vertex="1">
+          <mxGeometry height="30" width="1210" x="-207.5" y="236" as="geometry" />
+        </mxCell>
+        <mxCell id="m1937mJV6CRGisf3ZvSx-2" parent="1" style="swimlane;whiteSpace=wrap;html=1;container=0;" value="&lt;font style=&quot;font-size: 36px;&quot;&gt;Web App [React]&lt;/font&gt;" vertex="1">
+          <mxGeometry height="1440" width="1935" x="-570" y="336" as="geometry" />
+        </mxCell>
+        <mxCell id="m1937mJV6CRGisf3ZvSx-3" connectable="0" parent="m1937mJV6CRGisf3ZvSx-2" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;font style=&quot;font-size: 30px;&quot;&gt;requests video stream URL&lt;/font&gt;" vertex="1">
+          <mxGeometry x="967.5" y="950" as="geometry" />
+        </mxCell>
+        <mxCell id="m1937mJV6CRGisf3ZvSx-4" connectable="0" parent="m1937mJV6CRGisf3ZvSx-2" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;font style=&quot;font-size: 30px;&quot;&gt;checks login state&lt;/font&gt;" vertex="1">
+          <mxGeometry x="1663.5" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="m1937mJV6CRGisf3ZvSx-5" connectable="0" parent="m1937mJV6CRGisf3ZvSx-2" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;font style=&quot;font-size: 30px;&quot;&gt;sends login/logout requests&lt;/font&gt;" vertex="1">
+          <mxGeometry x="1663.5" y="1030" as="geometry" />
+        </mxCell>
+        <mxCell id="m1937mJV6CRGisf3ZvSx-6" connectable="0" parent="m1937mJV6CRGisf3ZvSx-2" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;font style=&quot;font-size: 30px;&quot;&gt;requests catalog/watchlist data&lt;/font&gt;" vertex="1">
+          <mxGeometry x="443.5" y="580" as="geometry" />
+        </mxCell>
+        <mxCell id="m1937mJV6CRGisf3ZvSx-7" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;&lt;font style=&quot;font-size: 30px;&quot;&gt;Backend API&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 30px;&quot;&gt;[Node.js/Express]&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="270" width="420" x="187.5" y="1976" as="geometry" />
+        </mxCell>
+        <mxCell id="m1937mJV6CRGisf3ZvSx-8" edge="1" parent="1" source="m1937mJV6CRGisf3ZvSx-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="m1937mJV6CRGisf3ZvSx-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="m1937mJV6CRGisf3ZvSx-9" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 30px;&quot;&gt;Video Player&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 30px;&quot;&gt;Key Interfaces: Player Service&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 30px;&quot;&gt;Handles video playback and adaptive streaming&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="270" width="540" x="127.5" y="921" as="geometry" />
+        </mxCell>
+        <mxCell id="m1937mJV6CRGisf3ZvSx-10" edge="1" parent="1" source="m1937mJV6CRGisf3ZvSx-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="m1937mJV6CRGisf3ZvSx-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="m1937mJV6CRGisf3ZvSx-11" connectable="0" parent="m1937mJV6CRGisf3ZvSx-10" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;font style=&quot;font-size: 30px;&quot;&gt;triggers playback&lt;/font&gt;" vertex="1">
+          <mxGeometry relative="1" x="-0.0856" y="-2" as="geometry">
+            <mxPoint x="8" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m1937mJV6CRGisf3ZvSx-12" edge="1" parent="1" source="m1937mJV6CRGisf3ZvSx-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="m1937mJV6CRGisf3ZvSx-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="m1937mJV6CRGisf3ZvSx-13" edge="1" parent="1" source="m1937mJV6CRGisf3ZvSx-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="m1937mJV6CRGisf3ZvSx-18">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-126.5" y="531" />
+              <mxPoint x="-126.5" y="1531" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m1937mJV6CRGisf3ZvSx-14" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;&lt;font style=&quot;font-size: 30px;&quot;&gt;UI Components&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 30px; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Key Interfaces: User Interface&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 30px;&quot;&gt;Renders pages, handles navigation and user interactions.&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="230" width="610.5" x="92.25" y="416" as="geometry" />
+        </mxCell>
+        <mxCell id="m1937mJV6CRGisf3ZvSx-15" edge="1" parent="1" source="m1937mJV6CRGisf3ZvSx-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="m1937mJV6CRGisf3ZvSx-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="m1937mJV6CRGisf3ZvSx-16" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 30px;&quot;&gt;Auth Module&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 30px;&quot;&gt;Key Interfaces: Auth Service&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 30px;&quot;&gt;Manages login, logout and session state&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="270" width="420" x="883.5" y="921" as="geometry" />
+        </mxCell>
+        <mxCell id="m1937mJV6CRGisf3ZvSx-17" edge="1" parent="1" source="m1937mJV6CRGisf3ZvSx-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="m1937mJV6CRGisf3ZvSx-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="m1937mJV6CRGisf3ZvSx-18" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 30px;&quot;&gt;API Client&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 30px;&quot;&gt;Key Interfaces: API Gateway&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 30px;&quot;&gt;Sends HTTP requests to Backend API. Handles responses.&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="270" width="472.5" x="161.25" y="1396" as="geometry" />
+        </mxCell>
+        <mxCell id="m1937mJV6CRGisf3ZvSx-19" connectable="0" parent="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;span style=&quot;font-size: 30px;&quot;&gt;sends API requests&lt;/span&gt;" vertex="1">
+          <mxGeometry x="397.5" y="1876" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
