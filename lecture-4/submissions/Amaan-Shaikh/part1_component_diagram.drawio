@@ -1,0 +1,95 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36" version="29.6.1">
+  <diagram name="Page-1" id="srQdXHIFKK1xaM254jjC">
+    <mxGraphModel dx="1458" dy="797" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="528" width="942" x="8" y="8" as="geometry" />
+        </mxCell>
+        <mxCell id="3" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="API Controller&#xa;(handles incoming requests)" vertex="1">
+          <mxGeometry height="102" width="260" x="424" y="33" as="geometry" />
+        </mxCell>
+        <mxCell id="4" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="User Preference Analyzer&#xa;(analyzes user viewing history)" vertex="1">
+          <mxGeometry height="102" width="260" x="43" y="409" as="geometry" />
+        </mxCell>
+        <mxCell id="5" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Collaborative Filter Engine&#xa;(finds similar users)" vertex="1">
+          <mxGeometry height="78" width="252" x="353" y="421" as="geometry" />
+        </mxCell>
+        <mxCell id="6" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Content-Based Filter&#xa;(recommends based on content)" vertex="1">
+          <mxGeometry height="102" width="260" x="655" y="409" as="geometry" />
+        </mxCell>
+        <mxCell id="7" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Recommendation Aggregator&#xa;(combines all recommendation sources)" vertex="1">
+          <mxGeometry height="126" width="260" x="349" y="209" as="geometry" />
+        </mxCell>
+        <mxCell id="8" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="External Systems" vertex="1">
+          <mxGeometry height="54" width="181" x="1010" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="9" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="User History DB" vertex="1">
+          <mxGeometry height="54" width="171" x="88" y="610" as="geometry" />
+        </mxCell>
+        <mxCell id="10" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Viewing Data DB" vertex="1">
+          <mxGeometry height="54" width="177" x="390" y="610" as="geometry" />
+        </mxCell>
+        <mxCell id="11" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Video Metadata DB" vertex="1">
+          <mxGeometry height="54" width="195" x="687" y="610" as="geometry" />
+        </mxCell>
+        <mxCell id="14" edge="1" parent="1" source="7" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="5" value="gets similar users">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="16" edge="1" parent="1" source="3" style="curved=1;startArrow=none;endArrow=block;exitX=1;exitY=0.93;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="8" value="receives REST requests">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="17" edge="1" parent="1" source="4" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="9" value="reads user history">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="18" edge="1" parent="1" source="5" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="10" value="reads viewing data">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="19" edge="1" parent="1" source="6" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="11" value="reads video metadata">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="49Hdm1lH0TAZrs4OKi-f-19" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Recommendation Service" vertex="1">
+          <mxGeometry height="30" width="160" x="99" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="49Hdm1lH0TAZrs4OKi-f-20" edge="1" parent="1" source="7" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="6" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="710" y="290" as="sourcePoint" />
+            <mxPoint x="810" y="290" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="49Hdm1lH0TAZrs4OKi-f-21" connectable="0" parent="49Hdm1lH0TAZrs4OKi-f-20" style="edgeLabel;resizable=0;html=1;;align=center;verticalAlign=middle;" value="gets similar content" vertex="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="49Hdm1lH0TAZrs4OKi-f-22" edge="1" parent="1" source="7" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="220" y="280" as="sourcePoint" />
+            <mxPoint x="170" y="410" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="49Hdm1lH0TAZrs4OKi-f-23" connectable="0" parent="49Hdm1lH0TAZrs4OKi-f-22" style="edgeLabel;resizable=0;html=1;;align=center;verticalAlign=middle;" value="gets user tastes" vertex="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="49Hdm1lH0TAZrs4OKi-f-24" edge="1" parent="1" source="3" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="7" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="559" y="160" as="sourcePoint" />
+            <mxPoint x="380" y="298" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="49Hdm1lH0TAZrs4OKi-f-25" connectable="0" parent="49Hdm1lH0TAZrs4OKi-f-24" style="edgeLabel;resizable=0;html=1;;align=center;verticalAlign=middle;" value="requests recs" vertex="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
