@@ -1,0 +1,282 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" version="29.6.0" pages="2">
+  <diagram name="Page-1" id="yU35jf1VgZshlPwgZK-I">
+    <mxGraphModel dx="2595" dy="743" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="s-gnYww8ttzh3MjoZa4i-2" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="210" y="130" as="sourcePoint" />
+            <mxPoint x="840" y="130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s-gnYww8ttzh3MjoZa4i-4" parent="1" style="text;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;&quot;&gt;&lt;b style=&quot;&quot;&gt;&lt;span style=&quot;font-size: 30px;&quot;&gt;C4 Level 3 — Component Diagram: Recommendation Engine&lt;/span&gt;&lt;br&gt;&lt;br&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;Container selected from Task 1.2  ·  6 components  ·  Python + TensorFlow Serving&lt;/font&gt;&lt;/b&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="50" width="950" x="10" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="s-gnYww8ttzh3MjoZa4i-5" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="210" y="828" as="sourcePoint" />
+            <mxPoint x="210" y="130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s-gnYww8ttzh3MjoZa4i-6" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;rounded=0;fillColor=#d0cee2;strokeColor=#56517e;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="840" y="827" as="sourcePoint" />
+            <mxPoint x="840" y="129" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s-gnYww8ttzh3MjoZa4i-7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" value="" vertex="1">
+          <mxGeometry height="150" width="200" x="225" y="195" as="geometry" />
+        </mxCell>
+        <mxCell id="s-gnYww8ttzh3MjoZa4i-8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#996185;fillColor=#e6d0de;gradientColor=#d5739d;" value="" vertex="1">
+          <mxGeometry height="150" width="190" x="240" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="s-gnYww8ttzh3MjoZa4i-9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#60a917;strokeColor=#2D7600;fontColor=#ffffff;" value="" vertex="1">
+          <mxGeometry height="150" width="180" x="520" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="s-gnYww8ttzh3MjoZa4i-10" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0a30a;fontColor=#000000;strokeColor=#BD7000;" value="" vertex="1">
+          <mxGeometry height="140" width="180" x="530" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="s-gnYww8ttzh3MjoZa4i-11" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e51400;fontColor=#ffffff;strokeColor=#B20000;" value="" vertex="1">
+          <mxGeometry height="120" width="190" x="530" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="s-gnYww8ttzh3MjoZa4i-12" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#b0e3e6;strokeColor=#0e8088;" value="" vertex="1">
+          <mxGeometry height="140" width="160" x="790" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="s-gnYww8ttzh3MjoZa4i-13" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#bac8d3;strokeColor=#23445d;" value="" vertex="1">
+          <mxGeometry height="110" width="170" x="20" y="610" as="geometry" />
+        </mxCell>
+        <mxCell id="s-gnYww8ttzh3MjoZa4i-14" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#bac8d3;strokeColor=#23445d;" value="" vertex="1">
+          <mxGeometry height="110" width="170" x="20" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="s-gnYww8ttzh3MjoZa4i-15" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#bac8d3;strokeColor=#23445d;" value="" vertex="1">
+          <mxGeometry height="110" width="170" x="920" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="s-gnYww8ttzh3MjoZa4i-16" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#bac8d3;strokeColor=#23445d;" value="" vertex="1">
+          <mxGeometry height="110" width="170" x="970" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="s-gnYww8ttzh3MjoZa4i-17" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#bac8d3;strokeColor=#23445d;" value="" vertex="1">
+          <mxGeometry height="110" width="170" x="960" y="680" as="geometry" />
+        </mxCell>
+        <mxCell id="s-gnYww8ttzh3MjoZa4i-18" parent="1" style="text;whiteSpace=wrap;html=1;" value="&lt;b&gt;C1 · COMPONENT&lt;br&gt;&lt;/b&gt;&lt;br&gt;&lt;b&gt;API Handler&lt;/b&gt;&lt;br&gt;&lt;br&gt;Validates gRPC requests,&lt;br&gt;&lt;br&gt;routes to correct pipeline&lt;br&gt;&lt;br&gt;getRecs() · getRelated()" vertex="1">
+          <mxGeometry height="120" width="150" x="260" y="195" as="geometry" />
+        </mxCell>
+        <mxCell id="s-gnYww8ttzh3MjoZa4i-19" parent="1" style="text;whiteSpace=wrap;html=1;" value="&lt;b&gt;C2 · COMPONENT&lt;br&gt;&lt;br&gt;Feature Store&lt;/b&gt;&lt;br&gt;&lt;br&gt;Assembles user + content&lt;br&gt;&lt;br&gt;feature vectors for model&lt;br&gt;&lt;br&gt;getFeatures(userId)" vertex="1">
+          <mxGeometry height="100" width="170" x="270" y="414" as="geometry" />
+        </mxCell>
+        <mxCell id="s-gnYww8ttzh3MjoZa4i-21" parent="1" style="text;whiteSpace=wrap;html=1;" value="&lt;b&gt;C3 · COMPONENT&lt;br&gt;&lt;/b&gt;&lt;br&gt;&lt;b&gt;Candidate Generator&lt;/b&gt;&lt;br&gt;&lt;br&gt;ANN lookup to retrieve&lt;br&gt;&lt;br&gt;top-N candidate videos&lt;br&gt;&lt;br&gt;getCandidates(features, N)" vertex="1">
+          <mxGeometry height="106" width="180" x="540" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="s-gnYww8ttzh3MjoZa4i-22" parent="1" style="text;whiteSpace=wrap;html=1;" value="&lt;b&gt;C4 · COMPONENT&lt;br&gt;&lt;/b&gt;&lt;br&gt;&lt;b&gt;Ranking Model&lt;br&gt;&lt;/b&gt;&lt;br&gt;Scores &amp;amp; ranks candidates&lt;br&gt;&lt;br&gt;via TF Serving inference&lt;br&gt;&lt;br&gt;rank(candidates, features)" vertex="1">
+          <mxGeometry height="100" width="180" x="550" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="s-gnYww8ttzh3MjoZa4i-23" parent="1" style="text;whiteSpace=wrap;html=1;" value="&lt;b&gt;C5 · COMPONENT&lt;br/&gt;&lt;br&gt;&lt;/b&gt;Result Cache&lt;br/&gt;&lt;br&gt;Caches ranked lists (TTL&lt;br/&gt;&lt;br&gt;5 min) to reduce latency&lt;br/&gt;&lt;br&gt;get(key) · set(key, ttl)" vertex="1">
+          <mxGeometry height="100" width="310" x="810" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="s-gnYww8ttzh3MjoZa4i-24" parent="1" style="text;whiteSpace=wrap;html=1;" value="&lt;b&gt;C6 · COMPONENT&lt;br/&gt;&lt;/b&gt;&lt;br&gt;Event Logger&lt;br/&gt;&lt;br&gt;Publishes impression &amp;amp; click&lt;br/&gt;&lt;br&gt;events to Kafka for retraining" vertex="1">
+          <mxGeometry height="80" width="190" x="550" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="s-gnYww8ttzh3MjoZa4i-25" parent="1" style="text;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;&lt;b style=&quot;&quot;&gt;API Gateway&lt;br&gt;&lt;br&gt;&lt;/b&gt;[Kong]&lt;/font&gt;" vertex="1">
+          <mxGeometry height="50" width="100" x="55" y="425" as="geometry" />
+        </mxCell>
+        <UserObject label="&lt;font style=&quot;font-size: 15px;&quot;&gt;&lt;b style=&quot;&quot;&gt;User Service&lt;br&gt;&lt;br&gt;&lt;/b&gt;[Node.js]&lt;/font&gt;" link="User Service&#xa;[Node.js]" id="s-gnYww8ttzh3MjoZa4i-26">
+          <mxCell parent="1" style="text;whiteSpace=wrap;html=1;" vertex="1">
+            <mxGeometry height="50" width="100" x="55" y="640" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="s-gnYww8ttzh3MjoZa4i-27" parent="1" style="text;whiteSpace=wrap;html=1;" value="&lt;b&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;PostgreSQL&lt;br/&gt;&lt;/font&gt;&lt;/b&gt;&lt;br&gt;[Primary DB]" vertex="1">
+          <mxGeometry height="50" width="100" x="955" y="195" as="geometry" />
+        </mxCell>
+        <mxCell id="s-gnYww8ttzh3MjoZa4i-28" parent="1" style="text;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;&lt;b style=&quot;&quot;&gt;Redis Cache&lt;br&gt;&lt;br&gt;&lt;/b&gt;[Redis 7]&lt;/font&gt;" vertex="1">
+          <mxGeometry height="50" width="100" x="1005" y="514" as="geometry" />
+        </mxCell>
+        <mxCell id="s-gnYww8ttzh3MjoZa4i-29" parent="1" style="text;whiteSpace=wrap;html=1;" value="&lt;b&gt;Event Bus&lt;br/&gt;&lt;br&gt;&lt;/b&gt;[Kafka]" vertex="1">
+          <mxGeometry height="50" width="90" x="1010" y="710" as="geometry" />
+        </mxCell>
+        <mxCell id="s-gnYww8ttzh3MjoZa4i-30" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;fillColor=#0050ef;strokeColor=#001DBC;strokeWidth=2;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="s-gnYww8ttzh3MjoZa4i-7" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="110" y="400" as="sourcePoint" />
+            <mxPoint x="160" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s-gnYww8ttzh3MjoZa4i-45" connectable="0" parent="s-gnYww8ttzh3MjoZa4i-30" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;gRPC request&lt;/font&gt;" vertex="1">
+          <mxGeometry relative="1" x="-0.199" y="1" as="geometry">
+            <mxPoint x="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s-gnYww8ttzh3MjoZa4i-31" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;fillColor=#0050ef;strokeColor=#B5739D;strokeWidth=2;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="190" y="690" as="sourcePoint" />
+            <mxPoint x="305" y="560" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s-gnYww8ttzh3MjoZa4i-47" connectable="0" parent="s-gnYww8ttzh3MjoZa4i-31" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;fetch history&amp;nbsp;&lt;/font&gt;" vertex="1">
+          <mxGeometry relative="1" x="-0.0948" y="-1" as="geometry">
+            <mxPoint x="17" y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s-gnYww8ttzh3MjoZa4i-32" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;fillColor=#0050ef;strokeColor=#B5739D;strokeWidth=2;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="430" y="466" as="sourcePoint" />
+            <mxPoint x="520" y="361" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s-gnYww8ttzh3MjoZa4i-49" connectable="0" parent="s-gnYww8ttzh3MjoZa4i-32" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;feature vector&lt;/font&gt;" vertex="1">
+          <mxGeometry relative="1" x="-0.0149" as="geometry">
+            <mxPoint x="11" y="26" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s-gnYww8ttzh3MjoZa4i-34" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;fillColor=#0050ef;strokeColor=#B5739D;strokeWidth=2;entryX=0.424;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" target="s-gnYww8ttzh3MjoZa4i-15" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="790" y="380" />
+            </Array>
+            <mxPoint x="430" y="540" as="sourcePoint" />
+            <mxPoint x="985.0799999999999" y="286.02" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s-gnYww8ttzh3MjoZa4i-35" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;fillColor=#0050ef;strokeColor=#001DBC;strokeWidth=2;entryX=0;entryY=0;entryDx=0;entryDy=0;exitX=0.995;exitY=0.193;exitDx=0;exitDy=0;exitPerimeter=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="425" y="270.00000000000006" as="sourcePoint" />
+            <mxPoint x="521" y="336.05" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s-gnYww8ttzh3MjoZa4i-51" connectable="0" parent="s-gnYww8ttzh3MjoZa4i-35" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;dispatch&lt;/font&gt;" vertex="1">
+          <mxGeometry relative="1" x="-0.2248" y="3" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s-gnYww8ttzh3MjoZa4i-36" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;fillColor=#60a917;strokeColor=#2D7600;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="619.5" y="430" as="sourcePoint" />
+            <mxPoint x="619.5" y="500" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s-gnYww8ttzh3MjoZa4i-38" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;fillColor=#e51400;strokeColor=#B20000;entryX=0.368;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" target="s-gnYww8ttzh3MjoZa4i-24" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="619.5" y="640" as="sourcePoint" />
+            <mxPoint x="620" y="690" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s-gnYww8ttzh3MjoZa4i-39" edge="1" parent="1" source="s-gnYww8ttzh3MjoZa4i-10" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;fillColor=#ffcd28;strokeColor=#d79b00;exitX=1;exitY=0.75;exitDx=0;exitDy=0;gradientColor=#ffa500;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points" />
+            <mxPoint x="720" y="550" as="sourcePoint" />
+            <mxPoint x="790" y="490" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s-gnYww8ttzh3MjoZa4i-48" connectable="0" parent="s-gnYww8ttzh3MjoZa4i-39" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;Ranked list&lt;/font&gt;" vertex="1">
+          <mxGeometry relative="1" x="-0.1124" y="-2" as="geometry">
+            <mxPoint x="13" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s-gnYww8ttzh3MjoZa4i-40" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;fillColor=#e51400;strokeColor=#B20000;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points" />
+            <mxPoint x="720" y="790" as="sourcePoint" />
+            <mxPoint x="960" y="755" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s-gnYww8ttzh3MjoZa4i-46" connectable="0" parent="s-gnYww8ttzh3MjoZa4i-40" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;Kafka produce&lt;/font&gt;" vertex="1">
+          <mxGeometry relative="1" x="-0.0169" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s-gnYww8ttzh3MjoZa4i-41" edge="1" parent="1" source="s-gnYww8ttzh3MjoZa4i-7" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.25;exitDx=0;exitDy=0;edgeStyle=orthogonalEdgeStyle;entryX=0.068;entryY=0.03;entryDx=0;entryDy=0;entryPerimeter=0;fillColor=#0050ef;strokeColor=#001DBC;strokeWidth=2;" target="s-gnYww8ttzh3MjoZa4i-23" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="650" y="245" as="sourcePoint" />
+            <mxPoint x="830" y="385" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s-gnYww8ttzh3MjoZa4i-42" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;fillColor=#cce5ff;strokeColor=#00FF00;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" target="s-gnYww8ttzh3MjoZa4i-8" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="334.5" y="345" as="sourcePoint" />
+            <mxPoint x="335" y="405" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s-gnYww8ttzh3MjoZa4i-50" connectable="0" parent="s-gnYww8ttzh3MjoZa4i-42" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;getFeatures(userId)&lt;/font&gt;" vertex="1">
+          <mxGeometry relative="1" x="-0.1999" as="geometry">
+            <mxPoint x="55" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s-gnYww8ttzh3MjoZa4i-43" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;span style=&quot;font-size: 15px;&quot;&gt;candidates&lt;/span&gt;" vertex="1">
+          <mxGeometry height="30" width="110" x="610" y="449" as="geometry" />
+        </mxCell>
+        <mxCell id="s-gnYww8ttzh3MjoZa4i-44" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="SQL query" vertex="1">
+          <mxGeometry height="30" width="90" x="750" y="315" as="geometry" />
+        </mxCell>
+        <mxCell id="s-gnYww8ttzh3MjoZa4i-52" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;Check cache&lt;/font&gt;" vertex="1">
+          <mxGeometry height="30" width="100" x="570" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="s-gnYww8ttzh3MjoZa4i-53" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;span style=&quot;font-size: 15px;&quot;&gt;log impression&lt;/span&gt;" vertex="1">
+          <mxGeometry height="30" width="100" x="630" y="650" as="geometry" />
+        </mxCell>
+        <mxCell id="s-gnYww8ttzh3MjoZa4i-55" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;fillColor=#cce5ff;strokeColor=#33FFFF;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="950" y="449" as="sourcePoint" />
+            <mxPoint x="1070" y="499" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s-gnYww8ttzh3MjoZa4i-56" connectable="0" parent="s-gnYww8ttzh3MjoZa4i-55" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;Redis Cache&lt;/font&gt;" vertex="1">
+          <mxGeometry relative="1" x="-0.1941" y="-1" as="geometry">
+            <mxPoint x="22" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s-gnYww8ttzh3MjoZa4i-57" parent="1" style="text;whiteSpace=wrap;html=1;" value="&lt;b&gt;&lt;font style=&quot;font-size: 15px;&quot;&gt;Legend&lt;br/&gt;&lt;br&gt;&lt;/font&gt;&lt;/b&gt;Internal Component&lt;br/&gt;&lt;br&gt;External System&lt;br/&gt;&lt;br&gt;Dashed border = container boundary&lt;br/&gt;&lt;br&gt;Sync call (gRPC / fn)&lt;br/&gt;&lt;br&gt;Async event (Kafka)&lt;br/&gt;&lt;br&gt;Cache read/write&lt;br/&gt;&lt;br&gt;Data store access" vertex="1">
+          <mxGeometry height="140" width="230" x="55" y="827" as="geometry" />
+        </mxCell>
+        <mxCell id="s-gnYww8ttzh3MjoZa4i-58" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#bac8d3;strokeColor=#23445d;" value="" vertex="1">
+          <mxGeometry height="30" width="50" y="890" as="geometry" />
+        </mxCell>
+        <mxCell id="s-gnYww8ttzh3MjoZa4i-59" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;fillColor=#0050ef;strokeColor=#B5739D;strokeWidth=2;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint y="1050" as="sourcePoint" />
+            <mxPoint x="50" y="1050.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s-gnYww8ttzh3MjoZa4i-62" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;fillColor=#60a917;strokeColor=#2D7600;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint y="1030" as="sourcePoint" />
+            <mxPoint x="50" y="1030" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s-gnYww8ttzh3MjoZa4i-63" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;strokeWidth=2;fillColor=#e51400;strokeColor=#B20000;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points" />
+            <mxPoint y="1000" as="sourcePoint" />
+            <mxPoint x="50" y="1000" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s-gnYww8ttzh3MjoZa4i-65" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;fillColor=#0050ef;strokeColor=#001DBC;strokeWidth=2;exitX=0.995;exitY=0.193;exitDx=0;exitDy=0;exitPerimeter=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint y="969" as="sourcePoint" />
+            <mxPoint x="50" y="969" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s-gnYww8ttzh3MjoZa4i-68" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;rounded=0;strokeWidth=1;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint y="940" />
+            </Array>
+            <mxPoint x="10" y="940" as="sourcePoint" />
+            <mxPoint x="50" y="940" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s-gnYww8ttzh3MjoZa4i-69" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="C1 -C6" vertex="1">
+          <mxGeometry height="30" width="60" y="860" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="a1frov7Uv-1z-NQmQTI0" name="Page-2">
+    <mxGraphModel dx="1141" dy="594" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="k8F4zPAXFyrzUgs0gDBM-1" parent="1" style="text;whiteSpace=wrap;html=1;" value="&lt;b&gt;&lt;font style=&quot;font-size: 30px;&quot;&gt;Components&lt;br&gt;&lt;/font&gt;&lt;br&gt;C1 · API Handler&lt;/b&gt;&lt;br&gt;&lt;br&gt;[Python · gRPC Server]&lt;br&gt;&lt;br&gt;Receives recommendation requests, validates inputs, checks Result Cache, and orchestrates the retrieval pipeline.&lt;br&gt;&lt;br&gt;&lt;b&gt;C2 · Feature Store&lt;/b&gt;&lt;br&gt;&lt;br&gt;[Python · PostgreSQL client]&lt;br&gt;&lt;br&gt;Builds feature vectors from user watch history, ratings, and content metadata stored in PostgreSQL.&lt;br&gt;&lt;br&gt;&lt;b&gt;C3 · Candidate Generator&lt;/b&gt;&lt;br&gt;&lt;br&gt;[Python · FAISS ANN index]&lt;br&gt;&lt;br&gt;Performs approximate nearest-neighbour search to retrieve a pool of candidate videos from the embedding index.&lt;br&gt;&lt;br&gt;&lt;b&gt;C4 · Ranking Model&lt;/b&gt;&lt;br&gt;&lt;br&gt;[TensorFlow Serving · gRPC]&lt;br&gt;&lt;br&gt;Scores each candidate using a trained neural ranking model and returns a sorted list to the API Handler.&lt;br&gt;&lt;br&gt;&lt;b&gt;C5 · Result Cache&lt;/b&gt;&lt;br&gt;&lt;br&gt;[Python · Redis client]&lt;br&gt;&lt;br&gt;Caches ranked recommendation lists per user (TTL 5 min) to avoid full pipeline re-execution on repeat calls.&lt;br&gt;&lt;br&gt;&lt;b&gt;C6 · Event Logger&lt;/b&gt;&lt;br&gt;&lt;br&gt;[Python · Kafka producer]&lt;br&gt;&lt;br&gt;Publishes impression and click-through events to Kafka so the ML team can retrain models on fresh feedback.&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(107, 114, 128); font-family: Inter, sans-serif; letter-spacing: 0.8px; text-transform: uppercase; background-color: rgb(245, 246, 250);&quot;&gt;&lt;b style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;// Component Dependencies&lt;/font&gt;&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;table style=&quot;margin: 0px; padding: 0px; width: 1238.23px; border-collapse: collapse; background: rgb(255, 255, 255); border: 1px solid rgb(221, 225, 236); border-radius: 8px; overflow: hidden; color: rgb(26, 29, 46); font-family: Inter, sans-serif;&quot;&gt;&lt;thead style=&quot;box-sizing: border-box; margin: 0px; padding: 0px;&quot;&gt;&lt;tr style=&quot;box-sizing: border-box; margin: 0px; padding: 0px;&quot;&gt;&lt;th style=&quot;box-sizing: border-box; margin: 0px; padding: 9px 14px; background: rgb(249, 250, 251); text-align: left; font-size: 10px; text-transform: uppercase; letter-spacing: 0.6px; color: rgb(107, 114, 128); border-bottom: 1px solid rgb(221, 225, 236);&quot;&gt;#&lt;/th&gt;&lt;th style=&quot;box-sizing: border-box; margin: 0px; padding: 9px 14px; background: rgb(249, 250, 251); text-align: left; font-size: 10px; text-transform: uppercase; letter-spacing: 0.6px; color: rgb(107, 114, 128); border-bottom: 1px solid rgb(221, 225, 236);&quot;&gt;From&lt;/th&gt;&lt;th style=&quot;box-sizing: border-box; margin: 0px; padding: 9px 14px; background: rgb(249, 250, 251); text-align: left; font-size: 10px; text-transform: uppercase; letter-spacing: 0.6px; color: rgb(107, 114, 128); border-bottom: 1px solid rgb(221, 225, 236);&quot;&gt;→ To&lt;/th&gt;&lt;th style=&quot;box-sizing: border-box; margin: 0px; padding: 9px 14px; background: rgb(249, 250, 251); text-align: left; font-size: 10px; text-transform: uppercase; letter-spacing: 0.6px; color: rgb(107, 114, 128); border-bottom: 1px solid rgb(221, 225, 236);&quot;&gt;Protocol&lt;/th&gt;&lt;th style=&quot;box-sizing: border-box; margin: 0px; padding: 9px 14px; background: rgb(249, 250, 251); text-align: left; font-size: 10px; text-transform: uppercase; letter-spacing: 0.6px; color: rgb(107, 114, 128); border-bottom: 1px solid rgb(221, 225, 236);&quot;&gt;Description&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody style=&quot;box-sizing: border-box; margin: 0px; padding: 0px;&quot;&gt;&lt;tr style=&quot;box-sizing: border-box; margin: 0px; padding: 0px;&quot;&gt;&lt;td style=&quot;box-sizing: border-box; margin: 0px; padding: 9px 14px; border-bottom: 1px solid rgb(240, 242, 248); color: rgb(55, 65, 81); vertical-align: top;&quot;&gt;1&lt;/td&gt;&lt;td style=&quot;box-sizing: border-box; margin: 0px; padding: 9px 14px; border-bottom: 1px solid rgb(240, 242, 248); color: rgb(55, 65, 81); vertical-align: top;&quot;&gt;API Gateway&lt;/td&gt;&lt;td style=&quot;box-sizing: border-box; margin: 0px; padding: 9px 14px; border-bottom: 1px solid rgb(240, 242, 248); color: rgb(55, 65, 81); vertical-align: top;&quot;&gt;C1 API Handler&lt;/td&gt;&lt;td style=&quot;box-sizing: border-box; margin: 0px; padding: 9px 14px; border-bottom: 1px solid rgb(240, 242, 248); color: rgb(55, 65, 81); vertical-align: top;&quot;&gt;&lt;span class=&quot;tag&quot; style=&quot;box-sizing: border-box; margin: 0px 4px 0px 0px; padding: 1px 7px; display: inline-block; border-radius: 4px; font-size: 10px; font-weight: 600; background: rgb(219, 234, 254); color: rgb(29, 78, 216);&quot;&gt;gRPC&lt;/span&gt;&lt;/td&gt;&lt;td style=&quot;box-sizing: border-box; margin: 0px; padding: 9px 14px; border-bottom: 1px solid rgb(240, 242, 248); color: rgb(55, 65, 81); vertical-align: top;&quot;&gt;Forwards getRecs(userId, limit) calls from the User Service or client apps&lt;/td&gt;&lt;/tr&gt;&lt;tr style=&quot;box-sizing: border-box; margin: 0px; padding: 0px;&quot;&gt;&lt;td style=&quot;box-sizing: border-box; margin: 0px; padding: 9px 14px; border-bottom: 1px solid rgb(240, 242, 248); color: rgb(55, 65, 81); vertical-align: top;&quot;&gt;2&lt;/td&gt;&lt;td style=&quot;box-sizing: border-box; margin: 0px; padding: 9px 14px; border-bottom: 1px solid rgb(240, 242, 248); color: rgb(55, 65, 81); vertical-align: top;&quot;&gt;User Service&lt;/td&gt;&lt;td style=&quot;box-sizing: border-box; margin: 0px; padding: 9px 14px; border-bottom: 1px solid rgb(240, 242, 248); color: rgb(55, 65, 81); vertical-align: top;&quot;&gt;C2 Feature Store&lt;/td&gt;&lt;td style=&quot;box-sizing: border-box; margin: 0px; padding: 9px 14px; border-bottom: 1px solid rgb(240, 242, 248); color: rgb(55, 65, 81); vertical-align: top;&quot;&gt;&lt;span class=&quot;tag&quot; style=&quot;box-sizing: border-box; margin: 0px 4px 0px 0px; padding: 1px 7px; display: inline-block; border-radius: 4px; font-size: 10px; font-weight: 600; background: rgb(219, 234, 254); color: rgb(29, 78, 216);&quot;&gt;gRPC&lt;/span&gt;&lt;/td&gt;&lt;td style=&quot;box-sizing: border-box; margin: 0px; padding: 9px 14px; border-bottom: 1px solid rgb(240, 242, 248); color: rgb(55, 65, 81); vertical-align: top;&quot;&gt;Pushes user watch history and ratings events so Feature Store can refresh its vectors&lt;/td&gt;&lt;/tr&gt;&lt;tr style=&quot;box-sizing: border-box; margin: 0px; padding: 0px;&quot;&gt;&lt;td style=&quot;box-sizing: border-box; margin: 0px; padding: 9px 14px; border-bottom: 1px solid rgb(240, 242, 248); color: rgb(55, 65, 81); vertical-align: top;&quot;&gt;3&lt;/td&gt;&lt;td style=&quot;box-sizing: border-box; margin: 0px; padding: 9px 14px; border-bottom: 1px solid rgb(240, 242, 248); color: rgb(55, 65, 81); vertical-align: top;&quot;&gt;C1 API Handler&lt;/td&gt;&lt;td style=&quot;box-sizing: border-box; margin: 0px; padding: 9px 14px; border-bottom: 1px solid rgb(240, 242, 248); color: rgb(55, 65, 81); vertical-align: top;&quot;&gt;C5 Result Cache&lt;/td&gt;&lt;td style=&quot;box-sizing: border-box; margin: 0px; padding: 9px 14px; border-bottom: 1px solid rgb(240, 242, 248); color: rgb(55, 65, 81); vertical-align: top;&quot;&gt;&lt;span class=&quot;tag&quot; style=&quot;box-sizing: border-box; margin: 0px 4px 0px 0px; padding: 1px 7px; display: inline-block; border-radius: 4px; font-size: 10px; font-weight: 600; background: rgb(204, 251, 241); color: rgb(15, 118, 110);&quot;&gt;Redis&lt;/span&gt;&lt;/td&gt;&lt;td style=&quot;box-sizing: border-box; margin: 0px; padding: 9px 14px; border-bottom: 1px solid rgb(240, 242, 248); color: rgb(55, 65, 81); vertical-align: top;&quot;&gt;Checks for a cached ranked list before invoking the full retrieval pipeline&lt;/td&gt;&lt;/tr&gt;&lt;tr style=&quot;box-sizing: border-box; margin: 0px; padding: 0px;&quot;&gt;&lt;td style=&quot;box-sizing: border-box; margin: 0px; padding: 9px 14px; border-bottom: 1px solid rgb(240, 242, 248); color: rgb(55, 65, 81); vertical-align: top;&quot;&gt;4&lt;/td&gt;&lt;td style=&quot;box-sizing: border-box; margin: 0px; padding: 9px 14px; border-bottom: 1px solid rgb(240, 242, 248); color: rgb(55, 65, 81); vertical-align: top;&quot;&gt;C1 API Handler&lt;/td&gt;&lt;td style=&quot;box-sizing: border-box; margin: 0px; padding: 9px 14px; border-bottom: 1px solid rgb(240, 242, 248); color: rgb(55, 65, 81); vertical-align: top;&quot;&gt;C2 Feature Store&lt;/td&gt;&lt;td style=&quot;box-sizing: border-box; margin: 0px; padding: 9px 14px; border-bottom: 1px solid rgb(240, 242, 248); color: rgb(55, 65, 81); vertical-align: top;&quot;&gt;&lt;span class=&quot;tag&quot; style=&quot;box-sizing: border-box; margin: 0px 4px 0px 0px; padding: 1px 7px; display: inline-block; border-radius: 4px; font-size: 10px; font-weight: 600; background: rgb(243, 232, 255); color: rgb(109, 40, 217);&quot;&gt;fn call&lt;/span&gt;&lt;/td&gt;&lt;td style=&quot;box-sizing: border-box; margin: 0px; padding: 9px 14px; border-bottom: 1px solid rgb(240, 242, 248); color: rgb(55, 65, 81); vertical-align: top;&quot;&gt;Requests assembled feature vector for the requesting user&lt;/td&gt;&lt;/tr&gt;&lt;tr style=&quot;box-sizing: border-box; margin: 0px; padding: 0px;&quot;&gt;&lt;td style=&quot;box-sizing: border-box; margin: 0px; padding: 9px 14px; border-bottom: 1px solid rgb(240, 242, 248); color: rgb(55, 65, 81); vertical-align: top;&quot;&gt;5&lt;/td&gt;&lt;td style=&quot;box-sizing: border-box; margin: 0px; padding: 9px 14px; border-bottom: 1px solid rgb(240, 242, 248); color: rgb(55, 65, 81); vertical-align: top;&quot;&gt;C1 API Handler&lt;/td&gt;&lt;td style=&quot;box-sizing: border-box; margin: 0px; padding: 9px 14px; border-bottom: 1px solid rgb(240, 242, 248); color: rgb(55, 65, 81); vertical-align: top;&quot;&gt;C3 Candidate Generator&lt;/td&gt;&lt;td style=&quot;box-sizing: border-box; margin: 0px; padding: 9px 14px; border-bottom: 1px solid rgb(240, 242, 248); color: rgb(55, 65, 81); vertical-align: top;&quot;&gt;&lt;span class=&quot;tag&quot; style=&quot;box-sizing: border-box; margin: 0px 4px 0px 0px; padding: 1px 7px; display: inline-block; border-radius: 4px; font-size: 10px; font-weight: 600; background: rgb(243, 232, 255); color: rgb(109, 40, 217);&quot;&gt;fn call&lt;/span&gt;&lt;/td&gt;&lt;td style=&quot;box-sizing: border-box; margin: 0px; padding: 9px 14px; border-bottom: 1px solid rgb(240, 242, 248); color: rgb(55, 65, 81); vertical-align: top;&quot;&gt;Dispatches feature vector to retrieve top-N candidate video IDs via ANN search&lt;/td&gt;&lt;/tr&gt;&lt;tr style=&quot;box-sizing: border-box; margin: 0px; padding: 0px;&quot;&gt;&lt;td style=&quot;box-sizing: border-box; margin: 0px; padding: 9px 14px; border-bottom: 1px solid rgb(240, 242, 248); color: rgb(55, 65, 81); vertical-align: top; background: rgb(249, 250, 251);&quot;&gt;6&lt;/td&gt;&lt;td style=&quot;box-sizing: border-box; margin: 0px; padding: 9px 14px; border-bottom: 1px solid rgb(240, 242, 248); color: rgb(55, 65, 81); vertical-align: top; background: rgb(249, 250, 251);&quot;&gt;C2 Feature Store&lt;/td&gt;&lt;td style=&quot;box-sizing: border-box; margin: 0px; padding: 9px 14px; border-bottom: 1px solid rgb(240, 242, 248); color: rgb(55, 65, 81); vertical-align: top; background: rgb(249, 250, 251);&quot;&gt;PostgreSQL&lt;/td&gt;&lt;td style=&quot;box-sizing: border-box; margin: 0px; padding: 9px 14px; border-bottom: 1px solid rgb(240, 242, 248); color: rgb(55, 65, 81); vertical-align: top; background: rgb(249, 250, 251);&quot;&gt;&lt;span class=&quot;tag&quot; style=&quot;box-sizing: border-box; margin: 0px 4px 0px 0px; padding: 1px 7px; display: inline-block; border-radius: 4px; font-size: 10px; font-weight: 600; background: rgb(254, 249, 195); color: rgb(133, 77, 14);&quot;&gt;SQL&lt;/span&gt;&lt;/td&gt;&lt;td style=&quot;box-sizing: border-box; margin: 0px; padding: 9px 14px; border-bottom: 1px solid rgb(240, 242, 248); color: rgb(55, 65, 81); vertical-align: top; background: rgb(249, 250, 251);&quot;&gt;Reads user history, watch-time, and content metadata tables to build feature vectors&lt;/td&gt;&lt;/tr&gt;&lt;tr style=&quot;box-sizing: border-box; margin: 0px; padding: 0px;&quot;&gt;&lt;td style=&quot;box-sizing: border-box; margin: 0px; padding: 9px 14px; border-bottom: 1px solid rgb(240, 242, 248); color: rgb(55, 65, 81); vertical-align: top;&quot;&gt;7&lt;/td&gt;&lt;td style=&quot;box-sizing: border-box; margin: 0px; padding: 9px 14px; border-bottom: 1px solid rgb(240, 242, 248); color: rgb(55, 65, 81); vertical-align: top;&quot;&gt;C3 Candidate Generator&lt;/td&gt;&lt;td style=&quot;box-sizing: border-box; margin: 0px; padding: 9px 14px; border-bottom: 1px solid rgb(240, 242, 248); color: rgb(55, 65, 81); vertical-align: top;&quot;&gt;C4 Ranking Model&lt;/td&gt;&lt;td style=&quot;box-sizing: border-box; margin: 0px; padding: 9px 14px; border-bottom: 1px solid rgb(240, 242, 248); color: rgb(55, 65, 81); vertical-align: top;&quot;&gt;&lt;span class=&quot;tag&quot; style=&quot;box-sizing: border-box; margin: 0px 4px 0px 0px; padding: 1px 7px; display: inline-block; border-radius: 4px; font-size: 10px; font-weight: 600; background: rgb(243, 232, 255); color: rgb(109, 40, 217);&quot;&gt;fn call&lt;/span&gt;&lt;/td&gt;&lt;td style=&quot;box-sizing: border-box; margin: 0px; padding: 9px 14px; border-bottom: 1px solid rgb(240, 242, 248); color: rgb(55, 65, 81); vertical-align: top;&quot;&gt;Passes candidate list + feature vector; receives scores and sorted order back&lt;/td&gt;&lt;/tr&gt;&lt;tr style=&quot;box-sizing: border-box; margin: 0px; padding: 0px;&quot;&gt;&lt;td style=&quot;box-sizing: border-box; margin: 0px; padding: 9px 14px; border-bottom: 1px solid rgb(240, 242, 248); color: rgb(55, 65, 81); vertical-align: top;&quot;&gt;8&lt;/td&gt;&lt;td style=&quot;box-sizing: border-box; margin: 0px; padding: 9px 14px; border-bottom: 1px solid rgb(240, 242, 248); color: rgb(55, 65, 81); vertical-align: top;&quot;&gt;C4 Ranking Model&lt;/td&gt;&lt;td style=&quot;box-sizing: border-box; margin: 0px; padding: 9px 14px; border-bottom: 1px solid rgb(240, 242, 248); color: rgb(55, 65, 81); vertical-align: top;&quot;&gt;C5 Result Cache&lt;/td&gt;&lt;td style=&quot;box-sizing: border-box; margin: 0px; padding: 9px 14px; border-bottom: 1px solid rgb(240, 242, 248); color: rgb(55, 65, 81); vertical-align: top;&quot;&gt;&lt;span class=&quot;tag&quot; style=&quot;box-sizing: border-box; margin: 0px 4px 0px 0px; padding: 1px 7px; display: inline-block; border-radius: 4px; font-size: 10px; font-weight: 600; background: rgb(204, 251, 241); color: rgb(15, 118, 110);&quot;&gt;Redis&lt;/span&gt;&lt;/td&gt;&lt;td style=&quot;box-sizing: border-box; margin: 0px; padding: 9px 14px; border-bottom: 1px solid rgb(240, 242, 248); color: rgb(55, 65, 81); vertical-align: top;&quot;&gt;Writes the final ranked list into Redis with a 5-minute TTL keyed by userId&lt;/td&gt;&lt;/tr&gt;&lt;tr style=&quot;box-sizing: border-box; margin: 0px; padding: 0px;&quot;&gt;&lt;td style=&quot;box-sizing: border-box; margin: 0px; padding: 9px 14px; border-bottom: 1px solid rgb(240, 242, 248); color: rgb(55, 65, 81); vertical-align: top;&quot;&gt;9&lt;/td&gt;&lt;td style=&quot;box-sizing: border-box; margin: 0px; padding: 9px 14px; border-bottom: 1px solid rgb(240, 242, 248); color: rgb(55, 65, 81); vertical-align: top;&quot;&gt;C4 Ranking Model&lt;/td&gt;&lt;td style=&quot;box-sizing: border-box; margin: 0px; padding: 9px 14px; border-bottom: 1px solid rgb(240, 242, 248); color: rgb(55, 65, 81); vertical-align: top;&quot;&gt;C6 Event Logger&lt;/td&gt;&lt;td style=&quot;box-sizing: border-box; margin: 0px; padding: 9px 14px; border-bottom: 1px solid rgb(240, 242, 248); color: rgb(55, 65, 81); vertical-align: top;&quot;&gt;&lt;span class=&quot;tag&quot; style=&quot;box-sizing: border-box; margin: 0px 4px 0px 0px; padding: 1px 7px; display: inline-block; border-radius: 4px; font-size: 10px; font-weight: 600; background: rgb(243, 232, 255); color: rgb(109, 40, 217);&quot;&gt;fn call&lt;/span&gt;&lt;/td&gt;&lt;td style=&quot;box-sizing: border-box; margin: 0px; padding: 9px 14px; border-bottom: 1px solid rgb(240, 242, 248); color: rgb(55, 65, 81); vertical-align: top;&quot;&gt;Notifies Event Logger of each impression (which videos were shown to the user)&lt;/td&gt;&lt;/tr&gt;&lt;tr style=&quot;box-sizing: border-box; margin: 0px; padding: 0px;&quot;&gt;&lt;td style=&quot;box-sizing: border-box; margin: 0px; padding: 9px 14px; border-bottom: 1px solid rgb(240, 242, 248); color: rgb(55, 65, 81); vertical-align: top;&quot;&gt;10&lt;/td&gt;&lt;td style=&quot;box-sizing: border-box; margin: 0px; padding: 9px 14px; border-bottom: 1px solid rgb(240, 242, 248); color: rgb(55, 65, 81); vertical-align: top;&quot;&gt;C5 Result Cache&lt;/td&gt;&lt;td style=&quot;box-sizing: border-box; margin: 0px; padding: 9px 14px; border-bottom: 1px solid rgb(240, 242, 248); color: rgb(55, 65, 81); vertical-align: top;&quot;&gt;Redis Cache&lt;/td&gt;&lt;td style=&quot;box-sizing: border-box; margin: 0px; padding: 9px 14px; border-bottom: 1px solid rgb(240, 242, 248); color: rgb(55, 65, 81); vertical-align: top;&quot;&gt;&lt;span class=&quot;tag&quot; style=&quot;box-sizing: border-box; margin: 0px 4px 0px 0px; padding: 1px 7px; display: inline-block; border-radius: 4px; font-size: 10px; font-weight: 600; background: rgb(204, 251, 241); color: rgb(15, 118, 110);&quot;&gt;Redis&lt;/span&gt;&lt;/td&gt;&lt;td style=&quot;box-sizing: border-box; margin: 0px; padding: 9px 14px; border-bottom: 1px solid rgb(240, 242, 248); color: rgb(55, 65, 81); vertical-align: top;&quot;&gt;Reads and writes serialised recommendation lists using Redis GET/SETEX commands&lt;/td&gt;&lt;/tr&gt;&lt;tr style=&quot;box-sizing: border-box; margin: 0px; padding: 0px;&quot;&gt;&lt;td style=&quot;box-sizing: border-box; margin: 0px; padding: 9px 14px; border-bottom: none; color: rgb(55, 65, 81); vertical-align: top;&quot;&gt;11&lt;/td&gt;&lt;td style=&quot;box-sizing: border-box; margin: 0px; padding: 9px 14px; border-bottom: none; color: rgb(55, 65, 81); vertical-align: top;&quot;&gt;C6 Event Logger&lt;/td&gt;&lt;td style=&quot;box-sizing: border-box; margin: 0px; padding: 9px 14px; border-bottom: none; color: rgb(55, 65, 81); vertical-align: top;&quot;&gt;Kafka Event Bus&lt;/td&gt;&lt;td style=&quot;box-sizing: border-box; margin: 0px; padding: 9px 14px; border-bottom: none; color: rgb(55, 65, 81); vertical-align: top;&quot;&gt;&lt;span class=&quot;tag&quot; style=&quot;box-sizing: border-box; margin: 0px 4px 0px 0px; padding: 1px 7px; display: inline-block; border-radius: 4px; font-size: 10px; font-weight: 600; background: rgb(255, 228, 230); color: rgb(190, 18, 60);&quot;&gt;Kafka&lt;/span&gt;&lt;/td&gt;&lt;td style=&quot;box-sizing: border-box; margin: 0px; padding: 9px 14px; border-bottom: none; color: rgb(55, 65, 81); vertical-align: top;&quot;&gt;Publishes recommendation.impression and recommendation.click events for ML retraining pipeline&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="510" width="990" x="110" y="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
