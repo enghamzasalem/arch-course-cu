@@ -1,0 +1,114 @@
+<mxfile host="app.diagrams.net" modified="2024-03-01T00:00:00.000Z" agent="Mozilla/5.0" version="24.0.0" type="device">
+  <diagram id="deployment_diagram" name="Deployment Diagram">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Legend -->
+        <mxCell id="legend_box" value="&lt;b&gt;Legend&lt;/b&gt;" style="swimlane;whiteSpace=wrap;html=1;startSize=20;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="880" y="50" width="180" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_node" value="&lt;b&gt;&amp;lt;&amp;lt;Node&amp;gt;&amp;gt;&lt;/b&gt;" style="shape=cube;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;darkOpacity=0.05;darkOpacity2=0.1;fillColor=#dae8fc;fontColor=#000000;strokeColor=#6c8ebf;" vertex="1" parent="legend_box">
+          <mxGeometry x="30" y="30" width="80" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_artifact" value="&amp;lt;&amp;lt;Artifact&amp;gt;&amp;gt;" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#ffe6cc;strokeColor=#d79b00;fontColor=#000000;" vertex="1" parent="legend_box">
+          <mxGeometry x="30" y="90" width="80" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- System Boundary / Load Balancer -->
+        <mxCell id="cloud_boundary" value="&lt;b&gt;&amp;lt;&amp;lt;cloud&amp;gt;&amp;gt;&lt;/b&gt;&lt;br&gt;AWS Deployment Environment" style="shape=folder;fontStyle=1;spacingTop=10;tabWidth=200;tabHeight=30;tabPosition=left;html=1;whiteSpace=wrap;fillColor=none;strokeColor=#6c8ebf;dashed=1;dashPattern=8 8;align=left;verticalAlign=top;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="300" y="250" width="550" height="500" as="geometry" />
+        </mxCell>
+
+        <mxCell id="lb_node" value="&lt;b&gt;&amp;lt;&amp;lt;Load Balancer&amp;gt;&amp;gt;&lt;/b&gt;&lt;br&gt;AWS ALB" style="shape=cube;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;darkOpacity=0.05;darkOpacity2=0.1;fillColor=#dae8fc;strokeColor=#6c8ebf;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="490" y="280" width="180" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Node 1: App Server (Web/Mobile APIs) -->
+        <mxCell id="app_node" value="&lt;b&gt;&amp;lt;&amp;lt;Execution Environment&amp;gt;&amp;gt;&lt;/b&gt;&lt;br&gt;ECS Cluster (Node.js/Python)" style="shape=cube;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;darkOpacity=0.05;darkOpacity2=0.1;fillColor=#dae8fc;strokeColor=#6c8ebf;align=center;verticalAlign=top;" vertex="1" parent="1">
+           <mxGeometry x="320" y="420" width="220" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="api_art" value="&amp;lt;&amp;lt;artifact&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;API Application&lt;/b&gt;&lt;br&gt;(Docker Container)" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#ffe6cc;strokeColor=#d79b00;fontColor=#000000;align=center;" vertex="1" parent="app_node">
+          <mxGeometry x="40" y="30" width="140" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="rec_art" value="&amp;lt;&amp;lt;artifact&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;Rec. Service&lt;/b&gt;&lt;br&gt;(Docker Container)" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#ffe6cc;strokeColor=#d79b00;fontColor=#000000;align=center;" vertex="1" parent="app_node">
+           <mxGeometry x="40" y="90" width="140" height="50" as="geometry" />
+        </mxCell>
+
+
+        <!-- Node 2: Video Transcoding/Streaming Server -->
+        <mxCell id="video_node" value="&lt;b&gt;&amp;lt;&amp;lt;Execution Environment&amp;gt;&amp;gt;&lt;/b&gt;&lt;br&gt;EC2 GPU Instance (Go)" style="shape=cube;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;darkOpacity=0.05;darkOpacity2=0.1;fillColor=#dae8fc;strokeColor=#6c8ebf;align=center;verticalAlign=top;" vertex="1" parent="1">
+           <mxGeometry x="600" y="420" width="220" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="stream_art" value="&amp;lt;&amp;lt;artifact&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;Streaming Service&lt;/b&gt;&lt;br&gt;(Binary executable)" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#ffe6cc;strokeColor=#d79b00;fontColor=#000000;align=center;" vertex="1" parent="video_node">
+          <mxGeometry x="40" y="50" width="140" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Node 3: Database Server -->
+        <mxCell id="db_node" value="&lt;b&gt;&amp;lt;&amp;lt;Database Server&amp;gt;&amp;gt;&lt;/b&gt;&lt;br&gt;AWS RDS (PostgreSQL)" style="shape=cube;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;darkOpacity=0.05;darkOpacity2=0.1;fillColor=#dae8fc;strokeColor=#6c8ebf;align=center;verticalAlign=top;" vertex="1" parent="1">
+           <mxGeometry x="460" y="620" width="220" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="db_art" value="&amp;lt;&amp;lt;artifact&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;PostgreSQL DB&lt;/b&gt;&lt;br&gt;(Schema/Data)" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#ffe6cc;strokeColor=#d79b00;fontColor=#000000;align=center;" vertex="1" parent="db_node">
+           <mxGeometry x="40" y="40" width="140" height="50" as="geometry" />
+        </mxCell>
+
+
+        <!-- Node 4: CDN (Edge Network) -->
+        <mxCell id="cdn_node" value="&lt;b&gt;&amp;lt;&amp;lt;Edge Network&amp;gt;&amp;gt;&lt;/b&gt;&lt;br&gt;CloudFront/Akamai" style="shape=cube;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;darkOpacity=0.05;darkOpacity2=0.1;fillColor=#dae8fc;strokeColor=#6c8ebf;align=center;verticalAlign=top;" vertex="1" parent="1">
+           <mxGeometry x="850" y="270" width="200" height="130" as="geometry" />
+        </mxCell>
+         <mxCell id="static_art" value="&amp;lt;&amp;lt;artifact&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;Web App (React)&lt;/b&gt;&lt;br&gt;Static JS/CSS/HTML" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#ffe6cc;strokeColor=#d79b00;fontColor=#000000;align=center;" vertex="1" parent="cdn_node">
+           <mxGeometry x="30" y="30" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="video_art" value="&amp;lt;&amp;lt;artifact&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;Video Chunks&lt;/b&gt;&lt;br&gt;.ts/.m3u8 files" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#ffe6cc;strokeColor=#d79b00;fontColor=#000000;align=center;" vertex="1" parent="cdn_node">
+           <mxGeometry x="30" y="80" width="140" height="40" as="geometry" />
+        </mxCell>
+
+
+        <!-- External Clients / Users -->
+        <mxCell id="browser_node" value="&lt;b&gt;&amp;lt;&amp;lt;device&amp;gt;&amp;gt;&lt;/b&gt;&lt;br&gt;User Browser" style="shape=cube;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;darkOpacity=0.05;darkOpacity2=0.1;fillColor=#f5f5f5;strokeColor=#666666;align=center;verticalAlign=middle;" vertex="1" parent="1">
+           <mxGeometry x="100" y="220" width="130" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="mobile_node" value="&lt;b&gt;&amp;lt;&amp;lt;device&amp;gt;&amp;gt;&lt;/b&gt;&lt;br&gt;User Smartphone" style="shape=cube;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;darkOpacity=0.05;darkOpacity2=0.1;fillColor=#f5f5f5;strokeColor=#666666;align=center;verticalAlign=middle;" vertex="1" parent="1">
+           <mxGeometry x="100" y="330" width="130" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- Node Connections (Communication Paths) -->
+        <mxCell id="r1" value="HTTPS" style="endArrow=none;html=1;rounded=0;strokeWidth=2;strokeColor=#333333;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=20;" edge="1" parent="1" source="browser_node" target="lb_node">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r2" value="HTTPS" style="endArrow=none;html=1;rounded=0;strokeWidth=2;strokeColor=#333333;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=40;" edge="1" parent="1" source="mobile_node" target="lb_node">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="r3" value="HTTPS" style="endArrow=none;html=1;rounded=0;strokeWidth=2;strokeColor=#333333;entryX=0;entryY=0;entryDx=50;entryDy=0;" edge="1" parent="1" source="lb_node" target="app_node">
+           <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r4" value="HTTPS" style="endArrow=none;html=1;rounded=0;strokeWidth=2;strokeColor=#333333;entryX=0;entryY=0;entryDx=50;entryDy=0;" edge="1" parent="1" source="lb_node" target="video_node">
+           <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="r5" value="SQL/TCP (Port 5432)" style="endArrow=none;html=1;rounded=0;strokeWidth=2;strokeColor=#333333;entryX=0;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="app_node" target="db_node">
+           <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r6" value="SQL/TCP" style="endArrow=none;html=1;rounded=0;strokeWidth=2;strokeColor=#333333;entryX=1;entryY=0;entryDx=0;entryDy=0;exitX=0;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="video_node" target="db_node">
+           <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- CDN Links -->
+        <mxCell id="r7" value="Fetches Static/Video" style="endArrow=block;html=1;rounded=0;dashed=1;dashPattern=8 8;strokeWidth=1;strokeColor=#333333;entryX=0;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="browser_node" target="cdn_node">
+           <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r8" value="Origin Pull" style="endArrow=block;html=1;rounded=0;dashed=1;dashPattern=8 8;strokeWidth=1;strokeColor=#333333;exitX=0;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="cdn_node" target="video_node">
+           <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                 <mxPoint x="830" y="450" />
+              </Array>
+           </mxGeometry>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
