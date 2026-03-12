@@ -1,0 +1,76 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" version="29.6.1">
+  <diagram name="Page-1" id="aCJZqy3YuazUYys9ckgE">
+    <mxGraphModel dx="1426" dy="824" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="L-user" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value="End User&#xa;(Human)" vertex="1">
+          <mxGeometry height="440" width="100" x="40" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="L-app" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value="Application&#xa;(Backend/Client)" vertex="1">
+          <mxGeometry height="440" width="100" x="190" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="L-proxy" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value="Proxy Gateway&#xa;(Your System)" vertex="1">
+          <mxGeometry height="440" width="100" x="340" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="L-provider" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value="LLM Provider&#xa;(OpenAI/Gemini)" vertex="1">
+          <mxGeometry height="440" width="100" x="490" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="L-bus" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value="Event Bus&#xa;(Redis/Kafka)" vertex="1">
+          <mxGeometry height="440" width="100" x="640" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="L-worker" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value="Ingestion Worker" vertex="1">
+          <mxGeometry height="440" width="100" x="790" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="m1" edge="1" parent="1" source="L-user" style="verticalAlign=bottom;endArrow=block;entryX=0;entryY=0;html=1;exitX=0.5;exitY=0.182;exitDx=0;exitDy=0;exitPerimeter=0;" value="1. Submit Prompt">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="90" y="120" as="sourcePoint" />
+            <mxPoint x="240" y="120" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m2" edge="1" parent="1" style="verticalAlign=bottom;endArrow=block;html=1;" value="2. POST /v1/chat">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="240" y="160" as="sourcePoint" />
+            <mxPoint x="390" y="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m3" edge="1" parent="1" style="verticalAlign=bottom;endArrow=block;html=1;" value="3. Forward Call">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="390" y="200" as="sourcePoint" />
+            <mxPoint x="540" y="200" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m4" edge="1" parent="1" style="verticalAlign=bottom;endArrow=block;dashed=1;html=1;" value="4. Return Completion">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="540" y="240" as="sourcePoint" />
+            <mxPoint x="390" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m5" edge="1" parent="1" style="verticalAlign=bottom;endArrow=block;html=1;" value="5. Emit Event (Async)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="390" y="280" as="sourcePoint" />
+            <mxPoint x="690" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m6" edge="1" parent="1" style="verticalAlign=bottom;endArrow=block;dashed=1;html=1;" value="6. Standardized Resp">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="390" y="320" as="sourcePoint" />
+            <mxPoint x="240" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m7" edge="1" parent="1" style="verticalAlign=bottom;endArrow=block;dashed=1;html=1;" value="7. Update UI">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="240" y="360" as="sourcePoint" />
+            <mxPoint x="90" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m8" edge="1" parent="1" style="verticalAlign=bottom;endArrow=block;html=1;" value="8. Consume &amp; Store">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="690" y="400" as="sourcePoint" />
+            <mxPoint x="840" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

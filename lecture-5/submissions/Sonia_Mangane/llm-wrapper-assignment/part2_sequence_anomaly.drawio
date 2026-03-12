@@ -1,0 +1,57 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" version="29.6.1">
+  <diagram name="Page-1" id="hXnhS7gPgJHcDnb1W8Lc">
+    <mxGraphModel dx="1426" dy="824" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="L-db" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value="Metadata Store&#xa;(TimescaleDB)" vertex="1">
+          <mxGeometry height="440" width="120" x="60" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="L-engine" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value="Anomaly Engine&#xa;(Python/ML)" vertex="1">
+          <mxGeometry height="440" width="120" x="260" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="L-cache" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value="Baseline Store&#xa;(Redis)" vertex="1">
+          <mxGeometry height="440" width="120" x="460" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="L-notif" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value="Notification Sys&#xa;(Slack/PagerDuty)" vertex="1">
+          <mxGeometry height="440" width="120" x="660" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="m1" edge="1" parent="1" source="L-engine" style="verticalAlign=bottom;endArrow=block;html=1;exitX=0.5;exitY=0.182;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0.182;entryDx=0;entryDy=0;entryPerimeter=0;" target="L-db" value="1. Fetch Last 5m Window">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="m2" edge="1" parent="1" source="L-db" style="verticalAlign=bottom;endArrow=block;dashed=1;html=1;exitX=0.5;exitY=0.273;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0.273;entryDx=0;entryDy=0;entryPerimeter=0;" target="L-engine" value="2. Return Metrics">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="m3" edge="1" parent="1" source="L-engine" style="verticalAlign=bottom;endArrow=block;html=1;exitX=0.5;exitY=0.364;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0.364;entryDx=0;entryDy=0;entryPerimeter=0;" target="L-cache" value="3. Fetch 7-day Baseline">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="m4" edge="1" parent="1" source="L-cache" style="verticalAlign=bottom;endArrow=block;dashed=1;html=1;exitX=0.5;exitY=0.455;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0.455;entryDx=0;entryDy=0;entryPerimeter=0;" target="L-engine" value="4. Return Thresholds">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="m5" edge="1" parent="1" source="L-engine" style="verticalAlign=bottom;endArrow=block;html=1;exitX=0.5;exitY=0.545;exitDx=0;exitDy=0;exitPerimeter=0;" value="5. Compare &amp; Score">
+          <mxGeometry relative="1" x="0.1" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="360" y="280" />
+              <mxPoint x="360" y="310" />
+            </Array>
+            <mxPoint x="320" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m6" edge="1" parent="1" source="L-engine" style="verticalAlign=bottom;endArrow=block;html=1;strokeColor=#b85450;fontColor=#b85450;exitX=0.5;exitY=0.727;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0.727;entryDx=0;entryDy=0;entryPerimeter=0;" target="L-notif" value="6. Trigger Webhook">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="m7" edge="1" parent="1" source="L-notif" style="verticalAlign=bottom;endArrow=block;html=1;dashed=1;strokeColor=#b85450;exitX=0.5;exitY=0.818;exitDx=0;exitDy=0;exitPerimeter=0;" value="7. External Alert">
+          <mxGeometry relative="1" x="0.1" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="760" y="400" />
+              <mxPoint x="760" y="430" />
+            </Array>
+            <mxPoint x="720" y="420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
