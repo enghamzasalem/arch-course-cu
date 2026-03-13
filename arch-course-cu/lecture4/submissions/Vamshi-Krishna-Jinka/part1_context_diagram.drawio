@@ -1,0 +1,68 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" version="29.6.0">
+  <diagram name="Page-1" id="8coIJLcxKqb3wiTMMY_F">
+    <mxGraphModel dx="514" dy="567" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="pXUknu_4paVx1W6pATNj-4" edge="1" parent="1" source="pXUknu_4paVx1W6pATNj-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="pXUknu_4paVx1W6pATNj-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pXUknu_4paVx1W6pATNj-5" connectable="0" parent="pXUknu_4paVx1W6pATNj-4" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Process payments" vertex="1">
+          <mxGeometry relative="1" x="0.08" y="-1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pXUknu_4paVx1W6pATNj-6" edge="1" parent="1" source="pXUknu_4paVx1W6pATNj-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.75;exitY=1;exitDx=0;exitDy=0;" target="pXUknu_4paVx1W6pATNj-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pXUknu_4paVx1W6pATNj-7" connectable="0" parent="pXUknu_4paVx1W6pATNj-6" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Optimize streaming" vertex="1">
+          <mxGeometry relative="1" x="0.4764" as="geometry">
+            <mxPoint y="-31" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pXUknu_4paVx1W6pATNj-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Video Streaming Platform" vertex="1">
+          <mxGeometry height="60" width="120" x="470" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="pXUknu_4paVx1W6pATNj-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Payment Gateway" vertex="1">
+          <mxGeometry height="60" width="120" x="470" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="pXUknu_4paVx1W6pATNj-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="CDN" vertex="1">
+          <mxGeometry height="60" width="120" x="550" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="pXUknu_4paVx1W6pATNj-16" edge="1" parent="1" source="pXUknu_4paVx1W6pATNj-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="pXUknu_4paVx1W6pATNj-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pXUknu_4paVx1W6pATNj-17" connectable="0" parent="pXUknu_4paVx1W6pATNj-16" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Use the platform" vertex="1">
+          <mxGeometry relative="1" x="-0.0764" y="3" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pXUknu_4paVx1W6pATNj-8" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="User" vertex="1">
+          <mxGeometry height="60" width="30" x="300" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="pXUknu_4paVx1W6pATNj-23" edge="1" parent="1" source="pXUknu_4paVx1W6pATNj-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="pXUknu_4paVx1W6pATNj-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pXUknu_4paVx1W6pATNj-24" connectable="0" parent="pXUknu_4paVx1W6pATNj-23" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Uploads Content" vertex="1">
+          <mxGeometry relative="1" x="-0.2738" as="geometry">
+            <mxPoint x="-13" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pXUknu_4paVx1W6pATNj-9" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="Content Creator" vertex="1">
+          <mxGeometry height="60" width="30" x="720" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="pXUknu_4paVx1W6pATNj-12" edge="1" parent="1" source="pXUknu_4paVx1W6pATNj-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.25;entryY=1;entryDx=0;entryDy=0;" target="pXUknu_4paVx1W6pATNj-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pXUknu_4paVx1W6pATNj-13" connectable="0" parent="pXUknu_4paVx1W6pATNj-12" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Manage the platform" vertex="1">
+          <mxGeometry relative="1" x="-0.042" y="-2" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pXUknu_4paVx1W6pATNj-10" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="Admin" vertex="1">
+          <mxGeometry height="60" width="30" x="410" y="440" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
