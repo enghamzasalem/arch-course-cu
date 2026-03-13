@@ -1,1 +1,5 @@
-**/sol/**
+**/sol/***.pyc
+__pycache__/
+*.db
+*.pdf
+.DS_Store

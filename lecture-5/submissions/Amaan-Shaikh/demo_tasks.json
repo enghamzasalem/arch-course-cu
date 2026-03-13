@@ -1,0 +1,13 @@
+[
+  {
+    "item_id": "1",
+    "title": "JSON task",
+    "description": "",
+    "status": "pending",
+    "priority": 2,
+    "owner": "Alex",
+    "deadline": null,
+    "labels": [],
+    "created_at": "2026-03-13T05:36:48.608064"
+  }
+]
