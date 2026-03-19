@@ -1,0 +1,36 @@
+<mxfile host="app.diagrams.net" modified="2023-11-01T00:00:00.000Z" agent="Mozilla/5.0" version="22.0.0" type="device">
+  <diagram id="V1" name="Interfaces">
+    <mxGraphModel dx="1434" dy="792" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- IPDFSource -->
+        <mxCell id="source" value="&amp;lt;&amp;lt;interface&amp;gt;&amp;gt;&lt;br/&gt;&lt;b&gt;IPDFSource&lt;/b&gt;&lt;hr/&gt;+ type: &#39;url&#39; | &#39;buffer&#39; | &#39;base64&#39;&lt;br/&gt;+ data: string | Buffer&lt;br/&gt;+ password?: string" style="html=1;whiteSpace=wrap;align=left;spacingLeft=5;spacingRight=5;" vertex="1" parent="1">
+          <mxGeometry x="100" y="100" width="200" height="100" as="geometry" />
+        </mxCell>
+        
+        <!-- IPDFSession -->
+        <mxCell id="session" value="&amp;lt;&amp;lt;interface&amp;gt;&amp;gt;&lt;br/&gt;&lt;b&gt;IPDFSession&lt;/b&gt;&lt;hr/&gt;+ load(source: IPDFSource): Promise&amp;lt;void&amp;gt;&lt;br/&gt;+ execute(extractor: IExtractor): Promise&amp;lt;T&amp;gt;&lt;br/&gt;+ destroy(): void" style="html=1;whiteSpace=wrap;align=left;spacingLeft=5;spacingRight=5;" vertex="1" parent="1">
+          <mxGeometry x="400" y="100" width="240" height="100" as="geometry" />
+        </mxCell>
+        
+        <!-- IExtractor -->
+        <mxCell id="extractor" value="&amp;lt;&amp;lt;interface&amp;gt;&amp;gt;&lt;br/&gt;&lt;b&gt;IExtractor&amp;lt;T&amp;gt;&lt;/b&gt;&lt;hr/&gt;+ extract(session: IPDFSession, options?: any): Promise&amp;lt;T&amp;gt;" style="html=1;whiteSpace=wrap;align=left;spacingLeft=5;spacingRight=5;" vertex="1" parent="1">
+          <mxGeometry x="385" y="280" width="270" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Dependency Source <- Session -->
+        <mxCell id="edge1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;dashed=1;endArrow=open;endFill=0;" edge="1" parent="1" source="session" target="source">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Dependency Session <- Extractor -->
+        <mxCell id="edge2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;dashed=1;endArrow=open;endFill=0;" edge="1" parent="1" source="extractor" target="session">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
