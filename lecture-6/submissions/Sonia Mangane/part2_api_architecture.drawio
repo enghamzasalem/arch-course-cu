@@ -1,0 +1,61 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" version="29.6.3">
+  <diagram name="Page-1" id="3TpG5I3YXNVMD5Y5wBKl">
+    <mxGraphModel dx="1826" dy="824" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="client_group" parent="1" style="shape=rect;fixedSize=1;verticalAlign=top;align=center;spacingTop=8;fillColor=#f5f5f5;" value="External Clients" vertex="1">
+          <mxGeometry height="330" width="200" x="-80" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="cli" parent="1" style="rounded=1;fillColor=#dae8fc;" value="CLI (cURL)" vertex="1">
+          <mxGeometry height="40" width="80" x="-20" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="web" parent="1" style="rounded=1;fillColor=#dae8fc;" value="Web App" vertex="1">
+          <mxGeometry height="40" width="80" x="-20" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="mobile" parent="1" style="rounded=1;fillColor=#dae8fc;" value="Mobile App" vertex="1">
+          <mxGeometry height="40" width="80" x="-20" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="api_layer" parent="1" style="swimlane;whiteSpace=wrap;fillColor=#d5e8d4;" value="API Layer (Express/Fastify)" vertex="1">
+          <mxGeometry height="330" width="210" x="220" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="validator" parent="api_layer" style="rounded=0;" value="Request Validator" vertex="1">
+          <mxGeometry height="50" width="150" x="30" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="upload_handler" parent="api_layer" style="rounded=0;" value="File Upload Handler" vertex="1">
+          <mxGeometry height="50" width="150" x="30" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="router" parent="api_layer" style="rounded=0;" value="HTTP Routes" vertex="1">
+          <mxGeometry height="40" width="150" x="30" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="service_layer" parent="1" style="swimlane;whiteSpace=wrap;fillColor=#ffe6cc;" value="Service/Business Layer" vertex="1">
+          <mxGeometry height="330" width="190" x="550" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="pdf_service" parent="service_layer" style="rounded=0;" value="PDF Parsing Service" vertex="1">
+          <mxGeometry height="60" width="120" x="30" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="job_queue" parent="service_layer" style="rounded=0;" value="Async Job Worker" vertex="1">
+          <mxGeometry height="60" width="120" x="30" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="lib_layer" parent="1" style="swimlane;whiteSpace=wrap;fillColor=#e1d5e7;" value="Redesigned Library Core" vertex="1">
+          <mxGeometry height="330" width="200" x="850" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="session_mgr" parent="lib_layer" style="ellipse;whiteSpace=wrap;" value="IPDFSession" vertex="1">
+          <mxGeometry height="60" width="130" x="40" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="extractors" parent="lib_layer" style="ellipse;whiteSpace=wrap;" value="IExtractors" vertex="1">
+          <mxGeometry height="60" width="130" x="40" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="flow1" edge="1" parent="1" source="client_group" style="edgeStyle=orthogonalEdgeStyle;entryX=0;entryY=0.5;" target="validator" value="POST /extract">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="flow2" edge="1" parent="1" source="router" style="edgeStyle=orthogonalEdgeStyle;entryX=0;entryY=0.5;" target="pdf_service">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="flow3" edge="1" parent="1" source="pdf_service" style="edgeStyle=orthogonalEdgeStyle;entryX=0;entryY=0.5;" target="session_mgr" value="Invoke Library">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
