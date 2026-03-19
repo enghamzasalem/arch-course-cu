@@ -1,0 +1,102 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" version="29.6.1">
+  <diagram name="Page-1" id="aMAkVuXr-NlQes_zYv9x">
+    <mxGraphModel dx="1826" dy="824" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="taskManager" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;align=center;" value="&lt;b&gt;TaskManager&lt;/b&gt;&#xa;[Orchestrator]&#xa;Handles flow logic" vertex="1">
+          <mxGeometry height="80" width="220" x="315" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="validator" parent="1" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="&lt;b&gt;TaskValidator&lt;/b&gt;&#xa;SRP: Input Validation" vertex="1">
+          <mxGeometry height="70" width="160" x="-200" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="search" parent="1" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="&lt;b&gt;TaskSearch&lt;/b&gt;&#xa;SRP: Filtering/Querying" vertex="1">
+          <mxGeometry height="70" width="160" x="345" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="notifier" parent="1" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="&lt;b&gt;TaskNotifier&lt;/b&gt;&#xa;SRP: External Reminders" vertex="1">
+          <mxGeometry height="70" width="160" x="710" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="repoInterface" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="&lt;i&gt;&amp;lt;&amp;lt;interface&amp;gt;&amp;gt;&lt;/i&gt;&#xa;&lt;b&gt;ITaskStorage&lt;/b&gt;" vertex="1">
+          <mxGeometry height="120" width="120" x="150" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="exportInterface" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="&lt;i&gt;&amp;lt;&amp;lt;interface&amp;gt;&amp;gt;&lt;/i&gt;&#xa;&lt;b&gt;ITaskExporter&lt;/b&gt;" vertex="1">
+          <mxGeometry height="120" width="120" x="580" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="repoMemory" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="InMemoryRepository" vertex="1">
+          <mxGeometry height="60" width="160" x="40" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="repoFile" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="FileTaskRepository" vertex="1">
+          <mxGeometry height="60" width="160" x="220" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="jsonExporter" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="JsonExporter" vertex="1">
+          <mxGeometry height="60" width="160" x="490" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="csvExporter" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="CsvExporter" vertex="1">
+          <mxGeometry height="60" width="160" x="670" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="taskModel" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#f8cecc;strokeColor=#b85450;" value="&lt;b&gt;Task Model&lt;/b&gt;&#xa;(Data Structure)" vertex="1">
+          <mxGeometry height="100" width="80" x="380" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="edge1" edge="1" parent="1" source="taskManager" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" target="validator">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge2" edge="1" parent="1" source="taskManager" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" target="search">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge3" edge="1" parent="1" source="taskManager" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" target="notifier">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge4" edge="1" parent="1" source="taskManager" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;" target="repoInterface">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="330" y="100" />
+              <mxPoint x="210" y="100" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge7" edge="1" parent="1" source="taskManager" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;" target="exportInterface">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="520" y="100" />
+              <mxPoint x="640" y="100" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge5" edge="1" parent="1" source="repoMemory" style="dashed=1;endArrow=block;endFill=0;" target="repoInterface">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge6" edge="1" parent="1" source="repoFile" style="dashed=1;endArrow=block;endFill=0;" target="repoInterface">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge8" edge="1" parent="1" source="jsonExporter" style="dashed=1;endArrow=block;endFill=0;" target="exportInterface">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge9" edge="1" parent="1" source="csvExporter" style="dashed=1;endArrow=block;endFill=0;" target="exportInterface">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Ow9FBBnlnVk-UUQd2_gN-2" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="&lt;i&gt;&amp;lt;&amp;lt;interface&amp;gt;&amp;gt;&lt;/i&gt;&#xa;&lt;b&gt;ILogger&lt;/b&gt;" vertex="1">
+          <mxGeometry height="120" width="120" x="-180" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="Ow9FBBnlnVk-UUQd2_gN-3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="ConsoleLogger / FileLogger" vertex="1">
+          <mxGeometry height="60" width="170" x="-205" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="Ow9FBBnlnVk-UUQd2_gN-4" edge="1" parent="1" source="Ow9FBBnlnVk-UUQd2_gN-3" style="dashed=1;endArrow=block;endFill=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="Ow9FBBnlnVk-UUQd2_gN-2">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="150" y="529" as="sourcePoint" />
+            <mxPoint x="191" y="460" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ow9FBBnlnVk-UUQd2_gN-5" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=open;endFill=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="Ow9FBBnlnVk-UUQd2_gN-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-20" y="90" />
+              <mxPoint x="-20" y="380" />
+            </Array>
+            <mxPoint x="315" y="90" as="sourcePoint" />
+            <mxPoint x="-20" y="412.96000000000004" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
