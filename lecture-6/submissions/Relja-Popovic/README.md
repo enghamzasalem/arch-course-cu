@@ -1,4 +1,4 @@
-# Assignment Submission: Lecture 4
+# Assignment Submission: Lecture 6
 
 **Student Name**: Relja Popovic
 **Student ID**: 30008800 
