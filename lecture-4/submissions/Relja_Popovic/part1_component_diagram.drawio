@@ -1,0 +1,120 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" version="29.6.1">
+  <diagram id="component_diagram" name="C4 - Component Diagram">
+    <mxGraphModel dx="1343" dy="939" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="container_boundary" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0f8f4;strokeColor=#00897b;strokeWidth=3;dashed=1;" value="" vertex="1">
+          <mxGeometry height="680" width="720" x="280" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="container_label" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=14;fontStyle=3;fontColor=#00897b;" value="&lt;span style=&quot;font-style: normal;&quot;&gt;API Service&lt;/span&gt;" vertex="1">
+          <mxGeometry height="22" width="320" x="480" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="api_gw_caller" parent="1" style="rounded=1;fillColor=#1ba1e2;strokeColor=#006EAF;fontColor=#ffffff;fontSize=12;arcSize=5;" value="&lt;b&gt;Web / Mobile App&lt;/b&gt;" vertex="1">
+          <mxGeometry height="60" width="160" x="80" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="postgres" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" value="&lt;b&gt;PostgreSQL&lt;/b&gt;" vertex="1">
+          <mxGeometry height="90" width="150" x="1100" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="payment_ext" parent="1" style="rounded=1;fillColor=#f0a30a;strokeColor=#BD7000;fontSize=12;arcSize=5;" value="Payment Gateway" vertex="1">
+          <mxGeometry height="70" width="160" x="1100" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="auth" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;arcSize=5;" value="&lt;b&gt;Auth Component&lt;/b&gt;&#xa;[Express Middleware]&#xa;&#xa;Validates JWT tokens on every&#xa;inbound request and attaches&#xa;the user context to the&#xa;request pipeline." vertex="1">
+          <mxGeometry height="170" width="230" x="340" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="content_ctrl" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;arcSize=5;" value="&lt;b&gt;Content Controller&lt;/b&gt;&#xa;[REST Controller]&#xa;&#xa;Exposes endpoints to browse&#xa;the video catalogue, search&#xa;by title or genre, and fetch&#xa;video metadata." vertex="1">
+          <mxGeometry height="170" width="230" x="340" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="watchlist_svc" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;arcSize=5;" value="&lt;b&gt;Watchlist Service&lt;/b&gt;&#xa;[Service Layer]&#xa;&#xa;Manages adding and removing&#xa;titles from a user&#39;s watchlist&#xa;and tracks resume positions&#xa;in viewing history." vertex="1">
+          <mxGeometry height="170" width="230" x="720" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="7eqShBrf0cRs6tg2ii8O-2" edge="1" parent="1" source="sub_svc" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="watchlist_svc" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sub_svc" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;arcSize=5;" value="&lt;b&gt;Subscription Service&lt;/b&gt;&#xa;[Service Layer]&#xa;&#xa;Manages subscription tiers&#xa;and billing cycles, and&#xa;delegates payment requests&#xa;to the Payment Gateway." vertex="1">
+          <mxGeometry height="170" width="230" x="720" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="conn1" edge="1" parent="1" source="api_gw_caller" style="edgeStyle=orthogonalEdgeStyle;fontSize=10;labelBackgroundColor=none;" target="auth" value="All requests [HTTP]">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="conn2" edge="1" parent="1" source="auth" style="edgeStyle=orthogonalEdgeStyle;fontSize=10;labelBackgroundColor=none;" target="content_ctrl" value="Authenticated requests">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="490" y="400" />
+              <mxPoint x="490" y="400" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn3" edge="1" parent="1" source="auth" style="edgeStyle=orthogonalEdgeStyle;fontSize=10;labelBackgroundColor=none;" target="watchlist_svc" value="Authenticated requests">
+          <mxGeometry relative="1" x="-0.0044" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn4" edge="1" parent="1" source="content_ctrl" style="edgeStyle=orthogonalEdgeStyle;fontSize=10;labelBackgroundColor=none;" target="watchlist_svc" value="Reads viewing history">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="670" y="440" />
+              <mxPoint x="670" y="300" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn5" edge="1" parent="1" source="content_ctrl" style="edgeStyle=orthogonalEdgeStyle;fontSize=10;labelBackgroundColor=none;" target="sub_svc" value="Checks subscription access">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="conn6" edge="1" parent="1" source="watchlist_svc" style="edgeStyle=orthogonalEdgeStyle;fontSize=10;labelBackgroundColor=none;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" target="postgres" value="Reads/writes [SQL]">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1175" y="310" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn7" edge="1" parent="1" source="sub_svc" style="edgeStyle=orthogonalEdgeStyle;fontSize=10;labelBackgroundColor=none;" target="postgres" value="Reads/writes [SQL]">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="conn8" edge="1" parent="1" source="sub_svc" style="edgeStyle=orthogonalEdgeStyle;fontSize=10;labelBackgroundColor=none;" target="payment_ext" value="Charges card [HTTPS/REST]">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="980" y="470" />
+              <mxPoint x="980" y="370" />
+              <mxPoint x="1060" y="370" />
+              <mxPoint x="1060" y="235" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7eqShBrf0cRs6tg2ii8O-3" connectable="0" parent="1" style="group" value="" vertex="1">
+          <mxGeometry height="130" width="175" x="552.5" y="620" as="geometry" />
+        </mxCell>
+        <mxCell id="leg_bg" parent="7eqShBrf0cRs6tg2ii8O-3" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="130" width="175" as="geometry" />
+        </mxCell>
+        <mxCell id="leg_t" parent="7eqShBrf0cRs6tg2ii8O-3" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=13;fontStyle=1;" value="&lt;b&gt;Legend&lt;/b&gt;" vertex="1">
+          <mxGeometry height="20" width="60" x="60" y="5" as="geometry" />
+        </mxCell>
+        <mxCell id="ll1" parent="7eqShBrf0cRs6tg2ii8O-3" style="rounded=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="" vertex="1">
+          <mxGeometry height="18" width="28" x="15" y="32" as="geometry" />
+        </mxCell>
+        <mxCell id="lt1" parent="7eqShBrf0cRs6tg2ii8O-3" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;" value="Controller" vertex="1">
+          <mxGeometry height="18" width="115" x="50" y="32" as="geometry" />
+        </mxCell>
+        <mxCell id="ll2" parent="7eqShBrf0cRs6tg2ii8O-3" style="rounded=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="" vertex="1">
+          <mxGeometry height="18" width="28" x="15" y="58" as="geometry" />
+        </mxCell>
+        <mxCell id="lt2" parent="7eqShBrf0cRs6tg2ii8O-3" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;" value="Service Layer" vertex="1">
+          <mxGeometry height="18" width="115" x="50" y="58" as="geometry" />
+        </mxCell>
+        <mxCell id="ll3" parent="7eqShBrf0cRs6tg2ii8O-3" style="shape=cylinder3;fillColor=#fff2cc;strokeColor=#d6b656;" value="" vertex="1">
+          <mxGeometry height="22" width="28" x="15" y="83" as="geometry" />
+        </mxCell>
+        <mxCell id="lt3" parent="7eqShBrf0cRs6tg2ii8O-3" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;" value="External Store" vertex="1">
+          <mxGeometry height="18" width="115" x="50" y="88" as="geometry" />
+        </mxCell>
+        <mxCell id="ll4" parent="7eqShBrf0cRs6tg2ii8O-3" style="rounded=1;fillColor=#f0a30a;strokeColor=#BD7000;" value="" vertex="1">
+          <mxGeometry height="18" width="28" x="15" y="112" as="geometry" />
+        </mxCell>
+        <mxCell id="lt4" parent="7eqShBrf0cRs6tg2ii8O-3" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;" value="External System" vertex="1">
+          <mxGeometry height="18" width="115" x="50" y="112" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
