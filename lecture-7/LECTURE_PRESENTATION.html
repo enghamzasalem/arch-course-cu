@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lecture 7 — Composability and Connectors</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; overflow: hidden; font-family: "Segoe UI", system-ui, -apple-system, sans-serif; }
+    body { background: #1a1d23; color: #e8eaed; }
+
+    .deck {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .slide {
+      display: none;
+      flex: 1;
+      flex-direction: column;
+      justify-content: center;
+      padding: 3rem 5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      animation: fadeIn 0.35s ease;
+    }
+    .slide.active { display: flex; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .slide h1 {
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+      border-left: 5px solid #3b82f6;
+      padding-left: 1rem;
+    }
+
+    .slide h2 {
+      font-size: clamp(1.25rem, 2.5vw, 1.65rem);
+      color: #93c5fd;
+      margin-bottom: 1.25rem;
+      font-weight: 600;
+    }
+
+    .slide p, .slide li {
+      font-size: clamp(1rem, 1.8vw, 1.2rem);
+      line-height: 1.55;
+      color: #c4c9d4;
+      margin-bottom: 0.65rem;
+    }
+
+    .slide ul, .slide ol { margin: 0.75rem 0 0 1.5rem; }
+    .slide li { margin-bottom: 0.45rem; }
+
+    .subtitle { font-size: 1.15rem; color: #9ca3af; margin-top: 0.5rem; }
+    .meta { font-size: 0.95rem; color: #6b7280; margin-top: 2rem; }
+
+    .title-slide {
+      text-align: center;
+      justify-content: center;
+      border-left: none !important;
+      padding-left: 0 !important;
+    }
+    .title-slide h1 {
+      border: none;
+      padding: 0;
+      font-size: clamp(2rem, 5vw, 3.25rem);
+    }
+    .title-slide .course { color: #3b82f6; font-size: 1rem; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1rem; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+      font-size: clamp(0.85rem, 1.4vw, 1rem);
+    }
+    th, td {
+      border: 1px solid #374151;
+      padding: 0.65rem 0.85rem;
+      text-align: left;
+    }
+    th { background: #252a33; color: #93c5fd; }
+    tr:nth-child(even) td { background: #22262e; }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    @media (max-width: 768px) { .two-col { grid-template-columns: 1fr; } }
+
+    .box {
+      background: #252a33;
+      border-radius: 10px;
+      padding: 1.25rem;
+      border: 1px solid #374151;
+    }
+    .box h3 { color: #60a5fa; font-size: 1.1rem; margin-bottom: 0.75rem; }
+
+    .highlight { color: #fbbf24; font-weight: 600; }
+    .code { font-family: ui-monospace, monospace; font-size: 0.9em; background: #111418; padding: 0.15em 0.4em; border-radius: 4px; }
+
+    .footer-bar {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.65rem 1.5rem;
+      background: #111418;
+      border-top: 1px solid #374151;
+      font-size: 0.85rem;
+      color: #9ca3af;
+    }
+    .progress-wrap { flex: 1; max-width: 280px; margin: 0 1rem; }
+    .progress { height: 4px; background: #374151; border-radius: 2px; overflow: hidden; }
+    .progress-fill { height: 100%; background: #3b82f6; transition: width 0.2s ease; }
+
+    .hint { font-size: 0.8rem; color: #6b7280; }
+
+    kbd {
+      background: #374151;
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+    }
+
+    /* --- Fullscreen + controls --- */
+    #presentation-root {
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      background: #1a1d23;
+    }
+    #presentation-root:fullscreen,
+    #presentation-root:-webkit-full-screen {
+      background: #1a1d23;
+    }
+    #presentation-root:fullscreen .deck,
+    #presentation-root:-webkit-full-screen .deck {
+      flex: 1;
+      min-height: 0;
+    }
+
+    .slide-controls {
+      position: fixed;
+      top: 12px;
+      right: 12px;
+      z-index: 1000;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .slide-controls button {
+      font: inherit;
+      font-size: 0.8rem;
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: 1px solid #374151;
+      background: #252a33;
+      color: #e8eaed;
+      cursor: pointer;
+    }
+    .slide-controls button:hover {
+      background: #374151;
+      border-color: #3b82f6;
+    }
+    .slide-controls .hint-mini {
+      font-size: 0.7rem;
+      color: #6b7280;
+      max-width: 140px;
+      line-height: 1.3;
+    }
+
+    /* --- Print / Save as PDF (same visual layout) --- */
+    @media print {
+      @page {
+        size: landscape;
+        margin: 10mm;
+      }
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        color-adjust: exact !important;
+      }
+      html, body {
+        height: auto !important;
+        overflow: visible !important;
+        background: #1a1d23 !important;
+      }
+      .slide-controls,
+      .footer-bar {
+        display: none !important;
+      }
+      #presentation-root {
+        height: auto !important;
+        width: 100% !important;
+        display: block !important;
+        background: #1a1d23 !important;
+      }
+      .deck {
+        display: block !important;
+        height: auto !important;
+      }
+      #slides {
+        display: block !important;
+      }
+      .slide {
+        display: flex !important;
+        flex-direction: column;
+        justify-content: center;
+        min-height: calc(100vh - 20mm);
+        max-width: none !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 2rem 3rem !important;
+        box-sizing: border-box;
+        page-break-after: always;
+        break-after: page;
+        page-break-inside: avoid;
+        break-inside: avoid;
+        background: #1a1d23 !important;
+        color: #e8eaed !important;
+        animation: none !important;
+      }
+      .slide:last-of-type {
+        page-break-after: auto;
+        break-after: auto;
+      }
+      .slide h1 { color: #fff !important; }
+      .slide h2 { color: #93c5fd !important; }
+      .slide p, .slide li { color: #c4c9d4 !important; }
+      th { background: #252a33 !important; color: #93c5fd !important; }
+      tr:nth-child(even) td { background: #22262e !important; }
+      .box { background: #252a33 !important; border-color: #374151 !important; }
+    }
+  </style>
+</head>
+<body>
+  <div id="presentation-root">
+  <div class="slide-controls no-print" aria-label="Presentation controls">
+    <button type="button" id="btnFullscreen" title="Fullscreen (F)">⛶ Fullscreen</button>
+    <button type="button" id="btnPrintPdf" title="Print / Save as PDF (P)">📄 Save PDF</button>
+    <span class="hint-mini">PDF: Print → Save as PDF</span>
+  </div>
+  <div class="deck">
+    <div id="slides">
+
+      <section class="slide active title-slide">
+        <p class="course">Software Architecture — Chapter 7</p>
+        <h1>Composability and Connectors</h1>
+        <p class="subtitle">How components are composed into systems and how they communicate</p>
+        <p class="meta">Based on Pautasso — Visual Lecture Notes</p>
+      </section>
+
+      <section class="slide title-slide">
+        <p class="course">Recap — Lecture 6</p>
+        <h1>Reusability &amp; Interfaces</h1>
+        <p class="subtitle">Chapter 6: how we shape components so they can be reused and evolved</p>
+        <p class="meta">Examples: <span class="code">example1_interface_design_and_contracts.py</span>, <span class="code">example2_reusability_and_versioning.py</span></p>
+        <p class="meta" style="margin-top:1.25rem;">→ Today: how reusable parts are <strong>composed</strong> with <strong>connectors</strong> (Chapter 7).</p>
+      </section>
+
+      <section class="slide">
+        <h1>Recap: interfaces &amp; contracts</h1>
+        <p><strong>Good interfaces</strong> are <span class="highlight">minimal</span> (only what clients need), <span class="highlight">stable</span> (avoid breaking changes), and <span class="highlight">clear</span> (consistent naming and semantics).</p>
+        <ul>
+          <li><strong>Abstraction / information hiding</strong> — expose behavior, hide implementation details</li>
+          <li><strong>Contracts</strong> — preconditions (what must hold before a call), postconditions (what holds after)</li>
+          <li>Multiple implementations behind one interface (e.g. cache backends) = real reusability</li>
+        </ul>
+      </section>
+
+      <section class="slide">
+        <h1>Recap: API design</h1>
+        <ul>
+          <li><strong>Consistency</strong> — patterns for naming, errors, and resources across endpoints</li>
+          <li><strong>Discoverability</strong> — docs, predictable URLs or RPC names</li>
+          <li><strong>Backward compatibility</strong> — don’t surprise existing clients when you extend</li>
+        </ul>
+        <p class="meta">Lecture 6 assignment tied this to exposing a library as an <strong>HTTP/REST API</strong> (layers, request/response shapes).</p>
+      </section>
+
+      <section class="slide">
+        <h1>Recap: library vs framework</h1>
+        <table>
+          <thead>
+            <tr><th></th><th>Library</th><th>Framework</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Control flow</td><td><strong>You</strong> call it</td><td>It <strong>calls you</strong> (inversion)</td></tr>
+            <tr><td>Reuse</td><td>Functions / classes</td><td>Handlers, plug-ins, hooks</td></tr>
+          </tbody>
+        </table>
+        <p class="meta">Same component can be packaged as a library or hosted inside a framework — the interface story changes.</p>
+      </section>
+
+      <section class="slide">
+        <h1>Recap: evolution &amp; versioning</h1>
+        <ul>
+          <li>Extend with <strong>optional parameters</strong> (defaults) instead of breaking signatures</li>
+          <li><strong>Deprecate</strong> clearly (warnings, docs), remove in a later major release</li>
+          <li><strong>Semantic versioning</strong>: MAJOR = breaking, MINOR = compatible features, PATCH = fixes</li>
+        </ul>
+        <p class="meta">Plan a <strong>migration path</strong> when interfaces must change.</p>
+      </section>
+
+      <section class="slide">
+        <h1>Learning objectives</h1>
+        <ul>
+          <li>Compose components into larger systems</li>
+          <li>Design and choose <span class="highlight">connectors</span> (how components talk)</li>
+          <li>Understand composition patterns and architectural connectors</li>
+          <li>Use <span class="highlight">message passing</span> (sync vs async)</li>
+          <li>Design <span class="highlight">event-driven</span> compositions</li>
+          <li>Compare <span class="highlight">orchestration</span> vs <span class="highlight">choreography</span></li>
+        </ul>
+      </section>
+
+      <section class="slide">
+        <h1>What is composition?</h1>
+        <p><strong>Composition</strong> = building a system by assembling smaller <strong>components</strong> rather than one monolithic block.</p>
+        <ul>
+          <li>Each component has a clear responsibility</li>
+          <li>Components are connected by <strong>connectors</strong></li>
+          <li>Architecture ≈ <span class="highlight">components + connectors</span></li>
+        </ul>
+        <p class="meta">You reuse and replace parts; the whole is defined by how parts interact.</p>
+      </section>
+
+      <section class="slide">
+        <h1>Connectors</h1>
+        <p>A <strong>connector</strong> is the mechanism that allows communication between components.</p>
+        <ul>
+          <li>Defines <em>protocol</em>, <em>direction</em>, and often <em>sync vs async</em></li>
+          <li>Same component can use different connectors to different neighbors</li>
+          <li>Choosing the wrong connector affects coupling, latency, and failure modes</li>
+        </ul>
+      </section>
+
+      <section class="slide">
+        <h1>Connector types (overview)</h1>
+        <table>
+          <thead>
+            <tr><th>Type</th><th>Typical use</th><th>Often</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Direct call</td><td>Same process, in-memory</td><td>Sync</td></tr>
+            <tr><td>RPC / REST</td><td>Services over network</td><td>Sync (request/response)</td></tr>
+            <tr><td>Message queue</td><td>Decouple producer/consumer</td><td>Async</td></tr>
+            <tr><td>Event bus</td><td>Many subscribers, pub/sub</td><td>Async</td></tr>
+            <tr><td>Shared DB</td><td>Implicit coupling via data</td><td>Sync read/write</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="slide">
+        <h1>Message passing</h1>
+        <div class="two-col">
+          <div class="box">
+            <h3>Synchronous</h3>
+            <p>Caller sends a message and <strong>waits</strong> for a reply.</p>
+            <p>Simple mental model; tight temporal coupling; blocking under load.</p>
+          </div>
+          <div class="box">
+            <h3>Asynchronous</h3>
+            <p>Caller sends and <strong>continues</strong>; consumer processes later.</p>
+            <p>Better decoupling and scale; harder reasoning and debugging.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide">
+        <h1>When to use sync vs async?</h1>
+        <ul>
+          <li><strong>Sync</strong> when you need an immediate result to proceed (e.g. validate payment before shipping)</li>
+          <li><strong>Async</strong> when work can be deferred (e.g. send email, generate report)</li>
+          <li>Async often uses queues or events to absorb spikes and isolate failures</li>
+        </ul>
+      </section>
+
+      <section class="slide">
+        <h1>Composition patterns</h1>
+        <ul>
+          <li><strong>Pipeline</strong> — output of A is input of B (sequential stages)</li>
+          <li><strong>Layered</strong> — upper layer calls lower layer only</li>
+          <li><strong>Blackboard / shared state</strong> — components read/write shared data (use with care)</li>
+          <li><strong>Microservices / SOA</strong> — services composed via APIs and messaging</li>
+        </ul>
+      </section>
+
+      <section class="slide">
+        <h1>Service composition</h1>
+        <p>Multiple services cooperate to fulfill one business capability.</p>
+        <ul>
+          <li>Each service exposes a contract (API or events)</li>
+          <li>Composition can be <strong>orchestrated</strong> or <strong>choreographed</strong></li>
+          <li>Cross-cutting concerns: auth, tracing, idempotency, timeouts</li>
+        </ul>
+      </section>
+
+      <section class="slide">
+        <h1>Orchestration</h1>
+        <p>One component (the <strong>orchestrator</strong>) <strong>controls the flow</strong>: it calls other services in order and handles branching.</p>
+        <ul>
+          <li><span class="highlight">Pros:</span> Flow is visible in one place; easier to change sequence</li>
+          <li><span class="highlight">Cons:</span> Orchestrator can become a bottleneck; couples flow to one component</li>
+        </ul>
+      </section>
+
+      <section class="slide">
+        <h1>Choreography</h1>
+        <p>No central coordinator: each service reacts to <strong>events</strong> (or messages) and may publish new ones.</p>
+        <ul>
+          <li><span class="highlight">Pros:</span> Loose coupling; easy to add new subscribers</li>
+          <li><span class="highlight">Cons:</span> Global flow is implicit; harder to trace and test end-to-end</li>
+        </ul>
+      </section>
+
+      <section class="slide">
+        <h1>Orchestration vs choreography</h1>
+        <table>
+          <thead>
+            <tr><th></th><th>Orchestration</th><th>Choreography</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Control</td><td>Central</td><td>Distributed</td></tr>
+            <tr><td>Visibility</td><td>High (one place)</td><td>Lower (many handlers)</td></tr>
+            <tr><td>Scaling</td><td>Orchestrator matters</td><td>Workers scale independently</td></tr>
+            <tr><td>Good for</td><td>Clear workflows</td><td>Many reactive consumers</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="slide">
+        <h1>Event-driven architecture</h1>
+        <ul>
+          <li><strong>Event</strong> — something happened (past tense: <span class="code">OrderPlaced</span>)</li>
+          <li><strong>Event bus / broker</strong> — delivers events to subscribers</li>
+          <li>Enables choreography, async processing, and integration without tight API coupling</li>
+          <li>Watch for: ordering, duplicates, eventual consistency, schema evolution</li>
+        </ul>
+      </section>
+
+      <section class="slide">
+        <h1>Architectural connectors</h1>
+        <p>At the architecture level, connectors are not just “function calls”:</p>
+        <ul>
+          <li>They carry <strong>quality attributes</strong>: reliability, latency, security</li>
+          <li>They appear in <strong>deployment</strong> and <strong>runtime</strong> views</li>
+          <li>Document them in diagrams (REST, AMQP, gRPC, WebSocket, …)</li>
+        </ul>
+      </section>
+
+      <section class="slide">
+        <h1>Course examples (Python)</h1>
+        <ul>
+          <li><span class="code">example1_composition_and_connectors.py</span> — order pipeline, connector types, sync vs async</li>
+          <li><span class="code">example2_orchestration_vs_choreography.py</span> — orchestrator vs event bus choreography</li>
+        </ul>
+        <p class="meta">Run them after the lecture to reinforce concepts.</p>
+      </section>
+
+      <section class="slide title-slide">
+        <p class="course">Assignment</p>
+        <h1>Composable Document Processing Pipeline</h1>
+        <p class="subtitle">Apply Chapter 7: components, connectors, orchestration vs choreography</p>
+        <p class="meta">Full spec: <span class="code">ASSIGNMENT.md</span> — this section orients you; it does <strong>not</strong> solve the assignment.</p>
+      </section>
+
+      <section class="slide">
+        <h1>Assignment: scenario</h1>
+        <p>Design the <strong>architecture</strong> of a pipeline that:</p>
+        <ul>
+          <li><strong>Ingests</strong> documents (e.g. PDF, images) with optional options</li>
+          <li><strong>Runs</strong> conceptual steps: validate → extract (text/OCR) → classify → store → notify</li>
+          <li><strong>Serves</strong> clients needing <strong>sync</strong> (“process and return now”) and <strong>async</strong> (“job id, notify when done”)</li>
+        </ul>
+        <p class="meta">You document <strong>design choices</strong>, not production code.</p>
+      </section>
+
+      <section class="slide">
+        <h1>What you produce (big picture)</h1>
+        <table>
+          <thead>
+            <tr><th>Area</th><th>You decide &amp; justify</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Components</td><td>≥5, responsibilities, I/O, sync/async view</td></tr>
+            <tr><td>Connectors</td><td>Types, protocols, where sync vs async</td></tr>
+            <tr><td>Styles</td><td>One <strong>orchestrated</strong> and one <strong>choreographed</strong> design + comparison</td></tr>
+            <tr><td>API</td><td>Sync + async client entry points</td></tr>
+            <tr><td>Diagrams</td><td>Component-and-connector + one sequence diagram</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="slide">
+        <h1>Part 1 — Components &amp; connectors</h1>
+        <p><strong>Task 1.1</strong> (written)</p>
+        <ul>
+          <li><strong>≥5 components</strong> — each: name, single responsibility, inputs/outputs, caller’s sync vs async</li>
+          <li><strong>Connectors</strong> between pairs: name, type (call, REST, queue, bus, …), sync/async, format</li>
+          <li><strong>Justify</strong> sync vs async (e.g. fast feedback vs deferred heavy work)</li>
+        </ul>
+        <p class="meta">Deliverable: <span class="code">part1_components_and_connectors.md</span> — <strong>30 pts</strong></p>
+      </section>
+
+      <section class="slide">
+        <h1>Part 1 — Diagram</h1>
+        <p><strong>Task 1.2</strong></p>
+        <ul>
+          <li><strong>draw.io</strong> component-and-connector diagram: boxes + <strong>labeled</strong> arrows (connector type, sync/async)</li>
+          <li>Include a <strong>legend</strong></li>
+        </ul>
+        <p class="meta">Deliverables: <span class="code">.drawio</span> and <span class="code">.png</span> — <strong>20 pts</strong></p>
+      </section>
+
+      <section class="slide">
+        <h1>Part 2 — Orchestration</h1>
+        <p><strong>Task 2.1</strong></p>
+        <ul>
+          <li>Which component <strong>orchestrates</strong>; <strong>order</strong> of calls to others</li>
+          <li><strong>Errors / retries</strong> (conceptually)</li>
+          <li><strong>One</strong> advantage and <strong>one</strong> disadvantage for <em>your</em> pipeline</li>
+        </ul>
+        <p class="meta">Deliverable: <span class="code">part2_orchestration.md</span> — <strong>15 pts</strong></p>
+      </section>
+
+      <section class="slide">
+        <h1>Part 2 — Choreography</h1>
+        <p><strong>Task 2.2</strong></p>
+        <ul>
+          <li><strong>Event</strong> names for the lifecycle (you define the set)</li>
+          <li>Per component: what it <strong>subscribes</strong> to and what it <strong>publishes</strong> and when</li>
+          <li><strong>No</strong> central orchestrator — flow emerges from events</li>
+          <li><strong>One</strong> pro and <strong>one</strong> con vs your orchestrated design</li>
+        </ul>
+        <p class="meta">Deliverable: <span class="code">part2_choreography.md</span> — <strong>15 pts</strong></p>
+      </section>
+
+      <section class="slide">
+        <h1>Part 2 — Compare &amp; recommend</h1>
+        <p><strong>Task 2.3</strong></p>
+        <ul>
+          <li>Short <strong>comparison table</strong>: e.g. changing order, adding steps, debugging/tracing, latency &amp; scale (conceptual)</li>
+          <li><strong>Recommend</strong> orchestration, choreography, or <strong>hybrid</strong> — brief justification</li>
+        </ul>
+        <p class="meta">Deliverable: <span class="code">part2_comparison.md</span> — <strong>10 pts</strong></p>
+      </section>
+
+      <section class="slide">
+        <h1>Part 3 — API (sync &amp; async)</h1>
+        <p><strong>Task 3.1</strong></p>
+        <ul>
+          <li><strong>Endpoints</strong> (REST or RPC-style): e.g. sync “run now” vs async “create job” + status (optional webhook)</li>
+          <li>Map <strong>sync path</strong> and <strong>async path</strong> to <em>your</em> components/connectors (queues/events as you designed)</li>
+        </ul>
+        <p class="meta">Deliverable: <span class="code">part3_api_design.md</span> — <strong>20 pts</strong></p>
+      </section>
+
+      <section class="slide">
+        <h1>Part 3 — Sequence diagram</h1>
+        <p><strong>Task 3.2</strong></p>
+        <ul>
+          <li><strong>One</strong> end-to-end flow: <strong>either</strong> full sync <strong>or</strong> async (enqueue → worker → … → notify)</li>
+          <li><strong>≥5 participants</strong>, labeled messages</li>
+        </ul>
+        <p class="meta">Deliverables: <span class="code">part3_sequence_diagram.drawio</span> + <span class="code">.png</span> — <strong>10 pts</strong></p>
+      </section>
+
+      <section class="slide">
+        <h1>Submission &amp; grading</h1>
+        <ul>
+          <li><strong>Pull Request</strong> to <span class="code">lecture-7/submissions/YOUR_NAME/</span> — see <span class="code">../lecture-3/SUBMISSION_GUIDE.md</span></li>
+          <li><strong>Total: 120 points</strong> — full rubric in <span class="code">ASSIGNMENT.md</span></li>
+          <li>Every diagram: <strong>both</strong> source (<span class="code">.drawio</span>) and <span class="code">.png</span></li>
+        </ul>
+      </section>
+
+      <section class="slide">
+        <h1>Before you start</h1>
+        <p class="meta" style="margin-top:0;margin-bottom:1rem;">Hints — not answers</p>
+        <ol style="margin-left:1.5rem;">
+          <li>Re-read the <strong>two Python examples</strong> in this lecture folder</li>
+          <li>List <strong>pipeline steps</strong>, then <strong>assign</strong> steps to components (your split)</li>
+          <li>Pick a <strong>connector</strong> per link: sync when you must wait; async when you can defer</li>
+          <li>Sketch <strong>orchestrator call chain</strong>, then <strong>events + subscribers</strong> for the other style</li>
+        </ol>
+      </section>
+
+      <section class="slide">
+        <h1>Takeaways</h1>
+        <ul>
+          <li>Systems are <strong>composed</strong> of components linked by <strong>connectors</strong></li>
+          <li>Choose connector type and sync/async to match requirements and trade-offs</li>
+          <li><strong>Orchestration</strong> centralizes flow; <strong>choreography</strong> distributes it via events</li>
+          <li>Event-driven design supports scalable, loosely coupled composition</li>
+        </ul>
+      </section>
+
+      <section class="slide title-slide">
+        <h1>Questions?</h1>
+        <p class="subtitle">Chapter 7 — Composability and Connectors</p>
+        <p class="meta">Next: Chapter 8 — Compatibility and Coupling</p>
+      </section>
+
+    </div>
+
+    <div class="footer-bar">
+      <span id="slideLabel">1 / 34</span>
+      <div class="progress-wrap">
+        <div class="progress"><div class="progress-fill" id="progressFill" style="width: 2.94%"></div></div>
+      </div>
+      <span class="hint"><kbd>←</kbd> <kbd>→</kbd> <kbd>F</kbd> fullscreen <kbd>P</kbd> PDF</span>
+    </div>
+  </div>
+  </div>
+
+  <script>
+    (function () {
+      const root = document.getElementById('presentation-root');
+      const slides = Array.from(document.querySelectorAll('.slide'));
+      let i = 0;
+      const label = document.getElementById('slideLabel');
+      const fill = document.getElementById('progressFill');
+      const n = slides.length;
+
+      function show(idx) {
+        i = Math.max(0, Math.min(n - 1, idx));
+        slides.forEach((s, j) => s.classList.toggle('active', j === i));
+        label.textContent = (i + 1) + ' / ' + n;
+        fill.style.width = ((i + 1) / n * 100) + '%';
+      }
+
+      function toggleFullscreen() {
+        if (!document.fullscreenElement) {
+          root.requestFullscreen().catch(function () {});
+        } else {
+          document.exitFullscreen();
+        }
+      }
+
+      document.getElementById('btnFullscreen').addEventListener('click', function (e) {
+        e.stopPropagation();
+        toggleFullscreen();
+      });
+      document.getElementById('btnPrintPdf').addEventListener('click', function (e) {
+        e.stopPropagation();
+        window.print();
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'f' || e.key === 'F') {
+          if (!e.ctrlKey && !e.metaKey && !e.altKey) {
+            e.preventDefault();
+            toggleFullscreen();
+          }
+          return;
+        }
+        if (e.key === 'p' || e.key === 'P') {
+          if (!e.ctrlKey && !e.metaKey && !e.altKey) {
+            e.preventDefault();
+            window.print();
+          }
+          return;
+        }
+        if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); show(i + 1); }
+        if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); show(i - 1); }
+        if (e.key === 'Home') { e.preventDefault(); show(0); }
+        if (e.key === 'End') { e.preventDefault(); show(n - 1); }
+      });
+
+      document.body.addEventListener('click', function (e) {
+        if (e.target.closest('.footer-bar')) return;
+        if (e.target.closest('.slide-controls')) return;
+        const w = window.innerWidth;
+        if (e.clientX > w * 0.65) show(i + 1);
+        else if (e.clientX < w * 0.35) show(i - 1);
+      });
+
+      show(0);
+    })();
+  </script>
+</body>
+</html>
