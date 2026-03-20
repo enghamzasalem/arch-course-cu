@@ -1,0 +1,209 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36" version="29.6.1">
+  <diagram name="Component Diagram" id="component-diagram">
+    <mxGraphModel dx="1303" dy="760" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="node-consumer" parent="1" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;fontStyle=1;" value="Node.js Consumer&#xa;(Server / CLI / Lambda)" vertex="1">
+          <mxGeometry height="60" width="220" x="160" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="browser-consumer" parent="1" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=13;fontStyle=1;" value="Browser Consumer&#xa;(React / Vue / Vanilla)" vertex="1">
+          <mxGeometry height="60" width="220" x="760" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="node-module" parent="1" style="swimlane;html=0;startSize=34;fillColor=#dae8fc;strokeColor=#6c8ebf;dashed=1;dashPattern=8 4;fontSize=14;fontStyle=1;fontColor=#1f3864;" value="pdf-parse/node" vertex="1">
+          <mxGeometry height="280" width="340" x="40" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="file-source" parent="node-module" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#6c8ebf;fontSize=12;" value="FileSource&#xa;implements IPDFSource&#xa;reads via fs.readFile" vertex="1">
+          <mxGeometry height="60" width="260" x="40" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="node-utils" parent="node-module" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" value="NodeUtils&#xa;implements INodePDFUtils&#xa;getHeader() via HTTP Range" vertex="1">
+          <mxGeometry height="60" width="260" x="40" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="node-worker" parent="node-module" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#6c8ebf;fontSize=12;" value="Worker Config&#xa;workerSrc = require.resolve(...)" vertex="1">
+          <mxGeometry height="50" width="260" x="40" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="browser-module" parent="1" style="swimlane;html=0;startSize=34;fillColor=#e1d5e7;strokeColor=#9673a6;dashed=1;dashPattern=8 4;fontSize=14;fontStyle=1;fontColor=#4a148c;" value="pdf-parse  (browser build)" vertex="1">
+          <mxGeometry height="280" width="340" x="760" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="base64-source" parent="browser-module" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#9673a6;fontSize=12;" value="Base64Source&#xa;implements IPDFSource&#xa;decodes on load()" vertex="1">
+          <mxGeometry height="60" width="260" x="40" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="browser-worker" parent="browser-module" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#9673a6;fontSize=12;" value="Worker Config&#xa;workerSrc = CDN URL" vertex="1">
+          <mxGeometry height="50" width="260" x="40" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="node-excluded" parent="browser-module" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontColor=#b85450;" value="NodeUtils — EXCLUDED&#xa;&quot;./node&quot;: false in browser field&#xa;build-time error if imported" vertex="1">
+          <mxGeometry height="50" width="260" x="40" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="core-module" parent="1" style="swimlane;html=0;startSize=36;fillColor=#fff8e1;strokeColor=#ff9800;fontSize=14;fontStyle=1;fontColor=#e65100;" value="Core Module — shared by ALL platforms  (pdf-parse)" vertex="1">
+          <mxGeometry height="500" width="1200" x="40" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="ifaces-label" parent="core-module" style="text;html=0;fontSize=12;fontStyle=3;fontColor=#999999;strokeColor=none;fillColor=none;" value="Interfaces" vertex="1">
+          <mxGeometry height="20" width="100" x="20" y="48" as="geometry" />
+        </mxCell>
+        <mxCell id="ipdfsource-iface" parent="core-module" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#ff9800;fontColor=#e65100;fontSize=12;" value="«interface»&#xa;IPDFSource&#xa;&#xa;load(): Promise&lt;Uint8Array&gt;&#xa;dispose(): void" vertex="1">
+          <mxGeometry height="100" width="200" x="20" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="ipdfparser-iface" parent="core-module" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#ff9800;fontColor=#e65100;fontSize=12;" value="«interface»&#xa;IPDFParser&#xa;&#xa;open(source, opts): Promise&#xa;close(): Promise&#xa;pageCount: number" vertex="1">
+          <mxGeometry height="100" width="210" x="260" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="iextractor-iface" parent="core-module" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#ff9800;fontColor=#e65100;fontSize=12;" value="«interface»&#xa;IExtractor&lt;T&gt;&#xa;&#xa;extract(parser, params?)&#xa;  : Promise&lt;T&gt;" vertex="1">
+          <mxGeometry height="100" width="210" x="510" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="inodeutils-iface" parent="core-module" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#fff2cc;strokeColor=#d6b656;fontColor=#7d5a00;fontSize=12;dashed=1;dashPattern=6 3;" value="«interface»&#xa;INodePDFUtils&#xa;&#xa;getHeader(url)&#xa;  : Promise&lt;PDFHeaderInfo&gt;" vertex="1">
+          <mxGeometry height="100" width="210" x="760" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="divider" parent="core-module" style="line;strokeColor=#ffcc80;fillColor=none;" value="" vertex="1">
+          <mxGeometry height="10" width="1160" x="20" y="195" as="geometry" />
+        </mxCell>
+        <mxCell id="impls-label" parent="core-module" style="text;html=0;fontSize=12;fontStyle=3;fontColor=#999999;strokeColor=none;fillColor=none;" value="Implementations" vertex="1">
+          <mxGeometry height="20" width="160" x="20" y="205" as="geometry" />
+        </mxCell>
+        <mxCell id="url-source" parent="core-module" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#fff3e0;strokeColor=#ff9800;fontColor=#e65100;fontSize=12;" value="UrlSource&#xa;fetch() — Node + Browser" vertex="1">
+          <mxGeometry height="55" width="200" x="20" y="235" as="geometry" />
+        </mxCell>
+        <mxCell id="buffer-source" parent="core-module" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#fff3e0;strokeColor=#ff9800;fontColor=#e65100;fontSize=12;" value="BufferSource&#xa;Uint8Array passthrough" vertex="1">
+          <mxGeometry height="55" width="200" x="20" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="pdfsession" parent="core-module" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#fff3e0;strokeColor=#ff9800;fontColor=#e65100;fontSize=12;" value="PDFSession&#xa;implements IPDFParser&#xa;manages PDF.js worker" vertex="1">
+          <mxGeometry height="60" width="210" x="260" y="235" as="geometry" />
+        </mxCell>
+        <mxCell id="text-ext" parent="core-module" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#fff3e0;strokeColor=#ff9800;fontColor=#e65100;fontSize=12;" value="TextExtractor" vertex="1">
+          <mxGeometry height="45" width="160" x="510" y="235" as="geometry" />
+        </mxCell>
+        <mxCell id="info-ext" parent="core-module" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#fff3e0;strokeColor=#ff9800;fontColor=#e65100;fontSize=12;" value="InfoExtractor" vertex="1">
+          <mxGeometry height="45" width="160" x="510" y="295" as="geometry" />
+        </mxCell>
+        <mxCell id="image-ext" parent="core-module" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#fff3e0;strokeColor=#ff9800;fontColor=#e65100;fontSize=12;" value="ImageExtractor" vertex="1">
+          <mxGeometry height="45" width="160" x="510" y="355" as="geometry" />
+        </mxCell>
+        <mxCell id="table-ext" parent="core-module" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#fff3e0;strokeColor=#ff9800;fontColor=#e65100;fontSize=12;" value="TableExtractor" vertex="1">
+          <mxGeometry height="45" width="160" x="700" y="235" as="geometry" />
+        </mxCell>
+        <mxCell id="screenshot-ext" parent="core-module" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#fff3e0;strokeColor=#ff9800;fontColor=#e65100;fontSize=12;" value="ScreenshotExtractor" vertex="1">
+          <mxGeometry height="45" width="160" x="700" y="295" as="geometry" />
+        </mxCell>
+        <mxCell id="link-ext" parent="core-module" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#fff3e0;strokeColor=#ff9800;fontColor=#e65100;fontSize=12;dashed=1;dashPattern=6 3;" value="LinkExtractor&#xa;(v2.5 — new)" vertex="1">
+          <mxGeometry height="45" width="160" x="700" y="355" as="geometry" />
+        </mxCell>
+        <mxCell id="e-url-impl" edge="1" parent="core-module" source="url-source" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;fontSize=10;fontColor=#aaaaaa;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;labelBackgroundColor=none;" target="ipdfsource-iface" value="implements">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-buf-impl" edge="1" parent="core-module" source="buffer-source" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;fontSize=10;fontColor=#aaaaaa;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.2;entryY=1;entryDx=0;entryDy=0;labelBackgroundColor=none;" target="ipdfsource-iface" value="implements">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="10" y="305" />
+              <mxPoint x="10" y="178" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-sess-impl" edge="1" parent="core-module" source="pdfsession" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;fontSize=10;fontColor=#aaaaaa;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;labelBackgroundColor=none;" target="ipdfparser-iface" value="implements">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-text-impl" edge="1" parent="core-module" source="text-ext" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;fontSize=10;fontColor=#aaaaaa;exitX=0.5;exitY=0;exitDx=0;exitDy=0;labelBackgroundColor=none;" value="implements">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="590" y="178" />
+            </Array>
+            <mxPoint x="590" y="178" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-info-impl" edge="1" parent="core-module" source="info-ext" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.4;entryY=1;entryDx=0;entryDy=0;" target="iextractor-iface">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="500" y="295" />
+              <mxPoint x="500" y="190" />
+              <mxPoint x="594" y="190" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-image-impl" edge="1" parent="core-module" source="image-ext" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="590" y="350" />
+              <mxPoint x="490" y="350" />
+              <mxPoint x="490" y="210" />
+              <mxPoint x="590" y="210" />
+            </Array>
+            <mxPoint x="590" y="178" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-table-impl" edge="1" parent="core-module" source="table-ext" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.8;entryY=1;entryDx=0;entryDy=0;" target="iextractor-iface">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="780" y="230" />
+              <mxPoint x="678" y="230" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-ss-impl" edge="1" parent="core-module" source="screenshot-ext" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.9;entryY=1;entryDx=0;entryDy=0;" target="iextractor-iface">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="880" y="295" />
+              <mxPoint x="880" y="210" />
+              <mxPoint x="699" y="210" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-link-impl" edge="1" parent="core-module" source="link-ext" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=1;entryDx=0;entryDy=0;" target="iextractor-iface">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="880" y="355" />
+              <mxPoint x="880" y="220" />
+              <mxPoint x="720" y="220" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="33LHG4JgmRe9hSgRjOzB-3" connectable="0" parent="e-link-impl" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;span style=&quot;color: rgb(170, 170, 170); font-size: 10px;&quot;&gt;implements&lt;/span&gt;" vertex="1">
+          <mxGeometry relative="1" x="0.7071" y="-2" as="geometry">
+            <mxPoint x="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-nc-nm" edge="1" parent="1" source="node-consumer" style="edgeStyle=orthogonalEdgeStyle;" target="node-module">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-bc-bm" edge="1" parent="1" source="browser-consumer" style="edgeStyle=orthogonalEdgeStyle;" target="browser-module">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-nm-core" edge="1" parent="1" source="node-module" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;fontColor=#555555;" target="core-module" value="extends core">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-bm-core" edge="1" parent="1" source="browser-module" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;fontColor=#555555;" target="core-module" value="extends core">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="legend" parent="1" style="swimlane;html=0;startSize=30;fillColor=#f5f5f5;strokeColor=#999999;fontSize=13;fontStyle=1;fontColor=#333333;" value="Legend" vertex="1">
+          <mxGeometry height="290" width="260" x="1100" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="l-arrow1" edge="1" parent="legend" style="endArrow=block;endFill=1;html=1;" value="">
+          <mxGeometry height="10" width="50" x="20" y="60" as="geometry">
+            <mxPoint x="20" y="60" as="sourcePoint" />
+            <mxPoint x="70" y="60" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="l-arrow1-lbl" parent="legend" style="text;html=0;fontSize=12;strokeColor=none;fillColor=none;" value="Uses / imports" vertex="1">
+          <mxGeometry height="20" width="160" x="80" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="l-arrow2" edge="1" parent="legend" style="endArrow=open;endFill=0;dashed=1;html=1;" value="">
+          <mxGeometry height="10" width="50" x="20" y="100" as="geometry">
+            <mxPoint x="20" y="100" as="sourcePoint" />
+            <mxPoint x="70" y="100" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="l-arrow2-lbl" parent="legend" style="text;html=0;fontSize=12;strokeColor=none;fillColor=none;" value="Implements interface" vertex="1">
+          <mxGeometry height="20" width="160" x="80" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="l-c1" parent="legend" style="rounded=1;html=0;fillColor=#dae8fc;strokeColor=#6c8ebf;dashed=1;dashPattern=8 4;fontSize=12;" value="Platform module" vertex="1">
+          <mxGeometry height="28" width="220" x="20" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="l-c2" parent="legend" style="rounded=1;html=0;fillColor=#fff3e0;strokeColor=#ff9800;fontSize=12;" value="Core implementation" vertex="1">
+          <mxGeometry height="28" width="220" x="20" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="l-c3" parent="legend" style="rounded=1;html=0;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" value="Node-only component" vertex="1">
+          <mxGeometry height="28" width="220" x="20" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="l-c4" parent="legend" style="rounded=1;html=0;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" value="Excluded from browser" vertex="1">
+          <mxGeometry height="28" width="220" x="20" y="250" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
