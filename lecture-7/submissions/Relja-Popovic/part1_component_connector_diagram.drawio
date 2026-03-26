@@ -1,0 +1,117 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36" version="29.6.4">
+  <diagram name="Component and Connector Diagram" id="c-and-c">
+    <mxGraphModel dx="1489" dy="869" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="client" parent="1" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;fontStyle=1;" value="Client&#xa;(Web App / Batch Job / API)" vertex="1">
+          <mxGeometry height="70" width="200" x="60" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="validator" parent="1" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;fontStyle=1;" value="1. Validator&#xa;&#xa;Validates format,&#xa;size, and MIME type" vertex="1">
+          <mxGeometry height="110" width="200" x="360" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="extractor" parent="1" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;fontStyle=1;" value="2. Extractor&#xa;&#xa;Text extraction&#xa;or full OCR" vertex="1">
+          <mxGeometry height="110" width="200" x="660" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="classifier" parent="1" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;fontStyle=1;" value="3. Classifier&#xa;&#xa;Assigns document type" vertex="1">
+          <mxGeometry height="110" width="200" x="960" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="storage" parent="1" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;fontStyle=1;" value="4. Storage&#xa;&#xa;Persists document&#xa;and results" vertex="1">
+          <mxGeometry height="110" width="200" x="1260" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="notifier" parent="1" style="rounded=1;whiteSpace=wrap;html=0;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;fontStyle=1;" value="5. Notifier&#xa;&#xa;Sends webhook&#xa;to client" vertex="1">
+          <mxGeometry height="110" width="200" x="1260" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="queue" parent="1" style="shape=mxgraph.flowchart.start2;whiteSpace=wrap;html=0;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=12;fontStyle=1;perimeter=mxPerimeter.ellipsePerimeter;" value="Message Queue" vertex="1">
+          <mxGeometry height="60" width="100" x="410" y="530" as="geometry" />
+        </mxCell>
+        <mxCell id="eventbus" parent="1" style="shape=mxgraph.flowchart.start2;whiteSpace=wrap;html=0;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;fontStyle=1;perimeter=mxPerimeter.ellipsePerimeter;" value="Event Bus" vertex="1">
+          <mxGeometry height="60" width="100" x="960" y="530" as="geometry" />
+        </mxCell>
+        <mxCell id="e-client-val" edge="1" parent="1" source="client" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;fontColor=#333333;strokeColor=#6c8ebf;strokeWidth=2;labelBackgroundColor=none;" target="validator" value="1. REST HTTPS&#xa;sync">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-val-queue" edge="1" parent="1" source="validator" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;fontColor=#333333;strokeColor=#d6b656;strokeWidth=2;dashed=1;labelBackgroundColor=none;entryX=0.496;entryY=-0.007;entryDx=0;entryDy=0;entryPerimeter=0;" target="queue" value="2. Enqueue job&#xa;async">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="460" y="520" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-queue-ext" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;fontColor=#333333;strokeColor=#d6b656;strokeWidth=2;dashed=1;labelBackgroundColor=none;" target="extractor" value="3. Consume job&#xa;async">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="510" y="560" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-ext-bus" edge="1" parent="1" source="extractor" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;fontColor=#333333;strokeColor=#9673a6;strokeWidth=2;dashed=1;labelBackgroundColor=none;entryX=0.001;entryY=0.526;entryDx=0;entryDy=0;entryPerimeter=0;" target="eventbus" value="4. extraction.completed&#xa;async">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="910" y="375" />
+              <mxPoint x="910" y="560" />
+              <mxPoint x="940" y="560" />
+              <mxPoint x="940" y="562" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-bus-cls" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;fontColor=#333333;strokeColor=#9673a6;strokeWidth=2;dashed=1;labelBackgroundColor=none;" target="classifier" value="5. Subscribe&#xa;async">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1010" y="530" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-cls-storage" edge="1" parent="1" source="classifier" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;fontColor=#333333;strokeColor=#9673a6;strokeWidth=2;dashed=1;labelBackgroundColor=none;" target="storage" value="6. classification.completed&#xa;async">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1320" y="375" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-storage-notif" edge="1" parent="1" source="storage" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;fontColor=#333333;strokeColor=#9673a6;strokeWidth=2;dashed=1;labelBackgroundColor=none;" target="notifier" value="7. storage.completed&#xa;async">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1400" y="380" />
+              <mxPoint x="1400" y="380" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-notif-client" edge="1" parent="1" source="notifier" style="edgeStyle=orthogonalEdgeStyle;fontSize=11;fontColor=#333333;strokeColor=#6c8ebf;strokeWidth=2;dashed=1;labelBackgroundColor=none;" target="client" value="8. Webhook POST&#xa;async">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="160" y="500" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="legend" parent="1" style="swimlane;html=0;startSize=30;fillColor=#f5f5f5;strokeColor=#999999;fontSize=13;fontStyle=1;fontColor=#333333;" value="Legend" vertex="1">
+          <mxGeometry height="210" width="260" x="60" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="l-sync" edge="1" parent="legend" style="endArrow=block;endFill=1;strokeColor=#6c8ebf;strokeWidth=2;html=1;" value="">
+          <mxGeometry height="10" width="10" x="20" y="55" as="geometry">
+            <mxPoint x="20" y="60" as="sourcePoint" />
+            <mxPoint x="80" y="60" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="l-sync-lbl" parent="legend" style="text;html=0;fontSize=12;strokeColor=none;fillColor=none;" value="Sync — REST / direct call" vertex="1">
+          <mxGeometry height="24" width="160" x="90" y="48" as="geometry" />
+        </mxCell>
+        <mxCell id="l-async" edge="1" parent="legend" style="endArrow=block;endFill=1;dashed=1;strokeColor=#d6b656;strokeWidth=2;html=1;" value="">
+          <mxGeometry height="10" width="10" x="20" y="100" as="geometry">
+            <mxPoint x="20" y="100" as="sourcePoint" />
+            <mxPoint x="80" y="100" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="l-async-lbl" parent="legend" style="text;html=0;fontSize=12;strokeColor=none;fillColor=none;" value="Async — message queue" vertex="1">
+          <mxGeometry height="24" width="160" x="90" y="88" as="geometry" />
+        </mxCell>
+        <mxCell id="l-event" edge="1" parent="legend" style="endArrow=block;endFill=1;dashed=1;strokeColor=#9673a6;strokeWidth=2;html=1;" value="">
+          <mxGeometry height="10" width="10" x="20" y="140" as="geometry">
+            <mxPoint x="20" y="140" as="sourcePoint" />
+            <mxPoint x="80" y="140" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="l-event-lbl" parent="legend" style="text;html=0;fontSize=12;strokeColor=none;fillColor=none;" value="Async — event bus" vertex="1">
+          <mxGeometry height="24" width="160" x="90" y="128" as="geometry" />
+        </mxCell>
+        <mxCell id="l-comp" parent="legend" style="rounded=1;html=0;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" value="Pipeline component" vertex="1">
+          <mxGeometry height="28" width="220" x="20" y="170" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
