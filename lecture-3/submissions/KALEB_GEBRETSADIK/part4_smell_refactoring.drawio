@@ -1,0 +1,129 @@
+<mxfile host="65bd71144e">
+    <diagram id="Refactoring_Diagrams" name="Part 4: Refactoring Smells">
+        <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+
+                <!-- ==================== SMELL 1: GOD COMPONENT ==================== -->
+                <mxCell id="title1" value="&lt;b&gt;Refactoring Smell 1: God Component (API Gateway)&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="20" width="400" height="30" as="geometry"/>
+                </mxCell>
+
+                <!-- Before -->
+                <mxCell id="bg1_before" value="&lt;b&gt;BEFORE&lt;/b&gt;&lt;br&gt;Gateway does routing + Auth validation + Caching" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;fillColor=#f8cecc;strokeColor=#b85450;darkOpacity=0.1;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="60" width="400" height="250" as="geometry"/>
+                </mxCell>
+                
+                <mxCell id="client1_b" value="Client" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+                    <mxGeometry x="60" y="150" width="80" height="40" as="geometry"/>
+                </mxCell>
+                
+                <mxCell id="gw_b" value="&lt;b&gt;API Gateway&lt;/b&gt;&lt;br&gt;- Routing&lt;br&gt;- Rate Limits&lt;br&gt;- Validate JWT&lt;br&gt;- Read Redis Session" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;align=left;spacingLeft=5;" vertex="1" parent="1">
+                    <mxGeometry x="180" y="110" width="130" height="120" as="geometry"/>
+                </mxCell>
+                
+                <mxCell id="ms_b" value="Backend Svc" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+                    <mxGeometry x="340" y="110" width="80" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="redis_b" value="Redis" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+                    <mxGeometry x="355" y="190" width="50" height="60" as="geometry"/>
+                </mxCell>
+
+                <!-- Before Edges -->
+                <mxCell id="e_1b" style="endArrow=classic;html=1;" edge="1" parent="1" source="client1_b" target="gw_b"><mxGeometry relative="1" as="geometry"/></mxCell>
+                <mxCell id="e_2b" style="endArrow=classic;html=1;" edge="1" parent="1" source="gw_b" target="ms_b"><mxGeometry relative="1" as="geometry"><mxPoint x="310" y="140" as="sourcePoint"/></mxGeometry></mxCell>
+                <mxCell id="e_3b" style="endArrow=classic;html=1;dashed=1;" edge="1" parent="1" source="gw_b" target="redis_b"><mxGeometry relative="1" as="geometry"><mxPoint x="310" y="210" as="sourcePoint"/></mxGeometry></mxCell>
+
+                <!-- After -->
+                <mxCell id="bg1_after" value="&lt;b&gt;AFTER (Refactored)&lt;/b&gt;&lt;br&gt;Gateway delegates auth to dedicated IAM service" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;fillColor=#d5e8d4;strokeColor=#82b366;darkOpacity=0.1;" vertex="1" parent="1">
+                    <mxGeometry x="500" y="60" width="450" height="250" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="client1_a" value="Client" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+                    <mxGeometry x="520" y="150" width="80" height="40" as="geometry"/>
+                </mxCell>
+                
+                <mxCell id="gw_a" value="&lt;b&gt;API Gateway&lt;/b&gt;&lt;br&gt;- Routing&lt;br&gt;- Rate Limits" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;align=left;spacingLeft=5;" vertex="1" parent="1">
+                    <mxGeometry x="640" y="130" width="100" height="80" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="iam_a" value="&lt;b&gt;IAM Service&lt;/b&gt;&lt;br&gt;- Auth Logic" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+                    <mxGeometry x="780" y="90" width="90" height="50" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="ms_a" value="Backend Svc" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+                    <mxGeometry x="780" y="160" width="90" height="40" as="geometry"/>
+                </mxCell>
+                
+                <mxCell id="redis_a" value="Redis" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+                    <mxGeometry x="890" y="80" width="40" height="50" as="geometry"/>
+                </mxCell>
+
+                <!-- After Edges -->
+                <mxCell id="e_1a" style="endArrow=classic;html=1;" edge="1" parent="1" source="client1_a" target="gw_a"><mxGeometry relative="1" as="geometry"/></mxCell>
+                <mxCell id="e_2a" value="1. Validate Token" style="endArrow=classic;html=1;fontSize=10;exitX=1;exitY=0.25;exitDx=0;exitDy=0;" edge="1" parent="1" source="gw_a" target="iam_a"><mxGeometry relative="1" as="geometry"/></mxCell>
+                <mxCell id="e_3a" value="2. Route Req" style="endArrow=classic;html=1;fontSize=10;exitX=1;exitY=0.75;exitDx=0;exitDy=0;" edge="1" parent="1" source="gw_a" target="ms_a"><mxGeometry relative="1" as="geometry"/></mxCell>
+                <mxCell id="e_4a" style="endArrow=classic;html=1;dashed=1;" edge="1" parent="1" source="iam_a" target="redis_a"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+
+                <!-- ==================== SMELL 2: SCATTERED CONCERNS ==================== -->
+                <mxCell id="title2" value="&lt;b&gt;Refactoring Smell 2: Scattered Concerns (Notifications)&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="340" width="450" height="30" as="geometry"/>
+                </mxCell>
+
+                <!-- Before 2 -->
+                <mxCell id="bg2_before" value="&lt;b&gt;BEFORE&lt;/b&gt;&lt;br&gt;Domain logic mixed with external API calls" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;fillColor=#f8cecc;strokeColor=#b85450;darkOpacity=0.1;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="380" width="400" height="240" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="sec_b" value="Security Svc&#10;(+ SendGrid API)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+                    <mxGeometry x="70" y="440" width="120" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="dev_b" value="Device Mgr&#10;(+ Twilio API)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+                    <mxGeometry x="70" y="520" width="120" height="50" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="sg_b" value="SendGrid&#10;(External)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f5f5f5;" vertex="1" parent="1">
+                    <mxGeometry x="300" y="430" width="90" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="tw_b" value="Twilio&#10;(External)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f5f5f5;" vertex="1" parent="1">
+                    <mxGeometry x="300" y="520" width="90" height="60" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="e_5b" value="HTTP POST" style="endArrow=classic;html=1;fontSize=10;" edge="1" parent="1" source="sec_b" target="sg_b"><mxGeometry relative="1" as="geometry"/></mxCell>
+                <mxCell id="e_6b" value="HTTP POST" style="endArrow=classic;html=1;fontSize=10;" edge="1" parent="1" source="dev_b" target="tw_b"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+                <!-- After 2 -->
+                <mxCell id="bg2_after" value="&lt;b&gt;AFTER (Refactored)&lt;/b&gt;&lt;br&gt;Dedicated Notification Service handles external providers" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;fillColor=#d5e8d4;strokeColor=#82b366;darkOpacity=0.1;" vertex="1" parent="1">
+                    <mxGeometry x="500" y="380" width="450" height="240" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="sec_a" value="Security Svc" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+                    <mxGeometry x="530" y="440" width="90" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="dev_a" value="Device Mgr" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+                    <mxGeometry x="530" y="530" width="90" height="40" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="broker_a" value="Message Broker" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+                    <mxGeometry x="660" y="480" width="110" height="50" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="notif_a" value="&lt;b&gt;Notification Svc&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+                    <mxGeometry x="810" y="480" width="110" height="50" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="ext_a" value="External APIs&#10;(SendGrid/Twilio)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f5f5f5;" vertex="1" parent="1">
+                    <mxGeometry x="810" y="560" width="110" height="50" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="e_5a" value="Publish" style="endArrow=classic;html=1;fontSize=10;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="sec_a" target="broker_a"><mxGeometry relative="1" as="geometry"/></mxCell>
+                <mxCell id="e_6a" value="Publish" style="endArrow=classic;html=1;fontSize=10;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="dev_a" target="broker_a"><mxGeometry relative="1" as="geometry"/></mxCell>
+                <mxCell id="e_7a" value="Subscribe" style="endArrow=classic;html=1;fontSize=10;" edge="1" parent="1" source="broker_a" target="notif_a"><mxGeometry relative="1" as="geometry"/></mxCell>
+                <mxCell id="e_8a" style="endArrow=classic;html=1;fontSize=10;dashed=1;" edge="1" parent="1" source="notif_a" target="ext_a"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
