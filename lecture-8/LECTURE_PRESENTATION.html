@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lecture 8 — Compatibility and Coupling</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; overflow: hidden; font-family: "Segoe UI", system-ui, -apple-system, sans-serif; }
+    body { background: #1a1d23; color: #e8eaed; }
+
+    .deck {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .slide {
+      display: none;
+      flex: 1;
+      flex-direction: column;
+      justify-content: center;
+      padding: 3rem 5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      animation: fadeIn 0.35s ease;
+    }
+    .slide.active { display: flex; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .slide h1 {
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+      border-left: 5px solid #3b82f6;
+      padding-left: 1rem;
+    }
+
+    .slide h2 {
+      font-size: clamp(1.25rem, 2.5vw, 1.65rem);
+      color: #93c5fd;
+      margin-bottom: 1.25rem;
+      font-weight: 600;
+    }
+
+    .slide p, .slide li {
+      font-size: clamp(1rem, 1.8vw, 1.2rem);
+      line-height: 1.55;
+      color: #c4c9d4;
+      margin-bottom: 0.65rem;
+    }
+
+    .slide ul, .slide ol { margin: 0.75rem 0 0 1.5rem; }
+    .slide li { margin-bottom: 0.45rem; }
+
+    .subtitle { font-size: 1.15rem; color: #9ca3af; margin-top: 0.5rem; }
+    .meta { font-size: 0.95rem; color: #6b7280; margin-top: 2rem; }
+
+    .title-slide {
+      text-align: center;
+      justify-content: center;
+      border-left: none !important;
+      padding-left: 0 !important;
+    }
+    .title-slide h1 {
+      border: none;
+      padding: 0;
+      font-size: clamp(2rem, 5vw, 3.25rem);
+    }
+    .title-slide .course { color: #3b82f6; font-size: 1rem; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1rem; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+      font-size: clamp(0.85rem, 1.4vw, 1rem);
+    }
+    th, td {
+      border: 1px solid #374151;
+      padding: 0.65rem 0.85rem;
+      text-align: left;
+    }
+    th { background: #252a33; color: #93c5fd; }
+    tr:nth-child(even) td { background: #22262e; }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    @media (max-width: 768px) { .two-col { grid-template-columns: 1fr; } }
+
+    .box {
+      background: #252a33;
+      border-radius: 10px;
+      padding: 1.25rem;
+      border: 1px solid #374151;
+    }
+    .box h3 { color: #60a5fa; font-size: 1.1rem; margin-bottom: 0.75rem; }
+
+    .highlight { color: #fbbf24; font-weight: 600; }
+    .code { font-family: ui-monospace, monospace; font-size: 0.9em; background: #111418; padding: 0.15em 0.4em; border-radius: 4px; }
+
+    .footer-bar {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.65rem 1.5rem;
+      background: #111418;
+      border-top: 1px solid #374151;
+      font-size: 0.85rem;
+      color: #9ca3af;
+    }
+    .progress-wrap { flex: 1; max-width: 280px; margin: 0 1rem; }
+    .progress { height: 4px; background: #374151; border-radius: 2px; overflow: hidden; }
+    .progress-fill { height: 100%; background: #3b82f6; transition: width 0.2s ease; }
+
+    .hint { font-size: 0.8rem; color: #6b7280; }
+
+    kbd {
+      background: #374151;
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+    }
+
+    /* --- Fullscreen + controls --- */
+    #presentation-root {
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      background: #1a1d23;
+    }
+    #presentation-root:fullscreen,
+    #presentation-root:-webkit-full-screen {
+      background: #1a1d23;
+    }
+    #presentation-root:fullscreen .deck,
+    #presentation-root:-webkit-full-screen .deck {
+      flex: 1;
+      min-height: 0;
+    }
+
+    .slide-controls {
+      position: fixed;
+      top: 12px;
+      right: 12px;
+      z-index: 1000;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .slide-controls button {
+      font: inherit;
+      font-size: 0.8rem;
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: 1px solid #374151;
+      background: #252a33;
+      color: #e8eaed;
+      cursor: pointer;
+    }
+    .slide-controls button:hover {
+      background: #374151;
+      border-color: #3b82f6;
+    }
+    .slide-controls .hint-mini {
+      font-size: 0.7rem;
+      color: #6b7280;
+      max-width: 140px;
+      line-height: 1.3;
+    }
+
+    /* --- Print / Save as PDF (same visual layout) --- */
+    @media print {
+      @page {
+        size: landscape;
+        margin: 10mm;
+      }
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        color-adjust: exact !important;
+      }
+      html, body {
+        height: auto !important;
+        overflow: visible !important;
+        background: #1a1d23 !important;
+      }
+      .slide-controls,
+      .footer-bar {
+        display: none !important;
+      }
+      #presentation-root {
+        height: auto !important;
+        width: 100% !important;
+        display: block !important;
+        background: #1a1d23 !important;
+      }
+      .deck {
+        display: block !important;
+        height: auto !important;
+      }
+      #slides {
+        display: block !important;
+      }
+      .slide {
+        display: flex !important;
+        flex-direction: column;
+        justify-content: center;
+        min-height: calc(100vh - 20mm);
+        max-width: none !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 2rem 3rem !important;
+        box-sizing: border-box;
+        page-break-after: always;
+        break-after: page;
+        page-break-inside: avoid;
+        break-inside: avoid;
+        background: #1a1d23 !important;
+        color: #e8eaed !important;
+        animation: none !important;
+      }
+      .slide:last-of-type {
+        page-break-after: auto;
+        break-after: auto;
+      }
+      .slide h1 { color: #fff !important; }
+      .slide h2 { color: #93c5fd !important; }
+      .slide p, .slide li { color: #c4c9d4 !important; }
+      th { background: #252a33 !important; color: #93c5fd !important; }
+      tr:nth-child(even) td { background: #22262e !important; }
+      .box { background: #252a33 !important; border-color: #374151 !important; }
+    }
+  </style>
+</head>
+<body>
+  <div id="presentation-root">
+  <div class="slide-controls no-print" aria-label="Presentation controls">
+    <button type="button" id="btnFullscreen" title="Fullscreen (F)">⛶ Fullscreen</button>
+    <button type="button" id="btnPrintPdf" title="Print / Save as PDF (P)">📄 Save PDF</button>
+    <span class="hint-mini">PDF: Print → Save as PDF</span>
+  </div>
+  <div class="deck">
+    <div id="slides">
+
+      <section class="slide active title-slide">
+        <p class="course">Software Architecture — Chapter 8</p>
+        <h1>Compatibility and Coupling</h1>
+        <p class="subtitle">How dependencies bind systems—and how to evolve contracts safely</p>
+        <p class="meta">Based on Pautasso — Visual Lecture Notes</p>
+        <p class="meta" style="margin-top:0.75rem;">Chapter PDF: <span class="code">08_Compatibility_and_Coupling.pdf</span></p>
+      </section>
+
+      <section class="slide title-slide">
+        <p class="course">Recap — Lecture 7</p>
+        <h1>Composability &amp; Connectors</h1>
+        <p class="subtitle">Chapter 7: how we assemble components and choose how they communicate</p>
+        <p class="meta">Examples: <span class="code">example1_composition_and_connectors.py</span>, <span class="code">example2_orchestration_vs_choreography.py</span></p>
+        <p class="meta" style="margin-top:1.25rem;">→ Today: how strong those connections are (<strong>coupling</strong>) and whether we can change them safely (<strong>compatibility</strong>).</p>
+      </section>
+
+      <section class="slide">
+        <h1>Recap: what is composition?</h1>
+        <p><strong>Composition</strong> = building a system by assembling smaller <strong>components</strong> rather than one monolithic block.</p>
+        <ul>
+          <li>Each component has a clear responsibility</li>
+          <li>Components are connected by <strong>connectors</strong></li>
+          <li>Architecture ≈ <span class="highlight">components + connectors</span></li>
+        </ul>
+        <p class="meta">Every connector implies shared assumptions—those assumptions are what Chapter 8 calls a <strong>dependency surface</strong>.</p>
+      </section>
+
+      <section class="slide">
+        <h1>Recap: connectors</h1>
+        <p>A <strong>connector</strong> is the mechanism that allows communication between components.</p>
+        <ul>
+          <li>Defines <em>protocol</em>, <em>direction</em>, and often <em>sync vs async</em></li>
+          <li>Same component can use different connectors to different neighbors</li>
+          <li>Choosing the wrong connector affects <strong>coupling</strong>, latency, and failure modes</li>
+        </ul>
+      </section>
+
+      <section class="slide">
+        <h1>Recap: connector types (overview)</h1>
+        <table>
+          <thead>
+            <tr><th>Type</th><th>Typical use</th><th>Often</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Direct call</td><td>Same process, in-memory</td><td>Sync</td></tr>
+            <tr><td>RPC / REST</td><td>Services over network</td><td>Sync (request/response)</td></tr>
+            <tr><td>Message queue</td><td>Decouple producer/consumer</td><td>Async</td></tr>
+            <tr><td>Event bus</td><td>Many subscribers, pub/sub</td><td>Async</td></tr>
+            <tr><td>Shared DB</td><td>Implicit coupling via data</td><td>Sync read/write</td></tr>
+          </tbody>
+        </table>
+        <p class="meta">Later: shared schemas and deployment often create the <strong>strongest</strong> coupling.</p>
+      </section>
+
+      <section class="slide">
+        <h1>Recap: message passing</h1>
+        <div class="two-col">
+          <div class="box">
+            <h3>Synchronous</h3>
+            <p>Caller sends a message and <strong>waits</strong> for a reply.</p>
+            <p>Simple mental model; tight temporal coupling; blocking under load.</p>
+          </div>
+          <div class="box">
+            <h3>Asynchronous</h3>
+            <p>Caller sends and <strong>continues</strong>; consumer processes later.</p>
+            <p>Better decoupling and scale; harder reasoning; <strong>event schema</strong> still couples publishers and subscribers.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide">
+        <h1>Recap: orchestration vs choreography</h1>
+        <table>
+          <thead>
+            <tr><th></th><th>Orchestration</th><th>Choreography</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Control</td><td>Central</td><td>Distributed</td></tr>
+            <tr><td>Visibility</td><td>High (one place)</td><td>Lower (many handlers)</td></tr>
+            <tr><td>Scaling</td><td>Orchestrator matters</td><td>Workers scale independently</td></tr>
+            <tr><td>Good for</td><td>Clear workflows</td><td>Many reactive consumers</td></tr>
+          </tbody>
+        </table>
+        <p class="meta">Both need explicit rules when payloads, ordering, or error semantics change.</p>
+      </section>
+
+      <section class="slide">
+        <h1>Recap: event-driven &amp; bridge</h1>
+        <ul>
+          <li><strong>Event</strong> — something happened (e.g. <span class="code">OrderPlaced</span>); broker delivers to subscribers</li>
+          <li>Watch for: ordering, duplicates, eventual consistency, <strong>schema evolution</strong></li>
+          <li>Lecture 7: <strong>topology</strong> of communication · Lecture 8: <strong>strength</strong> of dependencies &amp; <strong>safe evolution</strong></li>
+          <li>Builds on Lecture <strong>6</strong>: interfaces, contracts, semantic versioning, deprecation</li>
+        </ul>
+      </section>
+
+      <section class="slide">
+        <h1>Learning objectives</h1>
+        <ul>
+          <li>Explain <span class="highlight">coupling</span> between components and clients—and why it drives cost of change</li>
+          <li>Name common coupling dimensions (data, control, temporal, deployment) and spot them in diagrams</li>
+          <li>Distinguish <span class="highlight">syntactic</span> vs <span class="highlight">semantic</span> compatibility on APIs and events</li>
+          <li>Classify <span class="highlight">breaking</span> vs <span class="highlight">non-breaking</span> changes and map them to <strong>semver</strong></li>
+          <li>Compare <span class="highlight">version coexistence</span> strategies and their operational trade-offs</li>
+          <li>Apply <span class="highlight">boundaries</span>, ports/adapters, and policies to keep evolution manageable</li>
+        </ul>
+      </section>
+
+      <section class="slide">
+        <h1>What is coupling?</h1>
+        <p><strong>Coupling</strong> is how much one part of a system <strong>depends on</strong> concrete details of another (API shape, behavior, timing, deployment, or data layout).</p>
+        <ul>
+          <li><strong>Strong</strong> coupling → a small change can <strong>ripple</strong> across modules, teams, or external integrators</li>
+          <li>Dependencies are unavoidable; the goal is to make them <strong>visible</strong>, <strong>directional</strong>, and <strong>affordable</strong></li>
+          <li>Architectural views (component, deployment, runtime) should show <em>where</em> coupling concentrates</li>
+        </ul>
+        <p class="meta">Coupling is the “resistance” you feel when one team cannot ship without coordinating many others.</p>
+      </section>
+
+      <section class="slide">
+        <h1>Why coupling matters</h1>
+        <p>Coupling is a first-class driver of <strong>quality attributes</strong> you care about in practice.</p>
+        <ul>
+          <li><strong>Change velocity</strong> — high coupling slows refactors and safe rollouts</li>
+          <li><strong>Testability</strong> — hard to isolate units when everything reaches into shared structures</li>
+          <li><strong>Reliability</strong> — sync chains and shared failure domains amplify outages</li>
+          <li>Shared databases, generated DTOs, and “reuse internal models in the API” are classic <strong>coupling magnets</strong></li>
+        </ul>
+        <p class="meta">Reviews should ask: “If we change X, who <em>must</em> change in the same release train?”</p>
+      </section>
+
+      <section class="slide">
+        <h1>Kinds of coupling (overview)</h1>
+        <table>
+          <thead>
+            <tr><th>Kind</th><th>Idea</th><th>Example signal</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Data</td><td>Shared schemas, DB tables, DTOs</td><td>Column rename breaks many services</td></tr>
+            <tr><td>Control</td><td>Who invokes whom, call order</td><td>Private “call A before B” convention</td></tr>
+            <tr><td>Temporal</td><td>Must be up together, sync RPC</td><td>Cascade timeouts under load</td></tr>
+            <tr><td>Deployment</td><td>Release or scale as one unit</td><td>Cannot deploy API without worker</td></tr>
+            <tr><td>Platform / toolchain</td><td>Shared runtime, codegen, SDK lockstep</td><td>Clients pinned to old protobuf plugin</td></tr>
+          </tbody>
+        </table>
+        <p class="meta">Align wording with your chapter PDF taxonomy; the point is to <strong>label</strong> edges in your diagrams.</p>
+      </section>
+
+      <section class="slide">
+        <h1>Reducing coupling</h1>
+        <ul>
+          <li><strong>Interfaces / ports</strong> — depend on abstractions; swap adapters for DB, queue, or HTTP (Example 2)</li>
+          <li><strong>Anti-corruption layer</strong> — translate external models at the boundary; don’t leak vendor types inward</li>
+          <li><strong>Versioned public API</strong> — stable façade over evolving internals</li>
+          <li><strong>Feature flags</strong> — decouple <em>code present</em> from <em>behavior exposed</em></li>
+          <li><strong>Tolerant reader</strong> — ignore unknown fields; optional new data (Example 1)</li>
+        </ul>
+        <p class="meta">Events reduce some temporal coupling but move coupling to <strong>schema contracts</strong> and consumer logic.</p>
+      </section>
+
+      <section class="slide">
+        <h1>Cohesion (brief)</h1>
+        <p><strong>Cohesion</strong> = how closely the responsibilities inside <em>one</em> module belong together.</p>
+        <ul>
+          <li>High cohesion + <strong>loose</strong> coupling across modules is usually easier to evolve</li>
+          <li>Low cohesion often shows up as “god services” that drag unrelated callers into the same release</li>
+          <li>When splitting services, aim for clear boundaries—not just smaller deployables</li>
+        </ul>
+        <p class="meta">Coupling is <em>between</em> parts; cohesion is <em>within</em> a part. Both affect change safety.</p>
+      </section>
+
+      <section class="slide">
+        <h1>Compatibility</h1>
+        <p>Parts are <strong>compatible</strong> when one side can evolve without forcing an immediate, coordinated change on every consumer.</p>
+        <ul>
+          <li><strong>Backward</strong> — new server / producer, <strong>old</strong> clients still correct (primary goal for public APIs)</li>
+          <li><strong>Forward</strong> — old server, <strong>new</strong> clients (limited; needs feature detection, fallbacks, or negotiation)</li>
+          <li><strong>Transitional</strong> — dual endpoints, aliases, or adapters during migration windows</li>
+        </ul>
+        <p class="meta">“Compatible” is defined relative to <strong>documented</strong> client assumptions—not only JSON Schema validity.</p>
+      </section>
+
+      <section class="slide">
+        <h1>Syntactic vs semantic</h1>
+        <div class="two-col">
+          <div class="box">
+            <h3>Syntactic</h3>
+            <p>Wire-level shape: field names, types, required vs optional, enums, headers.</p>
+            <p>Tools: JSON Schema, OpenAPI, protobuf definitions.</p>
+          </div>
+          <div class="box">
+            <h3>Semantic</h3>
+            <p>Meaning and behavior: validation ranges, ordering guarantees, idempotency, error <span class="code">code</span> semantics, side effects.</p>
+            <p>Same payload can imply different behavior after a “compatible” deploy.</p>
+          </div>
+        </div>
+        <p class="meta">Example: stricter validation can be a <strong>silent</strong> break even when the schema file barely changed.</p>
+      </section>
+
+      <section class="slide">
+        <h1>Breaking vs non-breaking (typical)</h1>
+        <div class="two-col">
+          <div class="box">
+            <h3>Often non-breaking</h3>
+            <p>Add <strong>optional</strong> field or query param with a safe default.</p>
+            <p>Add <strong>new</strong> resource or endpoint; widen accepted values if previously undocumented.</p>
+          </div>
+          <div class="box">
+            <h3>Often breaking</h3>
+            <p>Rename/remove <strong>required</strong> fields; new <strong>required</strong> headers or body fields.</p>
+            <p>Tighten validation; change default behavior; remove endpoints.</p>
+          </div>
+        </div>
+        <p class="meta">Golden question: <em>Would a deployed old client still succeed without code or config changes?</em></p>
+      </section>
+
+      <section class="slide">
+        <h1>Semantic versioning (reminder)</h1>
+        <ul>
+          <li><strong>MAJOR</strong> — changes that are incompatible for <em>existing</em> consumers under your stated rules</li>
+          <li><strong>MINOR</strong> — backward-compatible <strong>additive</strong> functionality</li>
+          <li><strong>PATCH</strong> — backward-compatible <strong>bug fixes</strong></li>
+          <li>Pre-release tags (<span class="code">-beta</span>) signal instability; document what “compatible” means for your API</li>
+        </ul>
+        <p class="meta">Semver only helps if your <strong>policy</strong> matches real client parsers (strict vs tolerant).</p>
+      </section>
+
+      <section class="slide">
+        <h1>Version coexistence</h1>
+        <ul>
+          <li><strong>URL paths</strong> — <span class="code">/v1/tasks</span> vs <span class="code">/v2/tasks</span>; easy for partners to reason about</li>
+          <li><strong>Headers / content negotiation</strong> — <span class="code">Accept-Version</span>, vendor media types; needs disciplined gateways</li>
+          <li><strong>Separate deployments</strong> — different clusters or hostnames; strongest isolation, highest ops cost</li>
+          <li><strong>Sunset</strong> — published dates, metrics on remaining v1 traffic, escalation for stragglers</li>
+        </ul>
+        <p class="meta">Dual stacks pay rent: routing, auth, observability, security patches on <em>both</em> code paths.</p>
+      </section>
+
+      <section class="slide">
+        <h1>Dependencies &amp; layering</h1>
+        <p>Keep <strong>policy and domain</strong> from depending on low-level infrastructure details (ORM, message SDK, HTTP client quirks).</p>
+        <ul>
+          <li><strong>Dependency inversion</strong> — inner layers define ports; outer layers provide adapters</li>
+          <li>Improves test doubles, alternative implementations, and incremental rewrites</li>
+          <li>Public API models need not equal internal entity graphs—translate at the edge</li>
+        </ul>
+        <p class="meta">Walk through <span class="code">example2_coupling_and_dependencies.py</span>: tight dict vs <span class="code">TaskRepository</span>.</p>
+      </section>
+
+      <section class="slide">
+        <h1>Contracts in practice</h1>
+        <ul>
+          <li>Treat OpenAPI / AsyncAPI / schema repos as <strong>products</strong> with owners and changelogs</li>
+          <li><strong>Consumer-driven contracts</strong> — tests prove providers still satisfy real client expectations</li>
+          <li><strong>Postel’s principle</strong> — conservative in what you send, liberal in what you accept (within security bounds)</li>
+          <li>Document error envelopes: stable <span class="code">code</span>, evolving <span class="code">message</span> strings</li>
+        </ul>
+        <p class="meta">Pair with Example 1: lenient parse + additive response fields.</p>
+      </section>
+
+      <section class="slide">
+        <h1>API &amp; schema evolution patterns</h1>
+        <ul>
+          <li>Additive JSON fields with defaults; avoid reusing field names for new meanings</li>
+          <li>Deprecation headers (<span class="code">Deprecation</span>, <span class="code">Sunset</span>) + docs + metrics</li>
+          <li>Parallel fields during rename (<span class="code">done</span> + <span class="code">completed</span>) before removing the old one</li>
+          <li>Feature flags to expose behavior only after clients are ready</li>
+          <li>For events: schema registry, compatibility modes (backward/forward), replay testing</li>
+        </ul>
+        <p class="meta">Patterns reduce pain but do not remove the need for a written <strong>policy</strong> (see assignment Part 3).</p>
+      </section>
+
+      <section class="slide">
+        <h1>Course examples (Python)</h1>
+        <ul>
+          <li><span class="code">example1_compatibility_and_api_evolution.py</span> — classifies changes; optional <span class="code">priority</span>; legacy v1 client reading v2 JSON; lenient server parsing older bodies</li>
+          <li><span class="code">example2_coupling_and_dependencies.py</span> — <span class="highlight">tight</span> coupling to a dict row shape vs <span class="highlight">loose</span> coupling through <span class="code">TaskRepository</span></li>
+        </ul>
+        <p class="meta">Run both after class; use <span class="code">08_Compatibility_and_Coupling.pdf</span> for definitions and extended examples from the book.</p>
+      </section>
+
+      <section class="slide title-slide">
+        <p class="course">Assignment</p>
+        <h1>Task Board API</h1>
+        <p class="subtitle">Coupling analysis, compatibility classification, coexistence, policy</p>
+        <p class="meta">Full spec: <span class="code">ASSIGNMENT.md</span> — this section orients you; it does <strong>not</strong> solve the assignment.</p>
+      </section>
+
+      <section class="slide">
+        <h1>Assignment: scenario</h1>
+        <p>A <strong>Task Board REST API</strong> serves a web SPA, mobile apps, and long-lived <strong>partner integrations</strong>.</p>
+        <ul>
+          <li><strong>Baseline (given):</strong> clients → optional gateway → Task API → task store + notification service</li>
+          <li>Product wants new fields, stricter validation, bulk operations, and better client attribution</li>
+          <li>You produce <strong>architecture documentation</strong>: where coupling sits, how risky each change is, how versions coexist, and team rules for future changes</li>
+        </ul>
+        <p class="meta"><strong>Design and documentation only</strong> — no production code required; diagrams + markdown in your PR folder.</p>
+      </section>
+
+      <section class="slide">
+        <h1>What you produce (big picture)</h1>
+        <table>
+          <thead>
+            <tr><th>Area</th><th>You decide &amp; justify</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Coupling</td><td>Inventory + dependency diagram with labels</td></tr>
+            <tr><td>Compatibility</td><td>Per proposed change: breaking? semver? semantic risk</td></tr>
+            <tr><td>Coexistence</td><td>How v1 and v2 run together during migration</td></tr>
+            <tr><td>Policy</td><td>Rules, deprecation, errors, partners</td></tr>
+            <tr><td>Diagram</td><td>Migration / dual-version sequence (≥5 participants)</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="slide">
+        <h1>Part 1 — Coupling inventory</h1>
+        <p><strong>Task 1.1</strong> — written analysis</p>
+        <ul>
+          <li>List <strong>≥5</strong> elements (e.g. Web SPA, Mobile, Partner, Gateway, Task API, Store, Notifier)</li>
+          <li>For each dependency: <strong>direction</strong>, coupling kind (data / control / temporal / deployment / …), what breaks if the provider changes</li>
+          <li>Identify <strong>two</strong> tight couplings that are a <strong>reasonable trade-off</strong> and <strong>two</strong> you would loosen (how: façade, events, ACL, versioning, …)</li>
+        </ul>
+        <p class="meta">Deliverable: <span class="code">part1_coupling_analysis.md</span> — <strong>30 pts</strong></p>
+      </section>
+
+      <section class="slide">
+        <h1>Part 1 — Diagram</h1>
+        <p><strong>Task 1.2</strong></p>
+        <ul>
+          <li><strong>draw.io</strong> dependency or component diagram: boxes, arrows, labels (coupling type or “sync REST”, “shared schema”, …)</li>
+          <li>Include a <strong>legend</strong> so a reviewer can read notation in under one minute</li>
+          <li>Export <strong>PNG</strong> for the PR; keep <strong>.drawio</strong> source for edits</li>
+        </ul>
+        <p class="meta">Deliverables: <span class="code">part1_coupling_diagram.drawio</span> + <span class="code">.png</span> — <strong>20 pts</strong></p>
+      </section>
+
+      <section class="slide">
+        <h1>Assignment: proposed changes (A–E)</h1>
+        <table>
+          <thead>
+            <tr><th></th><th>Change</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>A</td><td>Optional <span class="code">priority</span> on <span class="code">GET /tasks</span> response</td></tr>
+            <tr><td>B</td><td>Rename <span class="code">done</span> → <span class="code">completed</span></td></tr>
+            <tr><td>C</td><td>Required header <span class="code">X-Client-Id</span></td></tr>
+            <tr><td>D</td><td>Shorten max <span class="code">title</span> length 500 → 100</td></tr>
+            <tr><td>E</td><td>New <span class="code">POST /tasks/bulk</span></td></tr>
+          </tbody>
+        </table>
+        <p class="meta">Assume <strong>strict</strong> mobile SDKs and <strong>slow-moving</strong> partners unless you state otherwise in your README.</p>
+      </section>
+
+      <section class="slide">
+        <h1>Part 2 — Compatibility &amp; semver</h1>
+        <p><strong>Task 2.1</strong></p>
+        <ul>
+          <li>For <strong>each A–E</strong>: <strong>breaking</strong> vs <strong>non-breaking</strong> for existing deployed clients (justify with concrete failure modes)</li>
+          <li>Recommend <strong>MAJOR / MINOR / PATCH</strong> bump for the <em>public</em> API package under semver rules <strong>you</strong> state</li>
+          <li>One sentence of <strong>semantic</strong> risk per change (e.g. validation, idempotency, error handling)</li>
+        </ul>
+        <p class="meta">Deliverable: <span class="code">part2_compatibility_changes.md</span> — <strong>25 pts</strong></p>
+      </section>
+
+      <section class="slide">
+        <h1>Part 2 — Version coexistence</h1>
+        <p><strong>Task 2.2</strong></p>
+        <ul>
+          <li>Pick a concrete <strong>coexistence</strong> strategy: URL version, header, gateway routing, or hybrid—say who implements it (edge, BFF, service)</li>
+          <li>Describe how <strong>new</strong> clients adopt v2 while <strong>legacy</strong> traffic drains on v1 during a sunset window</li>
+          <li>Name at least one <strong>operational</strong> cost: dual deploys, auth rules, observability, security patches, doc drift, support load</li>
+        </ul>
+        <p class="meta">Deliverable: <span class="code">part2_version_coexistence.md</span> — <strong>15 pts</strong></p>
+      </section>
+
+      <section class="slide">
+        <h1>Part 3 — Compatibility policy</h1>
+        <p><strong>Task 3.1</strong></p>
+        <ul>
+          <li>≤2 pages (markdown): rules for <strong>additive</strong> vs <strong>breaking</strong> changes; how <strong>deprecation</strong> is announced and how long it lasts</li>
+          <li>How you keep <strong>error</strong> payloads stable for machines (codes) vs humans (messages)</li>
+          <li>If <strong>partners</strong> get longer notice or different rules than first-party apps, say so explicitly</li>
+        </ul>
+        <p class="meta">Deliverable: <span class="code">part3_compatibility_policy.md</span> — <strong>20 pts</strong></p>
+      </section>
+
+      <section class="slide">
+        <h1>Part 3 — Migration sequence</h1>
+        <p><strong>Task 3.2</strong></p>
+        <ul>
+          <li><strong>Sequence diagram</strong> (draw.io): e.g. client hits gateway → routed to v1 or v2 → store; or partner migration with notifications</li>
+          <li><strong>≥5 participants</strong> and every message <strong>labeled</strong> (no anonymous arrows)</li>
+          <li>Match the story you told in Part 2 (same actors, consistent names)</li>
+        </ul>
+        <p class="meta">Deliverables: <span class="code">part3_migration_sequence.drawio</span> + <span class="code">.png</span> — <strong>10 pts</strong></p>
+      </section>
+
+      <section class="slide">
+        <h1>Submission &amp; grading</h1>
+        <ul>
+          <li><strong>Pull Request</strong> to <span class="code">lecture-8/submissions/YOUR_NAME/</span> — follow <span class="code">../lecture-3/SUBMISSION_GUIDE.md</span></li>
+          <li>Include a short <span class="code">README.md</span> in your folder: your name, what you focused on, any assumptions</li>
+          <li><strong>Total: 120 points</strong> — full rubric and quality bar in <span class="code">ASSIGNMENT.md</span></li>
+          <li>Every diagram: submit <strong>both</strong> <span class="code">.drawio</span> and <span class="code">.png</span></li>
+        </ul>
+      </section>
+
+      <section class="slide">
+        <h1>Before you start</h1>
+        <p class="meta" style="margin-top:0;margin-bottom:1rem;">Hints — not answers</p>
+        <ol style="margin-left:1.5rem;">
+          <li>Run <span class="code">example1_compatibility_and_api_evolution.py</span> and <span class="code">example2_coupling_and_dependencies.py</span></li>
+          <li>Draw <strong>clients → API → data</strong>; highlight <strong>shared DTOs</strong> and <strong>sync call chains</strong> as coupling hotspots</li>
+          <li>For A–E, role-play: “Ship today—would production mobile binary or partner script still work?”</li>
+          <li>Cross-check your semver story with the policy you will write in Part 3 (no contradictions)</li>
+        </ol>
+      </section>
+
+      <section class="slide">
+        <h1>Takeaways</h1>
+        <ul>
+          <li><strong>Coupling</strong> is about dependency <strong>strength</strong> and <strong>direction</strong>—not only “do they talk?”</li>
+          <li><strong>Syntactic</strong> wire compatibility can mask <strong>semantic</strong> breaks (validation, defaults, errors)</li>
+          <li><strong>Semantic versioning</strong> works when teams share a precise definition of “compatible client”</li>
+          <li><strong>Coexistence</strong> strategies trade isolation for operational and documentation overhead</li>
+          <li><strong>Boundaries</strong> (ports, ACLs, versioned façades) turn big-bang releases into staged, measurable migrations</li>
+        </ul>
+      </section>
+
+      <section class="slide title-slide">
+        <h1>Questions?</h1>
+        <p class="subtitle">Chapter 8 — Compatibility and Coupling</p>
+        <p class="meta">Deep dive: <span class="code">08_Compatibility_and_Coupling.pdf</span></p>
+        <p class="meta" style="margin-top:1rem;">Follow your course schedule for the next chapter and assignment deadlines.</p>
+      </section>
+
+    </div>
+
+    <div class="footer-bar">
+      <span id="slideLabel">1 / 37</span>
+      <div class="progress-wrap">
+        <div class="progress"><div class="progress-fill" id="progressFill" style="width: 2.70%"></div></div>
+      </div>
+      <span class="hint"><kbd>←</kbd> <kbd>→</kbd> <kbd>F</kbd> fullscreen <kbd>P</kbd> PDF</span>
+    </div>
+  </div>
+  </div>
+
+  <script>
+    (function () {
+      const root = document.getElementById('presentation-root');
+      const slides = Array.from(document.querySelectorAll('.slide'));
+      let i = 0;
+      const label = document.getElementById('slideLabel');
+      const fill = document.getElementById('progressFill');
+      const n = slides.length;
+
+      function show(idx) {
+        i = Math.max(0, Math.min(n - 1, idx));
+        slides.forEach((s, j) => s.classList.toggle('active', j === i));
+        label.textContent = (i + 1) + ' / ' + n;
+        fill.style.width = ((i + 1) / n * 100) + '%';
+      }
+
+      function toggleFullscreen() {
+        if (!document.fullscreenElement) {
+          root.requestFullscreen().catch(function () {});
+        } else {
+          document.exitFullscreen();
+        }
+      }
+
+      document.getElementById('btnFullscreen').addEventListener('click', function (e) {
+        e.stopPropagation();
+        toggleFullscreen();
+      });
+      document.getElementById('btnPrintPdf').addEventListener('click', function (e) {
+        e.stopPropagation();
+        window.print();
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'f' || e.key === 'F') {
+          if (!e.ctrlKey && !e.metaKey && !e.altKey) {
+            e.preventDefault();
+            toggleFullscreen();
+          }
+          return;
+        }
+        if (e.key === 'p' || e.key === 'P') {
+          if (!e.ctrlKey && !e.metaKey && !e.altKey) {
+            e.preventDefault();
+            window.print();
+          }
+          return;
+        }
+        if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); show(i + 1); }
+        if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); show(i - 1); }
+        if (e.key === 'Home') { e.preventDefault(); show(0); }
+        if (e.key === 'End') { e.preventDefault(); show(n - 1); }
+      });
+
+      document.body.addEventListener('click', function (e) {
+        if (e.target.closest('.footer-bar')) return;
+        if (e.target.closest('.slide-controls')) return;
+        const w = window.innerWidth;
+        if (e.clientX > w * 0.65) show(i + 1);
+        else if (e.clientX < w * 0.35) show(i - 1);
+      });
+
+      show(0);
+    })();
+  </script>
+</body>
+</html>
