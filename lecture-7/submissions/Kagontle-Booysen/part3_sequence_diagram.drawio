@@ -1,0 +1,145 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36" version="29.6.3">
+  <diagram name="Page-1" id="rXgQDCICz9f45f8q4ZZB">
+    <mxGraphModel dx="1901" dy="991" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="BX6o55pvNFB5yjUZwuc9-1" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Client" vertex="1">
+          <mxGeometry height="989" width="150" x="20" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="BX6o55pvNFB5yjUZwuc9-2" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="API Gateway" vertex="1">
+          <mxGeometry height="989" width="150" x="367" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="BX6o55pvNFB5yjUZwuc9-3" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Validator" vertex="1">
+          <mxGeometry height="989" width="150" x="573" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="BX6o55pvNFB5yjUZwuc9-4" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Queue" vertex="1">
+          <mxGeometry height="989" width="150" x="773" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="BX6o55pvNFB5yjUZwuc9-5" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Worker" vertex="1">
+          <mxGeometry height="989" width="150" x="973" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="BX6o55pvNFB5yjUZwuc9-6" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Extractor" vertex="1">
+          <mxGeometry height="989" width="150" x="1173" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="BX6o55pvNFB5yjUZwuc9-7" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Classifier" vertex="1">
+          <mxGeometry height="989" width="150" x="1373" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="BX6o55pvNFB5yjUZwuc9-8" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Storage" vertex="1">
+          <mxGeometry height="989" width="150" x="1573" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="BX6o55pvNFB5yjUZwuc9-9" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Notifier" vertex="1">
+          <mxGeometry height="989" width="150" x="1913" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="BX6o55pvNFB5yjUZwuc9-10" edge="1" parent="1" source="BX6o55pvNFB5yjUZwuc9-1" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="BX6o55pvNFB5yjUZwuc9-2" value="POST /process/async (doc, callback_url)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="277" y="127" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BX6o55pvNFB5yjUZwuc9-11" edge="1" parent="1" source="BX6o55pvNFB5yjUZwuc9-2" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="BX6o55pvNFB5yjUZwuc9-3" value="Validate Document">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="554" y="179" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BX6o55pvNFB5yjUZwuc9-12" edge="1" parent="1" source="BX6o55pvNFB5yjUZwuc9-3" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" target="BX6o55pvNFB5yjUZwuc9-2" value="OK">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="557" y="231" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BX6o55pvNFB5yjUZwuc9-13" edge="1" parent="1" source="BX6o55pvNFB5yjUZwuc9-2" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="BX6o55pvNFB5yjUZwuc9-4" value="Enqueue Job (job_id, doc_url, callback_url)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="654" y="283" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BX6o55pvNFB5yjUZwuc9-14" edge="1" parent="1" source="BX6o55pvNFB5yjUZwuc9-2" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" target="BX6o55pvNFB5yjUZwuc9-1" value="202 Accepted (job_id)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="280" y="335" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BX6o55pvNFB5yjUZwuc9-15" edge="1" parent="1" source="BX6o55pvNFB5yjUZwuc9-4" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="BX6o55pvNFB5yjUZwuc9-5" value="Deliver Job">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="957" y="436" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BX6o55pvNFB5yjUZwuc9-16" edge="1" parent="1" source="BX6o55pvNFB5yjUZwuc9-5" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="BX6o55pvNFB5yjUZwuc9-6" value="Extract Text">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1157" y="488" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BX6o55pvNFB5yjUZwuc9-17" edge="1" parent="1" source="BX6o55pvNFB5yjUZwuc9-6" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" target="BX6o55pvNFB5yjUZwuc9-5" value="Extracted Text">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1160" y="540" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BX6o55pvNFB5yjUZwuc9-18" edge="1" parent="1" source="BX6o55pvNFB5yjUZwuc9-5" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="BX6o55pvNFB5yjUZwuc9-7" value="Classify Document">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1257" y="592" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BX6o55pvNFB5yjUZwuc9-19" edge="1" parent="1" source="BX6o55pvNFB5yjUZwuc9-7" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" target="BX6o55pvNFB5yjUZwuc9-5" value="Classification Result">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1260" y="644" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BX6o55pvNFB5yjUZwuc9-20" edge="1" parent="1" source="BX6o55pvNFB5yjUZwuc9-5" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="BX6o55pvNFB5yjUZwuc9-8" value="Store Result (doc, text, type)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1357" y="696" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BX6o55pvNFB5yjUZwuc9-21" edge="1" parent="1" source="BX6o55pvNFB5yjUZwuc9-8" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" target="BX6o55pvNFB5yjUZwuc9-5" value="Store Confirmation">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1360" y="748" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BX6o55pvNFB5yjUZwuc9-22" edge="1" parent="1" source="BX6o55pvNFB5yjUZwuc9-8" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="BX6o55pvNFB5yjUZwuc9-9" value="Event: document.stored (job_id, result)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1827" y="800" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BX6o55pvNFB5yjUZwuc9-23" edge="1" parent="1" source="BX6o55pvNFB5yjUZwuc9-9" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="BX6o55pvNFB5yjUZwuc9-1" value="HTTP POST (webhook with result)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1053" y="852" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BX6o55pvNFB5yjUZwuc9-24" edge="1" parent="1" source="BX6o55pvNFB5yjUZwuc9-1" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" target="BX6o55pvNFB5yjUZwuc9-9" value="HTTP 200 OK">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1050" y="904" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BX6o55pvNFB5yjUZwuc9-25" parent="1" style="fillColor=#ffff88;strokeColor=#9E916F;fontColor=light-dark(#333333,#cccccc);" value="Asynchronous Processing" vertex="1">
+          <mxGeometry height="49" width="1190" x="823" y="355" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
