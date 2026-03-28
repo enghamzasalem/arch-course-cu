@@ -1,0 +1,149 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" version="29.5.3">
+  <diagram name="Page-1" id="OzQkKiZBU-s4d3w4Wn5K">
+    <mxGraphModel dx="1426" dy="824" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="labelBefore" parent="1" style="text;html=1;fontSize=16;fontStyle=1;align=center;verticalAlign=middle;" value="BEFORE: God Component Smell" vertex="1">
+          <mxGeometry height="30" width="250" x="40" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="godSvc" parent="1" style="shape=module;align=left;spacingLeft=20;fillColor=#f8cecc;strokeColor=#b85450;whiteSpace=wrap;html=1;" value="«Service»&#xa;Device Manager&#xa;(God Component)&#xa;---&#xa;Logic: State Management&#xa;Logic: Rule Scheduling&#xa;Logic: Protocol Comm" vertex="1">
+          <mxGeometry height="120" width="200" x="125" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="dbBefore" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#e1d5e7;strokeColor=#9673a6;" value="Device DB" vertex="1">
+          <mxGeometry height="80" width="80" x="185" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="linkBefore" edge="1" parent="1" source="godSvc" target="dbBefore">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="warning" parent="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" value="&lt;font color=&quot;#cc0000&quot;&gt;High Coupling:&lt;br&gt;One bug in Scheduling&lt;br&gt;crashes everything.&lt;/font&gt;" vertex="1">
+          <mxGeometry height="60" width="160" x="145" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="divider" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;strokeWidth=2;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="450" y="500" as="sourcePoint" />
+            <mxPoint x="450" y="50" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="labelAfter" parent="1" style="text;html=1;fontSize=16;fontStyle=1;align=center;verticalAlign=middle;" value="AFTER: Modular Refactoring" vertex="1">
+          <mxGeometry height="30" width="250" x="540" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="svcState" parent="1" style="shape=module;fillColor=#d5e8d4;strokeColor=#82b366;" value="«Service»&#xa;State Service" vertex="1">
+          <mxGeometry height="60" width="140" x="550" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="svcSched" parent="1" style="shape=module;fillColor=#d5e8d4;strokeColor=#82b366;" value="«Service»&#xa;Scheduler Service" vertex="1">
+          <mxGeometry height="60" width="140" x="720" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="svcComm" parent="1" style="shape=module;fillColor=#d5e8d4;strokeColor=#82b366;" value="«Service»&#xa;Comm Service" vertex="1">
+          <mxGeometry height="60" width="140" x="890" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="dbState" parent="1" style="shape=cylinder3;fillColor=#e1d5e7;strokeColor=#9673a6;" value="State DB" vertex="1">
+          <mxGeometry height="60" width="60" x="590" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="dbSched" parent="1" style="shape=cylinder3;fillColor=#e1d5e7;strokeColor=#9673a6;" value="Sched DB" vertex="1">
+          <mxGeometry height="60" width="60" x="760" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="dbComm" parent="1" style="shape=cylinder3;fillColor=#e1d5e7;strokeColor=#9673a6;" value="Comm DB" vertex="1">
+          <mxGeometry height="60" width="60" x="930" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="l1" edge="1" parent="1" source="svcState" target="dbState">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l2" edge="1" parent="1" source="svcSched" target="dbSched">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l3" edge="1" parent="1" source="svcComm" target="dbComm">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="broker" parent="1" style="shape=hexagon;fillColor=#fff2cc;strokeColor=#d6b656;" value="Internal Message Broker (Event Bus)" vertex="1">
+          <mxGeometry height="60" width="220" x="680" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="flow1" edge="1" parent="1" source="dbState" style="endArrow=classic;startArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0;entryY=0.5;" target="broker" value="Async Events">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="620" y="310" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RrBftWDVU5cZR9lL8xxH-1" parent="1" style="text;html=1;fontSize=16;fontStyle=1;align=center;verticalAlign=middle;" value="BEFORE: Cyclic Dependency (Circular Events)" vertex="1">
+          <mxGeometry height="30" width="250" x="90" y="610" as="geometry" />
+        </mxCell>
+        <mxCell id="RrBftWDVU5cZR9lL8xxH-2" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;strokeWidth=2;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="450" y="860" as="sourcePoint" />
+            <mxPoint x="450" y="410" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RrBftWDVU5cZR9lL8xxH-3" parent="1" style="text;html=1;fontSize=16;fontStyle=1;align=center;verticalAlign=middle;" value="AFTER: Saga Orchestration (Linear Flow)" vertex="1">
+          <mxGeometry height="30" width="350" x="540" y="610" as="geometry" />
+        </mxCell>
+        <mxCell id="RrBftWDVU5cZR9lL8xxH-4" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;strokeWidth=2;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="450" y="1150" as="sourcePoint" />
+            <mxPoint x="450" y="700" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RrBftWDVU5cZR9lL8xxH-5" parent="1" style="rounded=1;fillColor=#f8cecc;strokeColor=#b85450;whiteSpace=wrap;html=1;" value="«Service»&#xa;Automation Svc" vertex="1">
+          <mxGeometry height="60" width="120" x="145" y="680" as="geometry" />
+        </mxCell>
+        <mxCell id="RrBftWDVU5cZR9lL8xxH-6" parent="1" style="rounded=1;fillColor=#f8cecc;strokeColor=#b85450;whiteSpace=wrap;html=1;" value="«Service»&#xa;Lighting Svc" vertex="1">
+          <mxGeometry height="60" width="120" x="150" y="880" as="geometry" />
+        </mxCell>
+        <mxCell id="RrBftWDVU5cZR9lL8xxH-7" edge="1" parent="1" source="RrBftWDVU5cZR9lL8xxH-6" style="endArrow=classic;html=1;exitX=0;exitY=0.5;entryX=0;entryY=0.25;edgeStyle=orthogonalEdgeStyle;curved=1;strokeColor=#cc0000;strokeWidth=2;entryDx=0;entryDy=0;exitDx=0;exitDy=0;" target="RrBftWDVU5cZR9lL8xxH-5" value="2. Status Updated">
+          <mxGeometry relative="1" x="-0.0667" y="-20" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="60" y="910" />
+              <mxPoint x="60" y="695" />
+            </Array>
+            <mxPoint x="90" y="1020" as="sourcePoint" />
+            <mxPoint x="90" y="870" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RrBftWDVU5cZR9lL8xxH-8" edge="1" parent="1" source="RrBftWDVU5cZR9lL8xxH-5" style="endArrow=classic;html=1;exitX=1;exitY=0.25;edgeStyle=orthogonalEdgeStyle;curved=1;strokeColor=#cc0000;strokeWidth=2;exitDx=0;exitDy=0;" value="1. Start Routine">
+          <mxGeometry relative="1" x="-0.0667" y="20" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="320" y="695" />
+              <mxPoint x="320" y="910" />
+            </Array>
+            <mxPoint x="270" y="860" as="sourcePoint" />
+            <mxPoint x="270" y="910" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RrBftWDVU5cZR9lL8xxH-9" parent="1" style="rounded=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="«Service»&#xa;Automation Svc" vertex="1">
+          <mxGeometry height="60" width="120" x="520" y="760" as="geometry" />
+        </mxCell>
+        <mxCell id="RrBftWDVU5cZR9lL8xxH-10" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1" value="«Orchestrator»&#xa;Morning Routine Saga" vertex="1">
+          <mxGeometry height="120" width="180" x="750" y="740" as="geometry" />
+        </mxCell>
+        <mxCell id="RrBftWDVU5cZR9lL8xxH-11" parent="1" style="rounded=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="«Service»&#xa;Lighting Svc" vertex="1">
+          <mxGeometry height="60" width="120" x="1050" y="770" as="geometry" />
+        </mxCell>
+        <mxCell id="RrBftWDVU5cZR9lL8xxH-12" edge="1" parent="1" source="RrBftWDVU5cZR9lL8xxH-9" style="endArrow=classic;html=1;exitX=1.008;exitY=0.633;entryX=0;entryY=0.5;strokeWidth=2;exitDx=0;exitDy=0;entryDx=0;entryDy=0;exitPerimeter=0;" target="RrBftWDVU5cZR9lL8xxH-10" value="1. Request">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="700" y="900" as="sourcePoint" />
+            <mxPoint x="750" y="900" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RrBftWDVU5cZR9lL8xxH-13" edge="1" parent="1" source="RrBftWDVU5cZR9lL8xxH-10" style="endArrow=classic;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;strokeWidth=2;exitDx=0;exitDy=0;entryDx=0;entryDy=0;" target="RrBftWDVU5cZR9lL8xxH-11" value="2. Command">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="920" y="930" as="sourcePoint" />
+            <mxPoint x="970" y="930" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="RrBftWDVU5cZR9lL8xxH-14" edge="1" parent="1" source="RrBftWDVU5cZR9lL8xxH-11" style="endArrow=classic;html=1;exitX=0.25;exitY=1;entryX=0.5;entryY=1;edgeStyle=orthogonalEdgeStyle;curved=1;strokeWidth=2;exitDx=0;exitDy=0;entryDx=0;entryDy=0;" target="RrBftWDVU5cZR9lL8xxH-10" value="3. Reply">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1090" y="830" />
+              <mxPoint x="1090" y="920" />
+              <mxPoint x="840" y="920" />
+            </Array>
+            <mxPoint x="1280" y="850" as="sourcePoint" />
+            <mxPoint x="1080" y="880" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
