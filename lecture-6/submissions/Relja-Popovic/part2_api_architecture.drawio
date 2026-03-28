@@ -1,0 +1,114 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36" version="29.6.1">
+  <diagram name="API Architecture" id="api-arch">
+    <mxGraphModel dx="1603" dy="935" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="web" parent="1" style="rounded=1;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;" value="Web App&#xa;React / Vue" vertex="1">
+          <mxGeometry height="60" width="180" x="70" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="mobile" parent="1" style="rounded=1;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;" value="Mobile App&#xa;iOS / Android" vertex="1">
+          <mxGeometry height="60" width="180" x="310" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="cli" parent="1" style="rounded=1;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;" value="CLI&#xa;curl / scripts" vertex="1">
+          <mxGeometry height="60" width="180" x="550" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="batch" parent="1" style="rounded=1;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=13;" value="Batch Job&#xa;Scheduled process" vertex="1">
+          <mxGeometry height="60" width="180" x="790" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="api-layer" parent="1" style="swimlane;startSize=36;fillColor=#ebf3fb;strokeColor=#5b9bd5;fontSize=15;fontStyle=1;fontColor=#1f3864;" value="API Layer" vertex="1">
+          <mxGeometry height="160" width="1180" x="40" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="http" parent="api-layer" style="rounded=1;whiteSpace=wrap;fillColor=#ffffff;strokeColor=#5b9bd5;fontSize=13;" value="HTTP Server&#xa;Express / Fastify" vertex="1">
+          <mxGeometry height="70" width="200" x="40" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="upload" parent="api-layer" style="rounded=1;whiteSpace=wrap;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;fontColor=#7d5a00;strokeWidth=2;" value="File Upload Handler&#xa;multipart/form-data&#xa;size validation" vertex="1">
+          <mxGeometry height="70" width="200" x="300" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="validation" parent="api-layer" style="rounded=1;whiteSpace=wrap;fillColor=#ffffff;strokeColor=#5b9bd5;fontSize=13;" value="Request Validation&#xa;schema · input mode&#xa;page range check" vertex="1">
+          <mxGeometry height="70" width="200" x="560" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="routes" parent="api-layer" style="rounded=1;whiteSpace=wrap;fillColor=#ffffff;strokeColor=#5b9bd5;fontSize=13;align=left;spacingLeft=10;" value="Route Handlers&#xa;POST /extract/tex&#xa;POST /extract/info&#xa;POST /extract/images&#xa;POST /extract/tables&#xa;POST /extract/screenshot" vertex="1">
+          <mxGeometry height="100" width="230" x="820" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="e-http-upload" edge="1" parent="api-layer" source="http" style="edgeStyle=orthogonalEdgeStyle;" target="upload">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-upload-valid" edge="1" parent="api-layer" source="upload" style="edgeStyle=orthogonalEdgeStyle;" target="validation">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-valid-routes" edge="1" parent="api-layer" source="validation" style="edgeStyle=orthogonalEdgeStyle;" target="routes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="svc-layer" parent="1" style="swimlane;startSize=36;fillColor=#e8f5e9;strokeColor=#4caf50;fontSize=15;fontStyle=1;fontColor=#1b5e20;" value="Service Layer – PDFParsingService" vertex="1">
+          <mxGeometry height="140" width="1180" x="40" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="src-factory" parent="svc-layer" style="rounded=1;whiteSpace=wrap;fillColor=#ffffff;strokeColor=#4caf50;fontSize=13;" value="Source Factory&#xa;URL · Buffer · Base64" vertex="1">
+          <mxGeometry height="60" width="200" x="40" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="sess-mgr" parent="svc-layer" style="rounded=1;whiteSpace=wrap;fillColor=#ffffff;strokeColor=#4caf50;fontSize=13;" value="Session Manager&#xa;open · close lifecycle" vertex="1">
+          <mxGeometry height="60" width="200" x="300" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="ext-router" parent="svc-layer" style="rounded=1;whiteSpace=wrap;fillColor=#ffffff;strokeColor=#4caf50;fontSize=13;" value="Extractor Router&#xa;maps route → IExtractor" vertex="1">
+          <mxGeometry height="60" width="220" x="560" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="resp-fmt" parent="svc-layer" style="rounded=1;whiteSpace=wrap;fillColor=#ffffff;strokeColor=#4caf50;fontSize=13;" value="Response Formatter&#xa;serialize to JSON envelope" vertex="1">
+          <mxGeometry height="60" width="220" x="840" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="e-sf-sm" edge="1" parent="svc-layer" source="src-factory" style="edgeStyle=orthogonalEdgeStyle;" target="sess-mgr">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-sm-er" edge="1" parent="svc-layer" source="sess-mgr" style="edgeStyle=orthogonalEdgeStyle;" target="ext-router">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-er-rf" edge="1" parent="svc-layer" source="ext-router" style="edgeStyle=orthogonalEdgeStyle;" target="resp-fmt">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lib-layer" parent="1" style="swimlane;startSize=36;fillColor=#fff8e1;strokeColor=#ff9800;fontSize=15;fontStyle=1;fontColor=#e65100;" value="Library – pdf-parse (redesigned interfaces)" vertex="1">
+          <mxGeometry height="160" width="1180" x="40" y="910" as="geometry" />
+        </mxCell>
+        <mxCell id="ipdfsrc" parent="lib-layer" style="rounded=1;whiteSpace=wrap;fillColor=#ffffff;strokeColor=#ff9800;fontColor=#e65100;fontSize=13;" value="IPDFSource&#xa;load() · dispose()" vertex="1">
+          <mxGeometry height="70" width="180" x="40" y="55" as="geometry" />
+        </mxCell>
+        <mxCell id="ipdfpar" parent="lib-layer" style="rounded=1;whiteSpace=wrap;fillColor=#ffffff;strokeColor=#ff9800;fontColor=#e65100;fontSize=13;" value="IPDFParser&#xa;open() · close()&#xa;pageCount" vertex="1">
+          <mxGeometry height="70" width="180" x="260" y="55" as="geometry" />
+        </mxCell>
+        <mxCell id="iext" parent="lib-layer" style="rounded=1;whiteSpace=wrap;fillColor=#ffffff;strokeColor=#ff9800;fontColor=#e65100;fontSize=13;" value="IExtractor&#xa;Text · Info · Images&#xa;Tables · Screenshot" vertex="1">
+          <mxGeometry height="70" width="200" x="480" y="55" as="geometry" />
+        </mxCell>
+        <mxCell id="pdfsess" parent="lib-layer" style="rounded=1;whiteSpace=wrap;fillColor=#ffffff;strokeColor=#ff9800;fontColor=#e65100;fontSize=13;" value="PDFSession&#xa;implements IPDFParser&#xa;PDF.js worker" vertex="1">
+          <mxGeometry height="70" width="200" x="720" y="55" as="geometry" />
+        </mxCell>
+        <mxCell id="nodeutils" parent="lib-layer" style="rounded=1;whiteSpace=wrap;fillColor=#fff3e0;strokeColor=#ff9800;fontColor=#e65100;fontSize=13;dashed=1;dashPattern=6 3;" value="NodeUtils&#xa;getHeader()&#xa;pdf-parse/node only" vertex="1">
+          <mxGeometry height="70" width="180" x="960" y="55" as="geometry" />
+        </mxCell>
+        <mxCell id="e-web-api" edge="1" parent="1" source="web" style="edgeStyle=orthogonalEdgeStyle;" target="api-layer">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-mobile-api" edge="1" parent="1" source="mobile" style="edgeStyle=orthogonalEdgeStyle;" target="api-layer">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-cli-api" edge="1" parent="1" source="cli" style="edgeStyle=orthogonalEdgeStyle;" target="api-layer">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-batch-api" edge="1" parent="1" source="batch" style="edgeStyle=orthogonalEdgeStyle;" target="api-layer">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-api-svc" edge="1" parent="1" source="api-layer" style="edgeStyle=orthogonalEdgeStyle;fontSize=12;" target="svc-layer" value="invoke service">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-svc-lib" edge="1" parent="1" source="svc-layer" style="edgeStyle=orthogonalEdgeStyle;fontSize=12;" target="lib-layer" value="call IExtractor&lt;T&gt;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-resp" edge="1" parent="1" source="lib-layer" style="edgeStyle=orthogonalEdgeStyle;dashed=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fontSize=12;" target="api-layer" value="response">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1260" y="990" />
+              <mxPoint x="1260" y="550" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
