@@ -1,0 +1,96 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.5.2 Chrome/142.0.7444.265 Electron/39.6.1 Safari/537.36" version="29.5.2">
+  <diagram id="component-diagram" name="Task Management Components">
+    <mxGraphModel dx="907" dy="893" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontStyle=1;fontSize=16;" value="Task Management System – Component Diagram" vertex="1">
+          <mxGeometry height="30" width="700" x="125" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="legend" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=9;" value="Legend: Component (box) Interface (labeled edge) Dependency (arrow)" vertex="1">
+          <mxGeometry height="70" width="220" x="40" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="task_manager" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="TaskManager&#xa;(Orchestrator)" vertex="1">
+          <mxGeometry height="70" width="140" x="400" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="validator" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="TaskValidator" vertex="1">
+          <mxGeometry height="60" width="130" x="180" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="repo_inmem" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="InMemoryTaskRepository&#xa;implements ITaskStorage" vertex="1">
+          <mxGeometry height="60" width="190" x="380" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="repo_file" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="FileTaskRepository&#xa;implements ITaskStorage" vertex="1">
+          <mxGeometry height="60" width="190" x="620" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="exporter_json" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="JsonTaskExporter&#xa;implements ITaskExporter" vertex="1">
+          <mxGeometry height="60" width="190" x="220" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="exporter_csv" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="CsvTaskExporter&#xa;implements ITaskExporter" vertex="1">
+          <mxGeometry height="60" width="190" x="460" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_validator" edge="1" parent="1" source="task_manager" style="endArrow=classic;html=1;strokeWidth=1.5;strokeColor=#6c8ebf;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;exitX=0;exitY=0.25;entryX=0.5;entryY=0;exitDx=0;exitDy=0;" target="validator">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="245" y="158" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_validator_lbl" connectable="0" parent="edge_validator" style="edgeLabel;html=1;align=center;verticalAlign=middle;fontSize=9;" value="uses" vertex="1">
+          <mxGeometry relative="1" x="0.5" as="geometry">
+            <mxPoint y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_storage" edge="1" parent="1" source="task_manager" style="endArrow=classic;html=1;strokeWidth=1.5;strokeColor=#6c8ebf;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="repo_inmem">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="470" y="210" />
+              <mxPoint x="475" y="210" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_storage_lbl" connectable="0" parent="edge_storage" style="edgeLabel;html=1;align=center;verticalAlign=middle;fontSize=9;" value="ITaskStorage" vertex="1">
+          <mxGeometry relative="1" x="0.5" as="geometry">
+            <mxPoint y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_exporter" edge="1" parent="1" source="task_manager" style="endArrow=classic;html=1;strokeWidth=1.5;strokeColor=#6c8ebf;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;exitX=0;exitY=0.5;entryX=0.582;entryY=-0.045;exitDx=0;exitDy=0;entryDx=0;entryDy=0;entryPerimeter=0;" target="exporter_json">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="330" y="175" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_exporter_lbl" connectable="0" parent="edge_exporter" style="edgeLabel;html=1;align=center;verticalAlign=middle;fontSize=9;" value="ITaskExporter" vertex="1">
+          <mxGeometry relative="1" x="0.5" as="geometry">
+            <mxPoint y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_storage_file" edge="1" parent="1" source="task_manager" style="endArrow=classic;html=1;strokeWidth=1.5;strokeColor=#6c8ebf;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;exitX=1;exitY=0.5;entryX=0.5;entryY=0;exitDx=0;exitDy=0;" target="repo_file">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="715" y="175" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_storage_file_lbl" connectable="0" parent="edge_storage_file" style="edgeLabel;html=1;align=center;verticalAlign=middle;fontSize=9;" value="ITaskStorage" vertex="1">
+          <mxGeometry relative="1" x="0.5" as="geometry">
+            <mxPoint y="15" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_exporter_csv" edge="1" parent="1" source="task_manager" style="endArrow=classic;html=1;strokeWidth=1.5;strokeColor=#6c8ebf;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;exitX=1;exitY=0.5;entryX=0.632;entryY=-0.045;entryDx=0;entryDy=0;entryPerimeter=0;exitDx=0;exitDy=0;" target="exporter_csv">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="540" y="190" />
+              <mxPoint x="580" y="190" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_exporter_csv_lbl" connectable="0" parent="edge_exporter_csv" style="edgeLabel;html=1;align=center;verticalAlign=middle;fontSize=9;" value="ITaskExporter" vertex="1">
+          <mxGeometry relative="1" x="0.5" as="geometry">
+            <mxPoint y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
