@@ -1,0 +1,62 @@
+<mxfile host="app.diagrams.net" modified="2024-03-01T00:00:00.000Z" agent="Mozilla/5.0" version="24.0.0" type="device">
+  <diagram id="context_diagram" name="System Context">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Video Streaming Platform (System) -->
+        <mxCell id="vsp" value="&lt;b&gt;Video Streaming Platform&lt;/b&gt;&lt;br/&gt;[Software System]&lt;br/&gt;&lt;br/&gt;Allows users to watch videos, upload content, and get recommendations." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1168bd;fontColor=#ffffff;strokeColor=#00509B;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="450" y="240" width="220" height="120" as="geometry" />
+        </mxCell>
+
+        <!-- Subscriber -->
+        <mxCell id="sub" value="&lt;div&gt;&lt;b&gt;Subscriber&lt;/b&gt;&lt;/div&gt;&lt;div&gt;[Person]&lt;/div&gt;&lt;br/&gt;&lt;div&gt;A user of the platform who watches videos and manages watchlists.&lt;/div&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#083F88;fontColor=#000000;strokeColor=#083F88;" vertex="1" parent="1">
+          <mxGeometry x="150" y="80" width="60" height="120" as="geometry" />
+        </mxCell>
+
+        <!-- Content Creator -->
+        <mxCell id="creat" value="&lt;div&gt;&lt;b&gt;Content Creator&lt;/b&gt;&lt;/div&gt;&lt;div&gt;[Person]&lt;/div&gt;&lt;br/&gt;&lt;div&gt;A user who uploads videos and monitors video analytics.&lt;/div&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#083F88;fontColor=#000000;strokeColor=#083F88;" vertex="1" parent="1">
+          <mxGeometry x="150" y="270" width="60" height="120" as="geometry" />
+        </mxCell>
+
+        <!-- Admin -->
+        <mxCell id="adm" value="&lt;div&gt;&lt;b&gt;Admin&lt;/b&gt;&lt;/div&gt;&lt;div&gt;[Person]&lt;/div&gt;&lt;br/&gt;&lt;div&gt;A user who moderates content and manages the platform.&lt;/div&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#083F88;fontColor=#000000;strokeColor=#083F88;" vertex="1" parent="1">
+          <mxGeometry x="150" y="460" width="60" height="120" as="geometry" />
+        </mxCell>
+
+        <!-- Payment Gateway -->
+        <mxCell id="pay" value="&lt;b&gt;Payment Gateway&lt;/b&gt;&lt;br/&gt;[Software System]&lt;br/&gt;&lt;br/&gt;Processes subscription payments." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#999999;fontColor=#ffffff;strokeColor=#666666;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="850" y="150" width="200" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- CDN -->
+        <mxCell id="cdn" value="&lt;b&gt;Content Delivery Network (CDN)&lt;/b&gt;&lt;br/&gt;[Software System]&lt;br/&gt;&lt;br/&gt;Delivers video content to end users efficiently." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#999999;fontColor=#ffffff;strokeColor=#666666;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="850" y="350" width="200" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- Relationships -->
+        <mxCell id="rel1" value="Browses, streams videos, &lt;br/&gt;manages watchlist&lt;br/&gt;[Web/Mobile App]" style="endArrow=block;html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;dashed=1;dashPattern=8 8;strokeColor=#666666;fontColor=#000000;labelBackgroundColor=none;" edge="1" parent="1" source="sub" target="vsp">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="rel2" value="Uploads videos &lt;br/&gt;and views analytics&lt;br/&gt;[Web App]" style="endArrow=block;html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;dashed=1;dashPattern=8 8;strokeColor=#666666;fontColor=#000000;labelBackgroundColor=none;" edge="1" parent="1" source="creat" target="vsp">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="rel3" value="Moderates content, &lt;br/&gt;manages users&lt;br/&gt;[Web Admin]" style="endArrow=block;html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;dashed=1;dashPattern=8 8;strokeColor=#666666;fontColor=#000000;labelBackgroundColor=none;" edge="1" parent="1" source="adm" target="vsp">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="rel4" value="Processes payments via&lt;br/&gt;[API]" style="endArrow=block;html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;dashed=1;dashPattern=8 8;strokeColor=#666666;fontColor=#000000;labelBackgroundColor=none;" edge="1" parent="1" source="vsp" target="pay">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="rel5" value="Distributes video content to&lt;br/&gt;[API/Network]" style="endArrow=block;html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;dashed=1;dashPattern=8 8;strokeColor=#666666;fontColor=#000000;labelBackgroundColor=none;" edge="1" parent="1" source="vsp" target="cdn">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
