@@ -1,0 +1,95 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.5.2 Chrome/142.0.7444.265 Electron/39.6.1 Safari/537.36" version="29.5.2">
+  <diagram id="deployment-uml" name="Deployment">
+    <mxGraphModel dx="1055" dy="838" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="800" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontStyle=1;fontSize=16;" value="Video Streaming Platform — Deployment Diagram" vertex="1">
+          <mxGeometry height="32" width="580" x="280" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="cloud" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;dashed=1;strokeWidth=2;" value="&lt;&lt;cloud&gt;&gt;&#xa;AWS / GCP Region" vertex="1">
+          <mxGeometry height="460" width="870" x="80" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="node_web" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;boundedLbl=1;" value="Web Server Node&#xa;&lt;&lt;load-balanced&gt;&gt;" vertex="1">
+          <mxGeometry height="80" width="140" x="200" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="art_web" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=10;" value="Artifacts: Web App [React],&#xa;Mobile backend proxy (optional)" vertex="1">
+          <mxGeometry height="36" width="140" x="200" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="node_app" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;boundedLbl=1;" value="App Server Node&#xa;&lt;&lt;container&gt;&gt;" vertex="1">
+          <mxGeometry height="80" width="160" x="420" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="art_app" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=10;" value="Artifacts: API Gateway [Node],&#xa;Recommendation Service [Python],&#xa;Streaming Service [Go]" vertex="1">
+          <mxGeometry height="44" width="160" x="420" y="92" as="geometry" />
+        </mxCell>
+        <mxCell id="node_db" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;boundedLbl=1;" value="Database Server Node&#xa;&lt;&lt;managed&gt;&gt;" vertex="1">
+          <mxGeometry height="80" width="160" x="680" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="art_db" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=10;" value="Artifacts: PostgreSQL,&#xa;Redis" vertex="1">
+          <mxGeometry height="36" width="160" x="680" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="node_cdn" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;boundedLbl=1;" value="CDN Edge Node&#xa;&lt;&lt;edge&gt;&gt;" vertex="1">
+          <mxGeometry height="80" width="140" x="750" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="art_cdn" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=10;" value="Artifacts: Video segments,&#xa;manifests (HLS/DASH)" vertex="1">
+          <mxGeometry height="36" width="140" x="750" y="408" as="geometry" />
+        </mxCell>
+        <mxCell id="conn1" edge="1" parent="1" source="node_web" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;strokeWidth=2;strokeColor=#6c8ebf;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="node_app">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="conn1l" connectable="0" parent="conn1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=8;" value="HTTPS / internal" vertex="1">
+          <mxGeometry relative="1" x="0.5" as="geometry">
+            <mxPoint x="-20" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn2" edge="1" parent="1" source="node_app" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;strokeWidth=2;strokeColor=#9673a6;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="node_db">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="conn2l" connectable="0" parent="conn2" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=8;" value="TCP (5432, 6379)" vertex="1">
+          <mxGeometry relative="1" x="0.5" as="geometry">
+            <mxPoint x="-25" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn3" edge="1" parent="1" source="node_app" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;strokeWidth=2;strokeColor=#b85450;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="node_cdn">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="500" y="280" />
+              <mxPoint x="820" y="280" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn3l" connectable="0" parent="conn3" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=8;" value="origin / purge API" vertex="1">
+          <mxGeometry relative="1" x="0.5" as="geometry">
+            <mxPoint y="-8" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="client" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" value="Client devices&#xa;(browser, mobile, TV)" vertex="1">
+          <mxGeometry height="60" width="100" x="220" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="conn0" edge="1" parent="1" source="client" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;strokeWidth=2;strokeColor=#666666;exitX=0.5;exitY=0;entryX=0.5;entryY=1;exitDx=0;exitDy=0;entryDx=0;entryDy=0;entryPerimeter=0;" target="node_web">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="conn0l" connectable="0" parent="conn0" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=8;" value="HTTPS" vertex="1">
+          <mxGeometry relative="1" x="0.5" as="geometry">
+            <mxPoint y="20" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn_cdn_client" edge="1" parent="1" source="client" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;dashed=1;strokeWidth=2;strokeColor=#b85450;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="node_cdn">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="320" y="360" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="conn_cdn_client_l" connectable="0" parent="conn_cdn_client" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=8;" value="video stream (HLS/DASH)" vertex="1">
+          <mxGeometry relative="1" x="0.5" as="geometry">
+            <mxPoint y="-8" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="infra_desc" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;align=left;verticalAlign=top;spacingLeft=8;spacingTop=6;fontSize=10;" value="Infrastructure: Cloud region hosts Web (static + SSR), App (API + services), DB (PostgreSQL + Redis). CDN is edge network (external or same provider). Containers from Part 1 map: Web/Mobile/TV apps → client; API, Recommendation, Streaming → App Server; Database, Cache → DB Server; video assets → CDN." vertex="1">
+          <mxGeometry height="56" width="960" x="110" y="510" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
