@@ -1,0 +1,129 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36" version="29.6.6">
+  <diagram name="Page-1" id="wYLyaIbVaTO_JDduDKYR">
+    <mxGraphModel dx="1426" dy="1224" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="client" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value="Client" vertex="1">
+          <mxGeometry height="580" width="80" x="40" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="gateway" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value="API Gateway" vertex="1">
+          <mxGeometry height="580" width="100" x="180" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="manager" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value="Pipeline Manager (Orchestrator)" vertex="1">
+          <mxGeometry height="580" width="110" x="340" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="validator" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value="Validator" vertex="1">
+          <mxGeometry height="580" width="80" x="510" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="extractor" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value="Extractor" vertex="1">
+          <mxGeometry height="580" width="80" x="660" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="storage" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value="Storage" vertex="1">
+          <mxGeometry height="580" width="80" x="920" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="s1" edge="1" parent="1" source="client" style="endArrow=block;html=1;verticalAlign=bottom;" target="gateway" value="POST /run">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="140" y="100" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s2" edge="1" parent="1" source="gateway" style="endArrow=block;html=1;verticalAlign=bottom;" target="manager" value="Start Workflow">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="300" y="130" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s3" edge="1" parent="1" source="manager" style="endArrow=block;html=1;verticalAlign=bottom;" target="validator" value="1. validate()">
+          <mxGeometry relative="1" x="0.0065" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="480" y="170" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s4" edge="1" parent="1" source="validator" style="endArrow=open;dashed=1;html=1;verticalAlign=bottom;endSize=8;" target="manager" value="OK">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="480" y="210" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s5" edge="1" parent="1" source="manager" style="endArrow=block;html=1;verticalAlign=bottom;" target="extractor" value="2. extractText()">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="550" y="260" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s6" edge="1" parent="1" source="extractor" style="endArrow=open;dashed=1;html=1;verticalAlign=bottom;endSize=8;" target="manager" value="Text Data">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="550" y="300" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s7" edge="1" parent="1" style="endArrow=block;html=1;verticalAlign=bottom;" value="4. saveResult()">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+            <mxPoint x="394.5" y="440" as="sourcePoint" />
+            <mxPoint x="959.5" y="440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s8" edge="1" parent="1" style="endArrow=open;dashed=1;html=1;verticalAlign=bottom;endSize=8;" value="Success">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="650" y="480" />
+            </Array>
+            <mxPoint x="959.5" y="480" as="sourcePoint" />
+            <mxPoint x="394.5" y="480" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s9" edge="1" parent="1" style="endArrow=open;dashed=1;html=1;verticalAlign=bottom;endSize=8;" value="Workflow Done">
+          <mxGeometry relative="1" x="0.1455" y="20" as="geometry">
+            <mxPoint x="1" as="offset" />
+            <Array as="points">
+              <mxPoint x="300" y="510" />
+            </Array>
+            <mxPoint x="394.5" y="510" as="sourcePoint" />
+            <mxPoint x="229.5" y="510" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s10" edge="1" parent="1" style="endArrow=open;dashed=1;html=1;verticalAlign=bottom;endSize=8;" value="200 OK (Data)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="140" y="540" />
+            </Array>
+            <mxPoint x="229.5" y="540" as="sourcePoint" />
+            <mxPoint x="79.5" y="540" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="H5BvW6WSKO2adHpmJJTu-1" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value="Classifier" vertex="1">
+          <mxGeometry height="580" width="80" x="790" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="H5BvW6WSKO2adHpmJJTu-2" edge="1" parent="1" source="manager" style="endArrow=block;html=1;verticalAlign=bottom;" value="3.&amp;nbsp; classify()">
+          <mxGeometry relative="1" x="-0.1022" y="10" as="geometry">
+            <mxPoint x="1" as="offset" />
+            <Array as="points" />
+            <mxPoint x="730" y="300" as="sourcePoint" />
+            <mxPoint x="830" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="H5BvW6WSKO2adHpmJJTu-3" edge="1" parent="1" source="H5BvW6WSKO2adHpmJJTu-1" style="endArrow=open;dashed=1;html=1;verticalAlign=bottom;endSize=8;" target="manager" value="(Doc Type)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="830" y="400" />
+            </Array>
+            <mxPoint x="1015" y="380" as="sourcePoint" />
+            <mxPoint x="710" y="380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="H5BvW6WSKO2adHpmJJTu-4" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=17;fontStyle=1" value="Sequence Diagram: Synchronous Document Processing Pipeline" vertex="1">
+          <mxGeometry height="30" width="590" x="10" y="-20" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
