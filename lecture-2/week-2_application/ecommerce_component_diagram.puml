@@ -1,0 +1,40 @@
+@startuml
+title Component Architecture - E-Commerce System
+
+' Skinparam for professional look
+skinparam componentStyle uml2
+skinparam packageStyle rectangle
+
+package "Entry Point / Orchestration" {
+    [ECommerceSystem] as ECS <<Facade>>
+}
+
+package "Product & Inventory Layer" {
+    [ProductCatalog] as PC
+    [InventoryManager] as IM
+}
+
+package "Business Logic Layer" {
+    [CartManager] as CM
+    [ShippingManager] as SM
+}
+
+package "Infrastructure Layer" {
+    [PaymentProcessor] as PP
+    [NotificationManager] as NM
+}
+
+' Defining the Dependency Flow
+note top of ECS : Central Hub for Order Processing
+
+ECS --> PC : 1. Queries Product Info
+ECS --> IM : 2. Checks/Updates Stock
+ECS --> SM : 3. Calculates Shipping
+ECS --> PP : 4. Processes Payment
+ECS --> NM : 5. Sends Confirmation
+
+' Secondary interactions
+IM ..> PC : References Product Data
+CM ..> PC : Holds Product Items
+
+@enduml
