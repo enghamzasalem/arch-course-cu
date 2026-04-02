@@ -1,0 +1,91 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36" version="29.6.6">
+  <diagram name="Page-1" id="YFyYlcPYKQMVF319DyIJ">
+    <mxGraphModel dx="1901" dy="991" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="-mO8fAbj_129jQe2yjI1-1" parent="1" style="whiteSpace=wrap;strokeWidth=2;verticalAlign=top;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#E6E6E6,#CCCCCC);fontColor=light-dark(#333333,#cccccc);" value="Legend" vertex="1">
+          <mxGeometry height="404" width="335" x="20" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="-mO8fAbj_129jQe2yjI1-2" parent="-mO8fAbj_129jQe2yjI1-1" style="whiteSpace=wrap;strokeWidth=2;fillColor=#f5f5f5;strokeColor=#666666;gradientColor=light-dark(#E6E6E6,#CCCCCC);" value="Solid arrow = synchronous dependency" vertex="1">
+          <mxGeometry height="78" width="260" x="46" y="43" as="geometry" />
+        </mxCell>
+        <mxCell id="-mO8fAbj_129jQe2yjI1-3" parent="-mO8fAbj_129jQe2yjI1-1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Dashed arrow = temporal coupling to reduce" vertex="1">
+          <mxGeometry height="78" width="260" x="46" y="171" as="geometry" />
+        </mxCell>
+        <mxCell id="-mO8fAbj_129jQe2yjI1-4" parent="-mO8fAbj_129jQe2yjI1-1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="⚠ = high blast-radius consumer" vertex="1">
+          <mxGeometry height="78" width="260" x="46" y="299" as="geometry" />
+        </mxCell>
+        <mxCell id="-mO8fAbj_129jQe2yjI1-5" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=#e1d5e7;strokeColor=#9673a6;" value="Web SPA" vertex="1">
+          <mxGeometry height="54" width="120" x="405" y="195" as="geometry" />
+        </mxCell>
+        <mxCell id="-mO8fAbj_129jQe2yjI1-6" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=#e1d5e7;strokeColor=#9673a6;" value="Mobile app&#xa;⚠ long-lived installs" vertex="1">
+          <mxGeometry height="78" width="260" x="575" y="183" as="geometry" />
+        </mxCell>
+        <mxCell id="-mO8fAbj_129jQe2yjI1-7" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=#e1d5e7;strokeColor=#9673a6;" value="Partner&#xa;⚠ long-lived client" vertex="1">
+          <mxGeometry height="78" width="260" x="885" y="183" as="geometry" />
+        </mxCell>
+        <mxCell id="-mO8fAbj_129jQe2yjI1-8" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=#d5e8d4;strokeColor=#82b366;" value="API gateway" vertex="1">
+          <mxGeometry height="54" width="147" x="631" y="498" as="geometry" />
+        </mxCell>
+        <mxCell id="-mO8fAbj_129jQe2yjI1-9" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Task API service" vertex="1">
+          <mxGeometry height="54" width="172" x="618" y="626" as="geometry" />
+        </mxCell>
+        <mxCell id="-mO8fAbj_129jQe2yjI1-10" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=#a20025;strokeColor=#6F0000;fontColor=#ffffff;" value="Task store&#xa;database" vertex="1">
+          <mxGeometry height="54" width="210" x="480" y="778" as="geometry" />
+        </mxCell>
+        <mxCell id="-mO8fAbj_129jQe2yjI1-11" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=#fa6800;strokeColor=#C73500;fontColor=#000000;" value="Notification service" vertex="1">
+          <mxGeometry height="54" width="200" x="740" y="778" as="geometry" />
+        </mxCell>
+        <mxCell id="-mO8fAbj_129jQe2yjI1-12" parent="1" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Ext. delivery channel&#xa;e.g. SMTP / APNs / FCM" vertex="1">
+          <mxGeometry height="78" width="260" x="710" y="906" as="geometry" />
+        </mxCell>
+        <mxCell id="-mO8fAbj_129jQe2yjI1-13" edge="1" parent="1" source="-mO8fAbj_129jQe2yjI1-5" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=0;entryY=0.14;rounded=0;" target="-mO8fAbj_129jQe2yjI1-8" value="data: shared JSON DTO">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="465" y="461" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="-mO8fAbj_129jQe2yjI1-14" edge="1" parent="1" source="-mO8fAbj_129jQe2yjI1-6" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="-mO8fAbj_129jQe2yjI1-8" value="data: shared JSON DTO">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="705" y="310" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="-mO8fAbj_129jQe2yjI1-15" edge="1" parent="1" source="-mO8fAbj_129jQe2yjI1-7" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=1;entryY=0.22;rounded=0;" target="-mO8fAbj_129jQe2yjI1-8" value="data: shared JSON DTO">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1015" y="461" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="-mO8fAbj_129jQe2yjI1-16" edge="1" parent="1" source="-mO8fAbj_129jQe2yjI1-8" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="-mO8fAbj_129jQe2yjI1-9" value="control: routing + auth">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="-mO8fAbj_129jQe2yjI1-17" edge="1" parent="1" source="-mO8fAbj_129jQe2yjI1-9" style="curved=1;startArrow=none;endArrow=block;exitX=0.26;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="-mO8fAbj_129jQe2yjI1-10" value="data: private schema">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="585" y="729" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="-mO8fAbj_129jQe2yjI1-18" edge="1" parent="1" source="-mO8fAbj_129jQe2yjI1-9" style="curved=1;dashed=1;dashPattern=2 3;startArrow=none;endArrow=block;exitX=0.78;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="-mO8fAbj_129jQe2yjI1-11" value="temporal: sync REST → replace with async">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="840" y="729" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="-mO8fAbj_129jQe2yjI1-19" edge="1" parent="1" source="-mO8fAbj_129jQe2yjI1-11" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="-mO8fAbj_129jQe2yjI1-12" value="data: provider API contract">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,200 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36" version="29.6.6">
+  <diagram name="Page-1" id="JPpqaQiKpvtyqX8NZNB8">
+    <mxGraphModel dx="2852" dy="2336" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="erAKSKFU8TQYFneGedBM-1" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};participant=umlActor;verticalAlign=bottom;labelPosition=center;verticalLabelPosition=top;align=center;size=65;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Partner client" vertex="1">
+          <mxGeometry height="1647" width="35" x="159" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="erAKSKFU8TQYFneGedBM-2" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="API gateway" vertex="1">
+          <mxGeometry height="1647" width="150" x="725" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="erAKSKFU8TQYFneGedBM-3" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Task API v1" vertex="1">
+          <mxGeometry height="1647" width="150" x="1219" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="erAKSKFU8TQYFneGedBM-4" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Task API v2" vertex="1">
+          <mxGeometry height="1647" width="150" x="1419" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="erAKSKFU8TQYFneGedBM-5" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Task store" vertex="1">
+          <mxGeometry height="1647" width="150" x="1742" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="erAKSKFU8TQYFneGedBM-6" edge="1" parent="1" source="erAKSKFU8TQYFneGedBM-1" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="erAKSKFU8TQYFneGedBM-2" value="GET /v1/tasks">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="526" y="176" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="erAKSKFU8TQYFneGedBM-7" edge="1" parent="1" source="erAKSKFU8TQYFneGedBM-2" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="erAKSKFU8TQYFneGedBM-3" value="route → v1 handler">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1056" y="228" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="erAKSKFU8TQYFneGedBM-8" edge="1" parent="1" source="erAKSKFU8TQYFneGedBM-3" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="erAKSKFU8TQYFneGedBM-5" value="SELECT id, title, done">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1564" y="280" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="erAKSKFU8TQYFneGedBM-9" edge="1" parent="1" source="erAKSKFU8TQYFneGedBM-5" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" target="erAKSKFU8TQYFneGedBM-3" value="rows">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1567" y="332" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="erAKSKFU8TQYFneGedBM-10" edge="1" parent="1" source="erAKSKFU8TQYFneGedBM-3" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" target="erAKSKFU8TQYFneGedBM-2" value="200 OK · done: false · Deprecation: true · Sunset: 2027-01-01">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1059" y="384" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="erAKSKFU8TQYFneGedBM-11" edge="1" parent="1" source="erAKSKFU8TQYFneGedBM-2" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" target="erAKSKFU8TQYFneGedBM-1" value="200 OK · done: false · Deprecation: true · Sunset: 2027-01-01">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="529" y="436" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="erAKSKFU8TQYFneGedBM-12" edge="1" parent="1" source="erAKSKFU8TQYFneGedBM-1" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="erAKSKFU8TQYFneGedBM-2" value="GET /v2/tasks · X-Client-Id: partner-acme">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="526" y="586" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="erAKSKFU8TQYFneGedBM-13" edge="1" parent="1" source="erAKSKFU8TQYFneGedBM-2" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="erAKSKFU8TQYFneGedBM-4" value="route → v2 handler">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1156" y="638" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="erAKSKFU8TQYFneGedBM-14" edge="1" parent="1" source="erAKSKFU8TQYFneGedBM-4" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="erAKSKFU8TQYFneGedBM-5" value="SELECT id, title, completed, priority">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1664" y="690" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="erAKSKFU8TQYFneGedBM-15" edge="1" parent="1" source="erAKSKFU8TQYFneGedBM-5" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" target="erAKSKFU8TQYFneGedBM-4" value="rows">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1667" y="742" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="erAKSKFU8TQYFneGedBM-16" edge="1" parent="1" source="erAKSKFU8TQYFneGedBM-4" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" target="erAKSKFU8TQYFneGedBM-2" value="200 OK · completed: false · priority: high">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1159" y="794" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="erAKSKFU8TQYFneGedBM-17" edge="1" parent="1" source="erAKSKFU8TQYFneGedBM-2" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" target="erAKSKFU8TQYFneGedBM-1" value="200 OK · completed: false · priority: high">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="529" y="846" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="erAKSKFU8TQYFneGedBM-18" edge="1" parent="1" source="erAKSKFU8TQYFneGedBM-1" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="erAKSKFU8TQYFneGedBM-2" value="PATCH /v2/tasks/tsk_7a2c · X-Client-Id: partner-acme · completed: true">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="526" y="996" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="erAKSKFU8TQYFneGedBM-19" edge="1" parent="1" source="erAKSKFU8TQYFneGedBM-2" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="erAKSKFU8TQYFneGedBM-4" value="route → v2 handler">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1156" y="1048" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="erAKSKFU8TQYFneGedBM-20" edge="1" parent="1" source="erAKSKFU8TQYFneGedBM-4" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="erAKSKFU8TQYFneGedBM-5" value="UPDATE tasks SET completed = true">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1664" y="1100" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="erAKSKFU8TQYFneGedBM-21" edge="1" parent="1" source="erAKSKFU8TQYFneGedBM-5" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" target="erAKSKFU8TQYFneGedBM-4" value="updated row">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1667" y="1152" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="erAKSKFU8TQYFneGedBM-22" edge="1" parent="1" source="erAKSKFU8TQYFneGedBM-4" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" target="erAKSKFU8TQYFneGedBM-2" value="200 OK · id: tsk_7a2c · completed: true">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1159" y="1204" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="erAKSKFU8TQYFneGedBM-23" edge="1" parent="1" source="erAKSKFU8TQYFneGedBM-2" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" target="erAKSKFU8TQYFneGedBM-1" value="200 OK · id: tsk_7a2c · completed: true">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="529" y="1256" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="erAKSKFU8TQYFneGedBM-24" edge="1" parent="1" source="erAKSKFU8TQYFneGedBM-1" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="erAKSKFU8TQYFneGedBM-2" value="GET /v1/tasks (old build still running)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="526" y="1357" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="erAKSKFU8TQYFneGedBM-25" edge="1" parent="1" source="erAKSKFU8TQYFneGedBM-2" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="erAKSKFU8TQYFneGedBM-3" value="route → v1 handler (now sunset)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1056" y="1409" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="erAKSKFU8TQYFneGedBM-26" edge="1" parent="1" source="erAKSKFU8TQYFneGedBM-3" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" target="erAKSKFU8TQYFneGedBM-2" value="410 Gone · code: VERSION_SUNSET · migrate to /v2/tasks">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1059" y="1461" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="erAKSKFU8TQYFneGedBM-27" edge="1" parent="1" source="erAKSKFU8TQYFneGedBM-2" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" target="erAKSKFU8TQYFneGedBM-1" value="410 Gone · code: VERSION_SUNSET · migrate to /v2/tasks">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="529" y="1513" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="erAKSKFU8TQYFneGedBM-28" parent="1" style="fillColor=#ffff88;strokeColor=#9E916F;fontColor=light-dark(#333333,#cccccc);" value="Phase 1 — Partner calls v1 (pre-migration)" vertex="1">
+          <mxGeometry height="49" width="1633" x="209" y="95" as="geometry" />
+        </mxCell>
+        <mxCell id="erAKSKFU8TQYFneGedBM-29" parent="1" style="fillColor=#ffff88;strokeColor=#9E916F;fontColor=light-dark(#333333,#cccccc);" value="Partner reads Deprecation header · begins migration work" vertex="1">
+          <mxGeometry height="49" width="429" x="20" y="456" as="geometry" />
+        </mxCell>
+        <mxCell id="erAKSKFU8TQYFneGedBM-30" parent="1" style="fillColor=#ffff88;strokeColor=#9E916F;fontColor=light-dark(#333333,#cccccc);" value="Phase 2 — Partner tests v2 in parallel" vertex="1">
+          <mxGeometry height="49" width="1633" x="209" y="505" as="geometry" />
+        </mxCell>
+        <mxCell id="erAKSKFU8TQYFneGedBM-31" parent="1" style="fillColor=#ffff88;strokeColor=#9E916F;fontColor=light-dark(#333333,#cccccc);" value="Partner validates v2 responses · updates integration code" vertex="1">
+          <mxGeometry height="49" width="422" x="23" y="866" as="geometry" />
+        </mxCell>
+        <mxCell id="erAKSKFU8TQYFneGedBM-32" parent="1" style="fillColor=#ffff88;strokeColor=#9E916F;fontColor=light-dark(#333333,#cccccc);" value="Phase 3 — Partner sends v2 write (PATCH)" vertex="1">
+          <mxGeometry height="49" width="1633" x="209" y="915" as="geometry" />
+        </mxCell>
+        <mxCell id="erAKSKFU8TQYFneGedBM-33" parent="1" style="fillColor=#ffff88;strokeColor=#9E916F;fontColor=light-dark(#333333,#cccccc);" value="Phase 4 — v1 sunset date reached" vertex="1">
+          <mxGeometry height="49" width="1633" x="209" y="1276" as="geometry" />
+        </mxCell>
+        <mxCell id="erAKSKFU8TQYFneGedBM-34" parent="1" style="fillColor=#ffff88;strokeColor=#9E916F;fontColor=light-dark(#333333,#cccccc);" value="Partner completes cutover · all calls now use /v2/" vertex="1">
+          <mxGeometry height="49" width="364" x="52" y="1533" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
