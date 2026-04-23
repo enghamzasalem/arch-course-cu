@@ -1,0 +1,11 @@
+# Part 3.1 — Pattern checklist (CityBite)
+
+**Multi-tenant fairness (cross-cutting):** In **one city** at **dinner peak**, a **“viral”** restaurant (coupons, press) can generate **huge** read and write QPS. **We must** avoid **noisy neighbor** at the data layer: per-**tenant** limits (e.g. **max concurrent orders** per `restaurant_id` or **rate** on outbox), **separate** worker **consumer groups** or **fair** dispatch so one tenant **cannot** exhaust the **order submit** pool, **DB connections**, or **queue** for everyone else. Even a **soft** 429/queue position for **abusive** clients protects **sister** stores.
+
+**Load balancing:** We put **L4/L7** load balancing in front of **stateless** Order API pods. **Equal** request distribution to healthy replicas keeps **p95** predictable if **HPA** adds capacity. Sticky sessions are not required for core REST if **state is in DB/queue**. In Year-1 this is a **default** and **necessary** piece.
+
+**Sharding / partitioning:** We **logically** partition by **`restaurant_id` / city** in **query design** and **indexes** so kitchen reads do not scan the world. **Physical** **shard** **split** of **Postgres** is **not** the first **Year-1** move: we **gain** a lot with **replicas**, **caching**, and **correct keys** first; **sharding** adds **migrations, cross-shard** queries, and **rebalancing** when **connection** to **a single** primary is **still** the true ceiling. **Mentioned** in roadmap, not the default.
+
+**Scatter/gather:** **Global** “search top dishes in **region**” or **admin** dashboards might **scatter** to **N replicas** or **N indices** and **merge** by rank. For **per-restaurant** **kitchen** boards, we **avoid** **scatter** — **one** key (`restaurant_id`) **reduces** to a **point read**. We would use **scatter/gather** only for **intentional** **cross-tenant** features, with **timeouts** and **degraded** partial results if one shard lags (documented to **product**).
+
+**Master / worker (worker pool):** The **outbox/queue** + **notification** **Deployment** is the **example2** model: **HTTP** **accepts**; **workers** **drain** the queue with **concurrency** tuned to **providers**. **HPA** or KEDA on **backlog** scales **workers** independently from the **API** — correct **separation of concerns** and **spike** absorption. **This** is a **core** part of the **target** design.
