@@ -64,5 +64,6 @@ Submission: GitHub Pull Request (see `../lecture-3/SUBMISSION_GUIDE.md`).
 
 ## Next Steps
 
+- **Lecture 10 (Chapter 10 — Scalability):** `../lecture-10/`
 - Map each runtime concern to an owner (app vs platform vs SRE)
 - Prefer immutable artifacts and explicit config boundaries

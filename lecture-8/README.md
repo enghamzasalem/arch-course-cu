@@ -62,6 +62,7 @@ Submission: GitHub Pull Request (see `../lecture-3/SUBMISSION_GUIDE.md`).
 - **Lecture 6:** Reusability and Interfaces
 - **Lecture 7:** Composability and Connectors
 - **Chapter 9:** Deployability, Portability, and Containers — see `../lecture-9/`
+- **Chapter 10:** Scalability — see `../lecture-10/`
 
 ## Next Steps
 
