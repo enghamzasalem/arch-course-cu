@@ -1,53 +1,44 @@
-<mxfile host="app.diagrams.net" modified="2026-05-01T00:00:00.000Z" agent="Cursor" version="22.0.0" type="device">
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.6.1 Chrome/142.0.7444.265 Electron/39.8.0 Safari/537.36" version="29.6.1">
   <diagram id="steady-vs-failure" name="Steady vs failure">
-    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+    <mxGraphModel dx="1351" dy="957" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-
-        <mxCell id="title" value="CityBite — Paid checkout: steady path vs payment gateway failure&#xa;Course: arch-course-cu · Lecture 11 Part 3.2 · Author: Maksim Marnat" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1" vertex="1" parent="1">
-          <mxGeometry x="380" y="20" width="820" height="50" as="geometry" />
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1" value="CityBite — Paid checkout: steady path vs payment gateway failure&#xa;Course: arch-course-cu · Lecture 11 Part 3.2 · Author: Maksim Marnat" vertex="1">
+          <mxGeometry height="50" width="820" x="380" y="20" as="geometry" />
         </mxCell>
-
-        <mxCell id="lane-steady" value="Steady state — happy path" style="swimlane;horizontal=1;startSize=28;fillColor=#e1f5fe;strokeColor=#0277bd;fontStyle=1;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="40" y="90" width="720" height="420" as="geometry" />
+        <mxCell id="lane-steady" parent="1" style="swimlane;horizontal=1;startSize=28;fillColor=#e1f5fe;strokeColor=#0277bd;fontStyle=1;fontSize=12;" value="Steady state — happy path" vertex="1">
+          <mxGeometry height="420" width="720" x="40" y="90" as="geometry" />
         </mxCell>
-        <mxCell id="lane-fail" value="Failure — gateway unhealthy → breaker → fallback" style="swimlane;horizontal=1;startSize=28;fillColor=#ffebee;strokeColor=#c62828;fontStyle=1;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="820" y="90" width="720" height="420" as="geometry" />
+        <mxCell id="c1" parent="lane-steady" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;" value="Customer / app" vertex="1">
+          <mxGeometry height="56" width="120" x="10" y="64" as="geometry" />
         </mxCell>
-
-        <mxCell id="c1" value="Customer / app" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;" vertex="1" parent="lane-steady">
-          <mxGeometry x="40" y="60" width="120" height="56" as="geometry" />
+        <mxCell id="o1" parent="lane-steady" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;" value="Order API&#xa;(K8s Deployment)" vertex="1">
+          <mxGeometry height="64" width="140" x="280" y="60" as="geometry" />
         </mxCell>
-        <mxCell id="o1" value="Order API&#xa;(K8s Deployment)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;" vertex="1" parent="lane-steady">
-          <mxGeometry x="280" y="60" width="140" height="64" as="geometry" />
+        <mxCell id="p1" parent="lane-steady" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#2e7d32;" value="Payment gateway&#xa;(PSP, HTTPS)" vertex="1">
+          <mxGeometry height="64" width="150" x="560" y="60" as="geometry" />
         </mxCell>
-        <mxCell id="p1" value="Payment gateway&#xa;(PSP, HTTPS)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#2e7d32;" vertex="1" parent="lane-steady">
-          <mxGeometry x="520" y="60" width="150" height="64" as="geometry" />
+        <mxCell id="db1" parent="lane-steady" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=12;fillColor=#fff3e0;strokeColor=#ef6c00;" value="Postgres&#xa;(orders / payment state)" vertex="1">
+          <mxGeometry height="80" width="140" x="320" y="220" as="geometry" />
         </mxCell>
-        <mxCell id="db1" value="Postgres&#xa;(orders / payment state)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=12;fillColor=#fff3e0;strokeColor=#ef6c00;" vertex="1" parent="lane-steady">
-          <mxGeometry x="320" y="220" width="140" height="80" as="geometry" />
-        </mxCell>
-
-        <mxCell id="e-s1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;strokeWidth=2;" edge="1" parent="lane-steady" source="c1" target="o1">
+        <mxCell id="e-s1" edge="1" parent="lane-steady" source="c1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;strokeWidth=2;" target="o1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="e-s1-lbl" value="1 — Submit checkout" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;" connectable="0" vertex="1" parent="e-s1">
-          <mxGeometry x="-0.1" y="1" relative="1" as="geometry">
+        <mxCell id="e-s1-lbl" connectable="0" parent="e-s1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;" value="1 — Submit checkout" vertex="1">
+          <mxGeometry relative="1" x="-0.1" y="1" as="geometry">
             <mxPoint x="10" y="-16" as="offset" />
           </mxGeometry>
         </mxCell>
-
-        <mxCell id="e-s2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;strokeWidth=2;" edge="1" parent="lane-steady" source="o1" target="p1">
+        <mxCell id="e-s2" edge="1" parent="lane-steady" source="o1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;strokeWidth=2;" target="p1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="e-s2-lbl" value="2 — Charge (idempotent key)" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;" connectable="0" vertex="1" parent="e-s2">
-          <mxGeometry x="-0.2" y="1" relative="1" as="geometry">
+        <mxCell id="e-s2-lbl" connectable="0" parent="e-s2" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;" value="2 — Charge (idempotent key)" vertex="1">
+          <mxGeometry relative="1" x="-0.2" y="1" as="geometry">
             <mxPoint y="-18" as="offset" />
           </mxGeometry>
         </mxCell>
-
-        <mxCell id="e-s3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=classic;strokeWidth=2;strokeColor=#2e7d32;" edge="1" parent="lane-steady" source="p1" target="o1">
+        <mxCell id="e-s3" edge="1" parent="lane-steady" source="p1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=classic;strokeWidth=2;strokeColor=#2e7d32;" target="o1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="595" y="180" />
@@ -55,44 +46,43 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="e-s3-lbl" value="3 — txn_ok / webhook correlation" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;" connectable="0" vertex="1" parent="e-s3">
-          <mxGeometry x="-0.3" y="2" relative="1" as="geometry">
+        <mxCell id="e-s3-lbl" connectable="0" parent="e-s3" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;" value="3 — txn_ok / webhook correlation" vertex="1">
+          <mxGeometry relative="1" x="-0.3" y="2" as="geometry">
             <mxPoint x="12" y="-8" as="offset" />
           </mxGeometry>
         </mxCell>
-
-        <mxCell id="e-s4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;strokeWidth=2;" edge="1" parent="lane-steady" source="o1" target="db1">
+        <mxCell id="e-s4" edge="1" parent="lane-steady" source="o1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;strokeWidth=2;" target="db1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="e-s4-lbl" value="4 — Persist order + payment state" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;" connectable="0" vertex="1" parent="e-s4">
-          <mxGeometry x="-0.4" y="-1" relative="1" as="geometry">
+        <mxCell id="e-s4-lbl" connectable="0" parent="e-s4" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;" value="4 — Persist order + payment state" vertex="1">
+          <mxGeometry relative="1" x="-0.4" y="-1" as="geometry">
             <mxPoint x="12" y="8" as="offset" />
           </mxGeometry>
         </mxCell>
-
-        <mxCell id="pf" value="PSP: errors / high latency" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcdd2;strokeColor=#b71c1c;fontStyle=1;" vertex="1" parent="lane-fail">
-          <mxGeometry x="80" y="60" width="180" height="56" as="geometry" />
+        <mxCell id="lane-fail" parent="1" style="swimlane;horizontal=1;startSize=28;fillColor=#ffebee;strokeColor=#c62828;fontStyle=1;fontSize=12;" value="Failure — gateway unhealthy → breaker → fallback" vertex="1">
+          <mxGeometry height="420" width="720" x="820" y="90" as="geometry" />
         </mxCell>
-        <mxCell id="storm" value="Retry storm&#xa;(amplifies calls — example1)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;" vertex="1" parent="lane-fail">
-          <mxGeometry x="360" y="55" width="170" height="66" as="geometry" />
+        <mxCell id="pf" parent="lane-fail" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffcdd2;strokeColor=#b71c1c;fontStyle=1;" value="PSP: errors / high latency" vertex="1">
+          <mxGeometry height="56" width="180" x="80" y="60" as="geometry" />
         </mxCell>
-        <mxCell id="cb" value="Circuit breaker&#xa;OPEN / fail fast" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe082;strokeColor=#f57f17;fontStyle=1;" vertex="1" parent="lane-fail">
-          <mxGeometry x="220" y="200" width="160" height="64" as="geometry" />
+        <mxCell id="storm" parent="lane-fail" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;" value="Retry storm&#xa;(amplifies calls — example1)" vertex="1">
+          <mxGeometry height="66" width="170" x="360" y="55" as="geometry" />
         </mxCell>
-        <mxCell id="fb" value="Fallback path&#xa;(queue / pay later / notify)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f5e9;strokeColor=#2e7d32;" vertex="1" parent="lane-fail">
-          <mxGeometry x="480" y="200" width="200" height="72" as="geometry" />
+        <mxCell id="cb" parent="lane-fail" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe082;strokeColor=#f57f17;fontStyle=1;" value="Circuit breaker&#xa;OPEN / fail fast" vertex="1">
+          <mxGeometry height="64" width="160" x="220" y="204" as="geometry" />
         </mxCell>
-
-        <mxCell id="e-f1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;strokeWidth=2;strokeColor=#b71c1c;" edge="1" parent="lane-fail" source="pf" target="storm">
+        <mxCell id="fb" parent="lane-fail" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f5e9;strokeColor=#2e7d32;" value="Fallback path&#xa;(queue / pay later / notify)" vertex="1">
+          <mxGeometry height="72" width="200" x="520" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="e-f1" edge="1" parent="lane-fail" source="pf" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;strokeWidth=2;strokeColor=#b71c1c;" target="storm">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="e-f1-lbl" value="1 — 500 / timeout" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;" connectable="0" vertex="1" parent="e-f1">
-          <mxGeometry x="-0.2" y="1" relative="1" as="geometry">
+        <mxCell id="e-f1-lbl" connectable="0" parent="e-f1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;" value="1 — 500 / timeout" vertex="1">
+          <mxGeometry relative="1" x="-0.2" y="1" as="geometry">
             <mxPoint y="-14" as="offset" />
           </mxGeometry>
         </mxCell>
-
-        <mxCell id="e-f2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;strokeWidth=2;" edge="1" parent="lane-fail" source="storm" target="cb">
+        <mxCell id="e-f2" edge="1" parent="lane-fail" source="storm" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;strokeWidth=2;" target="cb">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="445" y="160" />
@@ -100,22 +90,20 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="e-f2-lbl" value="2 — Breaker trips after threshold" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;" connectable="0" vertex="1" parent="e-f2">
-          <mxGeometry x="-0.1" y="2" relative="1" as="geometry">
+        <mxCell id="e-f2-lbl" connectable="0" parent="e-f2" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;" value="2 — Breaker trips after threshold" vertex="1">
+          <mxGeometry relative="1" x="-0.1" y="2" as="geometry">
             <mxPoint x="10" y="-6" as="offset" />
           </mxGeometry>
         </mxCell>
-
-        <mxCell id="e-f3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;strokeWidth=2;" edge="1" parent="lane-fail" source="cb" target="fb">
+        <mxCell id="e-f3" edge="1" parent="lane-fail" source="cb" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;strokeWidth=2;" target="fb">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="e-f3-lbl" value="3 — Stop hammering PSP" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;" connectable="0" vertex="1" parent="e-f3">
-          <mxGeometry x="-0.2" y="1" relative="1" as="geometry">
-            <mxPoint y="-14" as="offset" />
+        <mxCell id="e-f3-lbl" connectable="0" parent="e-f3" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;" value="3 — Stop hammering PSP" vertex="1">
+          <mxGeometry relative="1" x="-0.2" y="1" as="geometry">
+            <mxPoint x="14" y="-15" as="offset" />
           </mxGeometry>
         </mxCell>
-
-        <mxCell id="e-f4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=classic;strokeWidth=2;strokeColor=#2e7d32;" edge="1" parent="lane-fail" source="fb" target="pf">
+        <mxCell id="e-f4" edge="1" parent="lane-fail" source="fb" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=classic;strokeWidth=2;strokeColor=#2e7d32;" target="pf">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="680" y="330" />
@@ -123,14 +111,13 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="e-f4-lbl" value="4 — Async retry when breaker half-open / PSP OK" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;" connectable="0" vertex="1" parent="e-f4">
-          <mxGeometry x="-0.3" y="1" relative="1" as="geometry">
+        <mxCell id="e-f4-lbl" connectable="0" parent="e-f4" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;" value="4 — Async retry when breaker half-open / PSP OK" vertex="1">
+          <mxGeometry relative="1" x="-0.3" y="1" as="geometry">
             <mxPoint x="20" y="10" as="offset" />
           </mxGeometry>
         </mxCell>
-
-        <mxCell id="legend-box" value="Legend&#xa;── Solid arrow: synchronous request/response on steady path&#xa;── Green dashed: successful settlement / async continuation&#xa;█ Green rounded: external PSP (dependency)&#xa;█ Yellow: circuit breaker state machine&#xa;█ Red swimlane: degraded/failure narrative&#xa;Flows numbered 1–4 per swimlane (steady vs failure)." style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#fffde7;strokeColor=#f9a825;align=left;spacingLeft=8;fontSize=11;" vertex="1" parent="1">
-          <mxGeometry x="40" y="540" width="560" height="130" as="geometry" />
+        <mxCell id="legend-box" parent="1" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#fffde7;strokeColor=#f9a825;align=left;spacingLeft=8;fontSize=11;" value="Legend&#xa;── Solid arrow: synchronous request/response on steady path&#xa;── Green dashed: successful settlement / async continuation&#xa;█ Green rounded: external PSP (dependency)&#xa;█ Yellow: circuit breaker state machine&#xa;█ Red swimlane: degraded/failure narrative&#xa;Flows numbered 1–4 per swimlane (steady vs failure)." vertex="1">
+          <mxGeometry height="130" width="560" x="40" y="540" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
