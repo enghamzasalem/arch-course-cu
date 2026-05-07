@@ -69,9 +69,6 @@ Submission: GitHub Pull Request (see `../lecture-3/SUBMISSION_GUIDE.md`).
 ## Related Materials
 
 - **Lecture 9:** Deployability, Portability, and Containers  
-- **Lecture 11 (course arc):** Availability, flexibility — deeper runtime qualities (per textbook ordering)
+- **Lecture 11:** Availability and Services — `../lecture-11/`
 
 ## Next Steps
-
-- Pick **one** dominant workload story (e.g. order placement vs search) and quantify limits
-- Run a **cheap** load experiment on paper: “what breaks first at 10× traffic?”
