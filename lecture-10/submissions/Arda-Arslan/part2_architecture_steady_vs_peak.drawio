@@ -1,0 +1,174 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="ZsHlUA1AKtyDNz6Cf3Gf">
+    <mxGraphModel dx="4010" dy="1749" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="pnjeeGfANf6LwKFF8KoV-1" parent="1" style="text;strokeColor=none;fillColor=none;html=1;fontSize=31;fontStyle=1;verticalAlign=middle;align=center;autosizeText=1;" value="Steady vs Peak - Arda Arslan - 23/04/2026" vertex="1">
+          <mxGeometry height="90" width="610" x="270" as="geometry" />
+        </mxCell>
+        <mxCell id="pnjeeGfANf6LwKFF8KoV-2" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;Steady&lt;/font&gt;" vertex="1">
+          <mxGeometry height="670" width="740" x="-290" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="pnjeeGfANf6LwKFF8KoV-16" edge="1" parent="pnjeeGfANf6LwKFF8KoV-2" source="pnjeeGfANf6LwKFF8KoV-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="pnjeeGfANf6LwKFF8KoV-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pnjeeGfANf6LwKFF8KoV-17" connectable="0" parent="pnjeeGfANf6LwKFF8KoV-16" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;span style=&quot;background-color: light-dark(#ffffff, var(--ge-dark-color, #121212)); color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;1 HTTPS request&lt;/span&gt;" vertex="1">
+          <mxGeometry relative="1" x="-0.1926" y="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pnjeeGfANf6LwKFF8KoV-3" parent="pnjeeGfANf6LwKFF8KoV-2" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); background-color: transparent;&quot;&gt;Client&amp;nbsp;&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;(mobile app/restaurant tablet)&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="180" x="280" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="pnjeeGfANf6LwKFF8KoV-18" edge="1" parent="pnjeeGfANf6LwKFF8KoV-2" source="pnjeeGfANf6LwKFF8KoV-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="pnjeeGfANf6LwKFF8KoV-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pnjeeGfANf6LwKFF8KoV-19" connectable="0" parent="pnjeeGfANf6LwKFF8KoV-18" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;span style=&quot;background-color: light-dark(#ffffff, var(--ge-dark-color, #121212)); color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;2 route request&lt;/span&gt;" vertex="1">
+          <mxGeometry relative="1" x="-0.1079" y="-2" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pnjeeGfANf6LwKFF8KoV-4" parent="pnjeeGfANf6LwKFF8KoV-2" style="rounded=1;whiteSpace=wrap;html=1;" value="Ingress / Load Balancer" vertex="1">
+          <mxGeometry height="60" width="180" x="280" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="pnjeeGfANf6LwKFF8KoV-20" edge="1" parent="pnjeeGfANf6LwKFF8KoV-2" source="pnjeeGfANf6LwKFF8KoV-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="pnjeeGfANf6LwKFF8KoV-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pnjeeGfANf6LwKFF8KoV-21" connectable="0" parent="pnjeeGfANf6LwKFF8KoV-20" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;span style=&quot;background-color: light-dark(#ffffff, var(--ge-dark-color, #121212)); color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;3 write/read order&lt;/span&gt;" vertex="1">
+          <mxGeometry relative="1" x="-0.107" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pnjeeGfANf6LwKFF8KoV-22" edge="1" parent="pnjeeGfANf6LwKFF8KoV-2" source="pnjeeGfANf6LwKFF8KoV-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="pnjeeGfANf6LwKFF8KoV-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pnjeeGfANf6LwKFF8KoV-5" parent="pnjeeGfANf6LwKFF8KoV-2" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Order API (pods)&lt;/span&gt;" vertex="1">
+          <mxGeometry height="60" width="180" x="280" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="pnjeeGfANf6LwKFF8KoV-6" parent="pnjeeGfANf6LwKFF8KoV-2" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Worker&lt;/span&gt;" vertex="1">
+          <mxGeometry height="60" width="130" x="590" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="pnjeeGfANf6LwKFF8KoV-7" parent="pnjeeGfANf6LwKFF8KoV-2" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Object Storage&amp;nbsp;&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;(menu images)&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="130" x="20" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="pnjeeGfANf6LwKFF8KoV-8" parent="pnjeeGfANf6LwKFF8KoV-2" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;PostgreSQL (primary)&lt;/span&gt;" vertex="1">
+          <mxGeometry height="60" width="180" x="280" y="530" as="geometry" />
+        </mxCell>
+        <mxCell id="pnjeeGfANf6LwKFF8KoV-23" edge="1" parent="pnjeeGfANf6LwKFF8KoV-2" source="pnjeeGfANf6LwKFF8KoV-5" style="html=1;labelBackgroundColor=#ffffff;startArrow=none;startFill=0;startSize=6;endArrow=classic;endFill=1;endSize=6;jettySize=auto;orthogonalLoop=1;strokeWidth=1;dashed=1;fontSize=14;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="pnjeeGfANf6LwKFF8KoV-6" value="">
+          <mxGeometry height="60" relative="1" width="60" as="geometry">
+            <mxPoint x="530" y="350" as="sourcePoint" />
+            <mxPoint x="590" y="290" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pnjeeGfANf6LwKFF8KoV-9" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;font-size: 20px;&quot;&gt;Peak&lt;/span&gt;" vertex="1">
+          <mxGeometry height="780" width="1090" x="490" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="pnjeeGfANf6LwKFF8KoV-25" edge="1" parent="pnjeeGfANf6LwKFF8KoV-9" source="pnjeeGfANf6LwKFF8KoV-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="pnjeeGfANf6LwKFF8KoV-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pnjeeGfANf6LwKFF8KoV-35" connectable="0" parent="pnjeeGfANf6LwKFF8KoV-25" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;span style=&quot;background-color: light-dark(#ffffff, var(--ge-dark-color, #121212)); color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;1 HTTPS request&lt;/span&gt;" vertex="1">
+          <mxGeometry relative="1" x="-0.3275" y="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pnjeeGfANf6LwKFF8KoV-10" parent="pnjeeGfANf6LwKFF8KoV-9" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Client&amp;nbsp;&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;(mobile app/restaurant tablet)&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="180" x="280" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="pnjeeGfANf6LwKFF8KoV-26" edge="1" parent="pnjeeGfANf6LwKFF8KoV-9" source="pnjeeGfANf6LwKFF8KoV-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="pnjeeGfANf6LwKFF8KoV-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pnjeeGfANf6LwKFF8KoV-36" connectable="0" parent="pnjeeGfANf6LwKFF8KoV-26" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;span style=&quot;background-color: light-dark(#ffffff, var(--ge-dark-color, #121212)); color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;2 load balanced&lt;/span&gt;" vertex="1">
+          <mxGeometry relative="1" x="-0.1891" y="-3" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pnjeeGfANf6LwKFF8KoV-31" edge="1" parent="pnjeeGfANf6LwKFF8KoV-9" source="pnjeeGfANf6LwKFF8KoV-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="pnjeeGfANf6LwKFF8KoV-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pnjeeGfANf6LwKFF8KoV-11" parent="pnjeeGfANf6LwKFF8KoV-9" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Ingress / Load Balancer&lt;/span&gt;" vertex="1">
+          <mxGeometry height="60" width="180" x="280" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="pnjeeGfANf6LwKFF8KoV-24" edge="1" parent="pnjeeGfANf6LwKFF8KoV-9" source="pnjeeGfANf6LwKFF8KoV-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="pnjeeGfANf6LwKFF8KoV-14">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="280" y="370" />
+              <mxPoint x="225" y="370" />
+              <mxPoint x="225" y="300" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pnjeeGfANf6LwKFF8KoV-30" edge="1" parent="pnjeeGfANf6LwKFF8KoV-9" source="pnjeeGfANf6LwKFF8KoV-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="pnjeeGfANf6LwKFF8KoV-27">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pnjeeGfANf6LwKFF8KoV-37" connectable="0" parent="pnjeeGfANf6LwKFF8KoV-30" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;span style=&quot;background-color: light-dark(#ffffff, var(--ge-dark-color, #121212)); color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;3 read menu cache&lt;/span&gt;" vertex="1">
+          <mxGeometry relative="1" x="-0.097" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pnjeeGfANf6LwKFF8KoV-47" edge="1" parent="pnjeeGfANf6LwKFF8KoV-9" source="pnjeeGfANf6LwKFF8KoV-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="pnjeeGfANf6LwKFF8KoV-32">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pnjeeGfANf6LwKFF8KoV-48" edge="1" parent="pnjeeGfANf6LwKFF8KoV-9" source="pnjeeGfANf6LwKFF8KoV-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="pnjeeGfANf6LwKFF8KoV-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pnjeeGfANf6LwKFF8KoV-50" connectable="0" parent="pnjeeGfANf6LwKFF8KoV-48" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;span style=&quot;background-color: light-dark(#ffffff, var(--ge-dark-color, #121212)); color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;4 write order&lt;/span&gt;" vertex="1">
+          <mxGeometry relative="1" x="-0.1196" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pnjeeGfANf6LwKFF8KoV-12" parent="pnjeeGfANf6LwKFF8KoV-9" style="rounded=1;whiteSpace=wrap;html=1;" value="Order API (pods)" vertex="1">
+          <mxGeometry height="60" width="180" x="280" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="pnjeeGfANf6LwKFF8KoV-49" edge="1" parent="pnjeeGfANf6LwKFF8KoV-9" source="pnjeeGfANf6LwKFF8KoV-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" target="pnjeeGfANf6LwKFF8KoV-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pnjeeGfANf6LwKFF8KoV-13" parent="pnjeeGfANf6LwKFF8KoV-9" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Order API (more pods - HPA)&lt;/span&gt;" vertex="1">
+          <mxGeometry height="60" width="180" x="530" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="pnjeeGfANf6LwKFF8KoV-14" parent="pnjeeGfANf6LwKFF8KoV-9" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); background-color: transparent;&quot;&gt;Object Storage&amp;nbsp;&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;(menu images)&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="130" x="40" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="pnjeeGfANf6LwKFF8KoV-15" parent="pnjeeGfANf6LwKFF8KoV-9" style="rounded=1;whiteSpace=wrap;html=1;" value="PostgreSQL (primary)" vertex="1">
+          <mxGeometry height="60" width="180" x="530" y="610" as="geometry" />
+        </mxCell>
+        <mxCell id="pnjeeGfANf6LwKFF8KoV-27" parent="pnjeeGfANf6LwKFF8KoV-9" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Cache (menu data)&lt;/span&gt;" vertex="1">
+          <mxGeometry height="60" width="130" x="40" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="pnjeeGfANf6LwKFF8KoV-32" parent="pnjeeGfANf6LwKFF8KoV-9" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;PostgreSQL (read replica)&lt;/span&gt;" vertex="1">
+          <mxGeometry height="60" width="180" x="280" y="610" as="geometry" />
+        </mxCell>
+        <mxCell id="pnjeeGfANf6LwKFF8KoV-33" parent="pnjeeGfANf6LwKFF8KoV-9" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Queue&lt;/span&gt;" vertex="1">
+          <mxGeometry height="60" width="180" x="870" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="pnjeeGfANf6LwKFF8KoV-34" parent="pnjeeGfANf6LwKFF8KoV-9" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Worker&lt;/span&gt;" vertex="1">
+          <mxGeometry height="60" width="180" x="870" y="580" as="geometry" />
+        </mxCell>
+        <mxCell id="pnjeeGfANf6LwKFF8KoV-41" edge="1" parent="pnjeeGfANf6LwKFF8KoV-9" source="pnjeeGfANf6LwKFF8KoV-12" style="html=1;labelBackgroundColor=#ffffff;startArrow=none;startFill=0;startSize=6;endArrow=classic;endFill=1;endSize=6;jettySize=auto;orthogonalLoop=1;strokeWidth=1;dashed=1;fontSize=14;rounded=0;edgeStyle=orthogonalEdgeStyle;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="pnjeeGfANf6LwKFF8KoV-33" value="">
+          <mxGeometry height="60" relative="1" width="60" as="geometry">
+            <Array as="points">
+              <mxPoint x="500" y="380" />
+              <mxPoint x="500" y="470" />
+            </Array>
+            <mxPoint x="720" y="470" as="sourcePoint" />
+            <mxPoint x="780" y="410" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pnjeeGfANf6LwKFF8KoV-44" connectable="0" parent="pnjeeGfANf6LwKFF8KoV-41" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="&lt;span style=&quot;background-color: light-dark(#ffffff, var(--ge-dark-color, #121212)); color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;5 enqueue job&lt;/span&gt;" vertex="1">
+          <mxGeometry relative="1" x="0.356" y="3" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pnjeeGfANf6LwKFF8KoV-42" edge="1" parent="pnjeeGfANf6LwKFF8KoV-9" source="pnjeeGfANf6LwKFF8KoV-33" style="html=1;labelBackgroundColor=#ffffff;startArrow=none;startFill=0;startSize=6;endArrow=classic;endFill=1;endSize=6;jettySize=auto;orthogonalLoop=1;strokeWidth=1;dashed=1;fontSize=14;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="pnjeeGfANf6LwKFF8KoV-34" value="">
+          <mxGeometry height="60" relative="1" width="60" as="geometry">
+            <mxPoint x="810" y="580" as="sourcePoint" />
+            <mxPoint x="870" y="520" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pnjeeGfANf6LwKFF8KoV-51" parent="1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;&lt;font style=&quot;font-size: 25px;&quot;&gt;Legend&lt;/font&gt;&lt;/h1&gt;&lt;p data-pm-slice=&quot;0 0 []&quot;&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;Solid arrows: request/response&lt;/font&gt;&lt;/p&gt;&lt;p data-pm-slice=&quot;0 0 []&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;Dashed arrows: async processing&lt;/font&gt;&lt;/span&gt;&lt;/p&gt;" vertex="1">
+          <mxGeometry height="140" width="370" x="1610" y="740" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
