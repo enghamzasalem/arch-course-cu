@@ -64,7 +64,7 @@ Submission: GitHub Pull Request (see `../lecture-3/SUBMISSION_GUIDE.md`).
 ## Related Materials
 
 - **Lecture 10:** Scalability  
-- **Lecture 12 (course arc):** Flexibility and Microservices  
+- **Lecture 12:** Flexibility and Microservices — see `../lecture-12/README.md`  
 
 ## Next Steps
 
