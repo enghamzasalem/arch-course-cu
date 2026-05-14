@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lecture 10 — Scalability</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; overflow: hidden; font-family: "Segoe UI", system-ui, -apple-system, sans-serif; }
+    body { background: #1a1d23; color: #e8eaed; }
+
+    .deck {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .slide {
+      display: none;
+      flex: 1;
+      flex-direction: column;
+      justify-content: center;
+      padding: 3rem 5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      animation: fadeIn 0.35s ease;
+    }
+    .slide.active { display: flex; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .slide h1 {
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+      border-left: 5px solid #3b82f6;
+      padding-left: 1rem;
+    }
+
+    .slide h2 {
+      font-size: clamp(1.25rem, 2.5vw, 1.65rem);
+      color: #93c5fd;
+      margin-bottom: 1.25rem;
+      font-weight: 600;
+    }
+
+    .slide p, .slide li {
+      font-size: clamp(1rem, 1.8vw, 1.2rem);
+      line-height: 1.55;
+      color: #c4c9d4;
+      margin-bottom: 0.65rem;
+    }
+
+    .slide ul, .slide ol { margin: 0.75rem 0 0 1.5rem; }
+    .slide li { margin-bottom: 0.45rem; }
+
+    .subtitle { font-size: 1.15rem; color: #9ca3af; margin-top: 0.5rem; }
+    .meta { font-size: 0.95rem; color: #6b7280; margin-top: 2rem; }
+
+    .title-slide {
+      text-align: center;
+      justify-content: center;
+      border-left: none !important;
+      padding-left: 0 !important;
+    }
+    .title-slide h1 {
+      border: none;
+      padding: 0;
+      font-size: clamp(2rem, 5vw, 3.25rem);
+    }
+    .title-slide .course { color: #3b82f6; font-size: 1rem; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1rem; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+      font-size: clamp(0.85rem, 1.4vw, 1rem);
+    }
+    th, td {
+      border: 1px solid #374151;
+      padding: 0.65rem 0.85rem;
+      text-align: left;
+    }
+    th { background: #252a33; color: #93c5fd; }
+    tr:nth-child(even) td { background: #22262e; }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    @media (max-width: 768px) { .two-col { grid-template-columns: 1fr; } }
+
+    .box {
+      background: #252a33;
+      border-radius: 10px;
+      padding: 1.25rem;
+      border: 1px solid #374151;
+    }
+    .box h3 { color: #60a5fa; font-size: 1.1rem; margin-bottom: 0.75rem; }
+
+    .highlight { color: #fbbf24; font-weight: 600; }
+    .code { font-family: ui-monospace, monospace; font-size: 0.9em; background: #111418; padding: 0.15em 0.4em; border-radius: 4px; }
+
+    .footer-bar {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.65rem 1.5rem;
+      background: #111418;
+      border-top: 1px solid #374151;
+      font-size: 0.85rem;
+      color: #9ca3af;
+    }
+    .progress-wrap { flex: 1; max-width: 280px; margin: 0 1rem; }
+    .progress { height: 4px; background: #374151; border-radius: 2px; overflow: hidden; }
+    .progress-fill { height: 100%; background: #3b82f6; transition: width 0.2s ease; }
+
+    .hint { font-size: 0.8rem; color: #6b7280; }
+
+    kbd {
+      background: #374151;
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+    }
+
+    /* --- Fullscreen + controls --- */
+    #presentation-root {
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      background: #1a1d23;
+    }
+    #presentation-root:fullscreen,
+    #presentation-root:-webkit-full-screen {
+      background: #1a1d23;
+    }
+    #presentation-root:fullscreen .deck,
+    #presentation-root:-webkit-full-screen .deck {
+      flex: 1;
+      min-height: 0;
+    }
+
+    .slide-controls {
+      position: fixed;
+      top: 12px;
+      right: 12px;
+      z-index: 1000;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .slide-controls button {
+      font: inherit;
+      font-size: 0.8rem;
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: 1px solid #374151;
+      background: #252a33;
+      color: #e8eaed;
+      cursor: pointer;
+    }
+    .slide-controls button:hover {
+      background: #374151;
+      border-color: #3b82f6;
+    }
+    .slide-controls .hint-mini {
+      font-size: 0.7rem;
+      color: #6b7280;
+      max-width: 140px;
+      line-height: 1.3;
+    }
+
+    /* --- Print / Save as PDF (same visual layout) --- */
+    @media print {
+      @page {
+        size: landscape;
+        margin: 10mm;
+      }
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        color-adjust: exact !important;
+      }
+      html, body {
+        height: auto !important;
+        overflow: visible !important;
+        background: #1a1d23 !important;
+      }
+      .slide-controls,
+      .footer-bar {
+        display: none !important;
+      }
+      #presentation-root {
+        height: auto !important;
+        width: 100% !important;
+        display: block !important;
+        background: #1a1d23 !important;
+      }
+      .deck {
+        display: block !important;
+        height: auto !important;
+      }
+      #slides {
+        display: block !important;
+      }
+      .slide {
+        display: flex !important;
+        flex-direction: column;
+        justify-content: center;
+        min-height: calc(100vh - 20mm);
+        max-width: none !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 2rem 3rem !important;
+        box-sizing: border-box;
+        page-break-after: always;
+        break-after: page;
+        page-break-inside: avoid;
+        break-inside: avoid;
+        background: #1a1d23 !important;
+        color: #e8eaed !important;
+        animation: none !important;
+      }
+      .slide:last-of-type {
+        page-break-after: auto;
+        break-after: auto;
+      }
+      .slide h1 { color: #fff !important; }
+      .slide h2 { color: #93c5fd !important; }
+      .slide p, .slide li { color: #c4c9d4 !important; }
+      th { background: #252a33 !important; color: #93c5fd !important; }
+      tr:nth-child(even) td { background: #22262e !important; }
+      .box { background: #252a33 !important; border-color: #374151 !important; }
+    }
+  </style>
+</head>
+<body>
+  <div id="presentation-root">
+  <div class="slide-controls no-print" aria-label="Presentation controls">
+    <button type="button" id="btnFullscreen" title="Fullscreen (F)">⛶ Fullscreen</button>
+    <button type="button" id="btnPrintPdf" title="Print / Save as PDF (P)">📄 Save PDF</button>
+    <span class="hint-mini">PDF: Print → Save as PDF</span>
+  </div>
+  <div class="deck">
+    <div id="slides">
+      <section class="slide active title-slide">
+        <p class="course">Software Architecture — Chapter 10</p>
+        <h1>Scalability</h1>
+        <p class="subtitle">Growing workloads, bounded resources — and architecture that keeps latency under control</p>
+        <p class="meta">Based on Pautasso — Visual Lecture Notes</p>
+        <p class="meta" style="margin-top:0.75rem;">Full <strong>What / Why</strong> presenter bullets: <span class="code">Lecture10.pptx</span> or <span class="code">LECTURE_SLIDES_marp.html</span> (from Marp).</p>
+        <p class="meta" style="margin-top:0.35rem;">Chapter PDF: <span class="code">10_Scalability.pdf</span></p>
+      </section>
+
+      <section class="slide title-slide">
+        <p class="course">Recap — Lecture 9</p>
+        <h1>Deployability &amp; Containers</h1>
+        <p class="subtitle">Repeatable images, pipelines, portability — we can ship often and run the same artifact everywhere</p>
+        <p class="meta">→ Today: once deploys are <strong>easy</strong>, <strong>demand</strong> becomes the next limiter: throughput, data, and cost.</p>
+      </section>
+
+      <section class="slide">
+        <h1>Chapter roadmap (Pautasso)</h1>
+        <ul>
+          <li><strong>Workloads and resources</strong> — what grows vs what you buy</li>
+          <li><strong>Scale up vs scale out</strong> — vertical limits; horizontal economics</li>
+          <li><strong>Scaling dimensions</strong> — clients, payload size, state, dependencies</li>
+          <li><strong>Location transparency</strong> — discovery, load balancing, injection</li>
+          <li><strong>Patterns</strong> — scatter/gather, master/worker, sharding, caching</li>
+        </ul>
+      </section>
+
+      <section class="slide">
+        <h1>Learning objectives</h1>
+        <ul>
+          <li>Define <span class="highlight">scalability</span> using workload and resource language</li>
+          <li>Contrast <strong>scale up</strong> vs <strong>scale out</strong> for typical tiers (API, DB, workers)</li>
+          <li>Spot <strong>serial bottlenecks</strong> — locks, single writer, hot keys, fan-out</li>
+          <li>Relate <strong>caches</strong>, <strong>queues</strong>, and <strong>partitions</strong> to CityBite peak traffic</li>
+          <li>Name a few <strong>runtime patterns</strong> and when they help or hurt operations</li>
+        </ul>
+      </section>
+
+      <section class="slide">
+        <h1>What is scalability?</h1>
+        <p><strong>Scalability</strong> = ability to handle <strong>growth</strong> in workload (users, data, events) by adding <strong>resources</strong> while meeting targets for latency, throughput, and cost.</p>
+        <ul>
+          <li>Not “always faster” — often “same p95 latency at 10× orders/min”</li>
+          <li>Architecture decides whether extra machines give <strong>linear</strong> capacity or waste money</li>
+        </ul>
+        <p class="meta"><strong>CityBite:</strong> Friday dinner + coupon push = concurrent checkouts + kitchen refreshes + dispatch map queries.</p>
+      </section>
+
+      <section class="slide">
+        <h1>Workload vs resources</h1>
+        <div class="two-col">
+          <div class="box">
+            <h3>Workload (demand)</h3>
+            <p>Requests/sec, bytes in/out, DB rows touched, background jobs, cross-region replication…</p>
+          </div>
+          <div class="box">
+            <h3>Resources (supply)</h3>
+            <p>vCPU, RAM, disk IOPS, network egress, connection pools, thread pools, people on-call.</p>
+          </div>
+        </div>
+        <p class="meta">Saturation of <strong>any one</strong> resource becomes the system bottleneck.</p>
+      </section>
+
+      <section class="slide">
+        <h1>Throughput vs latency (Pautasso)</h1>
+        <ul>
+          <li><strong>Linear region:</strong> response time stays flat; throughput rises with workload</li>
+          <li><strong>Saturation:</strong> throughput <strong>plateaus</strong>; queues grow → latency climbs</li>
+          <li><strong>Overload:</strong> timeouts, retries, <strong>retry storms</strong>, drops — unstable</li>
+        </ul>
+        <p class="meta">Do not confuse throughput with latency. <strong>Infinite scalability does not exist</strong> — only a useful range before saturation.</p>
+      </section>
+
+      <section class="slide">
+        <h1>Scale levers: faster, less, later, help</h1>
+        <ul>
+          <li><strong>Work faster</strong> — better algorithms, bigger CPUs (until diminishing returns)</li>
+          <li><strong>Work less</strong> — approximations; <strong>degrade</strong> non-critical features during peak</li>
+          <li><strong>Work later</strong> — <strong>queues</strong>; buffer the spike; drain when idle</li>
+          <li><strong>Get help</strong> — scale out; parallelism; more workers</li>
+        </ul>
+        <p class="meta">Also: <strong>cache</strong> (avoid recomputation), <strong>edge offload</strong> (maps, previews on device) — same ideas as Netflix/YouTube edge.</p>
+      </section>
+
+      <section class="slide">
+        <h1>Scale up vs scale out</h1>
+        <table>
+          <thead>
+            <tr><th></th><th>Scale up</th><th>Scale out</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Idea</td><td>Bigger machine</td><td>More machines / pods</td></tr>
+            <tr><td>Pros</td><td>Simpler topology; strong single-node DB</td><td>Fault isolation; elastic with HPA</td></tr>
+            <tr><td>Cons</td><td>Ceiling; expensive; blast radius</td><td>Needs <strong>stateless</strong> or careful partitioning</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="slide">
+        <h1>Weak vs strong scaling</h1>
+        <ul>
+          <li><strong>Strong scaling</strong> — problem size fixed; more resources ⇒ shorter time per job</li>
+          <li><strong>Weak scaling</strong> — problem grows with resources; each node keeps similar local work</li>
+        </ul>
+        <p class="meta">Bad decomposition: doubling pods does <strong>not</strong> halve latency if every pod hits the same lock or hot row.</p>
+      </section>
+
+      <section class="slide">
+        <h1>Centralized vs decentralized</h1>
+        <table>
+          <thead>
+            <tr><th></th><th>Centralized</th><th>Decentralized</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Consistency</td><td>Easier — one logical truth</td><td>Replication / consensus cost</td></tr>
+            <tr><td>Failure</td><td><strong>SPoF</strong> — all-or-nothing</td><td><strong>Partial</strong> failure; harder recovery</td></tr>
+            <tr><td>Other</td><td>Obvious bottleneck</td><td><strong>Hot spots</strong>, <strong>churn</strong> in P2P</td></tr>
+          </tbody>
+        </table>
+        <p class="meta">You can still <strong>replicate</strong> servers behind a logical service — “many boxes,” one product (e.g. Google front ends).</p>
+      </section>
+
+      <section class="slide">
+        <h1>Famous systems (same patterns)</h1>
+        <ul>
+          <li><strong>Netflix / YouTube</strong> — edge CDN <strong>cache</strong>; encoding = <strong>master/worker</strong> on video chunks</li>
+          <li><strong>Google Search</strong> — <strong>scatter/gather</strong> over <strong>index shards</strong>; ranking = gather bottleneck</li>
+          <li><strong>Amazon</strong> — service boundaries; <strong>Dynamo</strong>-style partitioning for massive key-value scale</li>
+          <li><strong>Uber / Lyft</strong> — <strong>geo</strong>-oriented dispatch; surge pricing = capacity + economics</li>
+          <li><strong>X (Twitter)</strong> — <strong>hot accounts</strong> = shard/cache hotspot; timeline <strong>fan-out</strong></li>
+        </ul>
+      </section>
+
+      <section class="slide">
+        <h1>Scalability at scale — graph limits</h1>
+        <ul>
+          <li>Each node has finite <strong>connections</strong> and <strong>bandwidth</strong> — “black hub” or full mesh, both hit <strong>N</strong></li>
+          <li><strong>Hierarchy (tree)</strong> — root becomes the next bottleneck (fan-in)</li>
+          <li><strong>Super-peers / overlays</strong> — stable hubs + neighborhoods (classic P2P lesson)</li>
+          <li><strong>Gossip</strong> — resilient under churn; harder to visualize and debug</li>
+        </ul>
+        <p class="meta">Removing the center is not enough if every node still behaves like the old center.</p>
+      </section>
+
+      <section class="slide">
+        <h1>Scaling dimensions</h1>
+        <ul>
+          <li><strong>Clients</strong> — concurrent sessions, mobile retries, WebSocket dashboards</li>
+          <li><strong>Input size</strong> — search query breadth, menu JSON, map tiles</li>
+          <li><strong>State</strong> — carts, active orders, driver positions, idempotency keys</li>
+          <li><strong>Dependencies</strong> — payment gateway rate limits, maps API quotas, partner webhooks</li>
+        </ul>
+      </section>
+
+      <section class="slide">
+        <h1>CityBite: dinner rush story</h1>
+        <ul>
+          <li><strong>Customer spike</strong> — checkout, ETA, tracking poll every few seconds</li>
+          <li><strong>Restaurant spike</strong> — kitchen board refresh; printers; “mark ready” bursts</li>
+          <li><strong>Dispatch</strong> — map + assignment reads; fewer writes but heavy reads</li>
+          <li>Risk: one subsystem (often <strong>OLTP primary</strong>) caps whole experience</li>
+        </ul>
+      </section>
+
+      <section class="slide">
+        <h1>Bottleneck archetypes</h1>
+        <ul>
+          <li><strong>CPU</strong> — serialization, JSON, crypto, image transforms on hot path</li>
+          <li><strong>I/O</strong> — disk logs, blocking DB calls, synchronous partner APIs</li>
+          <li><strong>Locks</strong> — in-process mutex; DB row contention on popular restaurant</li>
+          <li><strong>Pool exhaustion</strong> — HTTP threads, DB connections, outbound sockets</li>
+        </ul>
+      </section>
+
+      <section class="slide">
+        <h1>Stateless tiers scale “easily”</h1>
+        <p>If a pod holds <strong>no</strong> unique session memory, the load balancer can spray requests.</p>
+        <ul>
+          <li>Externalize session to Redis or signed cookie + server-side idempotency</li>
+          <li>Uploads and large caches belong on <strong>object storage</strong> / CDN — not pod disk</li>
+        </ul>
+        <p class="meta">Lecture 9 + 10 together: disposable pods <strong>and</strong> data planes that survive churn.</p>
+      </section>
+
+      <section class="slide">
+        <h1>When you need affinity</h1>
+        <ul>
+          <li><strong>Sticky sessions</strong> — sometimes legacy; prefer external session store</li>
+          <li><strong>Partition-aware routing</strong> — shard key → subset of nodes (advanced)</li>
+          <li>Trade-off: affinity can create <strong>hot shards</strong> if one tenant goes viral</li>
+        </ul>
+      </section>
+
+      <section class="slide">
+        <h1>Load balancing</h1>
+        <ul>
+          <li>Distribute work across healthy replicas — L4/L7, health-aware</li>
+          <li>Algorithms: round-robin, least connections, weighted, consistent hashing (for caches)</li>
+          <li>LB hides individual pod failure — if app is <strong>slow</strong>, LB amplifies retry storms unless tuned</li>
+          <li><strong>Production</strong> examples: AWS ALB/NLB, GCP GLB, Cloudflare in front of GitHub, Shopify, global APIs</li>
+        </ul>
+      </section>
+
+      <section class="slide">
+        <h1>Location transparency — directory vs DI</h1>
+        <ul>
+          <li><strong>Directory / registry</strong> — client (active) looks up provider location; registry passive</li>
+          <li><strong>Dependency injection</strong> — container (active) wires dependencies; business code passive</li>
+          <li>Same problem as <strong>“which shard holds this key?”</strong> — indirection + metadata</li>
+        </ul>
+        <p class="meta">Shard routing tables, service mesh, ZooKeeper — all flavors of <strong>discovery</strong>.</p>
+      </section>
+
+      <section class="slide">
+        <h1>Database: the usual serial line</h1>
+        <ul>
+          <li>Single <strong>primary</strong> for OLTP writes — fundamental serialization of truth</li>
+          <li><strong>Read replicas</strong> — scale read-heavy dashboards; replication lag = staleness budget</li>
+          <li>Connection pooling per pod × replica count = watch <strong>max_connections</strong></li>
+        </ul>
+      </section>
+
+      <section class="slide">
+        <h1>Caching</h1>
+        <ul>
+          <li><strong>Menu / static</strong> — CDN or edge cache; version in URL or ETag</li>
+          <li><strong>Read-through</strong> Redis for “hot” restaurant configs — TTL + explicit invalidation on update</li>
+          <li>Stale cache can be OK for ETAs; <strong>not</strong> OK for payment or inventory if you promised ACID</li>
+          <li><strong>Spotify</strong> metadata, <strong>Netflix</strong> Open Connect — same pattern: immutable-ish catalogs + TTL discipline</li>
+        </ul>
+      </section>
+
+      <section class="slide">
+        <h1>Queues and workers</h1>
+        <ul>
+          <li><strong>Absorb spikes</strong> — accept writes fast; drain async work at sustainable rate</li>
+          <li>Examples: notifications, search index updates, fraud scoring, settlement batches</li>
+          <li>Need <strong>backpressure</strong> — max queue depth, drop vs delay, DLQ for poison messages</li>
+        </ul>
+        <p class="meta">See <span class="code">example2_scalability_queue_workers_citybite.py</span></p>
+      </section>
+
+      <section class="slide">
+        <h1>Partitioning / sharding</h1>
+        <ul>
+          <li>Split data by <strong>key</strong> — e.g. <code>restaurant_id</code>, city, tenant</li>
+          <li>Queries must carry the key — cross-shard joins are expensive</li>
+          <li>Rebalancing shards is an <strong>architecture migration</strong> — plan early boundaries</li>
+        </ul>
+        <p class="meta">See <span class="code">example1_scalability_hot_path_citybite.py</span> — same idea as DB indexes / partition pruning.</p>
+      </section>
+
+      <section class="slide">
+        <h1>Shard key strategies</h1>
+        <ul>
+          <li><strong>Key ranges</strong> — e.g. user id 0–500k / 500k–1M on two shards</li>
+          <li><strong>Geo</strong> — country/region (watch skew: populous vs tiny regions)</li>
+          <li><strong>Time</strong> — monthly logs; “this quarter” queries fan to many shards</li>
+          <li><strong>Hash / modulo</strong> — spread keys; changing shard count ⇒ <strong>expensive resharding</strong></li>
+        </ul>
+        <p class="meta">Often need a <strong>directory</strong> (logical shard id → physical host): ZooKeeper, etcd, managed metadata.</p>
+      </section>
+
+      <section class="slide">
+        <h1>Sharding &amp; blockchains</h1>
+        <p><strong>Blockchain sharding</strong> (e.g. <strong>Ethereum</strong> scaling roadmap, <strong>Polkadot</strong> parachains, <strong>Cosmos</strong> zones) partitions <strong>execution or state</strong> so not every validator repeats <strong>every</strong> transaction.</p>
+        <ul>
+          <li><strong>Same idea</strong> as DB sharding: <strong>shard key</strong>, routing, avoid “query hits all shards”</li>
+          <li><strong>Extra difficulty</strong> — Byzantine peers, consensus, <strong>cross-shard atomicity</strong> (bridges, 2PC-like protocols, fraud proofs)</li>
+          <li><strong>Contrast</strong> — <strong>MongoDB</strong> / <strong>Citus</strong> shard mainly for <strong>IOPS + storage</strong> under trusted operators; chains add <strong>trust + game theory</strong> cost</li>
+        </ul>
+      </section>
+
+      <section class="slide">
+        <h1>Industry names for partitions</h1>
+        <table>
+          <thead>
+            <tr><th>Term</th><th>Example</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Shard</td><td>MongoDB, Elasticsearch, SolrCloud</td></tr>
+            <tr><td>Region</td><td>HBase</td></tr>
+            <tr><td>Tablet</td><td>Bigtable / Colossus stack</td></tr>
+            <tr><td>vnode</td><td>Cassandra, Riak</td></tr>
+          </tbody>
+        </table>
+        <p class="meta"><strong>Discord</strong> (public engineering posts) is a well-documented example of aggressive data-layer scaling at social scale.</p>
+      </section>
+
+      <section class="slide">
+        <h1>Scatter / gather</h1>
+        <ul>
+          <li><strong>Scatter</strong> — fan query to many workers or shards (e.g. “search dishes citywide”)</li>
+          <li><strong>Gather</strong> — merge, rank, dedupe — often the new bottleneck</li>
+          <li>CityBite: marketing “trending near you” could fan out to regional indices</li>
+          <li><strong>Kayak / Google Flights</strong> — scatter price requests to airlines; <strong>gather</strong> under a deadline (lecture’s “≤ 2 minutes” rule)</li>
+        </ul>
+      </section>
+
+      <section class="slide">
+        <h1>Scatter/gather — when to respond?</h1>
+        <ul>
+          <li>Wait for <strong>all</strong> — latency = <strong>slowest</strong> replica</li>
+          <li><strong>Deadline</strong> — return best offer collected when time window closes</li>
+          <li><strong>First k of n</strong> — enough coverage without waiting for stragglers</li>
+          <li><strong>Fastest “good enough”</strong> — validate quality (avoid super-fast garbage answers)</li>
+          <li><strong>Majority vote</strong> — useful under <strong>Byzantine</strong> or flaky backends</li>
+        </ul>
+      </section>
+
+      <section class="slide">
+        <h1>Master / worker</h1>
+        <ul>
+          <li>Coordinator assigns units of work — dispatch batching, nightly settlement</li>
+          <li>Workers must be <strong>idempotent</strong> — retries happen under failures and autoscaling</li>
+          <li>Master availability becomes critical — often multiple masters with consensus (out of scope detail)</li>
+          <li><strong>Netflix</strong> transcode, <strong>movie render farms</strong>, <strong>AWS Batch</strong> — same divide → merge shape</li>
+        </ul>
+      </section>
+
+      <section class="slide">
+        <h1>Master/worker — trust at internet scale</h1>
+        <p><strong>SETI@home</strong> (lecture): volunteer workers worldwide; popularity created <strong>cheating</strong> clients returning junk for leaderboard points.</p>
+        <ul>
+          <li>Mitigation: assign the <strong>same partition</strong> to multiple workers and <strong>compare</strong> (scatter/gather for <strong>integrity</strong>)</li>
+          <li>Expectation on <strong>minimum plausible</strong> compute time — “too fast” is suspicious</li>
+        </ul>
+        <p class="meta">Same lesson as Byzantine-tolerant aggregation in scatter/gather — <strong>trust</strong> is part of scale design.</p>
+      </section>
+
+      <section class="slide">
+        <h1>Anti-pattern: shared mutable server memory</h1>
+        <ul>
+          <li>Shopping cart only in one pod’s RAM → breaks horizontal scale or needs sticky routing</li>
+          <li>In-memory “global order board” for all restaurants → every query scans the world</li>
+        </ul>
+        <p class="meta">Prefer explicit stores with clear <strong>consistency</strong> and <strong>partition</strong> story.</p>
+      </section>
+
+      <section class="slide">
+        <h1>Autoscaling (Kubernetes tie-in)</h1>
+        <ul>
+          <li><strong>HPA</strong> on CPU, memory, or custom metrics (e.g. requests in flight)</li>
+          <li>Scaling <strong>pods</strong> without scaling <strong>Postgres</strong> → thinner app, same DB wall</li>
+          <li>Combine with SLOs — e.g. target p95 checkout &lt; 2s at peak coupon traffic</li>
+        </ul>
+      </section>
+
+      <section class="slide">
+        <h1>Measure before you myth-bust</h1>
+        <ul>
+          <li><strong>Percentiles</strong> — p95/p99 latency; mean hides tail disasters</li>
+          <li><strong>Saturation</strong> — CPU, pool wait time, queue depth, replication lag</li>
+          <li><strong>Load tests</strong> — scripted dinner rush; compare to production guardrails</li>
+        </ul>
+      </section>
+
+      <section class="slide">
+        <h1>References</h1>
+        <ul>
+          <li>Martin L. Abbott &amp; Michael T. Fisher — <em>The Art of Scalability</em> (Pearson)</li>
+          <li>Gregor Hohpe &amp; Bobby Woolf — <em>Enterprise Integration Patterns</em></li>
+          <li>Martin Kleppmann — <em>Designing Data-Intensive Applications</em> (O’Reilly)</li>
+        </ul>
+        <p class="meta">Chapter notes transcript: <span class="code">lectrue10.txt</span> (aligns with Pautasso PDF).</p>
+      </section>
+
+      <section class="slide">
+        <h1>Example 1 — hot path (CityBite kitchen)</h1>
+        <p><span class="code">example1_scalability_hot_path_citybite.py</span></p>
+        <ul>
+          <li>Naive: scan <strong>all</strong> orders for every restaurant query</li>
+          <li>Better: <strong>index</strong> by <code>restaurant_id</code> — same lesson as DB partition keys</li>
+        </ul>
+        <p class="meta">Run: <span class="code">python3 example1_scalability_hot_path_citybite.py</span></p>
+      </section>
+
+      <section class="slide">
+        <h1>Example 2 — checkout vs notify (CityBite)</h1>
+        <p><span class="code">example2_scalability_queue_workers_citybite.py</span></p>
+        <ul>
+          <li>Anti-pattern: block checkout on every SMS/email</li>
+          <li>Better: <strong>enqueue</strong> + parallel workers — decouple user latency from outbound I/O</li>
+        </ul>
+        <p class="meta">Run: <span class="code">python3 example2_scalability_queue_workers_citybite.py</span></p>
+      </section>
+
+      <section class="slide">
+        <h1>Assignment — CityBite at peak</h1>
+        <p><strong>150 points</strong> — document how CityBite scales under growth (workload model, scale decisions, data plane, diagrams, patterns, HPA/backpressure).</p>
+        <ul>
+          <li>Parts 1–3: markdown + <span class="code">.drawio</span> + <span class="code">.png</span></li>
+          <li>Reuse <strong>CityBite</strong> naming and Lecture 9 baseline (K8s, Postgres, uploads)</li>
+        </ul>
+        <p class="meta">Full rubric: <span class="code">ASSIGNMENT.md</span></p>
+      </section>
+
+      <section class="slide">
+        <h1>Before you submit</h1>
+        <ol style="margin-left:1.5rem;">
+          <li>Run both Python examples; quote <strong>one number</strong> from each in your Part 1 or Part 2 narrative</li>
+          <li>Mark every “10× traffic” claim with <strong>what breaks first</strong> (DB, pool, queue, …)</li>
+          <li>Diagram must differ <strong>steady vs peak</strong> — not only more arrows</li>
+        </ol>
+      </section>
+
+      <section class="slide">
+        <h1>Takeaways</h1>
+        <ul>
+          <li>Scalability = <strong>workload dimensions</strong> vs <strong>resources</strong>; find the serial bottleneck</li>
+          <li>Scale out needs <strong>partitioned work</strong> or <strong>replicated read-mostly</strong> paths</li>
+          <li><strong>Caches</strong> and <strong>queues</strong> buy time and decouple peaks — with explicit consistency and depth limits</li>
+          <li><strong>Shards</strong> and <strong>scatter/gather</strong> trade query freedom for raw size</li>
+          <li>Observe <strong>p95</strong> and <strong>saturation</strong>; autoscale the tier that actually limits SLOs</li>
+          <li><strong>Shard keys</strong> + directories — same routing problem as <strong>blockchain</strong> shards, simpler trust in owned DBs</li>
+        </ul>
+      </section>
+
+      <section class="slide title-slide">
+        <h1>Questions?</h1>
+        <p class="subtitle">Chapter 10 — Scalability</p>
+        <p class="meta">Deep dive: <span class="code">10_Scalability.pdf</span> · Notes: <span class="code">lectrue10.txt</span></p>
+        <p class="meta" style="margin-top:1rem;">Next arc (course): availability, flexibility, and failure design.</p>
+      </section>
+
+    </div>
+
+    <div class="footer-bar">
+      <span id="slideLabel">1 / 41</span>
+      <div class="progress-wrap">
+        <div class="progress"><div class="progress-fill" id="progressFill" style="width: 2.44%"></div></div>
+      </div>
+      <span class="hint"><kbd>←</kbd> <kbd>→</kbd> <kbd>F</kbd> fullscreen <kbd>P</kbd> PDF</span>
+    </div>
+  </div>
+  </div>
+
+  <script>
+    (function () {
+      const root = document.getElementById('presentation-root');
+      const slides = Array.from(document.querySelectorAll('.slide'));
+      let i = 0;
+      const label = document.getElementById('slideLabel');
+      const fill = document.getElementById('progressFill');
+      const n = slides.length;
+
+      function show(idx) {
+        i = Math.max(0, Math.min(n - 1, idx));
+        slides.forEach((s, j) => s.classList.toggle('active', j === i));
+        label.textContent = (i + 1) + ' / ' + n;
+        fill.style.width = ((i + 1) / n * 100) + '%';
+      }
+
+      function toggleFullscreen() {
+        if (!document.fullscreenElement) {
+          root.requestFullscreen().catch(function () {});
+        } else {
+          document.exitFullscreen();
+        }
+      }
+
+      document.getElementById('btnFullscreen').addEventListener('click', function (e) {
+        e.stopPropagation();
+        toggleFullscreen();
+      });
+      document.getElementById('btnPrintPdf').addEventListener('click', function (e) {
+        e.stopPropagation();
+        window.print();
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'f' || e.key === 'F') {
+          if (!e.ctrlKey && !e.metaKey && !e.altKey) {
+            e.preventDefault();
+            toggleFullscreen();
+          }
+          return;
+        }
+        if (e.key === 'p' || e.key === 'P') {
+          if (!e.ctrlKey && !e.metaKey && !e.altKey) {
+            e.preventDefault();
+            window.print();
+          }
+          return;
+        }
+        if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); show(i + 1); }
+        if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); show(i - 1); }
+        if (e.key === 'Home') { e.preventDefault(); show(0); }
+        if (e.key === 'End') { e.preventDefault(); show(n - 1); }
+      });
+
+      document.body.addEventListener('click', function (e) {
+        if (e.target.closest('.footer-bar')) return;
+        if (e.target.closest('.slide-controls')) return;
+        const w = window.innerWidth;
+        if (e.clientX > w * 0.65) show(i + 1);
+        else if (e.clientX < w * 0.35) show(i - 1);
+      });
+
+      show(0);
+    })();
+  </script>
+</body>
+</html>

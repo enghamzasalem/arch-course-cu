@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lecture 9 — Deployability, Portability, and Containers</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; overflow: hidden; font-family: "Segoe UI", system-ui, -apple-system, sans-serif; }
+    body { background: #1a1d23; color: #e8eaed; }
+
+    .deck {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .slide {
+      display: none;
+      flex: 1;
+      flex-direction: column;
+      justify-content: center;
+      padding: 3rem 5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      animation: fadeIn 0.35s ease;
+    }
+    .slide.active { display: flex; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .slide h1 {
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+      border-left: 5px solid #3b82f6;
+      padding-left: 1rem;
+    }
+
+    .slide h2 {
+      font-size: clamp(1.25rem, 2.5vw, 1.65rem);
+      color: #93c5fd;
+      margin-bottom: 1.25rem;
+      font-weight: 600;
+    }
+
+    .slide p, .slide li {
+      font-size: clamp(1rem, 1.8vw, 1.2rem);
+      line-height: 1.55;
+      color: #c4c9d4;
+      margin-bottom: 0.65rem;
+    }
+
+    .slide ul, .slide ol { margin: 0.75rem 0 0 1.5rem; }
+    .slide li { margin-bottom: 0.45rem; }
+
+    .subtitle { font-size: 1.15rem; color: #9ca3af; margin-top: 0.5rem; }
+    .meta { font-size: 0.95rem; color: #6b7280; margin-top: 2rem; }
+
+    .title-slide {
+      text-align: center;
+      justify-content: center;
+      border-left: none !important;
+      padding-left: 0 !important;
+    }
+    .title-slide h1 {
+      border: none;
+      padding: 0;
+      font-size: clamp(2rem, 5vw, 3.25rem);
+    }
+    .title-slide .course { color: #3b82f6; font-size: 1rem; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1rem; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+      font-size: clamp(0.85rem, 1.4vw, 1rem);
+    }
+    th, td {
+      border: 1px solid #374151;
+      padding: 0.65rem 0.85rem;
+      text-align: left;
+    }
+    th { background: #252a33; color: #93c5fd; }
+    tr:nth-child(even) td { background: #22262e; }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    @media (max-width: 768px) { .two-col { grid-template-columns: 1fr; } }
+
+    .box {
+      background: #252a33;
+      border-radius: 10px;
+      padding: 1.25rem;
+      border: 1px solid #374151;
+    }
+    .box h3 { color: #60a5fa; font-size: 1.1rem; margin-bottom: 0.75rem; }
+
+    .highlight { color: #fbbf24; font-weight: 600; }
+    .code { font-family: ui-monospace, monospace; font-size: 0.9em; background: #111418; padding: 0.15em 0.4em; border-radius: 4px; }
+
+    .footer-bar {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.65rem 1.5rem;
+      background: #111418;
+      border-top: 1px solid #374151;
+      font-size: 0.85rem;
+      color: #9ca3af;
+    }
+    .progress-wrap { flex: 1; max-width: 280px; margin: 0 1rem; }
+    .progress { height: 4px; background: #374151; border-radius: 2px; overflow: hidden; }
+    .progress-fill { height: 100%; background: #3b82f6; transition: width 0.2s ease; }
+
+    .hint { font-size: 0.8rem; color: #6b7280; }
+
+    kbd {
+      background: #374151;
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+    }
+
+    /* --- Fullscreen + controls --- */
+    #presentation-root {
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      background: #1a1d23;
+    }
+    #presentation-root:fullscreen,
+    #presentation-root:-webkit-full-screen {
+      background: #1a1d23;
+    }
+    #presentation-root:fullscreen .deck,
+    #presentation-root:-webkit-full-screen .deck {
+      flex: 1;
+      min-height: 0;
+    }
+
+    .slide-controls {
+      position: fixed;
+      top: 12px;
+      right: 12px;
+      z-index: 1000;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .slide-controls button {
+      font: inherit;
+      font-size: 0.8rem;
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: 1px solid #374151;
+      background: #252a33;
+      color: #e8eaed;
+      cursor: pointer;
+    }
+    .slide-controls button:hover {
+      background: #374151;
+      border-color: #3b82f6;
+    }
+    .slide-controls .hint-mini {
+      font-size: 0.7rem;
+      color: #6b7280;
+      max-width: 140px;
+      line-height: 1.3;
+    }
+
+    /* --- Print / Save as PDF (same visual layout) --- */
+    @media print {
+      @page {
+        size: landscape;
+        margin: 10mm;
+      }
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        color-adjust: exact !important;
+      }
+      html, body {
+        height: auto !important;
+        overflow: visible !important;
+        background: #1a1d23 !important;
+      }
+      .slide-controls,
+      .footer-bar {
+        display: none !important;
+      }
+      #presentation-root {
+        height: auto !important;
+        width: 100% !important;
+        display: block !important;
+        background: #1a1d23 !important;
+      }
+      .deck {
+        display: block !important;
+        height: auto !important;
+      }
+      #slides {
+        display: block !important;
+      }
+      .slide {
+        display: flex !important;
+        flex-direction: column;
+        justify-content: center;
+        min-height: calc(100vh - 20mm);
+        max-width: none !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 2rem 3rem !important;
+        box-sizing: border-box;
+        page-break-after: always;
+        break-after: page;
+        page-break-inside: avoid;
+        break-inside: avoid;
+        background: #1a1d23 !important;
+        color: #e8eaed !important;
+        animation: none !important;
+      }
+      .slide:last-of-type {
+        page-break-after: auto;
+        break-after: auto;
+      }
+      .slide h1 { color: #fff !important; }
+      .slide h2 { color: #93c5fd !important; }
+      .slide p, .slide li { color: #c4c9d4 !important; }
+      th { background: #252a33 !important; color: #93c5fd !important; }
+      tr:nth-child(even) td { background: #22262e !important; }
+      .box { background: #252a33 !important; border-color: #374151 !important; }
+    }
+  </style>
+</head>
+<body>
+  <div id="presentation-root">
+  <div class="slide-controls no-print" aria-label="Presentation controls">
+    <button type="button" id="btnFullscreen" title="Fullscreen (F)">⛶ Fullscreen</button>
+    <button type="button" id="btnPrintPdf" title="Print / Save as PDF (P)">📄 Save PDF</button>
+    <span class="hint-mini">PDF: Print → Save as PDF</span>
+  </div>
+  <div class="deck">
+    <div id="slides">
+
+      <section class="slide active title-slide">
+        <p class="course">Software Architecture — Chapter 9</p>
+        <h1>Deployability, Portability, and Containers</h1>
+        <p class="subtitle">Shipping the same artifact from laptop to cluster — safely and often</p>
+        <p class="meta">Based on Pautasso — Visual Lecture Notes</p>
+        <p class="meta" style="margin-top:0.75rem;">Chapter PDF: <span class="code">09_Deployability_Portability_and_Containers.pdf</span></p>
+      </section>
+
+      <section class="slide title-slide">
+        <p class="course">Recap — Lecture 8</p>
+        <h1>Compatibility &amp; Coupling</h1>
+        <p class="subtitle">Chapter 8: coupling strength, compatibility, and safe API evolution</p>
+        <p class="meta">Examples: <span class="code">example1_compatibility_and_api_evolution.py</span>, <span class="code">example2_coupling_and_dependencies.py</span></p>
+        <p class="meta" style="margin-top:1.25rem;">→ Today: <strong>deployability</strong> (how we ship), <strong>portability</strong> (where it runs), and <strong>containers</strong> as the packaging unit.</p>
+      </section>
+
+      <section class="slide">
+        <h1>Recap: coupling</h1>
+        <p><strong>Coupling</strong> = how much one part depends on another’s details (schemas, call order, deployment timing).</p>
+        <ul>
+          <li>Strong coupling → small provider changes <strong>ripple</strong> to many consumers</li>
+          <li>Architecture views should show dependency <strong>direction</strong> and hotspots (shared DB, DTOs)</li>
+        </ul>
+        <p class="meta">Chapter 8 asked you to <strong>name</strong> coupling types when analyzing the Task Board API.</p>
+      </section>
+
+      <section class="slide">
+        <h1>Recap: compatibility</h1>
+        <div class="two-col">
+          <div class="box">
+            <h3>Syntactic</h3>
+            <p>Wire shape parses: fields, types, required vs optional.</p>
+          </div>
+          <div class="box">
+            <h3>Semantic</h3>
+            <p>Meaning: validation, idempotency, error <span class="code">code</span> semantics—can break without JSON renames.</p>
+          </div>
+        </div>
+        <p class="meta">Backward compatibility is the usual goal for public APIs and long-lived partners.</p>
+      </section>
+
+      <section class="slide">
+        <h1>Recap: semver &amp; coexistence</h1>
+        <ul>
+          <li><strong>MAJOR / MINOR / PATCH</strong> — align policy with what clients actually tolerate</li>
+          <li><strong>v1 + v2</strong> — paths, headers, gateways; <strong>sunset</strong> windows and deprecation notices</li>
+          <li>A written <strong>policy</strong> turns ad hoc API decisions into team rules</li>
+        </ul>
+        <p class="meta">Immutable <strong>container images</strong> pin what ran in prod—but config and secrets still evolve.</p>
+      </section>
+
+      <section class="slide">
+        <h1>Recap → Chapter 9</h1>
+        <ul>
+          <li>Lecture 8: <strong>what</strong> we expose and <strong>whether</strong> changes are safe for consumers</li>
+          <li>Lecture 9: <strong>how often</strong> we ship, <strong>where</strong> binaries run, and <strong>what the platform</strong> (e.g. Kubernetes) guarantees</li>
+          <li>Running example this week: <strong>CityBite</strong> — food delivery moving from VMs to containers</li>
+        </ul>
+      </section>
+
+      <section class="slide">
+        <h1>Learning objectives</h1>
+        <ul>
+          <li>Define <span class="highlight">deployability</span> and list factors that speed or block safe releases</li>
+          <li>Explain <span class="highlight">portability</span> traps: paths, config, secrets, writable filesystems</li>
+          <li>Describe <span class="highlight">containers</span> vs VMs; images, layers, immutability at a high level</li>
+          <li>Apply <span class="highlight">twelve-factor style</span> practices: <span class="code">PORT</span>, env config, stdout logs, disposability</li>
+          <li>Contrast <span class="highlight">liveness</span> vs <span class="highlight">readiness</span> and relate to rolling updates</li>
+          <li>Separate <span class="highlight">stateless</span> app tiers from <strong>data</strong> (DB, uploads) in cluster designs</li>
+        </ul>
+      </section>
+
+      <section class="slide">
+        <h1>From design time to production</h1>
+        <p>After <strong>design-time</strong> qualities (modularity, interfaces, composition, compatibility), we <strong>deploy</strong> the system.</p>
+        <ul>
+          <li>This lecture: <strong>deployability</strong> (how easy/safe to ship) and <strong>portability</strong> (run everywhere)</li>
+          <li><strong>Virtualization &amp; containers</strong> — standard packaging and isolation for cloud runtimes</li>
+          <li><strong>Next</strong> in the course arc (per chapter): <strong>scalability, availability, flexibility</strong> — deeper runtime qualities</li>
+        </ul>
+        <p class="meta">Pautasso: <em>“This is the lecture in which we focus on how easy it is to deploy… and virtualization and containers… with an eye towards portability.”</em></p>
+      </section>
+
+      <section class="slide">
+        <h1>Chapter roadmap</h1>
+        <ul>
+          <li><strong>Deployability metrics</strong> — latency, throughput, downtime, cost of releases</li>
+          <li><strong>To change or not to change</strong> — opportunity vs risk; reversibility; Big Bang vs continuous</li>
+          <li><strong>CI, continuous delivery, continuous deployment</strong> — the software <strong>production pipeline</strong></li>
+          <li><strong>Platform independence</strong> — VMs, hypervisors, <strong>containers</strong>, images, migration</li>
+        </ul>
+      </section>
+
+      <section class="slide">
+        <h1>The age of continuity</h1>
+        <p>Release cadence shifted from <strong>years</strong> (e.g. major desktop OS) to <strong>continuous</strong> updates in the cloud.</p>
+        <ul>
+          <li>Users may <strong>no longer perceive a “version”</strong> — each visit can hit a slightly newer system</li>
+          <li>Industry example (lecture): providers moved from ~<strong>10 releases / 10s</strong> to <strong>~1 / second</strong> scale (circa 2011→2014 narrative)</li>
+          <li><strong>Challenge:</strong> high frequency <strong>without</strong> sacrificing correctness and other qualities</li>
+        </ul>
+        <p class="meta">CityBite’s <strong>dinner spikes</strong> make safe, frequent deploys a business requirement—not only an engineering preference.</p>
+      </section>
+
+      <section class="slide">
+        <h1>Deployability metrics — latency &amp; throughput</h1>
+        <p><strong>Deployability</strong> can be <strong>measured</strong> like other quality attributes.</p>
+        <ul>
+          <li><strong>Latency (forward):</strong> dev commits → user <strong>sees</strong> feature or <strong>bugfix</strong> in production</li>
+          <li><strong>Latency (backward):</strong> user feedback → triage → fix → user <strong>accepts</strong> the improvement</li>
+          <li><strong>Throughput:</strong> releases per <strong>hour / day / month</strong> — from “once every few years” to <strong>many per day</strong></li>
+        </ul>
+      </section>
+
+      <section class="slide">
+        <h1>Deployability metrics — time, cost, pipeline</h1>
+        <ul>
+          <li><strong>Downtime:</strong> how long are users blocked during upgrade? (maintenance page vs seamless)</li>
+          <li><strong>Deadlines:</strong> marketing launch (e.g. holiday) — slip = revenue risk</li>
+          <li><strong>Human cost:</strong> one-click vs multi-team “release weekend” coordination</li>
+          <li><strong>Infrastructure cost:</strong> laptop build vs <strong>cluster</strong> of VMs for parallel compile + hours of tests</li>
+        </ul>
+        <p class="meta">Huge mono-repos: “wait until tomorrow’s nightly” <strong>limits</strong> developer feedback—deployability of the <strong>architecture</strong> and build.</p>
+      </section>
+
+      <section class="slide">
+        <h1>Traditional vs continuous delivery</h1>
+        <table>
+          <thead>
+            <tr><th></th><th>Traditional</th><th>Continuous</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Latency</td><td>High</td><td>Small</td></tr>
+            <tr><td>Throughput</td><td>~1 / years</td><td>Many / day</td></tr>
+            <tr><td>Downtime</td><td>Often noticeable</td><td>Target <strong>zero</strong> perceived</td></tr>
+            <tr><td>Deadlines</td><td>“Death march” pressure</td><td>No single D-Day window</td></tr>
+            <tr><td>People</td><td>Release engineering craft</td><td><strong>Automation</strong> (toil → code)</td></tr>
+          </tbody>
+        </table>
+        <p class="meta">Lecture: releases matured from <strong>craft</strong> to <strong>industrial</strong> workflow—when tooling and culture allow.</p>
+      </section>
+
+      <section class="slide">
+        <h1>Every release: opportunity <em>and</em> risk</h1>
+        <div class="two-col">
+          <div class="box">
+            <h3>Opportunity</h3>
+            <p>Features, fixes, performance, revenue, retention, competitive catch-up.</p>
+          </div>
+          <div class="box">
+            <h3>Risk</h3>
+            <p>New bugs/failure modes, capacity cost, support &amp; training load, <strong>bad deploy</strong>, <strong>unrecoverable</strong> state (data loss).</p>
+          </div>
+        </div>
+        <p class="meta">Michael T. Nygard — <em>Release It!</em>; operators may fear change for good reason—<strong>design</strong> for rollback.</p>
+      </section>
+
+      <section class="slide">
+        <h1>No change ≠ no risk</h1>
+        <ul>
+          <li>Only <strong>unused</strong> software never needs to change</li>
+          <li>Goal: <strong>minimize risk <em>of</em> change</strong> — not “minimize change” forever</li>
+          <li><strong>Small</strong> deltas, <strong>frequent</strong> practice, <strong>reversible</strong> steps (like DB <strong>transactions</strong>: commit / rollback)</li>
+        </ul>
+        <p class="meta">“Weekends have two days: Saturday deploy, Sunday <strong>revert</strong>” — plan <strong>time buffer</strong> and recovery strategy.</p>
+      </section>
+
+      <section class="slide">
+        <h1>Big Bang vs continuous flow</h1>
+        <ul>
+          <li><strong>Classic waterfall handoff:</strong> dev “done” → ops installs; <strong>first</strong> real test is often production load</li>
+          <li><strong>“If it hurts, do it more often”</strong> — reduce batch size and rehearse the transition</li>
+          <li><strong>Continuous:</strong> build &amp; operate <strong>in parallel</strong>; ops feedback loops to dev; red deploys are <strong>expected</strong> and fixed fast</li>
+        </ul>
+      </section>
+
+      <section class="slide">
+        <h1>Speed vs quality — automation reframes the tradeoff</h1>
+        <ul>
+          <li>Old assumption: <strong>fast</strong> shipping ⇒ <strong>low</strong> quality; high quality ⇒ <strong>slow</strong></li>
+          <li>Continuous delivery <strong>cannot</strong> sacrifice quality every push—would live in a broken state</li>
+          <li><strong>Automated QA</strong> + repeatable packaging ⇒ <strong>high throughput</strong> and <strong>high</strong> confidence together</li>
+        </ul>
+        <p class="meta">The <strong>pipeline</strong> that builds software is <strong>software</strong> — version, review, and test it too.</p>
+      </section>
+
+      <section class="slide">
+        <h1>Software production pipeline</h1>
+        <p><strong>Input:</strong> source repo → <strong>output:</strong> immutable <strong>artifact</strong> (image) ready for users.</p>
+        <ul>
+          <li>Stages: <strong>build</strong> (compile + <strong>unit</strong> tests + static analysis) → <strong>integrate</strong> → deeper tests (<strong>perf</strong>, <strong>acceptance</strong>)</li>
+          <li><strong>Release decision</strong> — human or automated gate → <strong>deploy</strong> → <strong>smoke</strong> / readiness in prod</li>
+          <li>Word that repeats in the chapter: <strong>test</strong> — encode expectations so machines can enforce them every run</li>
+        </ul>
+      </section>
+
+      <section class="slide">
+        <h1>CI · Continuous Delivery · Continuous Deployment</h1>
+        <table>
+          <thead>
+            <tr><th>Term</th><th>Extends to…</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Continuous Integration</strong></td><td>Frequent merge; automated <strong>build + unit/integration</strong> to a runnable integrated product</td></tr>
+            <tr><td><strong>Continuous Delivery</strong></td><td>Artifact <strong>fully tested</strong> and packaged; <strong>manual</strong> approval before production deploy</td></tr>
+            <tr><td><strong>Continuous Deployment</strong></td><td><strong>Automatic</strong> deploy when checks pass — needs exceptional test coverage; <strong>mobile</strong> stores add delay</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="slide">
+        <h1>High quality at high speed — practices</h1>
+        <ul>
+          <li>Everyone <strong>sees</strong> the pipeline; <strong>don’t push</strong> on broken build; <strong>watch</strong> until green; don’t go home on red</li>
+          <li><strong>Small</strong> commits; <strong>fast</strong> feedback on push; <strong>nightly</strong> heavier suites when needed</li>
+          <li><strong>Reproducible</strong> builds — <strong>snapshot dependencies</strong>; <strong>immutable</strong> released images (no hot-edits in prod)</li>
+          <li><strong>No</strong> “comment out failing tests”; <strong>time-box</strong> fix then <strong>revert</strong>; <strong>forbid</strong> un-tracked prod edits—fix at <strong>source</strong></li>
+        </ul>
+        <p class="meta">Jez Humble &amp; David Farley — <em>Continuous Delivery</em>.</p>
+      </section>
+
+      <section class="slide">
+        <h1>Types of testing</h1>
+        <table>
+          <thead>
+            <tr><th>Type</th><th>Purpose</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Unit</td><td>Components in isolation (mocks)</td></tr>
+            <tr><td>Integration</td><td>System with real dependencies wired</td></tr>
+            <tr><td>User / E2E</td><td>Use cases via UI — often partly manual</td></tr>
+            <tr><td>Capacity / perf</td><td>Resources vs targets; cost of a workload</td></tr>
+            <tr><td>Acceptance</td><td>Meets agreed criteria — <strong>ship / no-ship</strong></td></tr>
+            <tr><td>Smoke</td><td>Quick prod/staging sanity after deploy</td></tr>
+          </tbody>
+        </table>
+        <p class="meta"><strong>Testing in production</strong> always exists; pre-release tests decide <strong>how often</strong> users are first to find bugs.</p>
+      </section>
+
+      <section class="slide">
+        <h1>Release strategies</h1>
+        <ul>
+          <li><strong>Big Bang / plunge</strong> — everyone switches; risky rollback</li>
+          <li><strong>Blue / green</strong> — instant traffic flip; keep old stack for <strong>rollback</strong> (2× capacity cost)</li>
+          <li><strong>Shadow / dark launch</strong> — new version consumes <strong>real</strong> input; output hidden; compare behavior</li>
+          <li><strong>Pilot / canary / gradual / A/B</strong> — ramp trusted or random users; measure metrics before full cutover</li>
+        </ul>
+        <p class="meta">Gradual strategies require <strong>multiple active versions</strong> — limits how many trains you can run in parallel.</p>
+      </section>
+
+      <section class="slide">
+        <h1>Virtualization</h1>
+        <ul>
+          <li><strong>Hypervisor</strong> multiplexes <strong>guest OS + apps</strong> over <strong>physical hardware</strong> — elasticity, migration, isolation</li>
+          <li><strong>Hosted</strong> hypervisor (e.g. laptop: host OS + VirtualBox) vs <strong>native</strong> hypervisor on bare metal (datacenter)</li>
+          <li><strong>Live migration</strong> — move VMs between hosts for maintenance or failure—<strong>impossible</strong> with pets-on-metal alone</li>
+        </ul>
+      </section>
+
+      <section class="slide">
+        <h1>VM vs container</h1>
+        <table>
+          <thead>
+            <tr><th></th><th>VM</th><th>Container</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Footprint</td><td>Often GB</td><td>Often MB + app</td></tr>
+            <tr><td>Boot</td><td>Minutes typical</td><td>Sub-second to seconds</td></tr>
+            <tr><td>Guest OS</td><td>Per VM</td><td>Shared host kernel</td></tr>
+            <tr><td>Isolation</td><td>Hardware-assisted</td><td>Namespaces / cgroups (OS sandboxing)</td></tr>
+            <tr><td>Persistence</td><td>Often stateful disk image</td><td>Treat workload as <strong>stateless</strong>; data outside</td></tr>
+          </tbody>
+        </table>
+        <p class="meta"><strong>Containers in VMs</strong> — common cloud pattern: rent VM, run many containers for density and parity.</p>
+      </section>
+
+      <section class="slide">
+        <h1>Images, snapshots, migration</h1>
+        <ul>
+          <li><strong>Image</strong> — frozen filesystem + metadata to boot a known state (VM or container)</li>
+          <li><strong>Snapshots / checkpoints</strong> — capture RAM + disk for resume or disaster recovery</li>
+          <li><strong>Repository</strong> — versioned artifacts; <strong>digest</strong> = what actually ran in the incident postmortem</li>
+        </ul>
+      </section>
+
+      <section class="slide">
+        <h1>Virtual hardware as software</h1>
+        <ul>
+          <li>CPU/RAM/disk/network <strong>allocation</strong> lives in <strong>versioned config</strong> (Terraform, Helm, K8s YAML)</li>
+          <li><strong>Never mix</strong> production and test environment definitions—same discipline as application code</li>
+          <li><strong>Inverted hypervisor</strong> (advanced): one logical machine spread over <strong>many</strong> hosts for huge workloads</li>
+        </ul>
+        <p class="meta">This closes the arc from design → <strong>packaged, configured</strong> runtime—next: scale, availability, flexibility.</p>
+      </section>
+
+      <section class="slide">
+        <h1>Deployability</h1>
+        <p><strong>Deployability</strong> = how easily and safely you can move a change from commit to production—and roll back if needed.</p>
+        <ul>
+          <li><strong>Automation</strong> — CI builds tests and artifacts; CD promotes known-good images</li>
+          <li><strong>Frequency &amp; blast radius</strong> — smaller diffs, feature flags, canary or rolling updates</li>
+          <li><strong>CityBite pain</strong> — SSH to long-lived VMs, dinner-rush deploys, minutes of partial downtime during restarts</li>
+        </ul>
+        <p class="meta">Architecture choices (state, sessions, disk writes) directly constrain how often you can deploy.</p>
+      </section>
+
+      <section class="slide">
+        <h1>Portability</h1>
+        <p><strong>Portability</strong> = the same application artifact runs in dev, staging, and prod without one-off hacks per host.</p>
+        <ul>
+          <li><strong>Configuration</strong> — environment variables, mounted config maps—not secrets baked into images</li>
+          <li><strong>Filesystem</strong> — avoid hardcoded OS paths (<span class="code">C:\...</span>) and “always writable cwd” assumptions</li>
+          <li><strong>Dependencies</strong> — pinned libraries; reproducible builds from lockfiles / image layers</li>
+        </ul>
+        <p class="meta">Containers help portability but do not remove bad path habits—see Example 2 (<span class="code">DATA_DIR</span>).</p>
+      </section>
+
+      <section class="slide">
+        <h1>Containers (high level)</h1>
+        <ul>
+          <li><strong>Image</strong> — immutable template: OS userland slice, runtime, app files, metadata</li>
+          <li><strong>Container</strong> — running instance from an image: isolated process tree, namespaces, cgroup limits</li>
+          <li><strong>Orchestrator</strong> (e.g. Kubernetes) — schedules replicas, replaces failed nodes, exposes Services/Ingress</li>
+        </ul>
+        <p class="meta">Treat the image digest as “what actually ran” when debugging production incidents.</p>
+      </section>
+
+      <section class="slide">
+        <h1>Images, layers, immutability</h1>
+        <ul>
+          <li><strong>Layers</strong> — cache dependency installs; smaller layers = faster pull on new nodes</li>
+          <li><strong>Immutable servers</strong> — replace containers instead of patching live filesystems ad hoc</li>
+          <li><strong>Secrets</strong> — inject at runtime (K8s Secret, cloud secret manager); never <span class="code">docker commit</span> credentials into an image</li>
+        </ul>
+        <p class="meta">Multi-stage builds keep compile toolchains out of the final runtime image (smaller attack surface).</p>
+      </section>
+
+      <section class="slide">
+        <h1>Twelve-factor style (selected)</h1>
+        <div class="two-col">
+          <div class="box">
+            <h3>Config &amp; port</h3>
+            <p><span class="code">DATABASE_URL</span>, <span class="code">LOG_LEVEL</span>, <span class="code">PORT</span> from the environment—what Fargate/EKS inject.</p>
+          </div>
+          <div class="box">
+            <h3>Logs &amp; processes</h3>
+            <p>Stream logs to <strong>stdout/stderr</strong>; one main process; handle <strong>SIGTERM</strong> for graceful drain.</p>
+          </div>
+        </div>
+        <p class="meta">Example 1 contrasts laptop anti-patterns with what CityBite SRE expects in the cloud.</p>
+      </section>
+
+      <section class="slide">
+        <h1>CI → registry → cluster</h1>
+        <ul>
+          <li>Push on main → tests → build image tagged with <span class="code">git sha</span> → promote to <span class="code">:v1.5.0</span></li>
+          <li>Cluster pulls by digest or immutable tag; roll out <strong>Deployment</strong> with rolling strategy</li>
+          <li><strong>Rollback</strong> — keep previous ReplicaSet; <span class="code">kubectl rollout undo</span> or redeploy last known-good tag</li>
+        </ul>
+        <p class="meta">Your assignment sequence diagram should show this path for CityBite.</p>
+      </section>
+
+      <section class="slide">
+        <h1>Kubernetes in one slide</h1>
+        <table>
+          <thead>
+            <tr><th>Object</th><th>Role</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Pod</td><td>One or more co-scheduled containers sharing network/storage volumes</td></tr>
+            <tr><td>Deployment</td><td>Desired replicas + rolling update policy for stateless apps</td></tr>
+            <tr><td>Service</td><td>Stable cluster IP / DNS to reach healthy pods</td></tr>
+            <tr><td>Ingress</td><td>HTTP routing, TLS termination at the edge</td></tr>
+            <tr><td>PVC</td><td>Claim on durable disk for uploads or local caches (vs object storage)</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="slide">
+        <h1>Liveness vs readiness</h1>
+        <div class="two-col">
+          <div class="box">
+            <h3>Liveness</h3>
+            <p>“Is the process wedged?” — failure → <strong>restart</strong> the container.</p>
+          </div>
+          <div class="box">
+            <h3>Readiness</h3>
+            <p>“Can this pod take traffic?” — DB down → <strong>remove</strong> from Service until recovered.</p>
+          </div>
+        </div>
+        <p class="meta">Wrong probes cause restart storms or send traffic to pods that are still starting—design thresholds carefully.</p>
+      </section>
+
+      <section class="slide">
+        <h1>State: CityBite menu photos</h1>
+        <ul>
+          <li><strong>App pods</strong> should be disposable—scale out/in without copying disk by hand</li>
+          <li><strong>Menu JPEGs</strong> — today on VM disk; in K8s use <strong>PVC + <span class="code">DATA_DIR</span></strong> or <strong>S3</strong> (compare in assignment)</li>
+          <li><strong>Postgres</strong> — typically managed <strong>outside</strong> the cluster; pods get <span class="code">DATABASE_URL</span></li>
+        </ul>
+        <p class="meta">Example 2 shows why <span class="code">./uploads</span> fails on read-only or ephemeral container roots.</p>
+      </section>
+
+      <section class="slide">
+        <h1>Pets vs cattle &amp; pitfalls</h1>
+        <ul>
+          <li><strong>Pets</strong> — snowflake servers with manual fixes; hard to reproduce</li>
+          <li><strong>Cattle</strong> — replaceable nodes and pods; config and data live <strong>outside</strong> the disposable unit</li>
+          <li><strong>Pitfalls</strong> — sticky sessions in memory, local file sessions, writing outside mounted volumes</li>
+        </ul>
+        <p class="meta">Moving CityBite off VMs is as much <strong>culture</strong> (IaC, runbooks) as it is Docker syntax.</p>
+      </section>
+
+      <section class="slide">
+        <h1>Security &amp; ops hygiene</h1>
+        <ul>
+          <li>Run as <strong>non-root</strong> in the container where possible; read-only root FS + explicit writable paths</li>
+          <li>Scan images for CVEs; patch base images on a schedule</li>
+          <li>NetworkPolicy / service mesh (optional) to limit lateral movement between namespaces</li>
+        </ul>
+        <p class="meta">Align with your organization’s platform team—Chapter 9 connects architecture to <strong>shared responsibility</strong>.</p>
+      </section>
+
+      <section class="slide">
+        <h1>Course examples (Python) — CityBite</h1>
+        <ul>
+          <li><span class="code">example1_deployability_citybite_api.py</span> — order API: anti-pattern (<span class="code">C:\...</span> paths, fixed port) vs <span class="code">PORT</span>, <span class="code">DATABASE_URL</span>, JSON logs on stdout for ECS/K8s</li>
+          <li><span class="code">example2_portability_menu_uploads.py</span> — restaurant <strong>menu uploads</strong>: <span class="code">./uploads</span> vs <span class="code">DATA_DIR</span> for volumes / temp in containers</li>
+        </ul>
+        <p class="meta">Run both after class; deep dive in <span class="code">09_Deployability_Portability_and_Containers.pdf</span>.</p>
+      </section>
+
+      <section class="slide title-slide">
+        <p class="course">Assignment</p>
+        <h1>CityBite on Kubernetes</h1>
+        <p class="subtitle">VM monolith → Kubernetes; containers, probes, portability</p>
+        <p class="meta">Full spec: <span class="code">ASSIGNMENT.md</span> — this section orients you; it does <strong>not</strong> solve the assignment.</p>
+      </section>
+
+      <section class="slide">
+        <h1>Assignment: scenario</h1>
+        <p><strong>CityBite</strong> — regional food delivery: customer + rider + restaurant apps; <strong>dinner spikes</strong>; <strong>menu JPEGs</strong> on VM disk today.</p>
+        <ul>
+          <li><strong>Baseline:</strong> monolith on long-lived VMs, SSH deploys, Postgres managed, uploads under <span class="code">/var/citybite/uploads</span></li>
+          <li><strong>Goal:</strong> containerized services on <strong>Kubernetes</strong> (pick AWS/GCP/Azure), CI-built images, env-based config</li>
+          <li>You deliver <strong>markdown + diagrams</strong> (Dockerfile sketch in fenced code only)—no running cluster required</li>
+        </ul>
+        <p class="meta">Reuse env var names from the lecture examples where they apply (<span class="code">PORT</span>, <span class="code">DATABASE_URL</span>, <span class="code">DATA_DIR</span>, …).</p>
+      </section>
+
+      <section class="slide">
+        <h1>What you produce (big picture)</h1>
+        <table>
+          <thead>
+            <tr><th>Area</th><th>You decide &amp; justify</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Deployability</td><td>Risks of today’s VM model + mitigations in K8s</td></tr>
+            <tr><td>Architecture</td><td>Before/after diagram (VM vs cluster)</td></tr>
+            <tr><td>Containers</td><td>Image/layers, process model, Dockerfile sketch, probes</td></tr>
+            <tr><td>Portability</td><td>Uploads (PVC vs S3), secrets, DB connection, local dev parity</td></tr>
+            <tr><td>Delivery</td><td>Sequence CI → registry → rollout (≥6 participants)</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="slide">
+        <h1>Part 1 — Deployability assessment</h1>
+        <p><strong>Task 1.1</strong></p>
+        <ul>
+          <li>≥5 deployability risks (host drift, manual SSH, disk coupling, rollback time, …)</li>
+          <li>Per risk: one <strong>Kubernetes/container</strong>-shaped mitigation (specific, not “use K8s” alone)</li>
+          <li>One thing that gets <strong>harder</strong> after migration and how you address it</li>
+        </ul>
+        <p class="meta">Deliverable: <span class="code">part1_deployability_assessment.md</span> — <strong>30 pts</strong></p>
+      </section>
+
+      <section class="slide">
+        <h1>Part 1 — Before / after diagram</h1>
+        <p><strong>Task 1.2</strong></p>
+        <ul>
+          <li><strong>draw.io:</strong> left = VM monolith + DB + disk uploads; right = cluster (Deployments, Service, Ingress, PVC or S3, managed DB)</li>
+          <li>Label <strong>two</strong> request/data paths; include <strong>legend</strong></li>
+        </ul>
+        <p class="meta">Deliverables: <span class="code">part1_architecture_before_after.drawio</span> + <span class="code">.png</span> — <strong>20 pts</strong></p>
+      </section>
+
+      <section class="slide">
+        <h1>Part 2 — Container spec</h1>
+        <p><strong>Task 2.1</strong></p>
+        <ul>
+          <li>Order API image (required) + optional worker: base image, build steps, non-root if applicable</li>
+          <li>Runtime contract: env vars (<span class="code">PORT</span>, <span class="code">DATABASE_URL</span>, …), logging to stdout, single main process</li>
+          <li>Short <strong>Dockerfile</strong> sketch (10–25 lines) for API only—in markdown</li>
+        </ul>
+        <p class="meta">Deliverable: <span class="code">part2_container_spec.md</span> — <strong>25 pts</strong></p>
+      </section>
+
+      <section class="slide">
+        <h1>Part 2 — Health &amp; rollout</h1>
+        <p><strong>Task 2.2</strong></p>
+        <ul>
+          <li><strong>Liveness</strong> vs <strong>readiness</strong> definitions for Order API (paths/thresholds)</li>
+          <li>Rolling update <span class="code">v1.4.0</span> → <span class="code">v1.5.0</span>; what if new pods never go Ready?</li>
+          <li>Short <strong>incident</strong> paragraph: detect bad deploy + rollback story</li>
+        </ul>
+        <p class="meta">Deliverable: <span class="code">part2_health_and_rollout.md</span> — <strong>15 pts</strong></p>
+      </section>
+
+      <section class="slide">
+        <h1>Part 3 — Portability &amp; state</h1>
+        <p><strong>Task 3.1</strong></p>
+        <ul>
+          <li><strong>Menu uploads:</strong> PVC + <span class="code">DATA_DIR</span> <strong>vs</strong> object storage — two pros/cons each for CityBite</li>
+          <li><strong>Secrets</strong> and <strong>DATABASE_URL</strong> injection; DB outside cluster (or justify alternative)</li>
+          <li><strong>Dev/prod parity:</strong> e.g. docker compose with volume for uploads</li>
+        </ul>
+        <p class="meta">Deliverable: <span class="code">part3_portability_and_state.md</span> — <strong>20 pts</strong></p>
+      </section>
+
+      <section class="slide">
+        <h1>Part 3 — Delivery sequence</h1>
+        <p><strong>Task 3.2</strong></p>
+        <ul>
+          <li>Sequence diagram: <strong>≥6</strong> actors (dev, git, CI, registry, control plane, pod)</li>
+          <li>Include image tag flow (<span class="code">git sha</span> → release tag) + <strong>one failure branch</strong></li>
+        </ul>
+        <p class="meta">Deliverables: <span class="code">part3_delivery_sequence.drawio</span> + <span class="code">.png</span> — <strong>10 pts</strong></p>
+      </section>
+
+      <section class="slide">
+        <h1>Submission &amp; grading</h1>
+        <ul>
+          <li><strong>Pull Request</strong> to <span class="code">lecture-9/submissions/YOUR_NAME/</span> — <span class="code">../lecture-3/SUBMISSION_GUIDE.md</span></li>
+          <li>Folder <span class="code">README.md</span>: your name, cloud choice, assumptions</li>
+          <li><strong>120 points</strong> — rubric in <span class="code">ASSIGNMENT.md</span>; every diagram: <span class="code">.drawio</span> + <span class="code">.png</span></li>
+        </ul>
+      </section>
+
+      <section class="slide">
+        <h1>Before you start</h1>
+        <p class="meta" style="margin-top:0;margin-bottom:1rem;">Hints — not answers</p>
+        <ol style="margin-left:1.5rem;">
+          <li>Run <span class="code">example1_deployability_citybite_api.py</span> and <span class="code">example2_portability_menu_uploads.py</span></li>
+          <li>Pick <strong>one</strong> cloud + Kubernetes distribution for the whole submission</li>
+          <li>Ask: “Where does <strong>dinner rush</strong> traffic hit first—Ingress, HPA, DB connection pool?”</li>
+          <li>Keep <strong>CityBite</strong> naming consistent across every file you submit</li>
+        </ol>
+      </section>
+
+      <section class="slide">
+        <h1>Takeaways</h1>
+        <ul>
+          <li><strong>Deployability</strong> is automation + architecture (state, sessions, disk)</li>
+          <li><strong>Containers</strong> standardize packaging; <strong>config &amp; secrets</strong> still need discipline</li>
+          <li><strong>Portability</strong> fails on paths, writable roots, and implicit host state</li>
+          <li><strong>Probes &amp; rollouts</strong> are part of the contract between dev and platform teams</li>
+          <li><strong>Data</strong> (Postgres, menu files) needs an explicit home outside disposable pods</li>
+        </ul>
+      </section>
+
+      <section class="slide title-slide">
+        <h1>Questions?</h1>
+        <p class="subtitle">Chapter 9 — Deployability, Portability, and Containers</p>
+        <p class="meta">Deep dive: <span class="code">09_Deployability_Portability_and_Containers.pdf</span></p>
+        <p class="meta" style="margin-top:1rem;">Follow your course schedule for the next chapter and assignment deadlines.</p>
+      </section>
+
+    </div>
+
+    <div class="footer-bar">
+      <span id="slideLabel">1 / 51</span>
+      <div class="progress-wrap">
+        <div class="progress"><div class="progress-fill" id="progressFill" style="width: 1.96%"></div></div>
+      </div>
+      <span class="hint"><kbd>←</kbd> <kbd>→</kbd> <kbd>F</kbd> fullscreen <kbd>P</kbd> PDF</span>
+    </div>
+  </div>
+  </div>
+
+  <script>
+    (function () {
+      const root = document.getElementById('presentation-root');
+      const slides = Array.from(document.querySelectorAll('.slide'));
+      let i = 0;
+      const label = document.getElementById('slideLabel');
+      const fill = document.getElementById('progressFill');
+      const n = slides.length;
+
+      function show(idx) {
+        i = Math.max(0, Math.min(n - 1, idx));
+        slides.forEach((s, j) => s.classList.toggle('active', j === i));
+        label.textContent = (i + 1) + ' / ' + n;
+        fill.style.width = ((i + 1) / n * 100) + '%';
+      }
+
+      function toggleFullscreen() {
+        if (!document.fullscreenElement) {
+          root.requestFullscreen().catch(function () {});
+        } else {
+          document.exitFullscreen();
+        }
+      }
+
+      document.getElementById('btnFullscreen').addEventListener('click', function (e) {
+        e.stopPropagation();
+        toggleFullscreen();
+      });
+      document.getElementById('btnPrintPdf').addEventListener('click', function (e) {
+        e.stopPropagation();
+        window.print();
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'f' || e.key === 'F') {
+          if (!e.ctrlKey && !e.metaKey && !e.altKey) {
+            e.preventDefault();
+            toggleFullscreen();
+          }
+          return;
+        }
+        if (e.key === 'p' || e.key === 'P') {
+          if (!e.ctrlKey && !e.metaKey && !e.altKey) {
+            e.preventDefault();
+            window.print();
+          }
+          return;
+        }
+        if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); show(i + 1); }
+        if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); show(i - 1); }
+        if (e.key === 'Home') { e.preventDefault(); show(0); }
+        if (e.key === 'End') { e.preventDefault(); show(n - 1); }
+      });
+
+      document.body.addEventListener('click', function (e) {
+        if (e.target.closest('.footer-bar')) return;
+        if (e.target.closest('.slide-controls')) return;
+        const w = window.innerWidth;
+        if (e.clientX > w * 0.65) show(i + 1);
+        else if (e.clientX < w * 0.35) show(i - 1);
+      });
+
+      show(0);
+    })();
+  </script>
+</body>
+</html>
