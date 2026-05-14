@@ -1,0 +1,99 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36" version="29.6.1">
+  <diagram name="Page-1" id="gDccb3AEso38eO8UMzlH">
+    <mxGraphModel dx="3660" dy="1620" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" parent="1" style="whiteSpace=wrap;strokeWidth=2;verticalAlign=top;" value="Legend" vertex="1">
+          <mxGeometry height="177" width="1570" x="33" y="8" as="geometry" />
+        </mxCell>
+        <mxCell id="3" parent="2" style="whiteSpace=wrap;strokeWidth=2;" value="Data coupling = shared JSON structure" vertex="1">
+          <mxGeometry height="78" width="260" x="43" y="58" as="geometry" />
+        </mxCell>
+        <mxCell id="4" parent="2" style="whiteSpace=wrap;strokeWidth=2;" value="Temporal coupling = synchronous request-response" vertex="1">
+          <mxGeometry height="102" width="260" x="353" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="5" parent="2" style="whiteSpace=wrap;strokeWidth=2;" value="Control coupling = one component controls flow of another" vertex="1">
+          <mxGeometry height="102" width="260" x="663" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="6" parent="2" style="whiteSpace=wrap;strokeWidth=2;" value="Contract coupling = strict API expectations" vertex="1">
+          <mxGeometry height="78" width="260" x="973" y="58" as="geometry" />
+        </mxCell>
+        <mxCell id="7" parent="2" style="whiteSpace=wrap;strokeWidth=2;" value="Strong coupling = hard to replace dependency" vertex="1">
+          <mxGeometry height="78" width="260" x="1283" y="58" as="geometry" />
+        </mxCell>
+        <mxCell id="8" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Storage &amp; External" vertex="1">
+          <mxGeometry height="244" width="251" x="2802" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="9" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Core Services" vertex="1">
+          <mxGeometry height="207" width="224" x="2328" y="276" as="geometry" />
+        </mxCell>
+        <mxCell id="10" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Gateway" vertex="1">
+          <mxGeometry height="278" width="200" x="1878" y="232" as="geometry" />
+        </mxCell>
+        <mxCell id="11" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Clients" vertex="1">
+          <mxGeometry height="332" width="1620" x="8" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="12" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Web SPA" vertex="1">
+          <mxGeometry height="54" width="120" x="758" y="255" as="geometry" />
+        </mxCell>
+        <mxCell id="13" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Mobile App" vertex="1">
+          <mxGeometry height="54" width="138" x="749" y="359" as="geometry" />
+        </mxCell>
+        <mxCell id="14" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Partner Clients" vertex="1">
+          <mxGeometry height="54" width="167" x="735" y="463" as="geometry" />
+        </mxCell>
+        <mxCell id="15" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="API Gateway" vertex="1">
+          <mxGeometry height="54" width="150" x="1903" y="359" as="geometry" />
+        </mxCell>
+        <mxCell id="16" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Task API Service" vertex="1">
+          <mxGeometry height="54" width="174" x="2353" y="359" as="geometry" />
+        </mxCell>
+        <mxCell id="17" parent="1" style="shape=cylinder3;boundedLbl=1;backgroundOutline=1;size=10;strokeWidth=2;whiteSpace=wrap;" value="Task Store" vertex="1">
+          <mxGeometry height="70" width="88" x="2883" y="285" as="geometry" />
+        </mxCell>
+        <mxCell id="18" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Notification Service" vertex="1">
+          <mxGeometry height="54" width="201" x="2827" y="405" as="geometry" />
+        </mxCell>
+        <mxCell id="19" edge="1" parent="1" source="12" style="curved=1;startArrow=none;endArrow=block;exitX=1;exitY=0.5;entryX=0.33;entryY=0;" target="15" value="data coupling (JSON DTO), temporal coupling (sync REST)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1878" y="282" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="20" edge="1" parent="1" source="13" style="curved=1;startArrow=none;endArrow=block;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="15" value="data coupling (JSON DTO), temporal coupling (sync REST)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="21" edge="1" parent="1" source="14" style="curved=1;startArrow=none;endArrow=block;exitX=1;exitY=0.5;entryX=0.33;entryY=1;" target="15" value="contract coupling (strict API), temporal coupling (sync REST)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1878" y="490" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="22" edge="1" parent="1" source="15" style="curved=1;startArrow=none;endArrow=block;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" target="16" value="control coupling (routing), deployment coupling">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="23" edge="1" parent="1" source="16" style="curved=1;startArrow=none;endArrow=block;exitX=0.76;exitY=0;entryX=0.01;entryY=0.5;" target="17" value="data coupling (schema), strong coupling">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2552" y="320" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="24" edge="1" parent="1" source="16" style="curved=1;startArrow=none;endArrow=block;exitX=0.88;exitY=1;entryX=0;entryY=0.5;" target="18" value="temporal coupling (sync call), control coupling">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2552" y="432" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
