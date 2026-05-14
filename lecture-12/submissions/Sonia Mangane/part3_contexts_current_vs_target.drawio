@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+  <root>
+    <mxCell id="0" />
+    <mxCell id="1" parent="0" />
+
+    <!-- TITLE -->
+    <mxCell id="title" value="CityBite — Current Monolith vs Target Bounded Contexts" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="200" y="20" width="1254" height="40" as="geometry" />
+    </mxCell>
+
+    <!-- LEGEND -->
+    <mxCell id="legend_box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+      <mxGeometry x="1430" y="80" width="190" height="230" as="geometry" />
+    </mxCell>
+    <mxCell id="leg_title" value="Legend" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="1430" y="88" width="190" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="leg_mono" value="" style="rounded=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+      <mxGeometry x="1440" y="118" width="30" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="leg_mono_t" value="Monolith / shared DB" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=10;" vertex="1" parent="1">
+      <mxGeometry x="1478" y="118" width="135" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="leg_ctx" value="" style="rounded=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+      <mxGeometry x="1440" y="148" width="30" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="leg_ctx_t" value="Bounded context (service)" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=10;" vertex="1" parent="1">
+      <mxGeometry x="1478" y="148" width="135" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="leg_ext" value="" style="rounded=1;fillColor=#ffe6cc;strokeColor=#d6b656;" vertex="1" parent="1">
+      <mxGeometry x="1440" y="178" width="30" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="leg_ext_t" value="External SaaS" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=10;" vertex="1" parent="1">
+      <mxGeometry x="1478" y="178" width="135" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="leg_db" value="" style="shape=cylinder3;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+      <mxGeometry x="1440" y="208" width="30" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="leg_db_t" value="Database (per service)" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=10;" vertex="1" parent="1">
+      <mxGeometry x="1478" y="208" width="135" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="leg_sync_t" value="── Sync API call" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=10;fontColor=#0000FF;" vertex="1" parent="1">
+      <mxGeometry x="1440" y="238" width="175" height="20" as="geometry" />
+    </mxCell>
+    <mxCell id="leg_async_t" value="- - Async event" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=10;fontColor=#009900;" vertex="1" parent="1">
+      <mxGeometry x="1440" y="258" width="175" height="20" as="geometry" />
+    </mxCell>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- LEFT: CURRENT MONOLITH -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <mxCell id="left_label" value="CURRENT — Monolith Deployment" style="text;html=1;strokeColor=#b85450;fillColor=#f8cecc;align=center;verticalAlign=top;whiteSpace=wrap;rounded=1;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="60" y="80" width="580" height="40" as="geometry" />
+    </mxCell>
+
+    <!-- Monolith box -->
+    <mxCell id="mono_box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;opacity=30;" vertex="1" parent="1">
+      <mxGeometry x="80" y="160" width="540" height="380" as="geometry" />
+    </mxCell>
+    <mxCell id="mono_label" value="CityBite Monolith (K8s Deployment)" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+      <mxGeometry x="80" y="165" width="540" height="20" as="geometry" />
+    </mxCell>
+
+    <!-- Modules inside monolith -->
+    <mxCell id="m_order" value="OrderService" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" vertex="1" parent="1">
+      <mxGeometry x="110" y="210" width="120" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="m_pay" value="PaymentService" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" vertex="1" parent="1">
+      <mxGeometry x="270" y="210" width="120" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="m_dispatch" value="DispatchService" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" vertex="1" parent="1">
+      <mxGeometry x="430" y="210" width="120" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="m_restaurant" value="RestaurantService" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" vertex="1" parent="1">
+      <mxGeometry x="110" y="300" width="120" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="m_notif" value="NotificationService" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" vertex="1" parent="1">
+      <mxGeometry x="270" y="300" width="120" height="40" as="geometry" />
+    </mxCell>
+
+    <!-- Shared DB -->
+    <mxCell id="m_db" value="Shared Postgres&#xa;(one schema)" style="shape=cylinder3;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;" vertex="1" parent="1">
+      <mxGeometry x="250" y="390" width="140" height="60" as="geometry" />
+    </mxCell>
+
+    <!-- All services → shared DB -->
+    <mxCell id="e_mdb1" value="" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#b85450;" edge="1" source="m_order" target="m_db" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="e_mdb2" value="" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#b85450;" edge="1" source="m_pay" target="m_db" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="e_mdb3" value="" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#b85450;" edge="1" source="m_dispatch" target="m_db" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="e_mdb4" value="" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#b85450;" edge="1" source="m_restaurant" target="m_db" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+    <mxCell id="e_mdb5" value="" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#b85450;" edge="1" source="m_notif" target="m_db" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- Customer → Monolith -->
+    <mxCell id="m_customer" value="Customer / Mobile App" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;" vertex="1" parent="1">
+      <mxGeometry x="200" y="590" width="140" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e_cust_mono" value="① POST /orders (HTTPS)" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#0000FF;fontColor=#0000FF;fontSize=9;" edge="1" source="m_customer" target="mono_box" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- Monolith → Payment Gateway -->
+    <mxCell id="m_gw" value="Payment Gateway&#xa;(Stripe SaaS)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="1">
+      <mxGeometry x="480" y="590" width="130" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="e_mono_gw" value="② charge (HTTPS)" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#0000FF;fontColor=#0000FF;fontSize=9;" edge="1" source="m_pay" target="m_gw" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- DIVIDER -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <mxCell id="divider" value="" style="line;strokeWidth=2;strokeColor=#666666;" vertex="1" parent="1">
+      <mxGeometry x="700" y="80" width="10" height="600" as="geometry" />
+    </mxCell>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- RIGHT: TARGET BOUNDED CONTEXTS -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <mxCell id="right_label" value="TARGET — Bounded Contexts with Async Events &amp; DB per Service" style="text;html=1;strokeColor=#6c8ebf;fillColor=#dae8fc;align=center;verticalAlign=top;whiteSpace=wrap;rounded=1;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="760" y="80" width="620" height="40" as="geometry" />
+    </mxCell>
+
+    <!-- Customer -->
+    <mxCell id="t_customer" value="Customer / Mobile App" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;" vertex="1" parent="1">
+      <mxGeometry x="940" y="140" width="140" height="40" as="geometry" />
+    </mxCell>
+
+    <!-- API Gateway / Facade -->
+    <mxCell id="t_gw_facade" value="API Gateway / Facade&#xa;(Strangler entry point)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="1">
+      <mxGeometry x="940" y="220" width="140" height="50" as="geometry" />
+    </mxCell>
+
+    <!-- Ordering Context -->
+    <mxCell id="t_ordering" value="Ordering Context" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="780" y="320" width="130" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="t_ordering_db" value="orders DB" style="shape=cylinder3;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="790" y="380" width="110" height="40" as="geometry" />
+    </mxCell>
+
+    <!-- Payment Context -->
+    <mxCell id="t_payment" value="Payment Context" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="1100" y="320" width="130" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="t_payment_db" value="payments DB" style="shape=cylinder3;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="1110" y="380" width="110" height="40" as="geometry" />
+    </mxCell>
+
+    <!-- Dispatch Context -->
+    <mxCell id="t_dispatch" value="Dispatch Context" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="780" y="490" width="130" height="40" as="geometry" />
+    </mxCell>
+    <mxCell id="t_dispatch_db" value="dispatch DB" style="shape=cylinder3;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=9;" vertex="1" parent="1">
+      <mxGeometry x="790" y="550" width="110" height="40" as="geometry" />
+    </mxCell>
+
+    <!-- Notification Context -->
+    <mxCell id="t_notif" value="Notification Context" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="1100" y="490" width="130" height="40" as="geometry" />
+    </mxCell>
+
+    <!-- Message Bus -->
+    <mxCell id="t_bus" value="Message Bus&#xa;(Kafka / SQS)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" vertex="1" parent="1">
+      <mxGeometry x="940" y="430" width="140" height="40" as="geometry" />
+    </mxCell>
+
+    <!-- External Payment Gateway -->
+    <mxCell id="t_stripe" value="Payment Gateway&#xa;(Stripe SaaS)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="1">
+      <mxGeometry x="1100" y="600" width="130" height="40" as="geometry" />
+    </mxCell>
+
+    <!-- Flows -->
+    <!-- 1: Customer → Gateway -->
+    <mxCell id="t_f1" value="① POST /orders (HTTPS)" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#0000FF;fontColor=#0000FF;fontSize=9;" edge="1" source="t_customer" target="t_gw_facade" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- 2: Gateway → Ordering (sync) -->
+    <mxCell id="t_f2" value="② route to Ordering (sync)" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#0000FF;fontColor=#0000FF;fontSize=9;" edge="1" source="t_gw_facade" target="t_ordering" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- 3: Ordering → Payment (sync) -->
+    <mxCell id="t_f3" value="③ authorize_payment (sync)" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#0000FF;fontColor=#0000FF;fontSize=9;" edge="1" source="t_ordering" target="t_payment" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- Payment → Stripe (sync) -->
+    <mxCell id="t_f3b" value="charge (HTTPS)" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#0000FF;fontColor=#0000FF;fontSize=9;" edge="1" source="t_payment" target="t_stripe" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- 4: Ordering → Bus (async event) -->
+    <mxCell id="t_f4" value="④ OrderConfirmed event (async)" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#009900;fontColor=#009900;fontSize=9;dashed=1;" edge="1" source="t_ordering" target="t_bus" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- Bus → Dispatch (async) -->
+    <mxCell id="t_f5" value="subscribe (async)" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#009900;fontColor=#009900;fontSize=9;dashed=1;" edge="1" source="t_bus" target="t_dispatch" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+    <!-- Bus → Notification (async) -->
+    <mxCell id="t_f6" value="subscribe (async)" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#009900;fontColor=#009900;fontSize=9;dashed=1;" edge="1" source="t_bus" target="t_notif" parent="1">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+  </root>
+</mxGraphModel>
