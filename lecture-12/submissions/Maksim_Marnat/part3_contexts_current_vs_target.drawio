@@ -1,0 +1,102 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.6.1 Chrome/142.0.7444.265 Electron/39.8.0 Safari/537.36" version="29.6.1">
+  <diagram id="current-vs-target" name="Current vs target">
+    <mxGraphModel dx="1622" dy="1340" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1" value="CityBite — Current monolith vs target bounded contexts (Lecture 12 Part 3.2)&#xa;Author: Maksim Marnat · arch-course-cu" vertex="1">
+          <mxGeometry height="50" width="900" x="340" y="15" as="geometry" />
+        </mxCell>
+        <mxCell id="lane-left" parent="1" style="swimlane;horizontal=1;startSize=28;fillColor=#eceff1;strokeColor=#455a64;fontStyle=1;fontSize=12;" value="Current — modular monolith (single deployable)" vertex="1">
+          <mxGeometry height="400" width="720" x="40" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="m1" parent="lane-left" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#37474f;fontStyle=1" value="CityBite Monolith&#xa;(Order + Pay + Kitchen + Dispatch&#xa;shared Postgres)" vertex="1">
+          <mxGeometry height="88" width="280" x="200" y="156" as="geometry" />
+        </mxCell>
+        <mxCell id="k8" parent="lane-left" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#bbdefb;strokeColor=#1565c0;" value="Kubernetes Ingress&#xa;+ API" vertex="1">
+          <mxGeometry height="56" width="160" x="260" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="dbm" parent="lane-left" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=12;fillColor=#fff3e0;strokeColor=#ef6c00;" value="Postgres&#xa;(single schema)" vertex="1">
+          <mxGeometry height="78" width="140" x="270" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="e-l1" edge="1" parent="lane-left" source="k8" style="edgeStyle=orthogonalEdgeStyle;endArrow=classic;html=1;strokeWidth=2;" target="m1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-l1-lbl" connectable="0" parent="e-l1" style="edgeLabel;html=1;align=center;fontSize=10;" value="M1 — Ingress → monolith (in-process)" vertex="1">
+          <mxGeometry relative="1" x="-0.2" y="1" as="geometry">
+            <mxPoint x="10" y="-14" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-l2" edge="1" parent="lane-left" source="m1" style="edgeStyle=orthogonalEdgeStyle;endArrow=classic;html=1;strokeWidth=2;" target="dbm">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-l2-lbl" connectable="0" parent="e-l2" style="edgeLabel;html=1;align=center;fontSize=10;" value="M2 — Monolith → single-schema Postgres (joins OK)" vertex="1">
+          <mxGeometry relative="1" x="-0.1" y="1" as="geometry">
+            <mxPoint x="-1" y="-8" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lane-right" parent="1" style="swimlane;horizontal=1;startSize=28;fillColor=#e8f5e9;strokeColor=#2e7d32;fontStyle=1;fontSize=12;" value="Target — bounded contexts (logical services)" vertex="1">
+          <mxGeometry height="400" width="800" x="790" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="o2" parent="lane-right" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#37474f;" value="Order &amp; Checkout" vertex="1">
+          <mxGeometry height="52" width="130" y="55" as="geometry" />
+        </mxCell>
+        <mxCell id="p2" parent="lane-right" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c8e6c9;strokeColor=#2e7d32;" value="Payment&#xa;Settlement" vertex="1">
+          <mxGeometry height="52" width="110" x="260" y="55" as="geometry" />
+        </mxCell>
+        <mxCell id="r2" parent="lane-right" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#37474f;" value="Restaurant&#xa;Fulfillment" vertex="1">
+          <mxGeometry height="52" width="120" x="380" y="55" as="geometry" />
+        </mxCell>
+        <mxCell id="d2" parent="lane-right" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#37474f;" value="Dispatch &amp;&#xa;Delivery" vertex="1">
+          <mxGeometry height="52" width="120" x="680" y="55" as="geometry" />
+        </mxCell>
+        <mxCell id="e-r1" edge="1" parent="lane-right" source="o2" style="edgeStyle=orthogonalEdgeStyle;endArrow=classic;html=1;strokeWidth=2;dashed=0;" target="p2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-r1-lbl" connectable="0" parent="e-r1" style="edgeLabel;html=1;align=center;fontSize=9;" value="T1 — sync HTTPS (pay-now)" vertex="1">
+          <mxGeometry relative="1" x="-0.1" y="1" as="geometry">
+            <mxPoint y="-12" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-r2" edge="1" parent="lane-right" source="o2" style="edgeStyle=orthogonalEdgeStyle;endArrow=classic;html=1;strokeWidth=2;dashed=1;strokeColor=#6a1b9a;" target="r2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="105" y="160" />
+              <mxPoint x="440" y="160" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-r2-lbl" connectable="0" parent="e-r2" style="edgeLabel;html=1;align=center;fontSize=9;fontColor=#6a1b9a;" value="T2 — async OrderPlaced" vertex="1">
+          <mxGeometry relative="1" x="-0.2" y="1" as="geometry">
+            <mxPoint x="8" y="-8" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-r3" edge="1" parent="lane-right" source="r2" style="edgeStyle=orthogonalEdgeStyle;endArrow=classic;html=1;strokeWidth=2;dashed=1;strokeColor=#6a1b9a;" target="d2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-r3-lbl" connectable="0" parent="e-r3" style="edgeLabel;html=1;align=center;fontSize=9;fontColor=#6a1b9a;" value="T3 — async ReadyForPickup" vertex="1">
+          <mxGeometry relative="1" x="-0.1" y="1" as="geometry">
+            <mxPoint y="-12" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-r4" edge="1" parent="lane-right" source="d2" style="edgeStyle=orthogonalEdgeStyle;endArrow=classic;html=1;strokeWidth=2;dashed=1;strokeColor=#6a1b9a;" target="o2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="660" y="81" />
+              <mxPoint x="660" y="220" />
+              <mxPoint x="105" y="220" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-r4-lbl" connectable="0" parent="e-r4" style="edgeLabel;html=1;align=center;fontSize=9;fontColor=#6a1b9a;" value="T4 — async DeliveryCompleted → projection" vertex="1">
+          <mxGeometry relative="1" x="-0.3" y="1" as="geometry">
+            <mxPoint x="10" y="10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="legend" parent="1" style="shape=note;whiteSpace=wrap;html=1;fillColor=#fffde7;strokeColor=#f9a825;align=left;spacingLeft=8;fontSize=11;" value="Legend&lt;br&gt;&amp;nbsp;- Solid black: synchronous / in-process dependency&lt;br&gt;- Purple dashed: asynchronous integration (events / queue)&lt;br&gt;Flows: M1–M2 = monolith side; T1–T4 = target (≥4 numbered integration flows).&lt;br&gt;Each bounded context = logical DB owner (Part 2.1); strangler routes Payment first (Part 3.1)." vertex="1">
+          <mxGeometry height="100" width="520" x="40" y="500" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
