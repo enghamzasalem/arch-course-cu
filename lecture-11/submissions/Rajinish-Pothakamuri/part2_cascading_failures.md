@@ -1,0 +1,19 @@
+### Part 2: Monitoring and Failure Containment
+
+**Task 2.2: Cascading Failures and Circuit Breaker**
+
+**1. Narrative of a Cascading Failure**
+When the external payment gateway experiences an outage and begins returning HTTP 500 server errors, impatient mobile clients typically initiate a retry storm. These blind retries significantly multiply the incoming request load on the backend infrastructure. Because the CityBite Order application programming interface synchronously waits for the failing payment gateway, these continuous retries rapidly exhaust internal computational capacity, memory, and thread pools. This exact dynamic, as explicitly demonstrated in the themes of `example1_availability_circuit_breaker_citybite.py`, illustrates how a tightly coupled retry loop transforms a localized third-party service degradation into a severe cascading failure that ultimately crashes the primary CityBite application programming interface.
+
+**2. Circuit Breaker Policy**
+The circuit breaker tracking the payment dependency is configured to trip after a specific failure threshold is breached. For instance, if three consecutive checkout requests fail or exceed a strictly defined latency limit, the circuit breaker transitions from the closed state to the open state.
+
+Once the circuit breaker enters the open state, it enforces a specific open duration or cooldown period. During this operational window, all subsequent checkout requests are immediately intercepted and rejected as fast failures by the CityBite system without attempting to invoke the sick external dependency. This immediate rejection protects the internal calling system's computational capacity while concurrently reducing the sheer volume of downstream traffic sent to the struggling service.
+
+While the circuit breaker remains open, the system executes a fallback strategy to gracefully manage the end-user experience and preserve business continuity. Instead of surfacing a generic application error, the system implements a fallback workflow where the order is securely queued for asynchronous processing. The customer is presented with a clear user interface message explaining that the payment processing is temporarily delayed, effectively decoupling the immediate financial transaction from the kitchen preparation workflow.
+
+**3. Timeouts and Bulkhead Isolation**
+Strict network timeouts and bulkhead isolation mechanisms must be explicitly paired with circuit breakers to ensure comprehensive failure containment. A bulkhead restricts the external integration to a strictly limited thread pool or a rigid maximum connection limit per individual dependency. This isolation guarantees that even if the payment service hangs indefinitely and begins consuming resources immediately prior to the circuit breaker tripping, it can only exhaust its specific restricted allocation of threads. Consequently, the localized failure is prevented from consuming the global resources required for independent, unaffected workflows, such as browsing the menu or dispatching drivers.
+
+**4. Canary Request Application**
+The canary call pattern is an architectural safeguard utilized to prevent a poisoned request from simultaneously crashing all available parallel workers. Within the CityBite infrastructure, this pattern is highly applicable when processing large or highly suspicious batch data payloads, such as complex menu database imports from new restaurant partners. Before scattering this potentially dangerous payload to the entire background worker pool, the system routes the request exclusively to a single canary worker. If the canary worker successfully parses the payload without crashing, the request is deemed safe and is subsequently scattered to the remaining infrastructure. If the canary worker crashes, the poisonous payload is definitively rejected, allowing the remaining worker nodes to survive the attack and continue processing valid operational data.
