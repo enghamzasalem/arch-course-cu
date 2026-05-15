@@ -1,0 +1,15 @@
+### Part 1.2: Distributed Monolith Anti-Pattern Check
+
+If CityBite splits into microservices improperly, it risks creating a **distributed monolith**, an architecture that buys all the operational complexity of distributed systems (like network overhead and partial failures) while retaining the tight coupling of a monolithic design. Below are three major red flags that would indicate our new microservices are actually a distributed monolith, along with their mitigations.
+
+#### Red Flag 1: Coordinated Deployments ("Release Trains")
+*   **The Red Flag:** If the CityBite Ordering team has to hold their deployment and wait for the Kitchen team to be ready so they can release their services together, they do not have true microservices. This scenario, known as a "release train," proves that the services are tightly coupled in their lifecycle and lack independent velocity.
+*   **The Mitigation (Process/Tech Change):** Enforce **strict backward compatibility rules** for all public API contracts (e.g., making only additive JSON changes) and document deprecation windows before removing any fields. By treating APIs as published external products, each team can utilize independent CI/CD pipelines to achieve truly autonomous deployments without breaking unknown clients.
+
+#### Red Flag 2: Shared Row-Level Database
+*   **The Red Flag:** If the Dispatch service directly queries the `orders` table owned by the Ordering service to check an order's status, they are sharing mutable state. Allowing "reach-around" database access bypasses the service API, creating hidden coupling that destroys the ability of either team to independently evolve their database schemas. 
+*   **The Mitigation (Boundary/Tech Change):** Implement the **database per service** pattern. Each microservice must completely encapsulate its own data, and no cross-context SQL joins are allowed. Any integration between CityBite services must happen exclusively through published service APIs or via asynchronous event publishing (e.g., the Outbox pattern).
+
+#### Red Flag 3: Synchronous Rings of Calls (Chatty RPC)
+*   **The Red Flag:** If a customer places an order and the Ordering service must make a synchronous HTTP call to Payments, which then calls Kitchen, which then calls Dispatch before finally responding to the customer, we have created a "synchronous ring". These wrong boundary cuts result in chatty procedure calls over the network, where one timeout or partial failure cascades through the entire chain and ruins availability.
+*   **The Mitigation (Boundary/Tech Change):** Redraw the **bounded contexts** based on business capabilities to ensure high cohesion (so things that change together stay together). For cross-context workflows, shift from synchronous blocking calls to **asynchronous event choreography** or sagas. For example, Ordering can quickly accept the order, persist it locally, and emit an `OrderPlaced` event to a queue, decoupling the user's latency from downstream systems.
