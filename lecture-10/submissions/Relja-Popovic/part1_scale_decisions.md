@@ -1,0 +1,12 @@
+## Task 1.2: Scale Decisions
+
+| Subsystem                            | Primary bottleneck                 | Scale up option                         | Scale out option                                 | Your choice (Year 1)       | One sentence why                                                                                    |
+| ------------------------------------ | ---------------------------------- | --------------------------------------- | ------------------------------------------------ | -------------------------- | --------------------------------------------------------------------------------------------------- |
+| Order API (Kubernetes pods)          | Application CPU / thread pool      | Larger pod CPU/memory limits            | Increase number of pods via HPA                  | Scale out                  | Stateless service scales efficiently horizontally and handles traffic spikes better                 |
+| Notification workers                 | Queue backlog / processing latency | Larger worker instances                 | More worker replicas consuming queue             | Scale out                  | Workloads are parallelizable and benefit directly from more consumers                               |
+| PostgreSQL (primary DB)              | DB CPU / WAL I/O / connections     | Bigger instance (CPU, RAM, faster disk) | Read replicas (limited horizontal scaling)       | Scale up (+ read replicas) | OLTP workloads require strong consistency, so vertical scaling is primary with limited read scaling |
+| Dispatch dashboard queries           | DB CPU / connections               | Increase DB capacity                    | Add caching layer (e.g., Redis) to offload reads | Scale out (via caching)    | Reduces repeated heavy queries and lowers DB load significantly                                     |
+
+### "Does not scale infinitely" note
+
+**PostgreSQL single-writer primary** does not scale writes horizontally. Every `INSERT` on the orders table must go through one primary node. Scaling up (more RAM, NVMe storage, higher `max_connections`) extends the ceiling but does not remove it. If OPM grows beyond what one well-sized primary can handle, the only architectural escape is sharding or moving to a distributed database - both of which carry significant operational cost and complexity. For Year 1, scale up the primary and defer that decision.
