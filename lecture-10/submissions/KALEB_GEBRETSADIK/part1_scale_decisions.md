@@ -1,0 +1,8 @@
+# Part 1.2: Scale Up vs. Scale Out Decision Log
+
+| Subsystem | Primary Bottleneck | Scale Up Option | Scale Out Option | Year 1 Choice | Rationale |
+|-----------|--------------------|-----------------|------------------|---------------|-----------|
+| **Order API Pods** | CPU / Connection Exhaustion | Provision larger K8s node instances (e.g., 16 vCPU, 32GB RAM). | Configure HPA to launch more API pods behind a Load Balancer. | **Scale Out** | API services are naturally stateless and computationally bound, making them perfect candidates for massive horizontal scaling. |
+| **Notification Workers** | Message queue backlog | Increase worker memory limits to hold larger processing batches. | Spin up additional worker pods consuming from the same queue. | **Scale Out** | Queues natively support multiple parallel consumers; horizontal scaling offers throughput improvements trivially. |
+| **PostgreSQL DB** | CPU / Disk IOPS / Connections | Upgrade DB instance to a massive vertical tier (e.g., 64 vCPU, 256GB RAM, Provisioned IOPS). | Implement application-level sharding or strict Read/Write replication topologies. | **Scale Up** | **Does not scale infinitely.** However, for Year 1, the operational nightmare and application refactoring needed for sharding is too costly; vertical scaling handles early OLTP traffic reliably. |
+| **Menu Image Storage** | Network Egress / Disk IOPS | Attach faster, more expensive local SSDs (NVMe) to the API nodes. | Move images to an external Object Store (AWS S3) fronted by a CDN. | **Scale Out** | Static assets should never burden the primary application compute; a CDN distributes load globally at a fraction of the cost. |
