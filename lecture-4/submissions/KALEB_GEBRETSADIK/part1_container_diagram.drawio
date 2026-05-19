@@ -1,0 +1,142 @@
+<mxfile host="app.diagrams.net" modified="2024-03-01T00:00:00.000Z" agent="Mozilla/5.0" version="24.0.0" type="device">
+  <diagram id="container_diagram" name="Container Diagram">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Legend -->
+        <mxCell id="legend_box" value="&lt;b&gt;Legend&lt;/b&gt;" style="swimlane;whiteSpace=wrap;html=1;startSize=20;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="850" y="50" width="200" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_person" value="Person" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#083F88;fontColor=#000000;strokeColor=#083F88;" vertex="1" parent="legend_box">
+          <mxGeometry x="15" y="40" width="15" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_container" value="Container" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#438DD5;fontColor=#ffffff;strokeColor=#3670A8;" vertex="1" parent="legend_box">
+          <mxGeometry x="80" y="40" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_db" value="Database" style="shape=cylinder3;whiteSpace=wrap;html=1;fillColor=#438DD5;fontColor=#ffffff;strokeColor=#3670A8;boundedLbl=1;backgroundOutline=1;size=5;" vertex="1" parent="legend_box">
+          <mxGeometry x="80" y="80" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_boundary" value="System Boundary" style="shape=rect;html=1;whiteSpace=wrap;align=center;verticalAlign=middle;fillColor=none;strokeColor=#666666;dashed=1;dashPattern=8 8;" vertex="1" parent="legend_box">
+          <mxGeometry x="60" y="130" width="120" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- System Boundary -->
+        <mxCell id="boundary" value="&lt;b&gt;Video Streaming Platform&lt;/b&gt;&lt;br/&gt;[Software System]" style="shape=rect;html=1;whiteSpace=wrap;align=left;verticalAlign=top;fillColor=none;strokeColor=#666666;dashed=1;dashPattern=8 8;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="300" y="50" width="500" height="700" as="geometry" />
+        </mxCell>
+        
+        <!-- Containers -->
+        <mxCell id="webapp" value="&lt;b&gt;Web Application&lt;/b&gt;&lt;br/&gt;[Container: React/SPA]&lt;br/&gt;&lt;br/&gt;Delivers the video streaming interface via browser." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#438DD5;fontColor=#ffffff;strokeColor=#3670A8;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="350" y="100" width="180" height="100" as="geometry" />
+        </mxCell>
+
+        <mxCell id="mobileapp" value="&lt;b&gt;Mobile App&lt;/b&gt;&lt;br/&gt;[Container: React Native]&lt;br/&gt;&lt;br/&gt;Provides mobile-optimized streaming for iOS/Android." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#438DD5;fontColor=#ffffff;strokeColor=#3670A8;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="580" y="100" width="180" height="100" as="geometry" />
+        </mxCell>
+
+        <mxCell id="api" value="&lt;b&gt;API Application&lt;/b&gt;&lt;br/&gt;[Container: Node.js/Express]&lt;br/&gt;&lt;br/&gt;Handles business logic, auth, and routes requests." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#438DD5;fontColor=#ffffff;strokeColor=#3670A8;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="465" y="280" width="180" height="100" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="video_svc" value="&lt;b&gt;Video Streaming Service&lt;/b&gt;&lt;br/&gt;[Container: Go]&lt;br/&gt;&lt;br/&gt;Transcodes and streams video chunks to clients." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#438DD5;fontColor=#ffffff;strokeColor=#3670A8;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="350" y="460" width="180" height="100" as="geometry" />
+        </mxCell>
+
+        <mxCell id="rec_svc" value="&lt;b&gt;Recommendation Service&lt;/b&gt;&lt;br/&gt;[Container: Python/FastAPI]&lt;br/&gt;&lt;br/&gt;Analyzes user behavior for personalized suggestions." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#438DD5;fontColor=#ffffff;strokeColor=#3670A8;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="580" y="460" width="180" height="100" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="db" value="&lt;b&gt;Database&lt;/b&gt;&lt;br/&gt;[Container: PostgreSQL]&lt;br/&gt;&lt;br/&gt;Stores user profiles, video metadata, and history." style="shape=cylinder3;whiteSpace=wrap;html=1;fillColor=#438DD5;fontColor=#ffffff;strokeColor=#3670A8;align=center;verticalAlign=middle;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
+          <mxGeometry x="465" y="620" width="180" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- Users -->
+        <mxCell id="user" value="&lt;div&gt;&lt;b&gt;Subscriber&lt;/b&gt;&lt;/div&gt;&lt;div&gt;[Person]&lt;/div&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#083F88;fontColor=#000000;strokeColor=#083F88;" vertex="1" parent="1">
+          <mxGeometry x="100" y="110" width="50" height="80" as="geometry" />
+        </mxCell>
+        
+        <!-- Relationships -->
+        <mxCell id="r1" value="Visits [HTTPS]" style="endArrow=block;html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;dashed=1;dashPattern=8 8;strokeColor=#666666;fontColor=#000000;" edge="1" parent="1" source="user" target="webapp">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r2" value="Uses [HTTPS]" style="endArrow=block;html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;dashed=1;dashPattern=8 8;strokeColor=#666666;fontColor=#000000;" edge="1" parent="1" source="user" target="mobileapp">
+          <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                 <mxPoint x="125" y="60" />
+                 <mxPoint x="670" y="60" />
+              </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="r3" value="Makes API calls to&lt;br/&gt;[JSON/HTTPS]" style="endArrow=block;html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;dashed=1;dashPattern=8 8;strokeColor=#666666;fontColor=#000000;" edge="1" parent="1" source="webapp" target="api">
+          <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                 <mxPoint x="440" y="240" />
+                 <mxPoint x="555" y="240" />
+              </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r4" value="Makes API calls to&lt;br/&gt;[JSON/HTTPS]" style="endArrow=block;html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;dashed=1;dashPattern=8 8;strokeColor=#666666;fontColor=#000000;" edge="1" parent="1" source="mobileapp" target="api">
+          <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                 <mxPoint x="670" y="240" />
+                 <mxPoint x="555" y="240" />
+              </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="r5" value="Streams video from&lt;br/&gt;[HLS/HTTPS]" style="endArrow=block;html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;dashed=1;dashPattern=8 8;strokeColor=#666666;fontColor=#000000;" edge="1" parent="1" source="webapp" target="video_svc">
+          <mxGeometry relative="1" as="geometry">
+             <Array as="points">
+                 <mxPoint x="320" y="150" />
+                 <mxPoint x="320" y="510" />
+             </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="r6" value="Reads/Writes [SQL/TCP]" style="endArrow=block;html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;dashed=1;dashPattern=8 8;strokeColor=#666666;fontColor=#000000;" edge="1" parent="1" source="api" target="db">
+          <mxGeometry relative="1" as="geometry">
+             <Array as="points">
+                 <mxPoint x="555" y="420" />
+                 <mxPoint x="555" y="600" />
+             </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="r7" value="Requests recommendations&lt;br/&gt;[gRPC/TCP]" style="endArrow=block;html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;dashed=1;dashPattern=8 8;strokeColor=#666666;fontColor=#000000;" edge="1" parent="1" source="api" target="rec_svc">
+          <mxGeometry relative="1" as="geometry">
+             <Array as="points">
+                 <mxPoint x="670" y="330" />
+             </Array>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="r8" value="Updates streams&lt;br/&gt;[gRPC]" style="endArrow=block;html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;dashed=1;dashPattern=8 8;strokeColor=#666666;fontColor=#000000;" edge="1" parent="1" source="api" target="video_svc">
+          <mxGeometry relative="1" as="geometry">
+             <Array as="points">
+                 <mxPoint x="440" y="330" />
+             </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="r9" value="Reads metadata [SQL/TCP]" style="endArrow=block;html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;dashed=1;dashPattern=8 8;strokeColor=#666666;fontColor=#000000;" edge="1" parent="1" source="rec_svc" target="db">
+          <mxGeometry relative="1" as="geometry">
+             <Array as="points">
+                 <mxPoint x="670" y="670" />
+             </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="r10" value="Reads metadata [SQL/TCP]" style="endArrow=block;html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;dashed=1;dashPattern=8 8;strokeColor=#666666;fontColor=#000000;" edge="1" parent="1" source="video_svc" target="db">
+          <mxGeometry relative="1" as="geometry">
+             <Array as="points">
+                 <mxPoint x="440" y="670" />
+             </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
