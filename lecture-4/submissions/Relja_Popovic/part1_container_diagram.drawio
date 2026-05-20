@@ -1,0 +1,90 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" version="29.6.1">
+  <diagram id="container_diagram" name="C4 - Container Diagram">
+    <mxGraphModel dx="1389" dy="939" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="sys_boundary" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f9f9f9;strokeColor=#333333;strokeWidth=3;dashed=1;verticalAlign=top;" value="" vertex="1">
+          <mxGeometry height="680" width="1000" x="270" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="sys_label" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=13;fontStyle=3;fontColor=#333333;" value="Video Streaming Platform" vertex="1">
+          <mxGeometry height="22" width="340" x="600" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="web_app" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1ba1e2;strokeColor=#006EAF;fontColor=#ffffff;fontSize=12;arcSize=5;" value="&lt;b&gt;Web Application&lt;/b&gt;&#xa;[React / TypeScript]&#xa;&#xa;Delivers the streaming UI to&#xa;browser-based users. Handles&#xa;video playback and browsing." vertex="1">
+          <mxGeometry height="150" width="220" x="310" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="mobile_app" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1ba1e2;strokeColor=#006EAF;fontColor=#ffffff;fontSize=12;arcSize=5;" value="&lt;b&gt;Mobile Application&lt;/b&gt;&#xa;[React Native]&#xa;&#xa;Native iOS &amp; Android app for&#xa;streaming videos and managing&#xa;watchlists on the go." vertex="1">
+          <mxGeometry height="150" width="220" x="310" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="api_svc" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#00897b;strokeColor=#005f4b;fontColor=#ffffff;fontSize=12;arcSize=5;" value="&lt;b&gt;API Service&lt;/b&gt;&#xa;[Node.js / Express]&#xa;&#xa;Core backend handling user&#xa;management, content catalogue,&#xa;watchlists, and search." vertex="1">
+          <mxGeometry height="150" width="220" x="650" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="rec_svc" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#00897b;strokeColor=#005f4b;fontColor=#ffffff;fontSize=12;arcSize=5;" value="&lt;b&gt;Recommendation Service&lt;/b&gt;&#xa;[Python / FastAPI]&#xa;&#xa;Generates personalised content&#xa;recommendations from the&#xa;user&#39;s viewing history." vertex="1">
+          <mxGeometry height="150" width="220" x="1000" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="db_main" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" value="&lt;b&gt;Primary Database&lt;/b&gt;&#xa;[PostgreSQL]&#xa;&#xa;Stores users, content metadata,&#xa;subscriptions, watchlists,&#xa;and viewing history." vertex="1">
+          <mxGeometry height="160" width="180" x="1000" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="payment" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0a30a;strokeColor=#BD7000;fontColor=#000000;fontSize=12;arcSize=5;" value="&lt;b&gt;Payment Gateway&lt;/b&gt;&#xa;[External – Stripe]&#xa;&#xa;Processes subscription&#xa;payments and billing." vertex="1">
+          <mxGeometry height="130" width="220" x="650" y="585" as="geometry" />
+        </mxCell>
+        <mxCell id="c3" edge="1" parent="1" source="web_app" style="edgeStyle=orthogonalEdgeStyle;fontSize=10;labelBackgroundColor=none;" target="api_svc" value="API calls [HTTPS/JSON]">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c4" edge="1" parent="1" source="mobile_app" style="edgeStyle=orthogonalEdgeStyle;fontSize=10;labelBackgroundColor=none;" target="api_svc" value="API calls [HTTPS/JSON]">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c5" edge="1" parent="1" source="api_svc" style="edgeStyle=orthogonalEdgeStyle;fontSize=10;labelBackgroundColor=none;" target="rec_svc" value="Requests recommendations [REST]">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c6" edge="1" parent="1" source="api_svc" style="edgeStyle=orthogonalEdgeStyle;fontSize=10;labelBackgroundColor=none;" target="db_main" value="Reads/writes [SQL/TCP]">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c7" edge="1" parent="1" source="rec_svc" style="edgeStyle=orthogonalEdgeStyle;fontSize=10;labelBackgroundColor=none;" target="db_main" value="Reads viewing history [SQL]">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1090" y="350" />
+              <mxPoint x="1090" y="350" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="c8" edge="1" parent="1" source="api_svc" style="edgeStyle=orthogonalEdgeStyle;fontSize=10;labelBackgroundColor=none;" target="payment" value="Charges subscriptions [HTTPS/REST]">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AEReEhdlokowDKggdqfy-1" connectable="0" parent="1" style="group" value="" vertex="1">
+          <mxGeometry height="160" width="165" x="350" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="leg_bg" parent="AEReEhdlokowDKggdqfy-1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=2;" value="" vertex="1">
+          <mxGeometry height="160" width="165" as="geometry" />
+        </mxCell>
+        <mxCell id="leg_t" parent="AEReEhdlokowDKggdqfy-1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=13;fontStyle=1;" value="&lt;b&gt;Legend&lt;/b&gt;" vertex="1">
+          <mxGeometry height="20" width="60" x="53" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="ll1" parent="AEReEhdlokowDKggdqfy-1" style="rounded=1;fillColor=#1ba1e2;strokeColor=#006EAF;" value="" vertex="1">
+          <mxGeometry height="18" width="28" x="25" y="32" as="geometry" />
+        </mxCell>
+        <mxCell id="lt1" parent="AEReEhdlokowDKggdqfy-1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;" value="Client App" vertex="1">
+          <mxGeometry height="18" width="105" x="60" y="32" as="geometry" />
+        </mxCell>
+        <mxCell id="ll2" parent="AEReEhdlokowDKggdqfy-1" style="rounded=1;fillColor=#00897b;strokeColor=#005f4b;" value="" vertex="1">
+          <mxGeometry height="18" width="28" x="25" y="58" as="geometry" />
+        </mxCell>
+        <mxCell id="lt2" parent="AEReEhdlokowDKggdqfy-1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;" value="Backend Service" vertex="1">
+          <mxGeometry height="18" width="105" x="60" y="58" as="geometry" />
+        </mxCell>
+        <mxCell id="ll3" parent="AEReEhdlokowDKggdqfy-1" style="shape=cylinder3;fillColor=#fff2cc;strokeColor=#d6b656;" value="" vertex="1">
+          <mxGeometry height="22" width="28" x="25" y="83" as="geometry" />
+        </mxCell>
+        <mxCell id="lt3" parent="AEReEhdlokowDKggdqfy-1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;" value="Database" vertex="1">
+          <mxGeometry height="18" width="105" x="60" y="88" as="geometry" />
+        </mxCell>
+        <mxCell id="ll4" parent="AEReEhdlokowDKggdqfy-1" style="rounded=1;fillColor=#f0a30a;strokeColor=#BD7000;" value="" vertex="1">
+          <mxGeometry height="18" width="28" x="25" y="113" as="geometry" />
+        </mxCell>
+        <mxCell id="lt4" parent="AEReEhdlokowDKggdqfy-1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=11;" value="External System" vertex="1">
+          <mxGeometry height="18" width="105" x="60" y="113" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
