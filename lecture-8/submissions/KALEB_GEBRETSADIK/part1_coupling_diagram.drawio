@@ -1,0 +1,136 @@
+<mxfile host="app.diagrams.net" version="22.0.0" type="device">
+  <diagram id="D1" name="Coupling Diagram">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Clients Box -->
+        <mxCell id="box_clients" value="Clients &amp; API Consumers" style="swimlane;whiteSpace=wrap;html=1;startSize=23;fillColor=#f5f5f5;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="180" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="c_web" value="Web SPA" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="box_clients">
+          <mxGeometry x="20" y="40" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="c_mobile" value="Mobile App" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="box_clients">
+          <mxGeometry x="20" y="110" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="c_partner" value="Partner Integration" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="box_clients">
+          <mxGeometry x="20" y="180" width="140" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Gateway Box -->
+        <mxCell id="box_gw" value="API Gateway" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="360" y="140" width="120" height="140" as="geometry" />
+        </mxCell>
+
+        <!-- Task Core Box -->
+        <mxCell id="box_backend" value="Backend Services" style="swimlane;whiteSpace=wrap;html=1;startSize=23;fillColor=#f5f5f5;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="620" y="80" width="220" height="260" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="s_task" value="Task API Service" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="box_backend">
+          <mxGeometry x="30" y="60" width="160" height="40" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="s_db" value="Task Database" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="box_backend">
+          <mxGeometry x="50" y="160" width="120" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Notification Box outside swimlane -->
+        <mxCell id="s_notif" value="Notification Service" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="620" y="380" width="220" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Edges -->
+        
+        <!-- Web to Gateway -->
+        <mxCell id="e_1" value="Data / Temporal:&#10;Sync JSON Schema" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="c_web" target="box_gw">
+          <mxGeometry x="-0.3" y="15" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Mobile to Gateway -->
+        <mxCell id="e_2" value="Data / Deployment:&#10;Firm API Versioning Needs" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="c_mobile" target="box_gw">
+          <mxGeometry x="-0.3" y="20" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Partner to Gateway -->
+        <mxCell id="e_3" value="Data Coupling:&#10;External Contract Stability" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="c_partner" target="box_gw">
+          <mxGeometry x="-0.3" y="15" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Gateway to Task API -->
+        <mxCell id="e_4" value="Spatial / Routing:&#10;Proxy Forwarding" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;" edge="1" parent="1" source="box_gw" target="s_task">
+          <mxGeometry y="15" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Task API to Database -->
+        <mxCell id="e_5" value="Schema / Data:&#10;(Intentionally Tight)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;strokeColor=#FF0000;strokeWidth=2;dashed=1;" edge="1" parent="1" source="s_task" target="s_db">
+          <mxGeometry x="0.2" y="10" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Task API to Notif -->
+        <mxCell id="e_6" value="Temporal / Control:&#10;Needs queue to reduce" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#FF9900;strokeWidth=2;" edge="1" parent="1" source="box_backend" target="s_notif">
+          <mxGeometry x="0.1" y="-40" relative="1" as="geometry">
+            <mxPoint as="offset"/>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Legend Box -->
+        <mxCell id="box_legend" value="Coupling Diagram Legend" style="swimlane;whiteSpace=wrap;html=1;startSize=23;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="40" y="440" width="300" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="leg_solid" value="Coupled JSON / Flow" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="box_legend">
+          <mxGeometry x="60" y="30" width="220" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg_solid_line" value="" style="endArrow=classic;html=1;strokeWidth=1;" edge="1" parent="box_legend">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="10" y="40" as="sourcePoint" />
+            <mxPoint x="50" y="40" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="leg_thick" value="Routing/Spatial Pipeline" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="box_legend">
+          <mxGeometry x="60" y="60" width="220" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg_thick_line" value="" style="endArrow=classic;html=1;strokeWidth=2;" edge="1" parent="box_legend">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="10" y="70" as="sourcePoint" />
+            <mxPoint x="50" y="70" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="leg_red" value="Intentionally Tight Coupling" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="box_legend">
+          <mxGeometry x="60" y="90" width="220" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg_red_line" value="" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#FF0000;dashed=1;" edge="1" parent="box_legend">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="10" y="100" as="sourcePoint" />
+            <mxPoint x="50" y="100" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="leg_orange" value="Target for Reduction (Queue)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="box_legend">
+          <mxGeometry x="60" y="120" width="220" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg_orange_line" value="" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#FF9900;" edge="1" parent="box_legend">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="10" y="130" as="sourcePoint" />
+            <mxPoint x="50" y="130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
