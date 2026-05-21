@@ -1,0 +1,140 @@
+<mxfile host="app.diagrams.net" modified="2024-04-19T12:00:00.000Z" agent="Mozilla/5.0" version="21.5.0" type="device">
+  <diagram id="seq-delivery-diagram" name="Delivery Sequence Diagram">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Lifelines -->
+        <mxCell id="developer" value="Developer" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="100" height="580" as="geometry" />
+        </mxCell>
+
+        <mxCell id="github" value="GitHub (VCS)" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="200" y="40" width="100" height="580" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ci_runner" value="CI Runner (Actions)" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="360" y="40" width="120" height="580" as="geometry" />
+        </mxCell>
+
+        <mxCell id="registry" value="Container Registry" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="540" y="40" width="120" height="580" as="geometry" />
+        </mxCell>
+
+        <mxCell id="k8s_api" value="Kubernetes Control Plane" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="720" y="40" width="140" height="580" as="geometry" />
+        </mxCell>
+
+        <mxCell id="kubelet" value="K8s Worker Node (Kubelet)" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="920" y="40" width="150" height="580" as="geometry" />
+        </mxCell>
+
+
+        <!-- Messages -->
+        <mxCell id="msg1" value="git push (commit sha: a1b2c3d)" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="90" y="120" as="sourcePoint" />
+            <mxPoint x="250" y="120" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="msg2" value="Trigger pipeline via Webhook" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="250" y="160" as="sourcePoint" />
+            <mxPoint x="420" y="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Self Call Build -->
+        <mxCell id="msg3" value="docker build -t citybite:a1b2c3d" style="edgeStyle=orthogonalEdgeStyle;html=1;align=left;spacingLeft=2;endArrow=block;rounded=0;entryX=1;entryY=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="420" y="180" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="450" y="180" />
+              <mxPoint x="450" y="210" />
+            </Array>
+            <mxPoint x="420" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="msg4" value="docker push citybite:v1.5.0" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="420" y="250" as="sourcePoint" />
+            <mxPoint x="600" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="msg5" value="kubectl apply deployment (set image: v1.5.0)" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="420" y="290" as="sourcePoint" />
+            <mxPoint x="790" y="290" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="msg6" value="Schedule Pod, Apply Object Spec" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="790" y="330" as="sourcePoint" />
+            <mxPoint x="995" y="330" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="msg7" value="Pull Image Request (v1.5.0)" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="995" y="370" as="sourcePoint" />
+            <mxPoint x="600" y="370" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="msg8" value="Return Image Digest Layers" style="html=1;verticalAlign=bottom;endArrow=block;dashed=1;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="600" y="410" as="sourcePoint" />
+            <mxPoint x="995" y="410" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="msg9" value="Start Container runtime process" style="edgeStyle=orthogonalEdgeStyle;html=1;align=left;spacingLeft=2;endArrow=block;rounded=0;entryX=1;entryY=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="995" y="430" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="1035" y="430" />
+              <mxPoint x="1035" y="460" />
+            </Array>
+            <mxPoint x="995" y="460" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- FAILURE BRANCH -->
+        <mxCell id="msg10" value="[Failure] Readiness Probe fails (e.g. timeout)" style="edgeStyle=orthogonalEdgeStyle;html=1;align=left;spacingLeft=2;endArrow=block;rounded=0;entryX=1;entryY=0;fontColor=#ff0000;strokeColor=#ff0000;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="995" y="490" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="1035" y="490" />
+              <mxPoint x="1035" y="520" />
+            </Array>
+            <mxPoint x="995" y="520" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="msg11" value="Update Pod Status: Unready" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;fontColor=#ff0000;strokeColor=#ff0000;" edge="1" parent="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="995" y="550" as="sourcePoint" />
+            <mxPoint x="790" y="550" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="msg12" value="Halt Deployment Rollout" style="edgeStyle=orthogonalEdgeStyle;html=1;align=left;spacingLeft=2;endArrow=block;rounded=0;entryX=1;entryY=0;fontColor=#ff0000;strokeColor=#ff0000;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="790" y="570" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="830" y="570" />
+              <mxPoint x="830" y="600" />
+            </Array>
+            <mxPoint x="790" y="600" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
