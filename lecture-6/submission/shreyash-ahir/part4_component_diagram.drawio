@@ -1,0 +1,42 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="component-redesign" name="Redesigned Architecture">
+    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10">
+      <root>
+        <mxCell id="0"/><mxCell id="1" parent="0"/>
+        <!-- Interfaces -->
+        <mxCell id="i1" value="&lt;i&gt;«interface»&lt;/i&gt;&lt;br&gt;&lt;b&gt;IPDFSource&lt;/b&gt;&lt;br&gt;load(): Promise&lt;Uint8Array&gt;" style="rounded=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=2;" vertex="1" parent="1"><mxGeometry x="40" y="80" width="180" height="70" as="geometry"/></mxCell>
+        <mxCell id="i2" value="&lt;i&gt;«interface»&lt;/i&gt;&lt;br&gt;&lt;b&gt;IPDFSession&lt;/b&gt;&lt;br&gt;open / close / pageCount" style="rounded=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=2;" vertex="1" parent="1"><mxGeometry x="280" y="80" width="180" height="70" as="geometry"/></mxCell>
+        <mxCell id="i3" value="&lt;i&gt;«interface»&lt;/i&gt;&lt;br&gt;&lt;b&gt;IPDFExtractor&amp;lt;T&amp;gt;&lt;/b&gt;&lt;br&gt;extract(session, options?)" style="rounded=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=2;" vertex="1" parent="1"><mxGeometry x="520" y="80" width="200" height="70" as="geometry"/></mxCell>
+        <!-- Source impls -->
+        <mxCell id="s1" value="URLSource" style="rounded=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1"><mxGeometry x="40" y="200" width="120" height="50" as="geometry"/></mxCell>
+        <mxCell id="s2" value="BufferSource" style="rounded=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1"><mxGeometry x="180" y="200" width="120" height="50" as="geometry"/></mxCell>
+        <!-- Session impl -->
+        <mxCell id="s3" value="PDFSession" style="rounded=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1"><mxGeometry x="330" y="200" width="130" height="50" as="geometry"/></mxCell>
+        <!-- Extractor impls -->
+        <mxCell id="e1" value="TextExtractor" style="rounded=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1"><mxGeometry x="500" y="200" width="120" height="50" as="geometry"/></mxCell>
+        <mxCell id="e2" value="InfoExtractor" style="rounded=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1"><mxGeometry x="640" y="200" width="120" height="50" as="geometry"/></mxCell>
+        <mxCell id="e3" value="ImageExtractor" style="rounded=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1"><mxGeometry x="500" y="270" width="120" height="50" as="geometry"/></mxCell>
+        <mxCell id="e4" value="TableExtractor" style="rounded=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1"><mxGeometry x="640" y="270" width="120" height="50" as="geometry"/></mxCell>
+        <mxCell id="e5" value="ScreenshotExtractor" style="rounded=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1"><mxGeometry x="780" y="200" width="140" height="50" as="geometry"/></mxCell>
+        <!-- Node extras -->
+        <mxCell id="n1" value="&lt;i&gt;«interface»&lt;/i&gt;&lt;br&gt;&lt;b&gt;INodePDFUtils&lt;/b&gt;&lt;br&gt;getHeader(url)" style="rounded=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=2;" vertex="1" parent="1"><mxGeometry x="40" y="380" width="180" height="70" as="geometry"/></mxCell>
+        <mxCell id="n2" value="NodePDFUtils" style="rounded=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1"><mxGeometry x="260" y="380" width="130" height="70" as="geometry"/></mxCell>
+        <!-- Browser extras -->
+        <mxCell id="b1" value="CanvasRenderer" style="rounded=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1"><mxGeometry x="480" y="380" width="140" height="70" as="geometry"/></mxCell>
+        <mxCell id="b2" value="WorkerConfig" style="rounded=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1"><mxGeometry x="640" y="380" width="140" height="70" as="geometry"/></mxCell>
+        <!-- Consumers -->
+        <mxCell id="co1" value="Node.js Consumer&lt;br&gt;import 'pdf-parse' + 'pdf-parse/node'" style="rounded=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1"><mxGeometry x="40" y="490" width="260" height="60" as="geometry"/></mxCell>
+        <mxCell id="co2" value="Browser Consumer&lt;br&gt;import 'pdf-parse' (browser condition)" style="rounded=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1"><mxGeometry x="450" y="490" width="260" height="60" as="geometry"/></mxCell>
+        <!-- Edges impls → interfaces -->
+        <mxCell id="ed1" style="dashed=1;endArrow=block;endFill=0;" edge="1" source="s1" target="i1" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ed2" style="dashed=1;endArrow=block;endFill=0;" edge="1" source="s2" target="i1" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ed3" style="dashed=1;endArrow=block;endFill=0;" edge="1" source="s3" target="i2" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ed4" style="dashed=1;endArrow=block;endFill=0;" edge="1" source="e1" target="i3" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ed5" style="dashed=1;endArrow=block;endFill=0;" edge="1" source="n2" target="n1" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <!-- Consumer usage arrows -->
+        <mxCell id="ed6" style="endArrow=open;endFill=0;" edge="1" source="co1" target="n1" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ed7" style="endArrow=open;endFill=0;" edge="1" source="co2" target="b1" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
