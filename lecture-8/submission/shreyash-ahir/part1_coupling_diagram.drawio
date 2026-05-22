@@ -1,0 +1,29 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="coupling" name="Coupling Diagram">
+    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10">
+      <root>
+        <mxCell id="0"/><mxCell id="1" parent="0"/>
+        <mxCell id="c1" value="Web SPA&lt;br&gt;(first-party)" style="rounded=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1"><mxGeometry x="30" y="80" width="130" height="50" as="geometry"/></mxCell>
+        <mxCell id="c2" value="Mobile App&lt;br&gt;(compiled)" style="rounded=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1"><mxGeometry x="30" y="160" width="130" height="50" as="geometry"/></mxCell>
+        <mxCell id="c3" value="Partner Integration&lt;br&gt;(long-lived)" style="rounded=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1"><mxGeometry x="30" y="240" width="130" height="50" as="geometry"/></mxCell>
+        <mxCell id="gw" value="API Gateway&lt;br&gt;Routes /v1, /v2&lt;br&gt;Enforces X-Client-Id" style="rounded=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1"><mxGeometry x="240" y="150" width="160" height="60" as="geometry"/></mxCell>
+        <mxCell id="v1" value="Task API v1&lt;br&gt;field: done, max=500&lt;br&gt;(sunset pending)" style="rounded=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1"><mxGeometry x="480" y="80" width="160" height="60" as="geometry"/></mxCell>
+        <mxCell id="v2" value="Task API v2&lt;br&gt;field: completed, max=100&lt;br&gt;X-Client-Id required" style="rounded=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1"><mxGeometry x="480" y="200" width="160" height="60" as="geometry"/></mxCell>
+        <mxCell id="db" value="Task Store (PostgreSQL)&lt;br&gt;Shared schema during migration&lt;br&gt;TIGHT: data+temporal coupling" style="rounded=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1"><mxGeometry x="720" y="130" width="180" height="60" as="geometry"/></mxCell>
+        <mxCell id="ns" value="Notification Service&lt;br&gt;Reminders&lt;br&gt;REDUCE: use async queue" style="rounded=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1"><mxGeometry x="720" y="250" width="180" height="60" as="geometry"/></mxCell>
+        <!-- Edges clients to gateway -->
+        <mxCell id="e1" value="interface+data coupling" style="endArrow=block;endFill=1;strokeColor=#d6b656;" edge="1" source="c1" target="gw" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e2" value="interface+platform coupling" style="endArrow=block;endFill=1;strokeColor=#d6b656;" edge="1" source="c2" target="gw" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e3" value="interface+data+temporal" style="endArrow=block;endFill=1;strokeColor=#d6b656;" edge="1" source="c3" target="gw" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <!-- Gateway to APIs -->
+        <mxCell id="e4" value="discovery+deployment" style="endArrow=block;endFill=1;strokeColor=#d6b656;" edge="1" source="gw" target="v1" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e5" value="discovery+deployment" style="endArrow=block;endFill=1;strokeColor=#d6b656;" edge="1" source="gw" target="v2" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <!-- APIs to store -->
+        <mxCell id="e6" value="TIGHT: data+temporal" style="endArrow=block;endFill=1;strokeColor=#b85450;" edge="1" source="v1" target="db" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e7" value="shared schema (migration)" style="endArrow=block;endFill=1;strokeColor=#b85450;" edge="1" source="v2" target="db" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <!-- API to notification -->
+        <mxCell id="e8" value="REDUCE: timing coupling - use async" style="endArrow=block;endFill=1;dashed=1;strokeColor=#6c8ebf;" edge="1" source="v2" target="ns" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
