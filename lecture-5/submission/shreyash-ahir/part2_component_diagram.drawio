@@ -1,0 +1,117 @@
+<mxfile host="app.diagrams.net" modified="2024-01-01T00:00:00.000Z" agent="Claude" version="21.0.0">
+  <diagram id="task-mgmt-component" name="Task Management System">
+    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- models.py -->
+        <mxCell id="2" value="&lt;b&gt;models.py&lt;/b&gt;&lt;br&gt;&lt;i&gt;Task, User, Enums&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="430" y="60" width="180" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- TaskManager -->
+        <mxCell id="3" value="&lt;b&gt;TaskManager&lt;/b&gt;&lt;br&gt;&lt;font color='#666666'&gt;Orchestrates workflows between components&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="390" y="200" width="260" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- ITaskStorage interface -->
+        <mxCell id="4" value="&lt;i&gt;&amp;laquo;interface&amp;raquo;&lt;/i&gt;&lt;br&gt;&lt;b&gt;ITaskStorage&lt;/b&gt;&lt;br&gt;save / get / delete / list_all" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontStyle=2;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="170" y="200" width="180" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- ITaskExporter interface -->
+        <mxCell id="5" value="&lt;i&gt;&amp;laquo;interface&amp;raquo;&lt;/i&gt;&lt;br&gt;&lt;b&gt;ITaskExporter&lt;/b&gt;&lt;br&gt;export(tasks, destination)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontStyle=2;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="690" y="200" width="180" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- TaskValidator -->
+        <mxCell id="6" value="&lt;b&gt;TaskValidator&lt;/b&gt;&lt;br&gt;&lt;font color='#666666'&gt;Enforce business rules on task data&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="60" y="360" width="160" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- TaskSearch -->
+        <mxCell id="7" value="&lt;b&gt;TaskSearch&lt;/b&gt;&lt;br&gt;&lt;font color='#666666'&gt;Filter tasks by status, priority, keyword&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="260" y="360" width="160" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- TaskNotifier -->
+        <mxCell id="8" value="&lt;b&gt;TaskNotifier&lt;/b&gt;&lt;br&gt;&lt;font color='#666666'&gt;Send reminders for overdue / due-soon tasks&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="460" y="360" width="180" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- InMemoryTaskRepository -->
+        <mxCell id="9" value="&lt;b&gt;InMemoryTaskRepository&lt;/b&gt;&lt;br&gt;&lt;font color='#666666'&gt;Stores tasks in RAM (dict)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="60" y="490" width="180" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- FileTaskRepository -->
+        <mxCell id="10" value="&lt;b&gt;FileTaskRepository&lt;/b&gt;&lt;br&gt;&lt;font color='#666666'&gt;Persists tasks to JSON file on disk&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="280" y="490" width="180" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- JsonExporter -->
+        <mxCell id="11" value="&lt;b&gt;JsonExporter&lt;/b&gt;&lt;br&gt;&lt;font color='#666666'&gt;Serialise tasks to JSON format&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="620" y="360" width="160" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- CsvExporter -->
+        <mxCell id="12" value="&lt;b&gt;CsvExporter&lt;/b&gt;&lt;br&gt;&lt;font color='#666666'&gt;Serialise tasks to CSV format&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="820" y="360" width="160" height="70" as="geometry"/>
+        </mxCell>
+
+        <!-- EDGES -->
+        <!-- models -> TaskManager (uses, dashed) -->
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=open;endFill=0;" edge="1" source="2" target="3" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- TaskManager -> ITaskStorage (requires) -->
+        <mxCell id="e2" value="requires" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;endFill=0;exitX=0;exitY=0.5;entryX=1;entryY=0.5;" edge="1" source="3" target="4" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- TaskManager -> ITaskExporter (requires) -->
+        <mxCell id="e3" value="requires" style="edgeStyle=orthogonalEdgeStyle;endArrow=open;endFill=0;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" source="3" target="5" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- TaskManager -> TaskValidator (injects) -->
+        <mxCell id="e4" value="injects" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endFill=1;" edge="1" source="3" target="6" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- TaskManager -> TaskSearch (injects) -->
+        <mxCell id="e5" value="injects" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endFill=1;" edge="1" source="3" target="7" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- TaskManager -> TaskNotifier (injects) -->
+        <mxCell id="e6" value="injects" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;endFill=1;" edge="1" source="3" target="8" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- ITaskStorage -> InMemoryRepo (implements, dashed) -->
+        <mxCell id="e7" value="implements" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=block;endFill=0;" edge="1" source="9" target="4" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- ITaskStorage -> FileRepo (implements, dashed) -->
+        <mxCell id="e8" value="implements" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=block;endFill=0;" edge="1" source="10" target="4" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- ITaskExporter -> JsonExporter (implements, dashed) -->
+        <mxCell id="e9" value="implements" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=block;endFill=0;" edge="1" source="11" target="5" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- ITaskExporter -> CsvExporter (implements, dashed) -->
+        <mxCell id="e10" value="implements" style="edgeStyle=orthogonalEdgeStyle;dashed=1;endArrow=block;endFill=0;" edge="1" source="12" target="5" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
