@@ -1,0 +1,43 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="api-arch" name="API Architecture">
+    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10">
+      <root>
+        <mxCell id="0"/><mxCell id="1" parent="0"/>
+        <!-- Clients -->
+        <mxCell id="c1" value="Web App" style="rounded=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1"><mxGeometry x="20" y="80" width="130" height="50" as="geometry"/></mxCell>
+        <mxCell id="c2" value="Mobile App" style="rounded=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1"><mxGeometry x="20" y="150" width="130" height="50" as="geometry"/></mxCell>
+        <mxCell id="c3" value="CLI (curl)" style="rounded=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1"><mxGeometry x="20" y="220" width="130" height="50" as="geometry"/></mxCell>
+        <mxCell id="c4" value="Batch Job" style="rounded=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1"><mxGeometry x="20" y="290" width="130" height="50" as="geometry"/></mxCell>
+        <!-- API Layer -->
+        <mxCell id="a1" value="HTTP Server (Express/TLS/CORS)" style="rounded=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1"><mxGeometry x="200" y="80" width="200" height="50" as="geometry"/></mxCell>
+        <mxCell id="a2" value="Auth Middleware" style="rounded=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1"><mxGeometry x="200" y="150" width="200" height="50" as="geometry"/></mxCell>
+        <mxCell id="a3" value="Rate Limiter" style="rounded=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1"><mxGeometry x="200" y="220" width="200" height="50" as="geometry"/></mxCell>
+        <mxCell id="a4" value="Request Validation (size, MIME)" style="rounded=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1"><mxGeometry x="200" y="290" width="200" height="50" as="geometry"/></mxCell>
+        <mxCell id="a5" value="Routers POST /extract/*, /screenshot" style="rounded=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1"><mxGeometry x="200" y="360" width="200" height="50" as="geometry"/></mxCell>
+        <mxCell id="a6" value="Multipart File Handler" style="rounded=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1"><mxGeometry x="200" y="430" width="200" height="40" as="geometry"/></mxCell>
+        <!-- Service Layer -->
+        <mxCell id="s1" value="PDFService (orchestrator)" style="rounded=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1"><mxGeometry x="450" y="80" width="200" height="50" as="geometry"/></mxCell>
+        <mxCell id="s2" value="Source Builder (URL/Buffer/base64)" style="rounded=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1"><mxGeometry x="450" y="150" width="200" height="50" as="geometry"/></mxCell>
+        <mxCell id="s3" value="Error Mapper (PDFError → HTTP)" style="rounded=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1"><mxGeometry x="450" y="220" width="200" height="50" as="geometry"/></mxCell>
+        <mxCell id="s4" value="Job Queue (BullMQ async jobs)" style="rounded=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1"><mxGeometry x="450" y="290" width="200" height="50" as="geometry"/></mxCell>
+        <mxCell id="s5" value="Worker Pool (PDF.js workers)" style="rounded=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1"><mxGeometry x="450" y="360" width="200" height="50" as="geometry"/></mxCell>
+        <!-- Library -->
+        <mxCell id="l1" value="IPDFSource (URLSource / BufferSource)" style="rounded=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1"><mxGeometry x="700" y="80" width="220" height="50" as="geometry"/></mxCell>
+        <mxCell id="l2" value="IPDFSession (PDFSession)" style="rounded=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1"><mxGeometry x="700" y="150" width="220" height="50" as="geometry"/></mxCell>
+        <mxCell id="l3" value="TextExtractor / InfoExtractor" style="rounded=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1"><mxGeometry x="700" y="220" width="220" height="50" as="geometry"/></mxCell>
+        <mxCell id="l4" value="ImageExtractor / TableExtractor" style="rounded=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1"><mxGeometry x="700" y="290" width="220" height="50" as="geometry"/></mxCell>
+        <mxCell id="l5" value="ScreenshotExtractor" style="rounded=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1"><mxGeometry x="700" y="360" width="220" height="50" as="geometry"/></mxCell>
+        <!-- Edges clients → API -->
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="c1" target="a1" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="c2" target="a2" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="c3" target="a3" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="c4" target="a4" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <!-- API → Service -->
+        <mxCell id="e5" value="calls" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="a5" target="s1" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <!-- Service → Library -->
+        <mxCell id="e6" value="uses" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="s1" target="l2" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e7" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="s2" target="l1" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
