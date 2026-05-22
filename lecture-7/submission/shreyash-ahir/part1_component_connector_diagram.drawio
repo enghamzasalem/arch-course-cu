@@ -1,0 +1,43 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="comp-conn" name="Component and Connector Diagram">
+    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10">
+      <root>
+        <mxCell id="0"/><mxCell id="1" parent="0"/>
+        <!-- Clients -->
+        <mxCell id="c1" value="Web App (sync)" style="rounded=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1"><mxGeometry x="20" y="80" width="130" height="50" as="geometry"/></mxCell>
+        <mxCell id="c2" value="Batch Job (async)" style="rounded=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1"><mxGeometry x="20" y="150" width="130" height="50" as="geometry"/></mxCell>
+        <mxCell id="c3" value="API Consumer" style="rounded=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1"><mxGeometry x="20" y="220" width="130" height="50" as="geometry"/></mxCell>
+        <!-- API Gateway -->
+        <mxCell id="ag" value="API Gateway&lt;br&gt;Accept upload, route sync/async" style="rounded=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1"><mxGeometry x="200" y="120" width="160" height="60" as="geometry"/></mxCell>
+        <!-- Validator -->
+        <mxCell id="v" value="Validator&lt;br&gt;Check type, size, integrity" style="rounded=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1"><mxGeometry x="420" y="60" width="150" height="60" as="geometry"/></mxCell>
+        <!-- Job Queue -->
+        <mxCell id="q" value="Job Queue&lt;br&gt;(RabbitMQ / BullMQ)" style="rounded=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1"><mxGeometry x="420" y="160" width="150" height="60" as="geometry"/></mxCell>
+        <!-- Orchestrator -->
+        <mxCell id="o" value="Orchestrator&lt;br&gt;Sequence + retry (in worker)" style="rounded=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1"><mxGeometry x="420" y="270" width="150" height="60" as="geometry"/></mxCell>
+        <!-- Extractor -->
+        <mxCell id="ex" value="Extractor&lt;br&gt;OCR + text extraction" style="rounded=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1"><mxGeometry x="640" y="60" width="150" height="60" as="geometry"/></mxCell>
+        <!-- Classifier -->
+        <mxCell id="cl" value="Classifier&lt;br&gt;ML doc-type label" style="rounded=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1"><mxGeometry x="640" y="170" width="150" height="60" as="geometry"/></mxCell>
+        <!-- Storage -->
+        <mxCell id="st" value="Storage&lt;br&gt;DB + object store" style="rounded=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1"><mxGeometry x="640" y="280" width="150" height="60" as="geometry"/></mxCell>
+        <!-- Notify Queue -->
+        <mxCell id="nq" value="Notify Queue&lt;br&gt;job.complete events" style="rounded=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1"><mxGeometry x="860" y="160" width="150" height="60" as="geometry"/></mxCell>
+        <!-- Notifier -->
+        <mxCell id="no" value="Notifier&lt;br&gt;Webhook delivery + retry" style="rounded=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1"><mxGeometry x="860" y="270" width="150" height="60" as="geometry"/></mxCell>
+        <!-- Edges -->
+        <mxCell id="e1" value="HTTP REST" style="endArrow=block;endFill=1;" edge="1" source="c1" target="ag" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e2" style="endArrow=block;endFill=1;" edge="1" source="c2" target="ag" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e3" value="sync direct call" style="endArrow=block;endFill=1;" edge="1" source="ag" target="v" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e4" value="async publish" style="endArrow=block;endFill=1;dashed=1;" edge="1" source="ag" target="q" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e5" value="dequeue" style="endArrow=block;endFill=1;dashed=1;" edge="1" source="q" target="o" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e6" value="direct call" style="endArrow=block;endFill=1;" edge="1" source="o" target="ex" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e7" value="direct call" style="endArrow=block;endFill=1;" edge="1" source="o" target="cl" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e8" value="direct call" style="endArrow=block;endFill=1;" edge="1" source="o" target="st" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e9" value="async publish" style="endArrow=block;endFill=1;dashed=1;" edge="1" source="st" target="nq" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e10" value="dequeue" style="endArrow=block;endFill=1;dashed=1;" edge="1" source="nq" target="no" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e11" value="webhook (async HTTP)" style="endArrow=block;endFill=1;dashed=1;strokeColor=#d79b00;" edge="1" source="no" target="c1" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
