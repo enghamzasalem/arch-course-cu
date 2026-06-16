@@ -1,0 +1,171 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="631TkFhycLg5RiheHqNq">
+    <mxGraphModel dx="2307" dy="1031" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" parent="1" style="whiteSpace=wrap;strokeWidth=2;verticalAlign=top;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="CityBite Availability — Steady vs Failure Path" vertex="1">
+          <mxGeometry height="958" width="1433" x="8" y="8" as="geometry" />
+        </mxCell>
+        <mxCell id="3" parent="2" style="whiteSpace=wrap;strokeWidth=2;verticalAlign=top;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="FAILURE STATE (PAYMENT GATEWAY SLOW OR FAILING)" vertex="1">
+          <mxGeometry height="883" width="665" x="43" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="4" parent="3" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Client Mobile App" vertex="1">
+          <mxGeometry height="54" width="186" x="209" y="58" as="geometry" />
+        </mxCell>
+        <mxCell id="5" parent="3" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Ingress Load Balancer" vertex="1">
+          <mxGeometry height="54" width="215" x="43" y="236" as="geometry" />
+        </mxCell>
+        <mxCell id="6" parent="3" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Order API" vertex="1">
+          <mxGeometry height="54" width="128" x="238" y="414" as="geometry" />
+        </mxCell>
+        <mxCell id="7" parent="3" style="shape=cylinder3;boundedLbl=1;backgroundOutline=1;size=10;strokeWidth=2;whiteSpace=wrap;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="PostgreSQL" vertex="1">
+          <mxGeometry height="71" width="94" x="43" y="592" as="geometry" />
+        </mxCell>
+        <mxCell id="8" parent="3" style="whiteSpace=wrap;strokeWidth=2;fillColor=#ff9;strokeColor=#f90;fontColor=light-dark(#333333,#cccccc);" value="Circuit Breaker" vertex="1">
+          <mxGeometry height="54" width="168" x="218" y="601" as="geometry" />
+        </mxCell>
+        <mxCell id="9" parent="3" style="whiteSpace=wrap;strokeWidth=2;fillColor=#f96;strokeColor=#f00;fontColor=light-dark(#333333,#cccccc);" value="Payment Gateway - FAILING" vertex="1">
+          <mxGeometry height="54" width="259" x="172" y="787" as="geometry" />
+        </mxCell>
+        <mxCell id="10" parent="3" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Message Queue" vertex="1">
+          <mxGeometry height="54" width="169" x="469" y="601" as="geometry" />
+        </mxCell>
+        <mxCell id="11" parent="3" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Worker Pool" vertex="1">
+          <mxGeometry height="54" width="146" x="481" y="787" as="geometry" />
+        </mxCell>
+        <mxCell id="12" edge="1" parent="3" source="4" style="curved=1;startArrow=none;endArrow=block;exitX=0.25;exitY=1;entryX=0.5;entryY=0;" target="5" value="1. HTTPS sync">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="150" y="174" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="13" edge="1" parent="3" source="5" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=0.14;entryY=0;" target="6" value="2. REST sync">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="150" y="352" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="14" edge="1" parent="3" source="6" style="curved=1;startArrow=none;endArrow=block;exitX=0;exitY=1;entryX=0.5;entryY=0;" target="7" value="3. SQL sync">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="90" y="530" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="15" edge="1" parent="3" source="6" style="curved=1;startArrow=none;endArrow=block;exitX=0.35;exitY=1;entryX=0.4;entryY=-0.01;" target="8" value="4. Timeout sync">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="239" y="530" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="16" edge="1" parent="3" source="8" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=0.99;entryX=0.5;entryY=0;" target="9" value="5. 500/Slow">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="17" edge="1" parent="3" source="8" style="curved=1;dashed=1;dashPattern=2 3;startArrow=none;endArrow=block;exitX=0.63;exitY=-0.01;entryX=0.69;entryY=1;" target="6" value="6. Fail Fast">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="383" y="530" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="18" edge="1" parent="3" source="6" style="curved=1;dashed=1;dashPattern=2 3;startArrow=none;endArrow=block;exitX=1;exitY=0.92;entryX=0.5;entryY=-0.01;" target="10" value="7. Async">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="554" y="530" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="19" edge="1" parent="3" source="6" style="curved=1;startArrow=none;endArrow=block;exitX=1;exitY=0.11;entryX=0.94;entryY=1;" target="4" value="8. Fallback sync">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="571" y="352" />
+              <mxPoint x="571" y="174" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="20" edge="1" parent="3" source="10" style="curved=1;dashed=1;dashPattern=2 3;startArrow=none;endArrow=block;exitX=0.5;exitY=0.99;entryX=0.5;entryY=0;" target="11" value="9. Async">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="21" parent="2" style="whiteSpace=wrap;strokeWidth=2;verticalAlign=top;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="STEADY STATE (HAPPY PATH)" vertex="1">
+          <mxGeometry height="705" width="647" x="758" y="135" as="geometry" />
+        </mxCell>
+        <mxCell id="22" parent="21" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Client Mobile App" vertex="1">
+          <mxGeometry height="54" width="186" x="212" y="58" as="geometry" />
+        </mxCell>
+        <mxCell id="23" parent="21" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Ingress Load Balancer" vertex="1">
+          <mxGeometry height="54" width="215" x="43" y="236" as="geometry" />
+        </mxCell>
+        <mxCell id="24" parent="21" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Order API" vertex="1">
+          <mxGeometry height="54" width="128" x="241" y="414" as="geometry" />
+        </mxCell>
+        <mxCell id="25" parent="21" style="shape=cylinder3;boundedLbl=1;backgroundOutline=1;size=10;strokeWidth=2;whiteSpace=wrap;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="PostgreSQL" vertex="1">
+          <mxGeometry height="71" width="94" x="43" y="592" as="geometry" />
+        </mxCell>
+        <mxCell id="26" parent="21" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Payment Gateway" vertex="1">
+          <mxGeometry height="54" width="189" x="211" y="601" as="geometry" />
+        </mxCell>
+        <mxCell id="27" parent="21" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Notifier Worker" vertex="1">
+          <mxGeometry height="54" width="171" x="450" y="601" as="geometry" />
+        </mxCell>
+        <mxCell id="28" edge="1" parent="21" source="22" style="curved=1;startArrow=none;endArrow=block;exitX=0.25;exitY=1;entryX=0.5;entryY=0;" target="23" value="1. HTTPS sync">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="150" y="174" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="29" edge="1" parent="21" source="23" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=0.14;entryY=0;" target="24" value="2. REST sync">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="150" y="352" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="30" edge="1" parent="21" source="24" style="curved=1;startArrow=none;endArrow=block;exitX=0;exitY=0.99;entryX=0.5;entryY=0;" target="25" value="3. SQL sync">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="90" y="530" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="31" edge="1" parent="21" source="24" style="curved=1;startArrow=none;endArrow=block;exitX=0.35;exitY=1;entryX=0.41;entryY=-0.01;" target="26" value="4. HTTPS sync">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="241" y="530" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="32" edge="1" parent="21" source="26" style="curved=1;startArrow=none;endArrow=block;exitX=0.59;exitY=-0.01;entryX=0.66;entryY=1;" target="24" value="5. HTTPS sync">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="370" y="530" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="33" edge="1" parent="21" source="24" style="curved=1;dashed=1;dashPattern=2 3;startArrow=none;endArrow=block;exitX=1;exitY=0.96;entryX=0.5;entryY=-0.01;" target="27" value="6. Async">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="535" y="530" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="34" edge="1" parent="21" source="24" style="curved=1;startArrow=none;endArrow=block;exitX=1;exitY=0.08;entryX=0.91;entryY=1;" target="22" value="7. HTTPS sync">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="556" y="352" />
+              <mxPoint x="556" y="174" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
