@@ -1,0 +1,4 @@
+task_id,title,description,assigned_to,status
+1,Write report,Prepare architecture report,Seth,Completed
+2,Fix bug,Resolve login issue,Alex,In Progress
+3,Prepare slides,Create presentation slides,Maria,Pending

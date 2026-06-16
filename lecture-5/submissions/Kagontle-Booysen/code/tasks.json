@@ -1,0 +1,23 @@
+[
+    {
+        "task_id": 1,
+        "title": "Write report",
+        "description": "Prepare architecture report",
+        "assigned_to": "Seth",
+        "status": "Completed"
+    },
+    {
+        "task_id": 2,
+        "title": "Fix bug",
+        "description": "Resolve login issue",
+        "assigned_to": "Alex",
+        "status": "In Progress"
+    },
+    {
+        "task_id": 3,
+        "title": "Prepare slides",
+        "description": "Create presentation slides",
+        "assigned_to": "Maria",
+        "status": "Pending"
+    }
+]
