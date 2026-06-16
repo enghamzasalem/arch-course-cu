@@ -1,0 +1,387 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36" version="29.6.3" pages="3">
+  <diagram name="Page-1" id="gNsOcZH3q4l2Uq-E-D3N">
+    <mxGraphModel dx="3169" dy="1651" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="sixQU_E-kahGU92BMluv-1" parent="1" style="whiteSpace=wrap;strokeWidth=2;verticalAlign=top;" value="Node Extensions - pdf-parse/node only" vertex="1">
+          <mxGeometry height="172" width="782" x="20" y="45" as="geometry" />
+        </mxCell>
+        <mxCell id="sixQU_E-kahGU92BMluv-2" parent="sixQU_E-kahGU92BMluv-1" style="whiteSpace=wrap;strokeWidth=2;" value="interface INodeExtensions&#xa;getHeader() BookmarkNode[]" vertex="1">
+          <mxGeometry height="102" width="282" x="46" y="43" as="geometry" />
+        </mxCell>
+        <mxCell id="sixQU_E-kahGU92BMluv-3" parent="sixQU_E-kahGU92BMluv-1" style="whiteSpace=wrap;strokeWidth=2;" value="NodeExtractor&#xa;implements INodeExtensions" vertex="1">
+          <mxGeometry height="78" width="266" x="486" y="55" as="geometry" />
+        </mxCell>
+        <mxCell id="sixQU_E-kahGU92BMluv-4" edge="1" parent="sixQU_E-kahGU92BMluv-1" source="sixQU_E-kahGU92BMluv-2" style="curved=1;dashed=1;dashPattern=2 3;startArrow=none;endArrow=block;exitX=1;exitY=0.5;entryX=0;entryY=0.5;rounded=0;" target="sixQU_E-kahGU92BMluv-3" value="implements">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sixQU_E-kahGU92BMluv-5" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Renderer Layer" vertex="1">
+          <mxGeometry height="304" width="950" x="1528" y="944" as="geometry" />
+        </mxCell>
+        <mxCell id="sixQU_E-kahGU92BMluv-6" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Extraction Layer" vertex="1">
+          <mxGeometry height="280" width="1709" x="424" y="590" as="geometry" />
+        </mxCell>
+        <mxCell id="sixQU_E-kahGU92BMluv-7" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Session Layer" vertex="1">
+          <mxGeometry height="200" width="683" x="842" y="316" as="geometry" />
+        </mxCell>
+        <mxCell id="sixQU_E-kahGU92BMluv-8" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Source Layer" vertex="1">
+          <mxGeometry height="496" width="1262" x="1645" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="sixQU_E-kahGU92BMluv-9" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Consumer Layer" vertex="1">
+          <mxGeometry height="222" width="765" x="837" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="sixQU_E-kahGU92BMluv-10" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Node.js App" vertex="1">
+          <mxGeometry height="54" width="146" x="872" y="104" as="geometry" />
+        </mxCell>
+        <mxCell id="sixQU_E-kahGU92BMluv-11" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Browser App" vertex="1">
+          <mxGeometry height="54" width="120" x="1050" y="104" as="geometry" />
+        </mxCell>
+        <mxCell id="sixQU_E-kahGU92BMluv-12" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="CLI" vertex="1">
+          <mxGeometry height="54" width="82" x="1280" y="104" as="geometry" />
+        </mxCell>
+        <mxCell id="sixQU_E-kahGU92BMluv-13" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="REST API Client" vertex="1">
+          <mxGeometry height="54" width="169" x="1398" y="104" as="geometry" />
+        </mxCell>
+        <mxCell id="sixQU_E-kahGU92BMluv-14" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="interface IPDFSource&#xa;load() Promise-Uint8Array" vertex="1">
+          <mxGeometry height="102" width="260" x="1986" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="sixQU_E-kahGU92BMluv-15" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="UrlPDFSource&#xa;fetch / http" vertex="1">
+          <mxGeometry height="54" width="257" x="1680" y="389" as="geometry" />
+        </mxCell>
+        <mxCell id="sixQU_E-kahGU92BMluv-16" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="BufferPDFSource&#xa;in-memory bytes" vertex="1">
+          <mxGeometry height="78" width="260" x="1986" y="377" as="geometry" />
+        </mxCell>
+        <mxCell id="sixQU_E-kahGU92BMluv-17" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="Base64PDFSource&#xa;atob decode" vertex="1">
+          <mxGeometry height="78" width="260" x="2296" y="377" as="geometry" />
+        </mxCell>
+        <mxCell id="sixQU_E-kahGU92BMluv-18" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="FilePDFSource&#xa;fs/promises - NODE ONLY" vertex="1">
+          <mxGeometry height="78" width="265" x="2606" y="377" as="geometry" />
+        </mxCell>
+        <mxCell id="sixQU_E-kahGU92BMluv-19" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="PDFSession implements IPDFParser&#xa;static open(source, opts)&#xa;readonly pageCount&#xa;destroy()" vertex="1">
+          <mxGeometry height="150" width="260" x="1072" y="341" as="geometry" />
+        </mxCell>
+        <mxCell id="sixQU_E-kahGU92BMluv-20" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="interface IExtractor-T&#xa;extract(opts) Promise-T" vertex="1">
+          <mxGeometry height="78" width="260" x="1072" y="615" as="geometry" />
+        </mxCell>
+        <mxCell id="sixQU_E-kahGU92BMluv-21" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="TextExtractor&#xa;returns PageText[]" vertex="1">
+          <mxGeometry height="78" width="260" x="459" y="767" as="geometry" />
+        </mxCell>
+        <mxCell id="sixQU_E-kahGU92BMluv-22" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="MetadataExtractor&#xa;returns PdfMetadata" vertex="1">
+          <mxGeometry height="78" width="264" x="769" y="767" as="geometry" />
+        </mxCell>
+        <mxCell id="sixQU_E-kahGU92BMluv-23" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="ImageExtractor&#xa;returns ImageRef[]" vertex="1">
+          <mxGeometry height="78" width="260" x="1083" y="767" as="geometry" />
+        </mxCell>
+        <mxCell id="sixQU_E-kahGU92BMluv-24" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="TableExtractor&#xa;returns Table[]" vertex="1">
+          <mxGeometry height="78" width="260" x="1393" y="767" as="geometry" />
+        </mxCell>
+        <mxCell id="sixQU_E-kahGU92BMluv-25" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="ScreenshotExtractor&#xa;returns RenderedPage" vertex="1">
+          <mxGeometry height="78" width="276" x="1823" y="767" as="geometry" />
+        </mxCell>
+        <mxCell id="sixQU_E-kahGU92BMluv-26" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="interface IPageRenderer&#xa;render(parser, page, opts)" vertex="1">
+          <mxGeometry height="102" width="284" x="1819" y="969" as="geometry" />
+        </mxCell>
+        <mxCell id="sixQU_E-kahGU92BMluv-27" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="CanvasRenderer&#xa;browser canvas" vertex="1">
+          <mxGeometry height="78" width="260" x="1563" y="1145" as="geometry" />
+        </mxCell>
+        <mxCell id="sixQU_E-kahGU92BMluv-28" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="PdfJsRenderer&#xa;browser and Node" vertex="1">
+          <mxGeometry height="78" width="260" x="1873" y="1145" as="geometry" />
+        </mxCell>
+        <mxCell id="sixQU_E-kahGU92BMluv-29" parent="1" style="whiteSpace=wrap;strokeWidth=2;" value="PuppeteerRenderer&#xa;NODE ONLY" vertex="1">
+          <mxGeometry height="78" width="260" x="2183" y="1145" as="geometry" />
+        </mxCell>
+        <mxCell id="sixQU_E-kahGU92BMluv-30" edge="1" parent="1" source="sixQU_E-kahGU92BMluv-10" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=0;entryY=0.16;rounded=0;" target="sixQU_E-kahGU92BMluv-19" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="944" y="316" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sixQU_E-kahGU92BMluv-31" edge="1" parent="1" source="sixQU_E-kahGU92BMluv-11" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=0.33;entryY=0;rounded=0;" target="sixQU_E-kahGU92BMluv-19" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1142" y="316" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sixQU_E-kahGU92BMluv-32" edge="1" parent="1" source="sixQU_E-kahGU92BMluv-12" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=0.8;entryY=0;rounded=0;" target="sixQU_E-kahGU92BMluv-19" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1307" y="316" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sixQU_E-kahGU92BMluv-33" edge="1" parent="1" source="sixQU_E-kahGU92BMluv-13" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=1;entryY=0.19;rounded=0;" target="sixQU_E-kahGU92BMluv-19" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1482" y="316" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sixQU_E-kahGU92BMluv-34" edge="1" parent="1" source="sixQU_E-kahGU92BMluv-14" style="curved=1;dashed=1;dashPattern=2 3;startArrow=none;endArrow=block;exitX=0;exitY=0.96;entryX=0.5;entryY=0;rounded=0;" target="sixQU_E-kahGU92BMluv-15" value="implements">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1808" y="242" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sixQU_E-kahGU92BMluv-35" edge="1" parent="1" source="sixQU_E-kahGU92BMluv-14" style="curved=1;dashed=1;dashPattern=2 3;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="sixQU_E-kahGU92BMluv-16" value="implements">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sixQU_E-kahGU92BMluv-36" edge="1" parent="1" source="sixQU_E-kahGU92BMluv-14" style="curved=1;dashed=1;dashPattern=2 3;startArrow=none;endArrow=block;exitX=1;exitY=0.96;entryX=0.5;entryY=0;rounded=0;" target="sixQU_E-kahGU92BMluv-17" value="implements">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2426" y="242" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sixQU_E-kahGU92BMluv-37" edge="1" parent="1" source="sixQU_E-kahGU92BMluv-14" style="curved=1;dashed=1;dashPattern=2 3;startArrow=none;endArrow=block;exitX=1;exitY=0.73;entryX=0.5;entryY=0;rounded=0;" target="sixQU_E-kahGU92BMluv-18" value="implements">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2739" y="242" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sixQU_E-kahGU92BMluv-38" edge="1" parent="1" source="sixQU_E-kahGU92BMluv-14" style="curved=1;startArrow=none;endArrow=block;exitX=0;exitY=0.82;entryX=1;entryY=0.32;rounded=0;" target="sixQU_E-kahGU92BMluv-19" value="load">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1680" y="242" />
+              <mxPoint x="1680" y="316" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sixQU_E-kahGU92BMluv-39" edge="1" parent="1" source="sixQU_E-kahGU92BMluv-19" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="sixQU_E-kahGU92BMluv-20" value="new Extractor-session">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sixQU_E-kahGU92BMluv-40" edge="1" parent="1" source="sixQU_E-kahGU92BMluv-20" style="curved=1;dashed=1;dashPattern=2 3;startArrow=none;endArrow=block;exitX=0;exitY=0.71;entryX=0.5;entryY=0;rounded=0;" target="sixQU_E-kahGU92BMluv-21" value="implements">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="589" y="730" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sixQU_E-kahGU92BMluv-41" edge="1" parent="1" source="sixQU_E-kahGU92BMluv-20" style="curved=1;dashed=1;dashPattern=2 3;startArrow=none;endArrow=block;exitX=0;exitY=0.92;entryX=0.5;entryY=0;rounded=0;" target="sixQU_E-kahGU92BMluv-22" value="implements">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="901" y="730" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sixQU_E-kahGU92BMluv-42" edge="1" parent="1" source="sixQU_E-kahGU92BMluv-20" style="curved=1;dashed=1;dashPattern=2 3;startArrow=none;endArrow=block;exitX=0.52;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="sixQU_E-kahGU92BMluv-23" value="implements">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1213" y="730" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sixQU_E-kahGU92BMluv-43" edge="1" parent="1" source="sixQU_E-kahGU92BMluv-20" style="curved=1;dashed=1;dashPattern=2 3;startArrow=none;endArrow=block;exitX=1;exitY=0.89;entryX=0.5;entryY=0;rounded=0;" target="sixQU_E-kahGU92BMluv-24" value="implements">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1523" y="730" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sixQU_E-kahGU92BMluv-44" edge="1" parent="1" source="sixQU_E-kahGU92BMluv-20" style="curved=1;dashed=1;dashPattern=2 3;startArrow=none;endArrow=block;exitX=1;exitY=0.67;entryX=0.5;entryY=0;rounded=0;" target="sixQU_E-kahGU92BMluv-25" value="implements">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1961" y="730" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sixQU_E-kahGU92BMluv-45" edge="1" parent="1" source="sixQU_E-kahGU92BMluv-25" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="sixQU_E-kahGU92BMluv-26" value="injects renderer">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sixQU_E-kahGU92BMluv-46" edge="1" parent="1" source="sixQU_E-kahGU92BMluv-26" style="curved=1;dashed=1;dashPattern=2 3;startArrow=none;endArrow=block;exitX=0;exitY=0.96;entryX=0.5;entryY=0;rounded=0;" target="sixQU_E-kahGU92BMluv-27" value="implements">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1693" y="1108" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sixQU_E-kahGU92BMluv-47" edge="1" parent="1" source="sixQU_E-kahGU92BMluv-26" style="curved=1;dashed=1;dashPattern=2 3;startArrow=none;endArrow=block;exitX=0.59;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="sixQU_E-kahGU92BMluv-28" value="implements">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2003" y="1108" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sixQU_E-kahGU92BMluv-48" edge="1" parent="1" source="sixQU_E-kahGU92BMluv-26" style="curved=1;dashed=1;dashPattern=2 3;startArrow=none;endArrow=block;exitX=1;exitY=0.85;entryX=0.5;entryY=0;rounded=0;" target="sixQU_E-kahGU92BMluv-29" value="implements">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2313" y="1108" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="BFJxxf8z9GFLfwuz6nME" name="Page-2">
+    <mxGraphModel dx="1426" dy="743" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="KkftTr3d_37ZQRR122Ja-1" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" value="Consumer" vertex="1">
+          <mxGeometry height="836" width="150" x="20" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="KkftTr3d_37ZQRR122Ja-2" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" value="IPDFSource" vertex="1">
+          <mxGeometry height="836" width="150" x="248" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="KkftTr3d_37ZQRR122Ja-3" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" value="PDFSession" vertex="1">
+          <mxGeometry height="836" width="150" x="448" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="KkftTr3d_37ZQRR122Ja-4" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" value="IExtractor-T" vertex="1">
+          <mxGeometry height="836" width="150" x="648" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="KkftTr3d_37ZQRR122Ja-5" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;" value="IPageRenderer" vertex="1">
+          <mxGeometry height="836" width="150" x="964" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="KkftTr3d_37ZQRR122Ja-6" edge="1" parent="1" source="KkftTr3d_37ZQRR122Ja-1" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="KkftTr3d_37ZQRR122Ja-2" value="new UrlPDFSource(url)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="218" y="127" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KkftTr3d_37ZQRR122Ja-7" edge="1" parent="1" source="KkftTr3d_37ZQRR122Ja-1" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="KkftTr3d_37ZQRR122Ja-3" value="PDFSession.open(source, opts)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="318" y="179" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KkftTr3d_37ZQRR122Ja-8" edge="1" parent="1" source="KkftTr3d_37ZQRR122Ja-3" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="KkftTr3d_37ZQRR122Ja-2" value="source.load()">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="435" y="231" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KkftTr3d_37ZQRR122Ja-9" edge="1" parent="1" source="KkftTr3d_37ZQRR122Ja-2" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" target="KkftTr3d_37ZQRR122Ja-3" value="Uint8Array bytes">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="432" y="283" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KkftTr3d_37ZQRR122Ja-10" edge="1" parent="1" source="KkftTr3d_37ZQRR122Ja-3" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" target="KkftTr3d_37ZQRR122Ja-1" value="open PDFSession">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="321" y="335" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KkftTr3d_37ZQRR122Ja-11" edge="1" parent="1" source="KkftTr3d_37ZQRR122Ja-1" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="KkftTr3d_37ZQRR122Ja-4" value="new TextExtractor(session)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="418" y="387" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KkftTr3d_37ZQRR122Ja-12" edge="1" parent="1" source="KkftTr3d_37ZQRR122Ja-1" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="KkftTr3d_37ZQRR122Ja-4" value="extract({ pages })">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="418" y="439" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KkftTr3d_37ZQRR122Ja-13" edge="1" parent="1" source="KkftTr3d_37ZQRR122Ja-4" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" target="KkftTr3d_37ZQRR122Ja-1" value="PageText[]">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="421" y="491" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KkftTr3d_37ZQRR122Ja-14" edge="1" parent="1" source="KkftTr3d_37ZQRR122Ja-1" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="KkftTr3d_37ZQRR122Ja-4" value="new ScreenshotExtractor(session, renderer)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="418" y="543" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KkftTr3d_37ZQRR122Ja-15" edge="1" parent="1" source="KkftTr3d_37ZQRR122Ja-4" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="KkftTr3d_37ZQRR122Ja-5" value="renderer.render(parser, page, opts)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="890" y="595" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KkftTr3d_37ZQRR122Ja-16" edge="1" parent="1" source="KkftTr3d_37ZQRR122Ja-5" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" target="KkftTr3d_37ZQRR122Ja-4" value="Uint8Array image bytes">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="893" y="647" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KkftTr3d_37ZQRR122Ja-17" edge="1" parent="1" source="KkftTr3d_37ZQRR122Ja-4" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;" target="KkftTr3d_37ZQRR122Ja-1" value="RenderedPage">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="421" y="699" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KkftTr3d_37ZQRR122Ja-18" edge="1" parent="1" source="KkftTr3d_37ZQRR122Ja-1" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;" target="KkftTr3d_37ZQRR122Ja-3" value="session.destroy()">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="318" y="751" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="ebrNG7Z73PclFXR5lvqE" name="Page-3">
+    <mxGraphModel dx="1426" dy="743" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="vOryYIcx2ZWgww6ES8bd-1" parent="1" style="whiteSpace=wrap;strokeWidth=2;verticalAlign=top;" value="TYPICAL USAGE — DATA FLOW" vertex="1">
+          <mxGeometry height="1005" width="372" x="20" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="vOryYIcx2ZWgww6ES8bd-2" parent="vOryYIcx2ZWgww6ES8bd-1" style="whiteSpace=wrap;strokeWidth=2;" value="1  Define Source&#xa;new UrlPDFSource(url)&#xa;or BufferPDFSource(buf)" vertex="1">
+          <mxGeometry height="102" width="260" x="64" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="vOryYIcx2ZWgww6ES8bd-3" parent="vOryYIcx2ZWgww6ES8bd-1" style="whiteSpace=wrap;strokeWidth=2;" value="2  Open Session&#xa;PDFSession.open(&#xa;  source, { password? }&#xa;)" vertex="1">
+          <mxGeometry height="102" width="270" x="59" y="247" as="geometry" />
+        </mxCell>
+        <mxCell id="vOryYIcx2ZWgww6ES8bd-4" parent="vOryYIcx2ZWgww6ES8bd-1" style="whiteSpace=wrap;strokeWidth=2;" value="3  Compose Extractor&#xa;new TextExtractor(session)&#xa;new ImageExtractor(session)" vertex="1">
+          <mxGeometry height="102" width="267" x="60" y="472" as="geometry" />
+        </mxCell>
+        <mxCell id="vOryYIcx2ZWgww6ES8bd-5" parent="vOryYIcx2ZWgww6ES8bd-1" style="whiteSpace=wrap;strokeWidth=2;" value="4  Call extract()&#xa;extractor.extract({ pages })&#xa;→ typed result T" vertex="1">
+          <mxGeometry height="102" width="277" x="55" y="673" as="geometry" />
+        </mxCell>
+        <mxCell id="vOryYIcx2ZWgww6ES8bd-6" parent="vOryYIcx2ZWgww6ES8bd-1" style="whiteSpace=wrap;strokeWidth=2;" value="5  Destroy Session&#xa;session.destroy()&#xa;frees native resources" vertex="1">
+          <mxGeometry height="102" width="302" x="43" y="874" as="geometry" />
+        </mxCell>
+        <mxCell id="vOryYIcx2ZWgww6ES8bd-7" edge="1" parent="vOryYIcx2ZWgww6ES8bd-1" source="vOryYIcx2ZWgww6ES8bd-2" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="vOryYIcx2ZWgww6ES8bd-3" value="load() →">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vOryYIcx2ZWgww6ES8bd-8" edge="1" parent="vOryYIcx2ZWgww6ES8bd-1" source="vOryYIcx2ZWgww6ES8bd-3" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="vOryYIcx2ZWgww6ES8bd-4" value="PDFSession passed&#xa;to constructor">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vOryYIcx2ZWgww6ES8bd-9" edge="1" parent="vOryYIcx2ZWgww6ES8bd-1" source="vOryYIcx2ZWgww6ES8bd-4" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="vOryYIcx2ZWgww6ES8bd-5" value="extract(opts?)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vOryYIcx2ZWgww6ES8bd-10" edge="1" parent="vOryYIcx2ZWgww6ES8bd-1" source="vOryYIcx2ZWgww6ES8bd-5" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="vOryYIcx2ZWgww6ES8bd-6" value="result T">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

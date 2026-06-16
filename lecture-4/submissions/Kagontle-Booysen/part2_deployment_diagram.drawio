@@ -1,0 +1,129 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" version="29.6.0" pages="2">
+  <diagram name="Page-1" id="lEXJ0OeyZHeZlAF9WOBk">
+    <mxGraphModel dx="1426" dy="743" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="jq-k7Abe8hXz-zdZq06L-1" parent="1" style="text;whiteSpace=wrap;html=1;" value="&lt;b&gt;&lt;font style=&quot;font-size: 30px;&quot;&gt;Deployment Diagram Structure&lt;/font&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="40" width="660" x="100" as="geometry" />
+        </mxCell>
+        <mxCell id="jq-k7Abe8hXz-zdZq06L-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;b&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;Client Device&lt;/font&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="60" width="140" x="110" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="jq-k7Abe8hXz-zdZq06L-3" parent="1" style="text;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;«device»&lt;/font&gt;" vertex="1">
+          <mxGeometry height="40" width="80" x="130" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="jq-k7Abe8hXz-zdZq06L-4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;font-size: 18px;&quot;&gt;&lt;b&gt;CDN NODE&lt;/b&gt;&lt;/span&gt;" vertex="1">
+          <mxGeometry height="60" width="140" x="130" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="jq-k7Abe8hXz-zdZq06L-5" parent="1" style="text;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;«cdn»&lt;/font&gt;" vertex="1">
+          <mxGeometry height="40" width="70" x="165" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="jq-k7Abe8hXz-zdZq06L-6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;font-size: 18px;&quot;&gt;&lt;b&gt;Web Server&lt;/b&gt;&lt;/span&gt;" vertex="1">
+          <mxGeometry height="60" width="140" x="515" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="jq-k7Abe8hXz-zdZq06L-7" parent="1" style="text;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;«server»&lt;/font&gt;" vertex="1">
+          <mxGeometry height="40" width="80" x="550" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="jq-k7Abe8hXz-zdZq06L-8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;font-size: 18px;&quot;&gt;&lt;b&gt;Application Server&lt;/b&gt;&lt;/span&gt;" vertex="1">
+          <mxGeometry height="70" width="170" x="515" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="jq-k7Abe8hXz-zdZq06L-9" parent="1" style="text;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;«server»&lt;/font&gt;" vertex="1">
+          <mxGeometry height="40" width="80" x="560" y="710" as="geometry" />
+        </mxCell>
+        <mxCell id="jq-k7Abe8hXz-zdZq06L-11" parent="1" style="shape=datastore;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="110" width="140" x="970" y="620" as="geometry" />
+        </mxCell>
+        <mxCell id="jq-k7Abe8hXz-zdZq06L-12" parent="1" style="text;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Business Logic&lt;br/&gt;&lt;br&gt;API Services&lt;br/&gt;&lt;br&gt;Session Manager&lt;/font&gt;" vertex="1">
+          <mxGeometry height="70" width="220" x="540" y="750" as="geometry" />
+        </mxCell>
+        <mxCell id="jq-k7Abe8hXz-zdZq06L-13" parent="1" style="text;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Web App&lt;br&gt;&lt;br&gt;Static Handler&lt;/font&gt;" vertex="1">
+          <mxGeometry height="50" width="120" x="550" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="jq-k7Abe8hXz-zdZq06L-14" parent="1" style="text;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Static Assets&lt;/font&gt;" vertex="1">
+          <mxGeometry height="40" width="100" x="150" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="jq-k7Abe8hXz-zdZq06L-15" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="589.5" y="630" />
+            </Array>
+            <mxPoint x="589.5" y="510" as="sourcePoint" />
+            <mxPoint x="590" y="630" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="jq-k7Abe8hXz-zdZq06L-16" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="jq-k7Abe8hXz-zdZq06L-11" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="690" y="674.5" as="sourcePoint" />
+            <mxPoint x="960" y="675" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="jq-k7Abe8hXz-zdZq06L-17" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="275" y="369.5" as="sourcePoint" />
+            <mxPoint x="515" y="370" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="jq-k7Abe8hXz-zdZq06L-18" parent="1" style="text;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Browser App&lt;/font&gt;" vertex="1">
+          <mxGeometry height="40" width="100" x="130" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="jq-k7Abe8hXz-zdZq06L-19" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="179.5" y="330" />
+            </Array>
+            <mxPoint x="179.5" y="210" as="sourcePoint" />
+            <mxPoint x="180" y="330" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="jq-k7Abe8hXz-zdZq06L-20" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="HTTPS" vertex="1">
+          <mxGeometry height="30" width="60" x="190" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="jq-k7Abe8hXz-zdZq06L-21" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="HTTPS/ REST" vertex="1">
+          <mxGeometry height="30" width="85" x="595" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="jq-k7Abe8hXz-zdZq06L-22" parent="1" style="text;whiteSpace=wrap;html=1;" value="(JDBC/ODBC)" vertex="1">
+          <mxGeometry height="40" width="110" x="780" y="650" as="geometry" />
+        </mxCell>
+        <mxCell id="jq-k7Abe8hXz-zdZq06L-23" parent="1" style="text;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;«database»&lt;/font&gt;" vertex="1">
+          <mxGeometry height="40" width="100" x="1000" y="740" as="geometry" />
+        </mxCell>
+        <mxCell id="jq-k7Abe8hXz-zdZq06L-24" parent="1" style="text;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;DBMS&lt;/font&gt;" vertex="1">
+          <mxGeometry height="40" width="70" x="1005" y="780" as="geometry" />
+        </mxCell>
+        <mxCell id="jq-k7Abe8hXz-zdZq06L-25" parent="1" style="text;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;Data Files&lt;/font&gt;" vertex="1">
+          <mxGeometry height="40" width="90" x="1000" y="810" as="geometry" />
+        </mxCell>
+        <mxCell id="jq-k7Abe8hXz-zdZq06L-26" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="183" y="910" as="sourcePoint" />
+            <mxPoint x="182.5" y="470" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="jq-k7Abe8hXz-zdZq06L-27" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="185" y="910" as="sourcePoint" />
+            <mxPoint x="1030" y="910" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="jq-k7Abe8hXz-zdZq06L-28" edge="1" parent="1" style="endArrow=none;dashed=1;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="1030" y="910" as="sourcePoint" />
+            <mxPoint x="1030" y="830" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="uHUKlUe7ux1cg1nZrX4I" name="Page-2">
+    <mxGraphModel dx="1426" dy="743" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="uCT0nWy89oRSjTaUZRnA-1" parent="1" style="text;whiteSpace=wrap;html=1;" value="&lt;b&gt;&lt;font style=&quot;font-size: 30px;&quot;&gt;Infrastructure Description:&lt;/font&gt;&lt;/b&gt;&lt;div&gt;&lt;b&gt;&lt;font style=&quot;font-size: 30px;&quot;&gt;&lt;/font&gt;&lt;/b&gt;&lt;span style=&quot;font-size: 30px;&quot;&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/span&gt;&lt;b&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;Infrastructure Overview:&lt;br/&gt;&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;br/&gt;&lt;br&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;The application is deployed across a distributed infrastructure designed for scalability, performance, and reliability.&lt;br/&gt;&lt;/font&gt;&lt;br&gt;&lt;br/&gt;&lt;br&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;1. Client Layer: End-users access the application through web browsers on various devices. All client traffic is encrypted using HTTPS protocols.&lt;br/&gt;&lt;br&gt;&lt;br/&gt;&lt;br&gt;2. Content Delivery Network (CDN): A globally distributed network of edge servers that cache and deliver static assets (images, CSS, JavaScript files). This reduces latency by serving content from locations geographically closer to users and offloads traffic from the origin servers.&lt;br/&gt;&lt;br&gt;&lt;br/&gt;&lt;br&gt;3. Web Server Tier: Runs the frontend application and handles HTTP/HTTPS requests. It serves dynamic content by communicating with the application server and static content either directly or via CDN integration. Nginx/Apache configured as reverse proxy.&lt;br/&gt;&lt;br&gt;&lt;br/&gt;&lt;br&gt;4. Application Server Tier: Hosts the core business logic and API endpoints. This tier processes client requests, enforces business rules, manages user sessions, and orchestrates data operations. Multiple instances can be horizontally scaled based on load.&lt;br/&gt;&lt;br&gt;&lt;br/&gt;&lt;br&gt;5. Database Server Tier: Provides persistent data storage with ACID compliance. The database manages all application data including user accounts, transactions, and content. Includes backup mechanisms and replication for high availability.&lt;br/&gt;&lt;br&gt;&lt;br/&gt;&lt;br&gt;Containers from Part 1 Deployment:&lt;br/&gt;&lt;br&gt;&lt;br/&gt;&lt;br&gt;Frontend Container → Web Server Node&lt;br/&gt;&lt;br&gt;&lt;br/&gt;&lt;br&gt;Backend API Container → Application Server Node&lt;br/&gt;&lt;br&gt;&lt;br/&gt;&lt;br&gt;Database Container → Database Server Node&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="480" width="950" x="60" y="70" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
