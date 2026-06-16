@@ -1,0 +1,133 @@
+<mxfile host="app.diagrams.net" modified="2026-04-17T00:00:00.000Z" agent="cursor" version="24.7.17">
+  <diagram id="delivery" name="Commit to running pods">
+    <mxGraphModel dx="1600" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1700" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="t0" value="Delivery: commit → ECR → EKS (tag: git sha → release :v1.5.0)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=13;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="40" y="16" width="560" height="24" as="geometry"/>
+        </mxCell>
+        <mxCell id="p1" value="Developer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="40" y="56" width="120" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="p2" value="GitHub (repo)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="220" y="56" width="130" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="p3" value="GitHub Actions&#10;(CI runner)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="410" y="56" width="140" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="p4" value="Amazon ECR" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="610" y="56" width="120" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="p5" value="EKS control plane&#10;(API server)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="790" y="56" width="150" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="p6" value="Worker node&#10;(kubelet)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="56" width="130" height="44" as="geometry"/>
+        </mxCell>
+        <mxCell id="l1" style="dashed=1;html=1;strokeWidth=1;strokeColor=#999999;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="100" y="520" as="targetPoint"/>
+            <mxPoint x="100" y="96" as="sourcePoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="l2" style="dashed=1;html=1;strokeWidth=1;strokeColor=#999999;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="285" y="520" as="targetPoint"/>
+            <mxPoint x="285" y="96" as="sourcePoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="l3" style="dashed=1;html=1;strokeWidth=1;strokeColor=#999999;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="480" y="520" as="targetPoint"/>
+            <mxPoint x="480" y="96" as="sourcePoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="l4" style="dashed=1;html=1;strokeWidth=1;strokeColor=#999999;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="670" y="520" as="targetPoint"/>
+            <mxPoint x="670" y="96" as="sourcePoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="l5" style="dashed=1;html=1;strokeWidth=1;strokeColor=#999999;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="865" y="520" as="targetPoint"/>
+            <mxPoint x="865" y="96" as="sourcePoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="l6" style="dashed=1;html=1;strokeWidth=1;strokeColor=#999999;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1065" y="520" as="targetPoint"/>
+            <mxPoint x="1065" y="96" as="sourcePoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m1" value="git push main" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;fontSize=10;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="100" y="120" as="sourcePoint"/>
+            <mxPoint x="285" y="120" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m2" value="webhook: run workflow" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;fontSize=10;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="285" y="145" as="sourcePoint"/>
+            <mxPoint x="480" y="145" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m3" value="docker build; tag :abc1234 + :v1.5.0" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;fontSize=10;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="480" y="175" as="sourcePoint"/>
+            <mxPoint x="670" y="175" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m4" value="manifest apply / helm upgrade&#10;(image: …@sha256:…)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;fontSize=10;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="480" y="220" as="sourcePoint"/>
+            <mxPoint x="865" y="220" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m5" value="schedule Pod; attach SA / secrets" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;fontSize=10;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="865" y="255" as="sourcePoint"/>
+            <mxPoint x="1065" y="255" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m6" value="pull image 123456789012.dkr.ecr…/citybite-order-api:v1.5.0" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;fontSize=10;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1065" y="290" as="sourcePoint"/>
+            <mxPoint x="670" y="290" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m7" value="image layers cached / started" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;endArrow=open;endFill=0;fontSize=10;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="670" y="315" as="sourcePoint"/>
+            <mxPoint x="1065" y="315" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="failTitle" value="Failure branch — image pull error" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=11;fontStyle=2;fontColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="40" y="360" width="280" height="22" as="geometry"/>
+        </mxCell>
+        <mxCell id="mf1" value="kubelet: ImagePullBackOff&#10;(wrong digest / registry deny)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;fontSize=10;strokeColor=#b85450;fontColor=#b85450;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1065" y="400" as="sourcePoint"/>
+            <mxPoint x="865" y="400" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mf2" value="Deployment rollout stalled;&#10;previous ReplicaSet keeps traffic" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;fontSize=10;strokeColor=#b85450;fontColor=#b85450;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="865" y="430" as="sourcePoint"/>
+            <mxPoint x="480" y="430" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="mf3" value="fix tag / IAM; re-run pipeline or rollback" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;endArrow=open;endFill=0;fontSize=10;strokeColor=#b85450;fontColor=#b85450;labelBackgroundColor=#ffffff;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="480" y="455" as="sourcePoint"/>
+            <mxPoint x="100" y="455" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="note" value="Alt failure: new Pods Running but readiness fails → Service endpoints unchanged → same rollback story." style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=6;fillColor=#fff4f4;strokeColor=#b85450;fontSize=9;" vertex="1" parent="1">
+          <mxGeometry x="40" y="480" width="420" height="44" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
