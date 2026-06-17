@@ -1,0 +1,142 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="LusCQVOtfyXx8c8D5xje">
+    <mxGraphModel dx="1734" dy="1165" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="x6KDKmm1eONMtgJpGed--20" parent="1" style="whiteSpace=wrap;strokeWidth=2;verticalAlign=top;fillColor=#FFE6E6;strokeColor=#FF0000;fontColor=light-dark(#333333,#cccccc);" value="Before: VMs + Monolith" vertex="1">
+          <mxGeometry height="463" width="575" x="370" y="710" as="geometry" />
+        </mxCell>
+        <mxCell id="x6KDKmm1eONMtgJpGed--21" parent="x6KDKmm1eONMtgJpGed--20" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Customer Mobile App" vertex="1">
+          <mxGeometry height="54" width="211" x="55" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="x6KDKmm1eONMtgJpGed--22" parent="x6KDKmm1eONMtgJpGed--20" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Monolith VM&#xa;Order API + Worker" vertex="1">
+          <mxGeometry height="78" width="260" x="155" y="199" as="geometry" />
+        </mxCell>
+        <mxCell id="x6KDKmm1eONMtgJpGed--23" parent="x6KDKmm1eONMtgJpGed--20" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Restaurant Tablet" vertex="1">
+          <mxGeometry height="54" width="186" x="344" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="x6KDKmm1eONMtgJpGed--24" parent="x6KDKmm1eONMtgJpGed--20" style="shape=cylinder3;boundedLbl=1;backgroundOutline=1;size=10;strokeWidth=2;whiteSpace=wrap;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="PostgreSQL&#xa;Managed" vertex="1">
+          <mxGeometry height="82" width="171" x="65" y="352" as="geometry" />
+        </mxCell>
+        <mxCell id="x6KDKmm1eONMtgJpGed--25" parent="x6KDKmm1eONMtgJpGed--20" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Local Disk&#xa;/var/citybite/uploads" vertex="1">
+          <mxGeometry height="78" width="261" x="287" y="354" as="geometry" />
+        </mxCell>
+        <mxCell id="x6KDKmm1eONMtgJpGed--26" edge="1" parent="x6KDKmm1eONMtgJpGed--20" source="x6KDKmm1eONMtgJpGed--21" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=0.99;entryX=0.29;entryY=-0.01;rounded=0;" target="x6KDKmm1eONMtgJpGed--22" value="HTTPS">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="161" y="149" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="x6KDKmm1eONMtgJpGed--27" edge="1" parent="x6KDKmm1eONMtgJpGed--20" source="x6KDKmm1eONMtgJpGed--23" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=0.99;entryX=0.76;entryY=-0.01;rounded=0;" target="x6KDKmm1eONMtgJpGed--22" value="HTTPS">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="437" y="149" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="x6KDKmm1eONMtgJpGed--28" edge="1" parent="x6KDKmm1eONMtgJpGed--20" source="x6KDKmm1eONMtgJpGed--22" style="curved=1;startArrow=none;endArrow=block;exitX=0.24;exitY=0.99;entryX=0.5;entryY=-0.01;rounded=0;" target="x6KDKmm1eONMtgJpGed--24" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="151" y="314" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="x6KDKmm1eONMtgJpGed--29" edge="1" parent="x6KDKmm1eONMtgJpGed--20" source="x6KDKmm1eONMtgJpGed--22" style="curved=1;startArrow=none;endArrow=block;exitX=0.76;exitY=0.99;entryX=0.5;entryY=0;rounded=0;" target="x6KDKmm1eONMtgJpGed--25" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="418" y="314" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="x6KDKmm1eONMtgJpGed--30" connectable="0" parent="1" style="group" value="" vertex="1">
+          <mxGeometry height="660" width="1255" x="10" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="x6KDKmm1eONMtgJpGed--1" parent="x6KDKmm1eONMtgJpGed--30" style="whiteSpace=wrap;strokeWidth=2;verticalAlign=top;fillColor=#E6FFE6;strokeColor=#00FF00;fontColor=light-dark(#333333,#cccccc);movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;container=0;" value="After: Kubernetes on Cloud" vertex="1">
+          <mxGeometry height="660" width="1255" as="geometry" />
+        </mxCell>
+        <mxCell id="x6KDKmm1eONMtgJpGed--3" parent="x6KDKmm1eONMtgJpGed--30" style="whiteSpace=wrap;strokeWidth=2;fillColor=#E6F0FF;strokeColor=#0066CC;fontColor=light-dark(#333333,#cccccc);" value="Kubernetes Cluster" vertex="1">
+          <mxGeometry height="338" width="640" x="338" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="x6KDKmm1eONMtgJpGed--2" parent="x6KDKmm1eONMtgJpGed--30" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Deployment: Order API&#xa;replicas: 3" vertex="1">
+          <mxGeometry height="78" width="260" x="373" y="338" as="geometry" />
+        </mxCell>
+        <mxCell id="x6KDKmm1eONMtgJpGed--4" parent="x6KDKmm1eONMtgJpGed--30" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Customer Mobile App" vertex="1">
+          <mxGeometry height="54" width="211" x="220" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="x6KDKmm1eONMtgJpGed--5" parent="x6KDKmm1eONMtgJpGed--30" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Ingress Controller" vertex="1">
+          <mxGeometry height="54" width="186" x="480" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="x6KDKmm1eONMtgJpGed--6" parent="x6KDKmm1eONMtgJpGed--30" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Restaurant Tablet" vertex="1">
+          <mxGeometry height="54" width="186" x="726" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="x6KDKmm1eONMtgJpGed--7" parent="x6KDKmm1eONMtgJpGed--30" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="K8s Service" vertex="1">
+          <mxGeometry height="54" width="141" x="502.5" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="x6KDKmm1eONMtgJpGed--8" parent="x6KDKmm1eONMtgJpGed--30" style="shape=cylinder3;boundedLbl=1;backgroundOutline=1;size=10;strokeWidth=2;whiteSpace=wrap;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Managed PostgreSQL&#xa;AWS RDS / GCP Cloud SQL" vertex="1">
+          <mxGeometry height="110" width="215" x="1013" y="491" as="geometry" />
+        </mxCell>
+        <mxCell id="x6KDKmm1eONMtgJpGed--9" parent="x6KDKmm1eONMtgJpGed--30" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="PVC&#xa;menu-uploads-pvc" vertex="1">
+          <mxGeometry height="54" width="233" x="387" y="519" as="geometry" />
+        </mxCell>
+        <mxCell id="x6KDKmm1eONMtgJpGed--10" parent="x6KDKmm1eONMtgJpGed--30" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Deployment: Worker&#xa;replicas: 2" vertex="1">
+          <mxGeometry height="78" width="260" x="683" y="338" as="geometry" />
+        </mxCell>
+        <mxCell id="x6KDKmm1eONMtgJpGed--11" parent="x6KDKmm1eONMtgJpGed--30" style="whiteSpace=wrap;strokeWidth=2;fillColor=light-dark(#eeeeee,#1f2020);strokeColor=light-dark(#999999,#cccccc);fontColor=light-dark(#333333,#cccccc);" value="Object Storage&#xa;S3 / GCS for uploads" vertex="1">
+          <mxGeometry height="78" width="260" x="43" y="507" as="geometry" />
+        </mxCell>
+        <mxCell id="x6KDKmm1eONMtgJpGed--12" edge="1" parent="x6KDKmm1eONMtgJpGed--30" source="x6KDKmm1eONMtgJpGed--4" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=0.99;entryX=0;entryY=0.5;rounded=0;entryDx=0;entryDy=0;" target="x6KDKmm1eONMtgJpGed--5" value="HTTPS">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="326" y="149" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="x6KDKmm1eONMtgJpGed--13" edge="1" parent="x6KDKmm1eONMtgJpGed--30" source="x6KDKmm1eONMtgJpGed--6" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=0.99;entryX=0.997;entryY=0.616;rounded=0;entryDx=0;entryDy=0;entryPerimeter=0;" target="x6KDKmm1eONMtgJpGed--5" value="HTTPS">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="819" y="149" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="x6KDKmm1eONMtgJpGed--14" edge="1" parent="x6KDKmm1eONMtgJpGed--30" source="x6KDKmm1eONMtgJpGed--5" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=0.99;entryX=0.5;entryY=-0.01;rounded=0;" target="x6KDKmm1eONMtgJpGed--7" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="x6KDKmm1eONMtgJpGed--15" edge="1" parent="x6KDKmm1eONMtgJpGed--30" source="x6KDKmm1eONMtgJpGed--7" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=0.99;entryX=0.5;entryY=0;rounded=0;" target="x6KDKmm1eONMtgJpGed--2" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="x6KDKmm1eONMtgJpGed--16" edge="1" parent="x6KDKmm1eONMtgJpGed--30" source="x6KDKmm1eONMtgJpGed--2" style="curved=1;startArrow=none;endArrow=block;exitX=0.8;exitY=1;entryX=0;entryY=0.31;rounded=0;" target="x6KDKmm1eONMtgJpGed--8" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="658" y="454" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="x6KDKmm1eONMtgJpGed--17" edge="1" parent="x6KDKmm1eONMtgJpGed--30" source="x6KDKmm1eONMtgJpGed--2" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;" target="x6KDKmm1eONMtgJpGed--9" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="x6KDKmm1eONMtgJpGed--18" edge="1" parent="x6KDKmm1eONMtgJpGed--30" source="x6KDKmm1eONMtgJpGed--10" style="curved=1;startArrow=none;endArrow=block;exitX=0.5;exitY=1;entryX=0;entryY=0.21;rounded=0;" target="x6KDKmm1eONMtgJpGed--8" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="813" y="454" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="x6KDKmm1eONMtgJpGed--19" edge="1" parent="x6KDKmm1eONMtgJpGed--30" source="x6KDKmm1eONMtgJpGed--2" style="curved=1;startArrow=none;endArrow=block;exitX=0.34;exitY=1;entryX=0.9;entryY=0;rounded=0;" target="x6KDKmm1eONMtgJpGed--11" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="421" y="454" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
