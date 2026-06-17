@@ -1,0 +1,92 @@
+<mxfile host="65bd71144e">
+    <diagram id="comp-diagram" name="Redesigned PDF Parse Component Diagram">
+        <mxGraphModel dx="1060" dy="704" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="900" background="#FFFFFF" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="title" value="Redesigned pdf-parse — Component Diagram (Source → Parser → Extractors)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;labelBackgroundColor=none;fontColor=#050505;" parent="1" vertex="1">
+                    <mxGeometry x="220" y="15" width="760" height="28" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend" value="Legend: Core (shared) | Node module | Browser config | Interfaces between components" style="text;html=1;strokeColor=#666666;fillColor=#f5f5f5;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=10;labelBackgroundColor=none;fontColor=#050505;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="48" width="480" height="22" as="geometry"/>
+                </mxCell>
+                <mxCell id="src-loader" value="Source Loader&#xa;(IPDFSource)&#xa;load(params) → bytes/stream" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;labelBackgroundColor=none;fontColor=#050505;" parent="1" vertex="1">
+                    <mxGeometry x="120" y="120" width="160" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="src-label" value="Data source&#xa;(URL / Buffer / base64)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=9;labelBackgroundColor=none;fontColor=#050505;" parent="1" vertex="1">
+                    <mxGeometry x="120" y="195" width="160" height="24" as="geometry"/>
+                </mxCell>
+                <mxCell id="parser-session" value="Parser Session&#xa;(IPDFParser / IPDFSession)&#xa;createSession(data)&#xa;extract(op), destroy()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;labelBackgroundColor=none;fontColor=#050505;" parent="1" vertex="1">
+                    <mxGeometry x="380" y="110" width="200" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="parser-label" value="Parsing / session" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=9;labelBackgroundColor=none;fontColor=#050505;" parent="1" vertex="1">
+                    <mxGeometry x="430" y="205" width="100" height="18" as="geometry"/>
+                </mxCell>
+                <mxCell id="ext-text" value="Text&#xa;Extractor" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;labelBackgroundColor=none;fontColor=#050505;" parent="1" vertex="1">
+                    <mxGeometry x="680" y="80" width="90" height="36" as="geometry"/>
+                </mxCell>
+                <mxCell id="ext-info" value="Info&#xa;Extractor" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;labelBackgroundColor=none;fontColor=#050505;" parent="1" vertex="1">
+                    <mxGeometry x="680" y="125" width="90" height="36" as="geometry"/>
+                </mxCell>
+                <mxCell id="ext-image" value="Image&#xa;Extractor" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;labelBackgroundColor=none;fontColor=#050505;" parent="1" vertex="1">
+                    <mxGeometry x="680" y="170" width="90" height="36" as="geometry"/>
+                </mxCell>
+                <mxCell id="ext-table" value="Table&#xa;Extractor" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;labelBackgroundColor=none;fontColor=#050505;" parent="1" vertex="1">
+                    <mxGeometry x="800" y="80" width="90" height="36" as="geometry"/>
+                </mxCell>
+                <mxCell id="ext-screenshot" value="Screenshot&#xa;Extractor" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;labelBackgroundColor=none;fontColor=#050505;" parent="1" vertex="1">
+                    <mxGeometry x="800" y="125" width="90" height="36" as="geometry"/>
+                </mxCell>
+                <mxCell id="extractors-label" value="Extractors (IPDFExtractor)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontStyle=1;fontSize=11;labelBackgroundColor=none;fontColor=#050505;" parent="1" vertex="1">
+                    <mxGeometry x="720" y="50" width="140" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="core-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;dashed=0;labelBackgroundColor=default;fontColor=#050505;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="230" width="840" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="core-desc" value="Source Loader, Parser Session, Extractors — same in Node and browser" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=10;fontStyle=2;labelBackgroundColor=none;fontColor=#050505;" parent="1" vertex="1">
+                    <mxGeometry x="393" y="290" width="340" height="18" as="geometry"/>
+                </mxCell>
+                <mxCell id="node-module" value="Node module&#xa;(e.g. getHeader)&#xa;INodePDFUtils" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;labelBackgroundColor=none;fontColor=#050505;" parent="1" vertex="1">
+                    <mxGeometry x="120" y="370" width="160" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="node-consumer" value="Node consumer&#xa;(opts in to getHeader)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=9;labelBackgroundColor=none;fontColor=#050505;" parent="1" vertex="1">
+                    <mxGeometry x="120" y="448" width="160" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="browser-module" value="Browser config&#xa;(worker, loader)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;labelBackgroundColor=none;fontColor=#050505;" parent="1" vertex="1">
+                    <mxGeometry x="380" y="370" width="160" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="browser-consumer" value="Browser consumer&#xa;(same core, no Node code)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=9;labelBackgroundColor=none;fontColor=#050505;" parent="1" vertex="1">
+                    <mxGeometry x="380" y="428" width="160" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="arr-src-parser" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;labelBackgroundColor=default;fontColor=#050505;" parent="1" source="src-loader" target="parser-session" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="arr-src-lbl" value="bytes" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=none;fontColor=#050505;" parent="arr-src-parser" vertex="1" connectable="0">
+                    <mxGeometry x="-0.2" y="1" relative="1" as="geometry">
+                        <mxPoint y="-4" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="arr-parser-ext" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;labelBackgroundColor=default;fontColor=#050505;" parent="1" source="parser-session" target="ext-text" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="arr-parser-lbl" value="extract(op)" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=none;fontColor=#050505;" parent="arr-parser-ext" vertex="1" connectable="0">
+                    <mxGeometry x="-0.2" y="1" relative="1" as="geometry">
+                        <mxPoint x="-25" y="1" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="arr-node-core" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;dashed=1;labelBackgroundColor=default;fontColor=#050505;" parent="1" source="node-module" target="core-box" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="arr-browser-core" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;dashed=1;labelBackgroundColor=default;fontColor=#050505;" parent="1" source="browser-module" target="core-box" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ann-same-core" value="Node and browser use same core; only platform layer differs" style="text;html=1;strokeColor=#82b366;fillColor=#d5e8d4;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=10;labelBackgroundColor=none;fontColor=#050505;" parent="1" vertex="1">
+                    <mxGeometry x="316" y="338" width="280" height="24" as="geometry"/>
+                </mxCell>
+                <mxCell id="2" value="Core(shared)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=#050505;" parent="1" vertex="1">
+                    <mxGeometry x="499" y="264" width="89" height="26" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

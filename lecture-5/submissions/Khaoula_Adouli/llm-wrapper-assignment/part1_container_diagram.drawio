@@ -1,0 +1,167 @@
+<mxfile host="65bd71144e">
+    <diagram id="9-x5LIhBcXPzs6--w42o" name="part1_container_diagram.drawio">
+        <mxGraphModel dx="1366" dy="563" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="esZzjMty0x8U8nqQxbTM-38" style="edgeStyle=none;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;" parent="1" source="esZzjMty0x8U8nqQxbTM-1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="240" y="860" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="esZzjMty0x8U8nqQxbTM-44" value="Text" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="esZzjMty0x8U8nqQxbTM-38" vertex="1" connectable="0">
+                    <mxGeometry x="0.1087" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="esZzjMty0x8U8nqQxbTM-51" value="&lt;span data-teams=&quot;true&quot;&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Metrics event&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Latency / status / throughput&lt;/span&gt;&lt;/p&gt;&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="esZzjMty0x8U8nqQxbTM-38" vertex="1" connectable="0">
+                    <mxGeometry x="0.1357" y="2" relative="1" as="geometry">
+                        <mxPoint x="1" y="-1" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="esZzjMty0x8U8nqQxbTM-1" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="370" y="550" width="200" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="esZzjMty0x8U8nqQxbTM-72" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=1;exitY=0.75;exitDx=0;exitDy=0;" parent="1" source="esZzjMty0x8U8nqQxbTM-2" target="esZzjMty0x8U8nqQxbTM-4" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="esZzjMty0x8U8nqQxbTM-79" value="&lt;span data-teams=&quot;true&quot;&gt;&lt;span style=&quot;font-family: -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, system-ui, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Web&amp;quot;, sans-serif; font-size: 14px; white-space: pre-wrap;&quot;&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Async event&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Request/response metadata&lt;/span&gt;&lt;/p&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="esZzjMty0x8U8nqQxbTM-72" vertex="1" connectable="0">
+                    <mxGeometry x="-0.0111" y="3" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="esZzjMty0x8U8nqQxbTM-2" value="Proxy Gateway&#xa;&#xa;Receives LLM requests&#xa;Routes to OpenAI or Gemini&#xa;Returns responses" style="text;whiteSpace=wrap;fontStyle=1;fontSize=13;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="380" y="555" width="180" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="esZzjMty0x8U8nqQxbTM-5" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="130" y="865" width="210" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="esZzjMty0x8U8nqQxbTM-6" value="Metrics Monitoring Service&#xa;&#xa;Aggregates metrics&#xa;(throughput, latency, error rate)" style="text;whiteSpace=wrap;fontStyle=1;fontSize=13;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="140" y="875" width="200" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="esZzjMty0x8U8nqQxbTM-24" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="550" y="280" width="170" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="esZzjMty0x8U8nqQxbTM-25" value="Application Service" style="text;whiteSpace=wrap;fontStyle=1;fontSize=13;" parent="1" vertex="1">
+                    <mxGeometry x="570" y="300" width="130" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="esZzjMty0x8U8nqQxbTM-33" style="edgeStyle=none;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0.07;entryY=0.4;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="esZzjMty0x8U8nqQxbTM-2" target="esZzjMty0x8U8nqQxbTM-20" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="850" y="610" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="esZzjMty0x8U8nqQxbTM-36" value="HTTPS API" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="esZzjMty0x8U8nqQxbTM-33" vertex="1" connectable="0">
+                    <mxGeometry x="-0.1453" y="1" relative="1" as="geometry">
+                        <mxPoint x="-1" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="esZzjMty0x8U8nqQxbTM-34" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.16;entryY=0.55;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="esZzjMty0x8U8nqQxbTM-2" target="esZzjMty0x8U8nqQxbTM-17" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="850" y="632.5" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="esZzjMty0x8U8nqQxbTM-37" value="HTTPS API" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="esZzjMty0x8U8nqQxbTM-34" vertex="1" connectable="0">
+                    <mxGeometry x="0.1989" y="-8" relative="1" as="geometry">
+                        <mxPoint y="-1" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="esZzjMty0x8U8nqQxbTM-45" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=15;entryPerimeter=0;" parent="1" source="esZzjMty0x8U8nqQxbTM-6" target="esZzjMty0x8U8nqQxbTM-15" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="esZzjMty0x8U8nqQxbTM-46" value="Store metrics" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="esZzjMty0x8U8nqQxbTM-45" vertex="1" connectable="0">
+                    <mxGeometry x="-0.0486" y="7" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="esZzjMty0x8U8nqQxbTM-52" value="&lt;span data-teams=&quot;true&quot;&gt;&lt;span style=&quot;font-family: -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, system-ui, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Web&amp;quot;, sans-serif; font-size: 14px; white-space-collapse: preserve;&quot;&gt;&lt;p&gt;&lt;span style=&quot;font-size: inherit;&quot;&gt;&lt;strong&gt;LLM API Wrapper System&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;" style="swimlane;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="-120" y="490" width="1420" height="885" as="geometry"/>
+                </mxCell>
+                <mxCell id="esZzjMty0x8U8nqQxbTM-15" value="" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" parent="esZzjMty0x8U8nqQxbTM-52" vertex="1">
+                    <mxGeometry x="390" y="620" width="100" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="esZzjMty0x8U8nqQxbTM-16" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Helvetica; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;&quot;&gt;&lt;b&gt;Metrics DB&lt;/b&gt;&lt;/span&gt;" style="text;whiteSpace=wrap;html=1;" parent="esZzjMty0x8U8nqQxbTM-52" vertex="1">
+                    <mxGeometry x="400" y="670" width="90" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="esZzjMty0x8U8nqQxbTM-26" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="esZzjMty0x8U8nqQxbTM-52" vertex="1">
+                    <mxGeometry x="1080" y="360" width="200" height="105" as="geometry"/>
+                </mxCell>
+                <mxCell id="esZzjMty0x8U8nqQxbTM-53" value="&#xa;&lt;span data-teams=&quot;true&quot;&gt;&lt;span&gt;&lt;span style=&quot;font-family: -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, system-ui, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Web&amp;quot;, sans-serif; font-size: 14px; white-space: pre-wrap;&quot;&gt;&lt;p&gt;&lt;span style=&quot;font-size: inherit;&quot;&gt;Anomaly State Store&lt;/span&gt;&lt;/p&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&#xa;&#xa;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" parent="esZzjMty0x8U8nqQxbTM-52" vertex="1">
+                    <mxGeometry x="1260" y="627.5" width="100" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="esZzjMty0x8U8nqQxbTM-27" value="Anomaly Detection Service&#xa;(Container)&#xa;&#xa;Detects anomalies&#xa;(request spikes, latency increase)" style="text;whiteSpace=wrap;fontStyle=1;fontSize=13;align=center;" parent="esZzjMty0x8U8nqQxbTM-52" vertex="1">
+                    <mxGeometry x="1082.5" y="360" width="195" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="esZzjMty0x8U8nqQxbTM-68" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=15;entryPerimeter=0;" parent="esZzjMty0x8U8nqQxbTM-52" source="esZzjMty0x8U8nqQxbTM-27" target="esZzjMty0x8U8nqQxbTM-53" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="esZzjMty0x8U8nqQxbTM-71" value="&lt;p style=&quot;scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); text-align: left; white-space: pre-wrap; font-family: -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, system-ui, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Web&amp;quot;, sans-serif; font-size: 14px; background-color: rgb(251, 251, 251); color: rgb(63, 63, 63);&quot;&gt;&lt;span style=&quot;scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); font-size: inherit; color: rgb(63, 63, 63);&quot;&gt;Store anomaly state&lt;/span&gt;&lt;/p&gt;&lt;div&gt;&lt;span style=&quot;scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); font-size: inherit; color: rgb(63, 63, 63);&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;span style=&quot;scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); text-align: left; white-space: pre-wrap; font-family: -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, system-ui, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Web&amp;quot;, sans-serif; font-size: 14px; background-color: rgb(251, 251, 251); float: none; display: inline !important; color: rgb(63, 63, 63);&quot;&gt;&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="esZzjMty0x8U8nqQxbTM-68" vertex="1" connectable="0">
+                    <mxGeometry x="-0.0219" y="2" relative="1" as="geometry">
+                        <mxPoint y="1" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="esZzjMty0x8U8nqQxbTM-3" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="esZzjMty0x8U8nqQxbTM-52" vertex="1">
+                    <mxGeometry x="680" y="370" width="220" height="105" as="geometry"/>
+                </mxCell>
+                <mxCell id="esZzjMty0x8U8nqQxbTM-4" value="Tracking Service&#xa;&#xa;Records request metadata&#xa;(model, tokens, latency, cost)" style="text;whiteSpace=wrap;fontStyle=1;align=center;fontSize=13;" parent="esZzjMty0x8U8nqQxbTM-52" vertex="1">
+                    <mxGeometry x="680" y="385" width="230" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="esZzjMty0x8U8nqQxbTM-42" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" parent="esZzjMty0x8U8nqQxbTM-52" source="esZzjMty0x8U8nqQxbTM-4" target="esZzjMty0x8U8nqQxbTM-11" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="esZzjMty0x8U8nqQxbTM-43" value="Store request logs" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="esZzjMty0x8U8nqQxbTM-42" vertex="1" connectable="0">
+                    <mxGeometry x="0.0292" y="-2" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="esZzjMty0x8U8nqQxbTM-11" value="" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" parent="esZzjMty0x8U8nqQxbTM-52" vertex="1">
+                    <mxGeometry x="780" y="637.5" width="100" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="esZzjMty0x8U8nqQxbTM-57" value="&lt;b style=&quot;forced-color-adjust: none; color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); font-family: Helvetica; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;&quot;&gt;Request Log DB&lt;/b&gt;" style="text;whiteSpace=wrap;html=1;" parent="esZzjMty0x8U8nqQxbTM-52" vertex="1">
+                    <mxGeometry x="780" y="680" width="130" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="esZzjMty0x8U8nqQxbTM-17" value="&#xa;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Helvetica; font-size: 13px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 700; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;&quot;&gt;OpenAI API&lt;/span&gt;&lt;br style=&quot;forced-color-adjust: none; color: rgb(63, 63, 63); scrollbar-color: rgb(226, 226, 226) rgb(251, 251, 251); padding: 0px; margin: 0px; font-family: Helvetica; font-size: 13px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 700; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;&quot;&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Helvetica; font-size: 13px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 700; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;&quot;&gt;(External System)&lt;/span&gt;&#xa;&#xa;" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="1380" y="735" width="175" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="esZzjMty0x8U8nqQxbTM-20" value="" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="1389.24" y="540" width="180" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="esZzjMty0x8U8nqQxbTM-59" value="&lt;span data-teams=&quot;true&quot;&gt;&lt;span&gt;&lt;span style=&quot;font-family: -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, system-ui, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Web&amp;quot;, sans-serif; font-size: 14px; white-space: pre-wrap;&quot;&gt;&lt;p&gt;&lt;span style=&quot;font-size: inherit;&quot;&gt;Gemini API&lt;/span&gt;&lt;/p&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;" style="text;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="1437.5" y="557.5" width="100" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="esZzjMty0x8U8nqQxbTM-28" value="" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="1370" y="950" width="200" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="esZzjMty0x8U8nqQxbTM-58" value="&lt;span data-teams=&quot;true&quot;&gt;&lt;span&gt;&lt;span style=&quot;font-family: -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, system-ui, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Web&amp;quot;, sans-serif; font-size: 14px; white-space: pre-wrap;&quot;&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Alerting System&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Slack / PagerDuty / Email&lt;/span&gt;&lt;/p&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;" style="text;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="1408.26" y="962.5" width="190" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="esZzjMty0x8U8nqQxbTM-73" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.07;entryY=0.4;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="esZzjMty0x8U8nqQxbTM-27" target="esZzjMty0x8U8nqQxbTM-28" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="esZzjMty0x8U8nqQxbTM-74" value="&lt;span data-teams=&quot;true&quot;&gt;&lt;span class=&quot;fui-ChatMessage__body r7802u9 ___4qd6j70 f10pi13n ftqa4ok f2hkw1w f8hki3x f1d2448m f1bjia2o ffh67wi f1j6vpng f1pniga2 f987i1v f1ffjurs f15bsgw9 f14e48fq f18yb2kv fd6o370 ffwy5si f3znvyf f57olzd f4stah7 f480a47 fs1por5 fk6fouc figsok6 fkhj508 f19n0e5 f9ijwd5 f10b60rb f1deotkl f1ozlkrg f1o0qvyv f9ggezi f1xp5gbu f150uoa4 fd9xhir f16xq7d1 fo7qwa0 fxowb0n f11ghf3q f13aoclr flypziy f10kwr27 fquw1qa fftr39l f13lathq f15hsm81 f2ss68y ffb60jq f8nuap2 f13nk4fk f7jacry fq08z5q fd9af6s fr74w9q fcl9uv6 f13sm7pj f1u6qqly f16wpxbl faim3u9 f6cs3qo fa2w2z3 fd39nx6 f10gn8j9 frcqmxy f1w9ws4k f1ddxkqj fd10euv fvuz61 f1nbc6gw&quot; id=&quot;message-body-1773044968485&quot;&gt;&lt;span class=&quot;fui-Primitive ___11tzqds f1oy3dpc f89hs3r fqtknz5 fyvcxda&quot; aria-label=&quot;Alert Event&quot; id=&quot;content-1773044968485&quot; dir=&quot;auto&quot;&gt;&lt;p&gt;&lt;span style=&quot;font-size: inherit;&quot;&gt;Alert Event&lt;/span&gt;&lt;/p&gt;&lt;/span&gt;&lt;/span&gt;&lt;i style=&quot;height: 1px; width: 1px; opacity: 0.001;&quot;&gt;&lt;/i&gt;&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="esZzjMty0x8U8nqQxbTM-73" vertex="1" connectable="0">
+                    <mxGeometry x="-0.1258" y="3" relative="1" as="geometry">
+                        <mxPoint x="1" y="1" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="esZzjMty0x8U8nqQxbTM-75" style="edgeStyle=none;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0.129;entryY=-0.076;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="esZzjMty0x8U8nqQxbTM-2" target="esZzjMty0x8U8nqQxbTM-27" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="esZzjMty0x8U8nqQxbTM-78" value="&lt;span data-teams=&quot;true&quot;&gt;&lt;span class=&quot;fui-ChatMessage__body r7802u9 ___1pg9k10 f10pi13n ftqa4ok f2hkw1w f8hki3x f1d2448m f1bjia2o ffh67wi f1j6vpng f1pniga2 f987i1v f1ffjurs f15bsgw9 f14e48fq f18yb2kv fd6o370 ffwy5si f3znvyf f57olzd f4stah7 f480a47 fs1por5 fk6fouc figsok6 fkhj508 f19n0e5 f9ijwd5 f10b60rb f1ozlkrg f1o0qvyv f9ggezi f1xp5gbu f150uoa4 fd9xhir f16xq7d1 fo7qwa0 fxowb0n f11ghf3q f13aoclr flypziy f10kwr27 fquw1qa fftr39l f13lathq f15hsm81 f2ss68y ffb60jq f8nuap2 f13nk4fk f7jacry fq08z5q fd9af6s fr74w9q fcl9uv6 f13sm7pj f1u6qqly f16wpxbl faim3u9 f6cs3qo fa2w2z3 fd39nx6 f10gn8j9 frcqmxy f1w9ws4k f1ddxkqj fd10euv fvuz61 f1nbc6gw&quot; id=&quot;message-body-1773045003916&quot;&gt;&lt;span class=&quot;fui-Primitive ___11tzqds f1oy3dpc f89hs3r fqtknz5 fyvcxda&quot; aria-label=&quot;Metrics stream&quot; id=&quot;content-1773045003916&quot; dir=&quot;auto&quot;&gt;&lt;p&gt;&lt;span style=&quot;font-size: inherit;&quot;&gt;Metrics stream&lt;/span&gt;&lt;/p&gt;&lt;/span&gt;&lt;/span&gt;&lt;i style=&quot;height: 1px; width: 1px; opacity: 0.001;&quot;&gt;&lt;/i&gt;&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="esZzjMty0x8U8nqQxbTM-75" vertex="1" connectable="0">
+                    <mxGeometry x="0.0884" y="2" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="esZzjMty0x8U8nqQxbTM-80" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.638;entryY=0.002;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="esZzjMty0x8U8nqQxbTM-25" target="esZzjMty0x8U8nqQxbTM-2" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="esZzjMty0x8U8nqQxbTM-81" value="&lt;span data-teams=&quot;true&quot;&gt;&lt;span style=&quot;font-family: -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, system-ui, &amp;quot;Apple Color Emoji&amp;quot;, &amp;quot;Segoe UI Emoji&amp;quot;, &amp;quot;Segoe UI Web&amp;quot;, sans-serif; font-size: 14px; white-space: pre-wrap;&quot;&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;HTTPS / REST&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;Prompt requests&lt;/span&gt;&lt;/p&gt;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="esZzjMty0x8U8nqQxbTM-80" vertex="1" connectable="0">
+                    <mxGeometry x="-0.1962" y="3" relative="1" as="geometry">
+                        <mxPoint x="1" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="ZKOPzZpwUtoj-oS7ojvv-1" value="&lt;b&gt;&lt;font style=&quot;font-size: 25px;&quot;&gt;Container Diagramm&lt;/font&gt;&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="500" y="170" width="270" height="40" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
