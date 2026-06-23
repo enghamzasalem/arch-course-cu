@@ -1,0 +1,93 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" version="29.6.0" pages="2">
+  <diagram name="Page-1" id="RVIbyjzw0LIfzde8-SJz">
+    <mxGraphModel dx="1826" dy="824" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1200" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=16;" value="" vertex="1">
+          <mxGeometry height="640" width="1020" x="-60" as="geometry" />
+        </mxCell>
+        <mxCell id="3" parent="2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="&lt;b&gt;Authentication Controller&lt;/b&gt;&lt;div&gt;&amp;lt;&amp;lt;Component: Express middleware&amp;gt;&amp;gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;Handles login, JWT validation, and user sessions.&lt;/div&gt;" vertex="1">
+          <mxGeometry height="127.82" width="233.14418181818183" x="179.9950909090909" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="4" parent="2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="&lt;b&gt;Content Controller&lt;/b&gt;&lt;div&gt;&amp;lt;&amp;lt;Component: Express route&amp;gt;&amp;gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;Handles browsing, search, and content metadata.&lt;/div&gt;" vertex="1">
+          <mxGeometry height="137.1337142857143" width="225.18818181818182" x="580.0000000000001" y="70.68914285714288" as="geometry" />
+        </mxCell>
+        <mxCell id="5" parent="2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="&lt;b&gt;Watchlist Controller&lt;/b&gt;&lt;div&gt;&amp;lt;&amp;lt;Component: Express route&amp;gt;&amp;gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;Manages watchlists and viewing history.&lt;/div&gt;" vertex="1">
+          <mxGeometry height="139.81" width="233.14418181818183" x="179.9950909090909" y="244.19" as="geometry" />
+        </mxCell>
+        <mxCell id="6" parent="2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="&lt;b&gt;Recommendation Client&lt;/b&gt;&lt;div&gt;&amp;lt;&amp;lt;Component: Service client&amp;gt;&amp;gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;Calls Recommendation Service for personalized suggestions.&lt;/div&gt;" vertex="1">
+          <mxGeometry height="128" width="217.4609090909091" x="583.8672727272727" y="256" as="geometry" />
+        </mxCell>
+        <mxCell id="7" parent="2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="&lt;b&gt;Repository Layer&lt;/b&gt;&lt;div&gt;&amp;lt;&amp;lt;Component: ORM&amp;gt;&amp;gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;Handles database access using ORM.&lt;/div&gt;" vertex="1">
+          <mxGeometry height="148.37" width="208.63636363636363" x="440.4545454545455" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="9" edge="1" parent="2" source="4" style="endArrow=block;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=1.003;exitY=0.546;exitDx=0;exitDy=0;exitPerimeter=0;edgeStyle=orthogonalEdgeStyle;" target="7" value="Uses">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="10" edge="1" parent="2" source="5" style="endArrow=block;html=1;edgeStyle=orthogonalEdgeStyle;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="7" value="Uses">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="11" edge="1" parent="2" source="6" style="endArrow=block;html=1;" target="4" value="REST / JSON">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Yk4cDj2dOYwLYRYcUPGr-12" parent="2" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;b style=&quot;font-size: 16px;&quot;&gt;API Backend [Node.js + Express]&lt;/b&gt;" vertex="1">
+          <mxGeometry height="40" width="350" x="30" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="Yk4cDj2dOYwLYRYcUPGr-14" edge="1" parent="2" source="3" style="endArrow=block;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;edgeStyle=orthogonalEdgeStyle;" target="7" value="Uses">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="947" y="190" as="sourcePoint" />
+            <mxPoint x="790" y="598" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="12" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;align=left;" value="&lt;div&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/div&gt;&lt;ul&gt;&lt;li&gt;Blue Box: Container Boundary&lt;/li&gt;&lt;li&gt;Purple Box: Component&lt;/li&gt;&lt;li&gt;Arrows: Dependency / Interface&lt;/li&gt;&lt;li&gt;Arrow Labels: Protocol / Data Format&lt;/li&gt;&lt;/ul&gt;" vertex="1">
+          <mxGeometry height="130" width="450" x="-60" y="690" as="geometry" />
+        </mxCell>
+        <mxCell id="QVNnUcjnSrUHWjjQSnG8-12" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;b&gt;Legend&lt;/b&gt;" vertex="1">
+          <mxGeometry height="30" width="110" x="-30" y="700" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="Copy of Page-1" id="MxUO16LCNkLveJ0Ja62O">
+    <mxGraphModel dx="1426" dy="824" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="boundary" parent="1" style="shape=mxgraph.c4.boundary;whiteSpace=wrap;html=1;strokeDashArray=1 4;fillColor=#F8F9FA;align=left;verticalAlign=top;padding=15;fontColor=#444444;strokeColor=#6c8ebf;" value="API Backend Container [Node.js + Express]" vertex="1">
+          <mxGeometry height="600" width="840" x="60" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="auth" parent="1" style="shape=mxgraph.c4.component;whiteSpace=wrap;html=1;fillColor=#8591d4;fontColor=#ffffff;align=center;" value="Authentication Controller&#xa;[Component: Express Middleware]&#xa;&#xa;Handles login, JWT validation,&#xa;and user session security." vertex="1">
+          <mxGeometry height="130" width="240" x="120" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="content" parent="1" style="shape=mxgraph.c4.component;whiteSpace=wrap;html=1;fillColor=#8591d4;fontColor=#ffffff;align=center;" value="Content Controller&#xa;[Component: Express Route]&#xa;&#xa;Manages video browsing, &#xa;search, and metadata retrieval." vertex="1">
+          <mxGeometry height="130" width="240" x="600" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="watchlist" parent="1" style="shape=mxgraph.c4.component;whiteSpace=wrap;html=1;fillColor=#8591d4;fontColor=#ffffff;align=center;" value="Watchlist Controller&#xa;[Component: Express Route]&#xa;&#xa;Manages user watchlists and &#xa;persists viewing history." vertex="1">
+          <mxGeometry height="130" width="240" x="120" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="rec_client" parent="1" style="shape=mxgraph.c4.component;whiteSpace=wrap;html=1;fillColor=#8591d4;fontColor=#ffffff;align=center;" value="Recommendation Client&#xa;[Component: Service Client]&#xa;&#xa;Fetches personalized data &#xa;from the Rec. Microservice." vertex="1">
+          <mxGeometry height="130" width="240" x="600" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="repo" parent="1" style="shape=mxgraph.c4.component;whiteSpace=wrap;html=1;fillColor=#8591d4;fontColor=#ffffff;align=center;" value="Repository Layer&#xa;[Component: Sequelize/ORM]&#xa;&#xa;Abstraction layer for all &#xa;Database CRUD operations." vertex="1">
+          <mxGeometry height="110" width="280" x="340" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="rel1" edge="1" parent="1" source="watchlist" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0;entryY=0.5;strokeWidth=2;fontColor=#444444;labelBackgroundColor=#F8F9FA;" target="repo" value="Writes history via">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel2" edge="1" parent="1" source="content" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=1;entryY=0.5;strokeWidth=2;fontColor=#444444;labelBackgroundColor=#F8F9FA;" target="repo" value="Reads metadata via">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel3" edge="1" parent="1" source="auth" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=0.5;exitY=1;entryX=0;entryY=0.25;strokeWidth=2;fontColor=#444444;labelBackgroundColor=#F8F9FA;" target="repo" value="Verifies tokens via">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel4" edge="1" parent="1" source="watchlist" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;strokeWidth=2;fontColor=#444444;labelBackgroundColor=#F8F9FA;" target="rec_client" value="Uses history for">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="legend" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;align=left;padding=10;" value="&lt;b&gt;Legend&lt;/b&gt;&lt;br&gt;Blue/Dashed: Container Boundary&lt;br&gt;Purple: Component&lt;br&gt;Arrows: Dependency (Uses)" vertex="1">
+          <mxGeometry height="80" width="220" x="60" y="670" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

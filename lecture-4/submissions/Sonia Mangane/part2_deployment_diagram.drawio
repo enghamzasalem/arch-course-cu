@@ -1,0 +1,49 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" version="29.6.0">
+  <diagram name="Page-1" id="LcnIDdniLJeRhdvH1uJX">
+    <mxGraphModel dx="1426" dy="824" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="node_client" parent="1" style="verticalAlign=top;align=center;spacingTop=8;fillColor=#dae8fc;strokeColor=#6c8ebf;shape=cube;size=10;" value="&lt;&lt;device&gt;&gt;&#xa;User Device&#xa;(Smartphone/SmartTV)" vertex="1">
+          <mxGeometry height="160" width="200" x="40" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="art_app" parent="node_client" style="html=1;dropTarget=0;fillColor=#ffffff;strokeColor=#6c8ebf;" value="&lt;&lt;artifact&gt;&gt;&#xa;MobileApp.apk / .ipa" vertex="1">
+          <mxGeometry height="60" width="140" x="30" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="node_aws" parent="1" style="verticalAlign=top;align=center;spacingTop=8;fillColor=#f5f5f5;strokeColor=#666666;shape=cube;size=10;fontStyle=1" value="&lt;&lt;cloud&gt;&gt;&#xa;AWS Region (us-east-1)" vertex="1">
+          <mxGeometry height="410" width="520" x="420" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="node_eks" parent="node_aws" style="verticalAlign=top;align=center;spacingTop=8;fillColor=#d5e8d4;strokeColor=#82b366;shape=cube;size=10;" value="&lt;&lt;execution environment&gt;&gt;&#xa;EKS Cluster (Kubernetes)" vertex="1">
+          <mxGeometry height="194.21052631578948" width="248.69565217391306" x="33.913043478260875" y="64.73684210526316" as="geometry" />
+        </mxCell>
+        <mxCell id="art_api" parent="node_eks" style="html=1;dropTarget=0;fillColor=#ffffff;strokeColor=#82b366;" value="&lt;&lt;artifact&gt;&gt;&#xa;API_Gateway.jar" vertex="1">
+          <mxGeometry height="43.15789473684211" width="158.26086956521743" x="45.21739130434783" y="64.73684210526316" as="geometry" />
+        </mxCell>
+        <mxCell id="art_micro" parent="node_eks" style="html=1;dropTarget=0;fillColor=#ffffff;strokeColor=#82b366;" value="&lt;&lt;artifact&gt;&gt;&#xa;Playback_Service.jar" vertex="1">
+          <mxGeometry height="43.15789473684211" width="158.26086956521743" x="45.21739130434783" y="118.6842105263158" as="geometry" />
+        </mxCell>
+        <mxCell id="node_rds" parent="node_aws" style="verticalAlign=top;align=center;spacingTop=8;fillColor=#ffe6cc;strokeColor=#d79b00;shape=cube;size=10;" value="&lt;&lt;device&gt;&gt;&#xa;RDS Instance" vertex="1">
+          <mxGeometry height="107.89473684210526" width="169.56521739130437" x="316.52173913043487" y="280.5263157894737" as="geometry" />
+        </mxCell>
+        <mxCell id="art_db" parent="node_rds" style="html=1;dropTarget=0;fillColor=#ffffff;strokeColor=#d79b00;" value="&lt;&lt;artifact&gt;&gt;&#xa;User_DB (MySQL)" vertex="1">
+          <mxGeometry height="43.15789473684211" width="135.6521739130435" x="16.956521739130437" y="53.94736842105263" as="geometry" />
+        </mxCell>
+        <mxCell id="node_cdn" parent="1" style="verticalAlign=top;align=center;spacingTop=8;fillColor=#f8cecc;strokeColor=#b85450;shape=cube;size=10;" value="&lt;&lt;infrastructure&gt;&gt;&#xa;Open Connect OCA&#xa;(ISP Data Center)" vertex="1">
+          <mxGeometry height="120" width="200" x="40" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="art_video" parent="node_cdn" style="html=1;dropTarget=0;fillColor=#ffffff;strokeColor=#b85450;" value="&lt;&lt;artifact&gt;&gt;&#xa;Encrypted_Video_Chunks" vertex="1">
+          <mxGeometry height="40" width="160" x="20" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="c1" edge="1" parent="1" source="node_client" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0;exitY=0;entryX=0;entryY=0.25;strokeWidth=2;exitDx=200;exitDy=85;exitPerimeter=0;" target="node_aws" value="HTTPS / TLS">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c2" edge="1" parent="1" source="node_client" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;strokeWidth=2;" target="node_cdn" value="BGP / Fiber">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c3" edge="1" parent="1" source="node_eks" style="edgeStyle=none;html=1;exitX=1;exitY=1;entryX=0.5;entryY=0;strokeWidth=2;" target="node_rds" value="SQL Net">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
