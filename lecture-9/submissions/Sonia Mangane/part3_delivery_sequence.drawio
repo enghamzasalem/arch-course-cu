@@ -1,0 +1,96 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="wLD3uTmvfjLedgsL7q-S">
+    <mxGraphModel dx="1414" dy="777" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="L1" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value="Developer" vertex="1">
+          <mxGeometry height="640" width="100" x="40" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="L2" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value="GitHub" vertex="1">
+          <mxGeometry height="640" width="100" x="170" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="L3" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value="CI Runner&#xa;(Actions)" vertex="1">
+          <mxGeometry height="640" width="100" x="300" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="L4" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value="Registry&#xa;(ECR)" vertex="1">
+          <mxGeometry height="640" width="100" x="430" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="L5" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value="K8s Control&#xa;Plane" vertex="1">
+          <mxGeometry height="640" width="100" x="560" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="L6" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" value="Pod / Kubelet" vertex="1">
+          <mxGeometry height="640" width="100" x="690" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="S1" edge="1" parent="1" source="L1" style="verticalAlign=bottom;endArrow=block;shadow=0;strokeWidth=1;" target="L2" value="git push (v1.5.0)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint y="100" as="sourcePoint" />
+            <mxPoint x="100" y="100" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="S2" edge="1" parent="1" source="L2" style="verticalAlign=bottom;endArrow=block;shadow=0;strokeWidth=1;" target="L3" value="Webhook Trigger">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint y="140" as="sourcePoint" />
+            <mxPoint x="100" y="140" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="S3" edge="1" parent="1" source="L3" style="verticalAlign=bottom;endArrow=block;shadow=0;strokeWidth=1;" target="L3" value="docker build -t :v1.5.0">
+          <mxGeometry relative="1" x="0.0588" y="20" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="380" y="170" />
+              <mxPoint x="380" y="200" />
+            </Array>
+            <mxPoint x="355" y="170" as="sourcePoint" />
+            <mxPoint x="355" y="200" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="S4" edge="1" parent="1" source="L3" style="verticalAlign=bottom;endArrow=block;shadow=0;strokeWidth=1;" target="L4" value="Push :v1.5.0">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint y="230" as="sourcePoint" />
+            <mxPoint x="100" y="230" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="S5" edge="1" parent="1" source="L3" style="verticalAlign=bottom;endArrow=block;shadow=0;strokeWidth=1;" target="L5" value="kubectl apply (image: v1.5.0)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint y="270" as="sourcePoint" />
+            <mxPoint x="100" y="270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="F1" parent="1" style="shape=umlFrame;whiteSpace=wrap;html=1;" value="ALT: Deploy Verification" vertex="1">
+          <mxGeometry height="180" width="420" x="380" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="S6" edge="1" parent="1" source="L6" style="verticalAlign=bottom;endArrow=block;shadow=0;strokeWidth=1;" target="L4" value="Pull Image :v1.5.0">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="735" y="360" as="sourcePoint" />
+            <mxPoint x="485" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="S7" edge="1" parent="1" source="L6" style="verticalAlign=bottom;endArrow=block;shadow=0;strokeWidth=1;strokeColor=#009900;" target="L5" value="[Success] Readiness Passed">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint y="400" as="sourcePoint" />
+            <mxPoint x="100" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="S8" edge="1" parent="1" source="L6" style="verticalAlign=bottom;endArrow=block;shadow=0;strokeWidth=1;strokeColor=#FF0000;dashed=1;" target="L5" value="[Failure] ImagePullBackOff / Health Fail">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="735" y="480" as="sourcePoint" />
+            <mxPoint x="615" y="480" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="S9" edge="1" parent="1" source="L5" style="verticalAlign=bottom;endArrow=block;shadow=0;strokeWidth=1;strokeColor=#FF0000;" target="L3" value="Halt Rollout / Keep Old Pods">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="605" y="530" as="sourcePoint" />
+            <mxPoint x="355" y="530" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="S10" edge="1" parent="1" source="L3" style="verticalAlign=bottom;endArrow=block;shadow=0;strokeWidth=1;dashed=1;" target="L1" value="Notify Dev of Failure">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="345" y="570" as="sourcePoint" />
+            <mxPoint x="95" y="570" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
