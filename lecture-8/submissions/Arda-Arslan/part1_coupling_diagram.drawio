@@ -1,0 +1,85 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36" version="29.6.6">
+  <diagram name="Page-1" id="qm6zc0ua5nf8Mph9qUUz">
+    <mxGraphModel dx="2082" dy="1125" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="oM5KzwXqyUazrsXdkQxX-9" edge="1" parent="1" source="oM5KzwXqyUazrsXdkQxX-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" target="oM5KzwXqyUazrsXdkQxX-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="oM5KzwXqyUazrsXdkQxX-13" connectable="0" parent="oM5KzwXqyUazrsXdkQxX-9" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="data: public API schema (stronger)" vertex="1">
+          <mxGeometry relative="1" x="-0.0344" y="2" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oM5KzwXqyUazrsXdkQxX-3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Partner Integration&lt;div&gt;External/long-lived client&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="200" x="90" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="oM5KzwXqyUazrsXdkQxX-8" edge="1" parent="1" source="oM5KzwXqyUazrsXdkQxX-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="oM5KzwXqyUazrsXdkQxX-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="oM5KzwXqyUazrsXdkQxX-12" connectable="0" parent="oM5KzwXqyUazrsXdkQxX-8" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="data: REST/JSON" vertex="1">
+          <mxGeometry relative="1" x="-0.432" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oM5KzwXqyUazrsXdkQxX-4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Mobile App&lt;div&gt;Mobile client&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="200" x="90" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="oM5KzwXqyUazrsXdkQxX-7" edge="1" parent="1" source="oM5KzwXqyUazrsXdkQxX-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" target="oM5KzwXqyUazrsXdkQxX-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="oM5KzwXqyUazrsXdkQxX-11" connectable="0" parent="oM5KzwXqyUazrsXdkQxX-7" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="data: REST/JSON" vertex="1">
+          <mxGeometry relative="1" x="-0.1189" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oM5KzwXqyUazrsXdkQxX-5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Web SPA&lt;div&gt;Browser client&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="200" x="90" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="oM5KzwXqyUazrsXdkQxX-15" edge="1" parent="1" source="oM5KzwXqyUazrsXdkQxX-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="oM5KzwXqyUazrsXdkQxX-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="oM5KzwXqyUazrsXdkQxX-16" connectable="0" parent="oM5KzwXqyUazrsXdkQxX-15" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="control + data: sync REST" vertex="1">
+          <mxGeometry relative="1" x="-0.1662" as="geometry">
+            <mxPoint x="18" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oM5KzwXqyUazrsXdkQxX-6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="API Gateway&lt;div&gt;Public entry point&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="200" x="540" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="oM5KzwXqyUazrsXdkQxX-19" edge="1" parent="1" source="oM5KzwXqyUazrsXdkQxX-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="oM5KzwXqyUazrsXdkQxX-17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="oM5KzwXqyUazrsXdkQxX-21" connectable="0" parent="oM5KzwXqyUazrsXdkQxX-19" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="data: DB schema (tight)" vertex="1">
+          <mxGeometry relative="1" x="0.111" y="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oM5KzwXqyUazrsXdkQxX-20" edge="1" parent="1" source="oM5KzwXqyUazrsXdkQxX-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="oM5KzwXqyUazrsXdkQxX-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="oM5KzwXqyUazrsXdkQxX-22" connectable="0" parent="oM5KzwXqyUazrsXdkQxX-20" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="temporal: sync call" vertex="1">
+          <mxGeometry relative="1" x="-0.0367" y="-1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="oM5KzwXqyUazrsXdkQxX-14" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Task API&lt;div&gt;Core backend service&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="200" x="960" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="oM5KzwXqyUazrsXdkQxX-17" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Task Store&lt;div&gt;Database&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="200" x="1320" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="oM5KzwXqyUazrsXdkQxX-18" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Notification Service&lt;div&gt;Sync notification call&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="200" x="1320" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="1ymHT6RYOTvB1aqfWwdw-1" parent="1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Legend&lt;/h1&gt;&lt;div&gt;&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;data = components share a request/response schema or database structure&lt;/p&gt;&lt;p&gt;control = one component drives the call order or routing of another&lt;/p&gt;&lt;p&gt;temporal = both sides must be available at the same time to complete a request&lt;/p&gt;&lt;p&gt;stronger/tight = higher risk that a provider change breaks the consumer&lt;/p&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="190" width="450" x="1560" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="1ymHT6RYOTvB1aqfWwdw-3" parent="1" style="text;strokeColor=none;fillColor=none;html=1;fontSize=24;fontStyle=1;verticalAlign=middle;align=center;" value="Task Board API - Coupling/Dependency Diagram" vertex="1">
+          <mxGeometry height="40" width="100" x="850" y="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
