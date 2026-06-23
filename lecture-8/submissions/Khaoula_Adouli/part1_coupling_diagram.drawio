@@ -1,0 +1,64 @@
+<mxfile host="65bd71144e">
+    <diagram id="part1-coupling-diagram" name="Coupling Diagram">
+        <mxGraphModel dx="2729" dy="719" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="900" background="#ffffff" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="web" value="Web SPA" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="-80" y="80" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="mobile" value="Mobile App" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="-80" y="170" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="partner" value="Partner Client" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="-80" y="260" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="gateway" value="API Gateway" style="swimlane;rounded=1;" parent="1" vertex="1">
+                    <mxGeometry x="314" y="70" width="210" height="260" as="geometry"/>
+                </mxCell>
+                <mxCell id="gatewayRoutes" value="Routing + Policy" style="rounded=1;whiteSpace=wrap;html=1;" parent="gateway" vertex="1">
+                    <mxGeometry x="10" y="40" width="190" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="gatewayContract" value="Public API Contract Boundary" style="rounded=1;whiteSpace=wrap;html=1;" parent="gateway" vertex="1">
+                    <mxGeometry x="10" y="130" width="190" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="taskApi" value="Task API Service" style="swimlane;rounded=1;" parent="1" vertex="1">
+                    <mxGeometry x="702" y="100" width="230" height="220" as="geometry"/>
+                </mxCell>
+                <mxCell id="taskCore" value="Task Handlers&#xa;GET/POST/PATCH /tasks" style="rounded=1;whiteSpace=wrap;html=1;" parent="taskApi" vertex="1">
+                    <mxGeometry x="10" y="40" width="210" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="taskInternal" value="DTO Mapping Layer (reduces external-data coupling)" style="rounded=1;whiteSpace=wrap;html=1;" parent="taskApi" vertex="1">
+                    <mxGeometry x="10" y="130" width="210" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="store" value="Task Store (DB)" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="1232" y="110" width="190" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="notify" value="Notification Service" style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=default;" parent="1" vertex="1">
+                    <mxGeometry x="1232" y="230" width="190" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="e1" value="data + temporal (sync REST)" parent="1" source="web" target="gateway" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e2" value="data + temporal (sync REST)" parent="1" source="mobile" target="gateway" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e3" value="contract + temporal (long-lived client)" parent="1" source="partner" target="gateway" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e4" value="control + temporal (sync HTTP)" parent="1" source="gateway" target="taskApi" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e5" value="data/schema + temporal (sync DB access)" parent="1" source="taskApi" target="store" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e6" value="async event coupling (reduced temporal dependency)" parent="1" source="taskApi" target="notify" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="legend" value="Legend:&lt;br&gt;- Orange box: contract hotspot&lt;br&gt;- Yellow box: temporal risk hotspot&lt;br&gt;- Arrow labels = coupling type/strength&lt;div&gt;&lt;div&gt;- Thick arrows = strong coupling&lt;/div&gt;&lt;div&gt;- Dashed arrows = weaker / async coupling&lt;/div&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="-200" y="390" width="560" height="90" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
