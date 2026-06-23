@@ -1,0 +1,240 @@
+<mxfile host="65bd71144e">
+    <!-- PAGE 1: Logical View -->
+    <diagram id="logical_view" name="1. Logical View">
+        <mxGraphModel dx="1026" dy="782" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="600" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                
+                <mxCell id="l_title" value="&lt;b&gt;Logical View&lt;/b&gt;&lt;br&gt;Target: Developers &amp; Architects&lt;br&gt;Shows functional components and interfaces." style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="20" y="20" width="300" height="60" as="geometry"/>
+                </mxCell>
+
+                <!-- Legend -->
+                <mxCell id="l_leg_bg" value="Legend" style="swimlane;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
+                    <mxGeometry x="650" y="20" width="160" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="l_leg1" value="Component" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="l_leg_bg">
+                    <mxGeometry x="20" y="40" width="120" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="l_leg2" value="Interface / API" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="l_leg_bg">
+                    <mxGeometry x="20" y="80" width="120" height="30" as="geometry"/>
+                </mxCell>
+
+                <!-- Components -->
+                <mxCell id="l_c1" value="Client Interface&#10;(Mobile/Web)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+                    <mxGeometry x="80" y="240" width="120" height="60" as="geometry"/>
+                </mxCell>
+                
+                <mxCell id="l_c2" value="Authentication&#10;Service" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+                    <mxGeometry x="360" y="140" width="120" height="60" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="l_c3" value="Device Control&#10;Service" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+                    <mxGeometry x="360" y="240" width="120" height="60" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="l_c4" value="Telemetry&#10;Service" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+                    <mxGeometry x="360" y="340" width="120" height="60" as="geometry"/>
+                </mxCell>
+                
+                <mxCell id="l_c5" value="Data Access&#10;Layer" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+                    <mxGeometry x="640" y="240" width="120" height="60" as="geometry"/>
+                </mxCell>
+
+                <!-- Interfaces -->
+                <mxCell id="l_i1" value="Auth API" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+                    <mxGeometry x="240" y="155" width="80" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="l_i2" value="Command API" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+                    <mxGeometry x="240" y="255" width="80" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="l_i3" value="Event API" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+                    <mxGeometry x="240" y="355" width="80" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="l_i4" value="DB Interface" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+                    <mxGeometry x="520" y="255" width="80" height="30" as="geometry"/>
+                </mxCell>
+
+                <!-- Lines -->
+                <mxCell id="l_e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="l_c1" target="l_i1"><mxGeometry relative="1" as="geometry"/></mxCell>
+                <mxCell id="l_e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="l_c1" target="l_i2"><mxGeometry relative="1" as="geometry"/></mxCell>
+                <mxCell id="l_e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="l_c1" target="l_i3"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+                <mxCell id="l_e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="l_i1" target="l_c2"><mxGeometry relative="1" as="geometry"/></mxCell>
+                <mxCell id="l_e5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="l_i2" target="l_c3"><mxGeometry relative="1" as="geometry"/></mxCell>
+                <mxCell id="l_e6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="l_i3" target="l_c4"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+                <mxCell id="l_e7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="l_c2" target="l_i4"><mxGeometry relative="1" as="geometry"/></mxCell>
+                <mxCell id="l_e8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="l_c3" target="l_i4"><mxGeometry relative="1" as="geometry"/></mxCell>
+                <mxCell id="l_e9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="l_c4" target="l_i4"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+                <mxCell id="l_e10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="l_i4" target="l_c5"><mxGeometry relative="1" as="geometry"/></mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+
+    <!-- PAGE 2: Physical/Deployment View -->
+    <diagram id="physical_view" name="2. Physical/Deployment View">
+        <mxGraphModel dx="1026" dy="782" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="600" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                
+                <mxCell id="p_title" value="&lt;b&gt;Physical/Deployment View&lt;/b&gt;&lt;br&gt;Target: DevOps / SRE&lt;br&gt;Shows servers, networks, and cloud infrastructure." style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="20" y="20" width="350" height="60" as="geometry"/>
+                </mxCell>
+
+                <!-- Legend -->
+                <mxCell id="p_leg_bg" value="Legend" style="swimlane;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
+                    <mxGeometry x="650" y="20" width="160" height="150" as="geometry"/>
+                </mxCell>
+                <mxCell id="p_leg1" value="Load Balancer" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="p_leg_bg">
+                    <mxGeometry x="20" y="30" width="120" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="p_leg2" value="Compute Node" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="p_leg_bg">
+                    <mxGeometry x="20" y="70" width="120" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="p_leg3" value="Database Cluster" style="shape=datastore;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="p_leg_bg">
+                    <mxGeometry x="20" y="110" width="120" height="30" as="geometry"/>
+                </mxCell>
+
+                <!-- Network Boundary -->
+                <mxCell id="p_vpc" value="&lt;b&gt;Cloud VPC (Virtual Private Cloud)&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;dashed=1;strokeColor=#666666;fillColor=none;spacingLeft=10;spacingTop=10;" vertex="1" parent="1">
+                    <mxGeometry x="220" y="120" width="560" height="420" as="geometry"/>
+                </mxCell>
+
+                <!-- External -->
+                <mxCell id="p_ext" value="Internet" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="240" width="120" height="80" as="geometry"/>
+                </mxCell>
+
+                <!-- Components -->
+                <mxCell id="p_lb" value="Public Load Balancer&#10;AWS ALB" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+                    <mxGeometry x="260" y="250" width="120" height="60" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="p_eks" value="Kubernetes Cluster (EKS)" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;strokeColor=#d6b656;fillColor=none;spacingLeft=10;spacingTop=10;" vertex="1" parent="1">
+                    <mxGeometry x="440" y="150" width="300" height="260" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="p_pod1" value="API Gateway Pods" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+                    <mxGeometry x="470" y="200" width="110" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="p_pod2" value="Device Svc Pods" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+                    <mxGeometry x="600" y="200" width="110" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="p_pod3" value="Security Svc Pods" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+                    <mxGeometry x="470" y="320" width="110" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="p_pod4" value="Message Broker" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+                    <mxGeometry x="600" y="320" width="110" height="50" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="p_db" value="PostgreSQL RDS&#10;(Multi-AZ)" style="shape=datastore;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+                    <mxGeometry x="540" y="440" width="100" height="80" as="geometry"/>
+                </mxCell>
+
+                <!-- Lines -->
+                <mxCell id="p_e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;" edge="1" parent="1" source="p_ext" target="p_lb"><mxGeometry relative="1" as="geometry"/></mxCell>
+                <mxCell id="p_e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;" edge="1" parent="1" source="p_lb" target="p_eks"><mxGeometry relative="1" as="geometry"/></mxCell>
+                <mxCell id="p_e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;" edge="1" parent="1" source="p_eks" target="p_db"><mxGeometry relative="1" as="geometry"/></mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+
+    <!-- PAGE 3: Scenarios/Sequence View -->
+    <diagram id="sequence_view" name="3. Scenarios/Sequence View">
+        <mxGraphModel dx="1026" dy="782" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="600" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                
+                <mxCell id="s_title" value="&lt;b&gt;Scenarios/Sequence View&lt;/b&gt;&lt;br&gt;Target: Product Managers &amp; Testers&lt;br&gt;Scenario: User turns on lights via mobile app" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=top;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="20" y="20" width="350" height="60" as="geometry"/>
+                </mxCell>
+
+                <!-- Participants -->
+                <mxCell id="s_p1" value="Mobile App" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+                    <mxGeometry x="60" y="100" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="s_p2" value="API Gateway" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+                    <mxGeometry x="260" y="100" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="s_p3" value="Device Manager" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+                    <mxGeometry x="460" y="100" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="s_p4" value="Message MQTT" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+                    <mxGeometry x="660" y="100" width="100" height="40" as="geometry"/>
+                </mxCell>
+
+                <!-- Lifelines -->
+                <mxCell id="s_l1" style="endArrow=none;dashed=1;html=1;" edge="1" parent="1" source="s_p1">
+                    <mxGeometry relative="1" as="geometry"><mxPoint x="110" y="520" as="targetPoint"/></mxGeometry>
+                </mxCell>
+                <mxCell id="s_l2" style="endArrow=none;dashed=1;html=1;" edge="1" parent="1" source="s_p2">
+                    <mxGeometry relative="1" as="geometry"><mxPoint x="310" y="520" as="targetPoint"/></mxGeometry>
+                </mxCell>
+                <mxCell id="s_l3" style="endArrow=none;dashed=1;html=1;" edge="1" parent="1" source="s_p3">
+                    <mxGeometry relative="1" as="geometry"><mxPoint x="510" y="520" as="targetPoint"/></mxGeometry>
+                </mxCell>
+                <mxCell id="s_l4" style="endArrow=none;dashed=1;html=1;" edge="1" parent="1" source="s_p4">
+                    <mxGeometry relative="1" as="geometry"><mxPoint x="710" y="520" as="targetPoint"/></mxGeometry>
+                </mxCell>
+
+                <!-- Sequence Messages -->
+                <!-- 1 -->
+                <mxCell id="s_m1" value="1. Request: Turn On Light 52" style="endArrow=classic;html=1;fontSize=12;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="110" y="180" as="sourcePoint"/>
+                        <mxPoint x="310" y="180" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <!-- 2 -->
+                <mxCell id="s_m2" value="2. Validate Token" style="endArrow=classic;html=1;fontSize=12;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="310" y="210" as="sourcePoint"/>
+                        <mxPoint x="310" y="250" as="targetPoint"/>
+                        <Array as="points"><mxPoint x="350" y="210"/><mxPoint x="350" y="250"/></Array>
+                    </mxGeometry>
+                </mxCell>
+                <!-- 3 -->
+                <mxCell id="s_m3" value="3. Route Command (gRPC)" style="endArrow=classic;html=1;fontSize=12;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="310" y="280" as="sourcePoint"/>
+                        <mxPoint x="510" y="280" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <!-- 4 -->
+                <mxCell id="s_m4" value="4. Update DB State" style="endArrow=classic;html=1;fontSize=12;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="510" y="300" as="sourcePoint"/>
+                        <mxPoint x="510" y="340" as="targetPoint"/>
+                        <Array as="points"><mxPoint x="550" y="300"/><mxPoint x="550" y="340"/></Array>
+                    </mxGeometry>
+                </mxCell>
+                <!-- 5 -->
+                <mxCell id="s_m5" value="5. Publish MQTT 'ON' Event" style="endArrow=classic;html=1;fontSize=12;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="510" y="380" as="sourcePoint"/>
+                        <mxPoint x="710" y="380" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <!-- 6 -->
+                <mxCell id="s_m6" value="6. HTTP 200 OK" style="endArrow=classic;html=1;dashed=1;fontSize=12;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="510" y="420" as="sourcePoint"/>
+                        <mxPoint x="310" y="420" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <!-- 7 -->
+                <mxCell id="s_m7" value="7. Confirm UI State Change" style="endArrow=classic;html=1;dashed=1;fontSize=12;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="310" y="460" as="sourcePoint"/>
+                        <mxPoint x="110" y="460" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

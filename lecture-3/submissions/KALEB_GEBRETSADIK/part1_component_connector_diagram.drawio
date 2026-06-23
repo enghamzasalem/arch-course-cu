@@ -1,0 +1,66 @@
+<mxfile host="65bd71144e">
+    <diagram id="SmartHomeArch_simple" name="Part 1: Component &amp; Connector">
+        <mxGraphModel dx="1026" dy="782" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="600" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+
+                <!-- COMPONENT 1: Mobile App / Web UI -->
+                <mxCell id="2" value="&lt;b&gt;Mobile App / Web UI&lt;/b&gt;&lt;br&gt;Type: Client Interface&lt;br&gt;• Control smart devices&lt;br&gt;• Monitor energy usage&lt;br&gt;• Schedule routines" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+                    <mxGeometry x="60" y="80" width="180" height="90" as="geometry"/>
+                </mxCell>
+
+                <!-- COMPONENT 2: API Gateway -->
+                <mxCell id="3" value="&lt;b&gt;API Gateway&lt;/b&gt;&lt;br&gt;Type: Gateway&lt;br&gt;• Authenticate requests&lt;br&gt;• Route to services&lt;br&gt;• Rate limiting" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+                    <mxGeometry x="310" y="80" width="180" height="90" as="geometry"/>
+                </mxCell>
+
+                <!-- COMPONENT 3: Device Manager -->
+                <mxCell id="4" value="&lt;b&gt;Device Manager&lt;/b&gt;&lt;br&gt;Type: Microservice&lt;br&gt;• Manage device state&lt;br&gt;• Handle heartbeats&lt;br&gt;• Control commands" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+                    <mxGeometry x="560" y="40" width="180" height="90" as="geometry"/>
+                </mxCell>
+
+                <!-- COMPONENT 4: Security Service -->
+                <mxCell id="5" value="&lt;b&gt;Security Service&lt;/b&gt;&lt;br&gt;Type: Microservice&lt;br&gt;• Manage camera feeds&lt;br&gt;• Detect intrusions&lt;br&gt;• Send alerts" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+                    <mxGeometry x="560" y="160" width="180" height="90" as="geometry"/>
+                </mxCell>
+
+                <!-- COMPONENT 5: Message Broker -->
+                <mxCell id="6" value="&lt;b&gt;Message Broker&lt;/b&gt;&lt;br&gt;Type: Message Queue&lt;br&gt;• Async IoT messages&lt;br&gt;• Pub/Sub topics&lt;br&gt;• Event delivery" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+                    <mxGeometry x="310" y="310" width="180" height="90" as="geometry"/>
+                </mxCell>
+
+                <!-- COMPONENT 6: System Database -->
+                <mxCell id="7" value="&lt;b&gt;System Database&lt;/b&gt;&lt;br&gt;Type: Database&lt;br&gt;• Store device records&lt;br&gt;• Persist user settings&lt;br&gt;• Log event history" style="shape=datastore;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+                    <mxGeometry x="560" y="310" width="180" height="90" as="geometry"/>
+                </mxCell>
+
+                <!-- CONNECTOR 1: Mobile App → API Gateway (HTTPS/REST) -->
+                <mxCell id="e1" value="HTTPS / REST (JSON)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="2" target="3">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+
+                <!-- CONNECTOR 2: API Gateway → Device Manager (gRPC) -->
+                <mxCell id="e2" value="gRPC (Protobuf)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="3" target="4">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+
+                <!-- CONNECTOR 3: API Gateway → Security Service (gRPC) -->
+                <mxCell id="e3" value="gRPC (Protobuf)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="3" target="5">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+
+                <!-- CONNECTOR 4: API Gateway → Message Broker (MQTT) -->
+                <mxCell id="e4" value="MQTT (Pub/Sub)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="3" target="6">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+
+                <!-- CONNECTOR 5: Device Manager → Database (SQL) -->
+                <mxCell id="e5" value="SQL / TCP" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="4" target="7">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
