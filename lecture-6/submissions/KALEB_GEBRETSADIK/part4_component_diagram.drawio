@@ -1,0 +1,118 @@
+<mxfile host="app.diagrams.net" version="22.0.0" type="device">
+  <diagram id="V1" name="Page-1">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Consumers -->
+        <mxCell id="consumers" value="Consumers" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="160" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="node_consumer" value="Node.js App" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="consumers">
+          <mxGeometry x="20" y="60" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="browser_consumer" value="Browser App" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="consumers">
+          <mxGeometry x="20" y="160" width="120" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Platform Modules -->
+        <mxCell id="platform_box" value="Platform Modules" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="80" width="200" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="platform_node" value="Node Submodule&lt;br&gt;(fs wrappers, http)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="platform_box">
+          <mxGeometry x="20" y="40" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="platform_browser" value="Browser Loader&lt;br&gt;(URL/Blob handling)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="platform_box">
+          <mxGeometry x="20" y="150" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Core Components Base -->
+        <mxCell id="core_box" value="Core Submodule (Platform Agnostic)" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="560" y="80" width="300" height="400" as="geometry" />
+        </mxCell>
+        
+        <!-- Source Loader -->
+        <mxCell id="source_loader" value="Source Loader (IPDFSource)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="core_box">
+          <mxGeometry x="40" y="40" width="230" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- Parser Session -->
+        <mxCell id="parser_sess" value="Parser Session (IPDFSession)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="core_box">
+          <mxGeometry x="40" y="110" width="230" height="40" as="geometry" />
+        </mxCell>
+        
+        <!-- Extractors Box -->
+        <mxCell id="ext_box" value="Extractors (IExtractor Plugins)" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="core_box">
+          <mxGeometry x="40" y="180" width="230" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="ext_txt" value="Text" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="ext_box">
+          <mxGeometry x="10" y="40" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ext_img" value="Image" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="ext_box">
+          <mxGeometry x="90" y="40" width="50" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ext_tbl" value="Table" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="ext_box">
+          <mxGeometry x="160" y="40" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ext_scr" value="Screenshot" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="ext_box">
+          <mxGeometry x="10" y="90" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ext_inf" value="Info" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="ext_box">
+          <mxGeometry x="160" y="90" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ext_node_spec" value="Node Extractor (getHeader)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="ext_box">
+          <mxGeometry x="10" y="140" width="210" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Edges -->
+        <!-- Flow from Consumers to Platforms -->
+        <mxCell id="e_c1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="node_consumer" target="platform_node">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_c2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="browser_consumer" target="platform_browser">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Node Platform uses Core + Node Specifics -->
+        <mxCell id="e_p1" value="uses" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="platform_node" target="parser_sess">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_p1_b" value="injects" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="1" source="platform_node" target="ext_node_spec">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Browser Platform uses Core only -->
+        <mxCell id="e_p2" value="uses" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="platform_browser" target="parser_sess">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Internal Core Dependencies -->
+        <mxCell id="e_sess_to_src" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="core_box" source="parser_sess" target="source_loader">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e_sess_to_ext" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="core_box" source="parser_sess" target="ext_box">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Legend -->
+        <mxCell id="legend_box" value="Legend" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="360" width="240" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="leg1" value="Node.js Context" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="legend_box">
+          <mxGeometry x="10" y="30" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="leg2" value="Browser Context" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="legend_box">
+          <mxGeometry x="10" y="70" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="leg3" value="Agnostic Core" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="legend_box">
+          <mxGeometry x="120" y="30" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="leg4" value="Node Specific Core" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="legend_box">
+          <mxGeometry x="120" y="70" width="110" height="30" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

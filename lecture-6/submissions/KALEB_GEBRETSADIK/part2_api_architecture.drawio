@@ -1,0 +1,90 @@
+<mxfile host="app.diagrams.net" modified="2023-11-01T00:00:00.000Z" agent="Mozilla/5.0" version="22.0.0" type="device">
+  <diagram id="V1" name="Page-1">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Clients -->
+        <mxCell id="clients_box" value="Clients" style="swimlane;whiteSpace=wrap;html=1;startSize=23;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="160" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="client_web" value="Web App" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="clients_box">
+          <mxGeometry x="20" y="40" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="client_mobile" value="Mobile App" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="clients_box">
+          <mxGeometry x="20" y="100" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="client_cli" value="CLI (cURL)" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="clients_box">
+          <mxGeometry x="20" y="160" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="client_batch" value="Batch Job" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="clients_box">
+          <mxGeometry x="20" y="220" width="120" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- API Layer -->
+        <mxCell id="api_box" value="API Layer (Express.js)" style="swimlane;whiteSpace=wrap;html=1;startSize=23;" vertex="1" parent="1">
+          <mxGeometry x="260" y="80" width="200" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="api_routes" value="HTTP Routes / Controllers" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="api_box">
+          <mxGeometry x="20" y="40" width="160" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="api_validation" value="Request Validation &amp; Rate Limiting" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="api_box">
+          <mxGeometry x="20" y="110" width="160" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="api_upload" value="File Upload Handler (Buffer / URL Auth)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="api_box">
+          <mxGeometry x="20" y="180" width="160" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Service Layer -->
+        <mxCell id="service_box" value="Service / Business Layer" style="swimlane;whiteSpace=wrap;html=1;startSize=23;" vertex="1" parent="1">
+          <mxGeometry x="540" y="80" width="260" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="service_pdf" value="PDF Parsing Service&lt;br&gt;(Business logic &amp; orchestration)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="service_box">
+          <mxGeometry x="20" y="40" width="220" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="service_queue" value="Job Queue System&lt;br&gt;(Optional for heavy async processing)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="service_box">
+          <mxGeometry x="70" y="110" width="120" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Library -->
+        <mxCell id="lib_box" value="Library (pdf-parse)" style="swimlane;whiteSpace=wrap;html=1;startSize=23;" vertex="1" parent="1">
+          <mxGeometry x="540" y="290" width="260" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="lib_core" value="IPDFSession &amp; IExtractor Plugins&lt;br&gt;&lt;i&gt;(Our Redesigned Architecture)&lt;/i&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="lib_box">
+          <mxGeometry x="20" y="40" width="220" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Edges Flow -->
+        <!-- Client to API -->
+        <mxCell id="edge_c2a" value="HTTP POST" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="clients_box" target="api_box">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- API internal flow -->
+        <mxCell id="edge_a1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="api_box" source="api_routes" target="api_validation">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_a2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="api_box" source="api_validation" target="api_upload">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- API to Service -->
+        <mxCell id="edge_a2s" value="Validated File Data" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="api_upload" target="service_pdf">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Service to Queue -->
+        <mxCell id="edge_s2q" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;" edge="1" parent="service_box" source="service_pdf" target="service_queue">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Service to Library -->
+        <mxCell id="edge_s2l" value="Invokes Core Interfaces" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="service_box" target="lib_box">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
