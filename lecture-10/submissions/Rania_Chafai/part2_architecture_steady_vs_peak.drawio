@@ -1,0 +1,180 @@
+<mxfile host="65bd71144e">
+    <diagram name="Page-1" id="Mx0cJuh_j6H9QHkYZFA6">
+        <mxGraphModel dx="1113" dy="1819" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#ffffff" math="0" shadow="0">
+            <root>
+                <mxCell id="mevu-kd6zeR02H-Qa5bD-0"/>
+                <mxCell id="mevu-kd6zeR02H-Qa5bD-1" parent="mevu-kd6zeR02H-Qa5bD-0"/>
+                <mxCell id="mevu-kd6zeR02H-Qa5bD-2" value="&lt;span style=&quot;color: rgb(63, 63, 63); font-size: 18px; font-weight: 400;&quot;&gt;Steady State&lt;/span&gt;" style="swimlane;whiteSpace=wrap;html=1;startSize=23;" parent="mevu-kd6zeR02H-Qa5bD-1" vertex="1">
+                    <mxGeometry x="-50" y="-180" width="640" height="690" as="geometry"/>
+                </mxCell>
+                <mxCell id="mevu-kd6zeR02H-Qa5bD-3" value="&lt;div&gt;&lt;font color=&quot;#000000&quot;&gt;Client&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#000000&quot;&gt;(mobile app / restaurant tablet)&lt;/font&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="mevu-kd6zeR02H-Qa5bD-2" vertex="1">
+                    <mxGeometry x="210" y="40" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="mevu-kd6zeR02H-Qa5bD-4" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="mevu-kd6zeR02H-Qa5bD-2" source="mevu-kd6zeR02H-Qa5bD-6" target="mevu-kd6zeR02H-Qa5bD-11" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="mevu-kd6zeR02H-Qa5bD-5" value="2 route request" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="mevu-kd6zeR02H-Qa5bD-4" vertex="1" connectable="0">
+                    <mxGeometry x="0.0903" y="2" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="mevu-kd6zeR02H-Qa5bD-6" value="Ingress / Load Balancer" style="rounded=1;whiteSpace=wrap;html=1;" parent="mevu-kd6zeR02H-Qa5bD-2" vertex="1">
+                    <mxGeometry x="245" y="200" width="150" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="mevu-kd6zeR02H-Qa5bD-7" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;dashed=1;" parent="mevu-kd6zeR02H-Qa5bD-2" source="mevu-kd6zeR02H-Qa5bD-11" target="mevu-kd6zeR02H-Qa5bD-19" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="mevu-kd6zeR02H-Qa5bD-8" value="4 enqueue notification job" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="mevu-kd6zeR02H-Qa5bD-7" vertex="1" connectable="0">
+                    <mxGeometry x="0.1086" y="1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="mevu-kd6zeR02H-Qa5bD-9" style="edgeStyle=none;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="mevu-kd6zeR02H-Qa5bD-2" source="mevu-kd6zeR02H-Qa5bD-11" target="mevu-kd6zeR02H-Qa5bD-15" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="mevu-kd6zeR02H-Qa5bD-10" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;6 read menu images&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="mevu-kd6zeR02H-Qa5bD-9" vertex="1" connectable="0">
+                    <mxGeometry x="-0.0192" y="-2" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="mevu-kd6zeR02H-Qa5bD-11" value="&lt;div&gt;&lt;font color=&quot;#000000&quot;&gt;Order API&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#000000&quot;&gt;(pods)&lt;/font&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="mevu-kd6zeR02H-Qa5bD-2" vertex="1">
+                    <mxGeometry x="260" y="330" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="mevu-kd6zeR02H-Qa5bD-12" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.433;entryY=0.054;entryDx=0;entryDy=0;entryPerimeter=0;" parent="mevu-kd6zeR02H-Qa5bD-2" source="mevu-kd6zeR02H-Qa5bD-3" target="mevu-kd6zeR02H-Qa5bD-6" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="mevu-kd6zeR02H-Qa5bD-13" value="1 HTTPS request" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="mevu-kd6zeR02H-Qa5bD-12" vertex="1" connectable="0">
+                    <mxGeometry x="0.0298" y="4" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="mevu-kd6zeR02H-Qa5bD-14" value="&lt;div&gt;&lt;font color=&quot;#000000&quot;&gt;PostgreSQL&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#000000&quot;&gt;(primary)&lt;/font&gt;&lt;/div&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" parent="mevu-kd6zeR02H-Qa5bD-2" vertex="1">
+                    <mxGeometry x="540" y="315" width="90" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="mevu-kd6zeR02H-Qa5bD-15" value="&lt;div&gt;&lt;font color=&quot;#000000&quot;&gt;Object Storage&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#000000&quot;&gt;(menu images)&lt;/font&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="mevu-kd6zeR02H-Qa5bD-2" vertex="1">
+                    <mxGeometry x="10" y="330" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="mevu-kd6zeR02H-Qa5bD-16" value="Worker" style="rounded=0;whiteSpace=wrap;html=1;" parent="mevu-kd6zeR02H-Qa5bD-2" vertex="1">
+                    <mxGeometry x="260" y="610" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="mevu-kd6zeR02H-Qa5bD-17" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;dashed=1;" parent="mevu-kd6zeR02H-Qa5bD-2" source="mevu-kd6zeR02H-Qa5bD-19" target="mevu-kd6zeR02H-Qa5bD-16" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="mevu-kd6zeR02H-Qa5bD-18" value="5 async processing" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="mevu-kd6zeR02H-Qa5bD-17" vertex="1" connectable="0">
+                    <mxGeometry x="-0.016" y="-1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="mevu-kd6zeR02H-Qa5bD-19" value="Queue&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;" parent="mevu-kd6zeR02H-Qa5bD-2" vertex="1">
+                    <mxGeometry x="260" y="460" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="mevu-kd6zeR02H-Qa5bD-20" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" parent="mevu-kd6zeR02H-Qa5bD-2" source="mevu-kd6zeR02H-Qa5bD-11" target="mevu-kd6zeR02H-Qa5bD-14" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="mevu-kd6zeR02H-Qa5bD-21" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;3 write/read order&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="mevu-kd6zeR02H-Qa5bD-20" vertex="1" connectable="0">
+                    <mxGeometry x="-0.0094" y="-2" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="mevu-kd6zeR02H-Qa5bD-22" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;Peak State&lt;/font&gt;" style="swimlane;whiteSpace=wrap;html=1;" parent="mevu-kd6zeR02H-Qa5bD-1" vertex="1">
+                    <mxGeometry x="640" y="-180" width="1000" height="690" as="geometry"/>
+                </mxCell>
+                <mxCell id="mevu-kd6zeR02H-Qa5bD-23" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="mevu-kd6zeR02H-Qa5bD-22" source="mevu-kd6zeR02H-Qa5bD-25" target="mevu-kd6zeR02H-Qa5bD-26" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="mevu-kd6zeR02H-Qa5bD-24" value="1 HTTPS request" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="mevu-kd6zeR02H-Qa5bD-23" vertex="1" connectable="0">
+                    <mxGeometry x="-0.042" y="-1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="mevu-kd6zeR02H-Qa5bD-25" value="&lt;div&gt;&lt;font color=&quot;#000000&quot;&gt;Client&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#000000&quot;&gt;(mobile app / restaurant tablet)&lt;/font&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="mevu-kd6zeR02H-Qa5bD-22" vertex="1">
+                    <mxGeometry x="425" y="40" width="200" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="akf16vUn38LlfCYOOHXl-0" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="mevu-kd6zeR02H-Qa5bD-22" source="mevu-kd6zeR02H-Qa5bD-26" target="mevu-kd6zeR02H-Qa5bD-30" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="akf16vUn38LlfCYOOHXl-1" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;2 load balanced&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="akf16vUn38LlfCYOOHXl-0" vertex="1" connectable="0">
+                    <mxGeometry x="-0.0251" y="2" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="mevu-kd6zeR02H-Qa5bD-26" value="Ingress / Load Balancer" style="rounded=0;whiteSpace=wrap;html=1;" parent="mevu-kd6zeR02H-Qa5bD-22" vertex="1">
+                    <mxGeometry x="440" y="180" width="170" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="mevu-kd6zeR02H-Qa5bD-27" value="&lt;div&gt;&lt;font color=&quot;#000000&quot;&gt;Order API&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#000000&quot;&gt;(more pods - HPA)&lt;/font&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="mevu-kd6zeR02H-Qa5bD-22" vertex="1">
+                    <mxGeometry x="240" y="315" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="Ug4eu0c4uulBkCiL6-qi-0" style="edgeStyle=none;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" parent="mevu-kd6zeR02H-Qa5bD-22" source="mevu-kd6zeR02H-Qa5bD-30" target="mevu-kd6zeR02H-Qa5bD-31" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="Ug4eu0c4uulBkCiL6-qi-1" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;3 read menu cache&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="Ug4eu0c4uulBkCiL6-qi-0" vertex="1" connectable="0">
+                    <mxGeometry x="0.0948" y="2" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="mevu-kd6zeR02H-Qa5bD-30" value="&lt;div&gt;&lt;font color=&quot;#000000&quot;&gt;Order API&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#000000&quot;&gt;(pods)&lt;/font&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="mevu-kd6zeR02H-Qa5bD-22" vertex="1">
+                    <mxGeometry x="465" y="315" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="mevu-kd6zeR02H-Qa5bD-31" value="&lt;div&gt;&lt;font color=&quot;#000000&quot;&gt;Cache&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#000000&quot;&gt;(menu data)&lt;/font&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="mevu-kd6zeR02H-Qa5bD-22" vertex="1">
+                    <mxGeometry x="220" y="420" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="mevu-kd6zeR02H-Qa5bD-32" value="&lt;div&gt;&lt;font color=&quot;#000000&quot;&gt;Object Storage&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#000000&quot;&gt;(menu images)&lt;/font&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="mevu-kd6zeR02H-Qa5bD-22" vertex="1">
+                    <mxGeometry x="227" y="540" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="mevu-kd6zeR02H-Qa5bD-34" value="&lt;div&gt;&lt;font color=&quot;#000000&quot;&gt;PostgreSQL&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#000000&quot;&gt;(primary)&lt;/font&gt;&lt;/div&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" parent="mevu-kd6zeR02H-Qa5bD-22" vertex="1">
+                    <mxGeometry x="477.5" y="525" width="95" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="mevu-kd6zeR02H-Qa5bD-35" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;dashed=1;" parent="mevu-kd6zeR02H-Qa5bD-22" source="mevu-kd6zeR02H-Qa5bD-37" target="mevu-kd6zeR02H-Qa5bD-38" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="mevu-kd6zeR02H-Qa5bD-36" value="7 async processing" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="mevu-kd6zeR02H-Qa5bD-35" vertex="1" connectable="0">
+                    <mxGeometry x="-0.036" y="1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="mevu-kd6zeR02H-Qa5bD-37" value="Queue" style="rounded=0;whiteSpace=wrap;html=1;" parent="mevu-kd6zeR02H-Qa5bD-22" vertex="1">
+                    <mxGeometry x="670" y="420" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="mevu-kd6zeR02H-Qa5bD-38" value="Worker" style="rounded=0;whiteSpace=wrap;html=1;" parent="mevu-kd6zeR02H-Qa5bD-22" vertex="1">
+                    <mxGeometry x="670" y="560" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="mevu-kd6zeR02H-Qa5bD-45" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.449;entryY=-0.02;entryDx=0;entryDy=0;entryPerimeter=0;" parent="mevu-kd6zeR02H-Qa5bD-22" source="mevu-kd6zeR02H-Qa5bD-31" target="mevu-kd6zeR02H-Qa5bD-32" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="mevu-kd6zeR02H-Qa5bD-46" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;cache miss → fetch images&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="mevu-kd6zeR02H-Qa5bD-45" vertex="1" connectable="0">
+                    <mxGeometry x="-0.0284" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="rniGmO54CejJiEiihT8E-0" style="edgeStyle=none;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0.397;entryY=0.004;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;" parent="mevu-kd6zeR02H-Qa5bD-22" source="mevu-kd6zeR02H-Qa5bD-30" target="mevu-kd6zeR02H-Qa5bD-37" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="rniGmO54CejJiEiihT8E-1" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;6 enqueue job&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="rniGmO54CejJiEiihT8E-0" vertex="1" connectable="0">
+                    <mxGeometry x="-0.0145" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="rniGmO54CejJiEiihT8E-3" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" parent="mevu-kd6zeR02H-Qa5bD-22" source="mevu-kd6zeR02H-Qa5bD-30" target="mevu-kd6zeR02H-Qa5bD-34" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="rniGmO54CejJiEiihT8E-4" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;4 write order&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="rniGmO54CejJiEiihT8E-3" vertex="1" connectable="0">
+                    <mxGeometry x="-0.0293" y="3" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="rniGmO54CejJiEiihT8E-6" value="&lt;div&gt;&lt;font color=&quot;#000000&quot;&gt;PostgreSQL&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#000000&quot;&gt;(read replica)&lt;/font&gt;&lt;/div&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" parent="mevu-kd6zeR02H-Qa5bD-22" vertex="1">
+                    <mxGeometry x="20" y="290" width="95" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="rniGmO54CejJiEiihT8E-8" style="edgeStyle=none;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0;entryDx=0;entryDy=60;entryPerimeter=0;" parent="mevu-kd6zeR02H-Qa5bD-22" source="mevu-kd6zeR02H-Qa5bD-27" target="rniGmO54CejJiEiihT8E-6" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="rniGmO54CejJiEiihT8E-9" value="autoscaled replicas (HPA)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="mevu-kd6zeR02H-Qa5bD-22" vertex="1">
+                    <mxGeometry x="330" y="285" width="170" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="rniGmO54CejJiEiihT8E-10" value="&lt;div&gt;&lt;font color=&quot;#000000&quot;&gt;Legend:&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#000000&quot;&gt;Solid arrows: request/response&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#000000&quot;&gt;Dashed arrows: async processing&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#000000&quot;&gt;Cache: read optimization&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#000000&quot;&gt;Read replica: read scaling&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#000000&quot;&gt;HPA pods: horizontal scaling&lt;/font&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="mevu-kd6zeR02H-Qa5bD-22" vertex="1">
+                    <mxGeometry x="20" y="580" width="210" height="100" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
