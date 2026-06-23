@@ -1,0 +1,34 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" version="29.6.1">
+  <diagram name="Page-1" id="lYrD6zOIsw9dVE0pSeQi">
+    <mxGraphModel dx="1426" dy="824" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="proxy_boundary" parent="1" style="swimlane;whiteSpace=wrap;html=1;dashed=1;strokeColor=#82b366;fillColor=none;fontStyle=1;verticalAlign=top;align=left;spacingLeft=10;" value="Container: Proxy Gateway (Go/Rust)" vertex="1">
+          <mxGeometry height="360" width="750" x="40" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="auth" parent="proxy_boundary" style="html=1;dropTarget=0;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="&lt;b&gt;RequestValidator&lt;/b&gt;&#xa;[Component]&#xa;Schema &amp; API Key Validation" vertex="1">
+          <mxGeometry height="80" width="160" x="40" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="router" parent="proxy_boundary" style="html=1;dropTarget=0;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="&lt;b&gt;ProviderRouter&lt;/b&gt;&#xa;[Component]&#xa;Dynamic Routing &amp; Failover" vertex="1">
+          <mxGeometry height="80" width="160" x="270" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="norm" parent="proxy_boundary" style="html=1;dropTarget=0;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="&lt;b&gt;ResponseNormalizer&lt;/b&gt;&#xa;[Component]&#xa;Unified JSON &amp; Token Mapping" vertex="1">
+          <mxGeometry height="80" width="160" x="520" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="emitter" parent="proxy_boundary" style="html=1;dropTarget=0;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="&lt;b&gt;AsyncTelemetryEmitter&lt;/b&gt;&#xa;[Component]&#xa;Non-blocking Event Producer" vertex="1">
+          <mxGeometry height="80" width="160" x="520" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="c1" edge="1" parent="proxy_boundary" source="auth" style="endArrow=block;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endFill=1;" target="router" value="validates">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c2" edge="1" parent="proxy_boundary" source="router" style="endArrow=block;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endFill=1;" target="norm" value="forwards">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c3" edge="1" parent="proxy_boundary" source="norm" style="endArrow=block;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endFill=1;" target="emitter" value="publishes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,58 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" version="29.6.1">
+  <diagram name="Page-1" id="zYNhTjPVhBgfWu5etqef">
+    <mxGraphModel dx="1826" dy="824" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="apps" parent="1" style="shape=module;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Internal Applications" vertex="1">
+          <mxGeometry height="80" width="160" x="-150" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="providers" parent="1" style="shape=module;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="LLM Providers&#xa;(OpenAI / Gemini)" vertex="1">
+          <mxGeometry height="80" width="160" x="880" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="alerts" parent="1" style="shape=module;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="Notification System" vertex="1">
+          <mxGeometry height="80" width="160" x="890" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="boundary" parent="1" style="swimlane;whiteSpace=wrap;html=1;dashed=1;dashPattern=1 4;strokeColor=#999999;fillColor=none;fontStyle=1;" value="LLM API Wrapper System" vertex="1">
+          <mxGeometry height="550" width="700" x="140" as="geometry" />
+        </mxCell>
+        <mxCell id="proxy" parent="boundary" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="&lt;b&gt;API Proxy&lt;/b&gt;&#xa;[Go/Rust]&#xa;Handles Request/Response lifecycle." vertex="1">
+          <mxGeometry height="100" width="180" x="40" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="bus" parent="boundary" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#f5f5f5;strokeColor=#666666;" value="&lt;b&gt;Event Bus&lt;/b&gt;&#xa;[Redis/Kafka]&#xa;Asynchronous message buffer." vertex="1">
+          <mxGeometry height="60" width="150" x="290" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="tracking" parent="boundary" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="&lt;b&gt;Ingestion Worker&lt;/b&gt;&#xa;[Python/Node]&#xa;Processes &amp; stores telemetry." vertex="1">
+          <mxGeometry height="100" width="180" x="500" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="anomaly" parent="boundary" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="&lt;b&gt;Anomaly Engine&lt;/b&gt;&#xa;[Python]&#xa;Statistical analysis &amp; alerting." vertex="1">
+          <mxGeometry height="100" width="180" x="450" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="db" parent="boundary" style="shape=cylinder;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="&lt;b&gt;Database&lt;/b&gt;&lt;br&gt;Logs &amp;amp; Metrics Store" vertex="1">
+          <mxGeometry height="100" width="140" x="180" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="boundary" source="proxy" style="endArrow=classic;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" target="bus" value="Fire Telemetry">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="boundary" source="bus" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" target="tracking" value="Consume">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="boundary" source="tracking" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.314;entryY=0.03;entryDx=0;entryDy=0;entryPerimeter=0;edgeStyle=orthogonalEdgeStyle;" target="db" value="Write">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="boundary" source="anomaly" style="endArrow=classic;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" target="db" value="Analyze">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="apps" style="endArrow=classic;startArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" target="proxy" value="Req/Res">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="proxy" style="endArrow=classic;startArrow=classic;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;" target="providers" value="Proxy Call">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="anomaly" style="endArrow=classic;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="alerts" value="Alert">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
